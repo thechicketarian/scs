@@ -1,0 +1,113 @@
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+<script>
+window.SCS_CardEngine = async (cat, cls) => {
+  const els = document.querySelectorAll(`.${cls}`);
+  if (!els.length) return;
+
+  const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRtz8JZVCwco09BSCArY_VZhCDJ8V3jzGEvzzvhpbfkQ0C-L-XGw2BZ7aFcCqELD29IzVjHPVKVYnL8/pub?output=csv';
+  const cacheKey = `scs_cache_${cat.trim().toLowerCase()}`;
+
+  // 1. Instant Load from Cache
+  const cachedData = localStorage.getItem(cacheKey);
+  if (cachedData) {
+    renderCards(JSON.parse(cachedData), els, cat);
+  }
+
+  try {
+    // 2. Fetch fresh data
+    const res = await fetch(`${url}&cb=${Date.now()}`, { cache: "no-store" });
+    const txt = await res.text();
+    
+    const parseCSVLine = (line) => {
+      const result = [];
+      let cur = '', inQuotes = false;
+      for (let char of line) {
+        if (char === '"' && !inQuotes) inQuotes = true;
+        else if (char === '"' && inQuotes) inQuotes = false;
+        else if (char === ',' && !inQuotes) { result.push(cur); cur = ''; }
+        else cur += char;
+      }
+      result.push(cur);
+      return result;
+    };
+
+    const lines = txt.split(/\r?\n/).filter(r => r.trim() !== "");
+    const rows = lines.map(parseCSVLine);
+    const head = rows[0].map(h => h.trim().toLowerCase().replace(/[\s_]+/g, ''));
+    
+    const freshData = rows.slice(1).map(r => 
+      head.reduce((acc, h, i) => ({ ...acc, [h]: r[i]?.trim() || "" }), {})
+    );
+
+    // 3. Update if different
+    const freshDataString = JSON.stringify(freshData);
+    if (freshDataString !== cachedData) {
+      localStorage.setItem(cacheKey, freshDataString);
+      renderCards(freshData, els, cat);
+    }
+  } catch (err) { console.error("SCS Error", err); }
+};
+
+// Helper function to handle HTML, Icons, and Conditional Sections
+function renderCards(data, els, cat) {
+  const renderPerk = (icon, txt) => {
+    if (!txt) return '';
+    const iconName = icon.trim().toLowerCase() || 'check_circle';
+    return `
+      <div class="perkItem">
+        <div class="perkImg">
+          <span class="material-symbols-outlined">${iconName}</span>
+        </div>
+        <span>${txt}</span>
+      </div>`;
+  };
+
+  const html = data.filter(d => (d.category || "").trim().toLowerCase() === cat.trim().toLowerCase()).map(c => {
+    
+    // Conditional Image
+    const cardImageHtml = c.premiumcardimage ? `<div class="skc-cardImage"> <img src="${c.premiumcardimage}" alt="${c.title}"/> </div>` : '';
+
+    // Conditional Perks Title
+    const perksTitleHtml = c.perkstitle ? `<div><h5>${c.perkstitle}</h5></div>` : '';
+
+    // Conditional Perks Section (Only shows if there is text in at least one perk column)
+    const hasPerks = c.perk1text || c.perk2text || c.perk3text;
+    const perksSection = hasPerks ? `
+      ${perksTitleHtml}
+      <div class="perks-list">
+        ${renderPerk(c.perk1icon, c.perk1text)}
+        ${renderPerk(c.perk2icon, c.perk2text)}
+        ${renderPerk(c.perk3icon, c.perk3text)}
+      </div>` : '';
+
+    // Conditional Disclaimer
+    const disclaimerHtml = c.disclaimer 
+      ? `<div class="cardDisclaimer">${c.disclaimer}</div>` 
+      : '';
+
+    return `
+      <div class="premiumCard">
+        ${cardImageHtml}
+       <div class="cardCopyWrapper">
+ <div class="cardDescription">
+          <h3 class="cardTitle">${c.title}</h3>
+          <p>${c.description}</p>
+        </div>
+        ${perksSection}
+        <div class="fevo-wrapper">
+          <button type="button" class="sqs-button-element--primary sqs-block-button-element" onclick="GMWidget.open('${c.fevoid}');">
+            ${c.buttontext || 'Find Tickets'}
+          </button>
+        </div>
+        ${disclaimerHtml}
+</div>
+      </div>`;
+  }).join('');
+
+  els.forEach(e => e.innerHTML = html);
+}
+</script>

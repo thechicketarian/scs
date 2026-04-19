@@ -1,0 +1,191 @@
+/* Global Mobile */
+.material-symbols-outlined {
+  font-size: 30px !important;
+  /* Added these for better centering */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.eventlist-title, .eventitem-title {
+  font-size: 3rem !important;
+  line-height: 2.5rem;
+}
+
+.ticketNavMobile, .ticketNavDesktop {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr !important;
+  gap: 1rem;
+}
+
+.ticketNavMobile a {
+  display: grid;
+  justify-items: center;
+  padding: .825rem !important;
+}
+
+.ticketNavDesktop a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem !important;
+  gap: 1rem;
+}
+
+/* Grid containers */
+
+/*.scs-grid-ga {}
+.scs-grid-stm{}
+ */
+.premiumCard {
+  display:grid;
+  gap: 15px;
+}
+.scs-grid-premium {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap:20px;
+}
+
+/* Card Styling */
+.scs-grid-premium .premiumCard {
+ border-top: 1px solid #efefef;
+    display: flex;
+  flex-direction: column;
+}
+
+.cardCopyWrapper {
+  display:grid;
+  gap: 10px;
+}
+
+.cardTitle { 
+  margin: 0; 
+}
+
+.cardDescription p{
+  margin:0!important;
+}
+
+.premiumCard h5 {
+  font-family: 'mls-tifo-headline-b8wssb', sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 0;
+}
+
+.perks-list { 
+  display: grid; 
+  gap: .5rem; 
+  flex-grow: 1; 
+}
+
+.perkItem {
+  display: flex;
+  align-items: center;
+  gap: .825rem;
+  border-bottom: 1px solid #dedede;
+  padding-bottom: 5px;
+  min-height: 50px; /* Added to keep rows consistent if text wraps */
+}
+
+.perkImg { 
+  width: 40px; 
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0; /* Prevents the icon container from squishing */
+}
+
+.perkItem span { 
+  text-transform: capitalize; 
+  line-height: 1.2;
+}
+
+/* Image & Disclaimer Additions */
+
+.skc-cardImage {
+  width:100%;
+}
+
+.skc-cardImage img {
+width:100%;
+      display: block;
+}
+
+.cardDisclaimer {
+  font-size: 11px;
+  color: #888;
+  line-height: 1.4;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px dashed #dedede;
+  font-style: italic;
+}
+
+.fevo-wrapper {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/*Mobile Only Overrides*/
+@media (max-width: 767px) {
+.fevo-wrapper button {
+  width: 100%;
+}
+}
+
+/*Home Hero Custom */
+
+
+/* Desktop Icon Scaling */
+@media (min-width: 768px) {
+  .material-symbols-outlined {
+    font-size: 40px !important;  
+  }
+  .premiumCard {
+      border: 2px solid #dedede;
+  }
+  
+  .scs-grid-premium .premiumCard {
+        border: 2px solid #dedede; 
+  }
+  .scs-grid-stm .premiumCard {
+display: grid;
+  grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+  .cardCopyWrapper {
+  padding: 2rem;
+}
+  
+  .bc-custom-home-hero {
+    background: #0c2340;
+    height: 100vh;
+    margin:0;
+
+  }
+  .bc-title {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding:2rem;
+    
+  }
+  .bc-title h1{
+    margin:0;
+    padding: 0;
+    font-size: 15rem;
+    line-height: 13rem;
+        color: #fff;
+  }
+   .bc-title h1 span{
+   }
+  
+  .bc-title h2 {
+    margin: 0;
+  }
+
+}
