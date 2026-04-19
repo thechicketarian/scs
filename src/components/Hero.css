@@ -13,11 +13,19 @@
   font-weight: 800;
   src: url('https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/69c2ef358a34ab18fd392d39/assets/07fff099-84ef-4355-8a05-201de99c1ee5/font.woff2') format('woff2');
 }
+@font-face {
+    font-family: 'folkies-vantage-script-r5ps4q';
+    font-style: normal;
+    font-weight: 400;
+    src: url("https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/69c2ef358a34ab18fd392d39/assets/1aa495c2-d331-431c-ab39-04f70a70ccb5/font.woff2") format('woff2');
+}
 /* Target the specific Squarespace section container */
 [data-section-id="YOUR_SECTION_ID"] {
   min-height: unset !important;
   height: 100vh !important;
 }
+
+[data-section-id="69e27e7457a7de27f093c33b"]
 
 .bc-custom-home-hero {
   /* Ensure no Squarespace global padding pushes your layout down */
@@ -49,9 +57,9 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-image: url('https://images.squarespace-cdn.com/content/v1/69c2ef358a34ab18fd392d39/ccbb18f7-5997-4714-81c4-ce65471f4e42/26-Logo-BG-16x9.jpg?format=2500w');
+  /* background-image: url('https://images.squarespace-cdn.com/content/v1/69c2ef358a34ab18fd392d39/ccbb18f7-5997-4714-81c4-ce65471f4e42/26-Logo-BG-16x9.jpg?format=2500w');
   background-size: cover;
-  background-position: center;
+  background-position: center; */
 }
 
 .bc-hero-overlay {
@@ -129,11 +137,11 @@
   display: flex;
   flex-direction: column;
   gap: .5rem;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 10px;
 
   @media (min-width: 1024px) {
-    position: relative;
+    /* position: relative; */
     flex-direction: row;
     gap: 3rem;
   }

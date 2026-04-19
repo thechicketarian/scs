@@ -195,7 +195,7 @@ export default function Hero() {
       <div className="marquee-wrapper">
         <div className="marquee-track" ref={trackRef}>
           <div className='marquee-copy-wrapper'>
-            <div className='scs-logo'><img src="//images.squarespace-cdn.com/content/v1/69c2ef358a34ab18fd392d39/c964de03-6a21-4d64-bf32-19619dd19997/Soccer-Capital-Summer---FC-Linear---White.png" alt="Soccer Capital Summer" /></div>
+            {/* <div className='scs-logo'><img src="//images.squarespace-cdn.com/content/v1/69c2ef358a34ab18fd392d39/c964de03-6a21-4d64-bf32-19619dd19997/Soccer-Capital-Summer---FC-Linear---White.png" alt="Soccer Capital Summer" /></div> */}
             <h1 className='bc-hero-title'>
               <span className="text-indigo">Our Game.</span>
               <span className="text-indigo">Our City.</span>
