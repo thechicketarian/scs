@@ -14,7 +14,7 @@
   src: url('https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/69c2ef358a34ab18fd392d39/assets/07fff099-84ef-4355-8a05-201de99c1ee5/font.woff2') format('woff2');
 }
 /* Target the specific Squarespace section container */
-[data-section-id="69e27e7457a7de27f093c33b"] {
+[data-section-id="YOUR_SECTION_ID"] {
   min-height: unset !important;
   height: 100vh !important;
 }
