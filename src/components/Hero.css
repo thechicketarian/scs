@@ -1,24 +1,4 @@
-@font-face {
-  font-family: 'dharma-gothic-m-gvf2i7';
-  font-style: normal;
-  font-weight: 700;
-  /* Ensure the URL below is the full, un-clipped version from your source */
-  src: url('https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/69c2ef358a34ab18fd392d39/assets/fcd74b1f-f462-4e3c-a6a2-67f0129759ab/font.woff2') format('woff2');
-}
 
-/* MLS TIFO - The Heavy Hitter */
-@font-face {
-  font-family: 'mls-tifo-headline-b8wssb';
-  font-style: normal;
-  font-weight: 800;
-  src: url('https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/69c2ef358a34ab18fd392d39/assets/07fff099-84ef-4355-8a05-201de99c1ee5/font.woff2') format('woff2');
-}
-@font-face {
-    font-family: 'folkies-vantage-script-r5ps4q';
-    font-style: normal;
-    font-weight: 400;
-    src: url("https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/69c2ef358a34ab18fd392d39/assets/1aa495c2-d331-431c-ab39-04f70a70ccb5/font.woff2") format('woff2');
-}
 /* Target the specific Squarespace section container */
 [data-section-id="YOUR_SECTION_ID"] {
   min-height: unset !important;
@@ -57,9 +37,9 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  /* background-image: url('https://images.squarespace-cdn.com/content/v1/69c2ef358a34ab18fd392d39/ccbb18f7-5997-4714-81c4-ce65471f4e42/26-Logo-BG-16x9.jpg?format=2500w');
+  background-image: url('https://images.squarespace-cdn.com/content/v1/69c2ef358a34ab18fd392d39/ccbb18f7-5997-4714-81c4-ce65471f4e42/26-Logo-BG-16x9.jpg?format=2500w');
   background-size: cover;
-  background-position: center; */
+  background-position: center;
 }
 
 .bc-hero-overlay {
@@ -73,7 +53,7 @@
   background-position: center;
   z-index: 1;
   mix-blend-mode: overlay;
-  opacity: .3;
+  opacity: .55;
 }
 
 /* Base style for all relay layers */
@@ -153,7 +133,7 @@
   height: 80vh;
   left: 85%;
   border-radius: 100%;
-  border: #fff solid 3px;
+  border: #fff solid 5px;
   aspect-ratio: 1 / 1;
   display: flex;
   justify-content: center;
@@ -194,8 +174,8 @@ left: 68%;
   left: 50%;
   width: 120%;
 
-  border-top: 2px solid #fff;
-  border-bottom: 2px dashed #fff;
+  border-top: 3px solid #fff;
+  border-bottom: 3px dashed #fff;
   border-left: none;
   border-right: none;
 
@@ -230,8 +210,8 @@ left: 130%;
 
 .bc-dynamic-soccer h3 {
   font-size: 1.25rem;
+  line-height: 1.25rem;
   font-family: 'mls-tifo-headline-b8wssb', sans-serif;
-  color: white;
   /* border: 2px solid #fff; */
   width: 250px;
   padding: 1rem;
@@ -242,10 +222,12 @@ left: 130%;
 
   @media (min-width: 900px){
       font-size: 2rem;
+      line-height: 2rem;
   }
 
   @media (min-width: 1400px) {
     font-size: 3rem;
+    line-height: 3rem;
   }
 }
 
@@ -275,8 +257,10 @@ left: 130%;
 }
 
 .flipping-soccer {
-  padding: .8rem 1rem;
+  color: #fff;
+  padding: .8rem 1.5rem;
   background-color: var(--scs-red);
+  border-radius: 50%;
   position: absolute;
   left: 0;
   top: 0;
@@ -284,6 +268,10 @@ left: 130%;
   opacity: 0;
   transform-origin: 50% 50% -10px;
   /* Moves the pivot point back for a "barrel" flip */
+
+  @media (min-width: 1024px) {
+    padding: 1.8rem 2rem;
+  }
 }
 
 
@@ -303,7 +291,7 @@ left: 130%;
 
   @media (min-width: 968px) {
     width: 80%;
-    border-left: 4px solid #0c2340;
+    border-left: 5px solid #0c2340;
     gap: 2rem;
     grid-template-columns: 1fr 1fr;
     padding: 1rem;
@@ -384,16 +372,28 @@ left: 130%;
 
   font-size: 2rem;
   padding: 1rem;
-  background-color: red;
   color: #fff;
 }
 
 .heart-icon {
   animation: pulse 3s infinite;
-  width: 150px;
+width: 100px;
+/* transform: rotate(329deg) !important; */
   margin: 0 auto;
+    @media (min-width: 1024px) {
+  width: 180px;
+    }
 }
 
 .heart-icon img {
   width: 100%;
+}
+
+.bc-script {
+      font-family: 'folkies-vantage-script-r5ps4q';
+    font-style: normal;
+    font-weight: 400;
+    text-transform: capitalize;
+    color: var(--scs-red);
+     -webkit-text-stroke: 0;
 }

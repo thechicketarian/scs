@@ -1,25 +1,47 @@
 /* src/App.css */
 :root {
-  --scs-red: #A92F2D;
-  --scs-navy: #0C2440;
-  --scs-light-blue: #A6C6ED;
   --scs-off-white: #FAFAFA;
-  --scs-white: #FFFFFF;
-  
-  /* You can also create semantic names */
-  --brand-primary: var(--scs-navy);
-  --brand-accent: var(--scs-red);
-
-  
+  --scs-sporting-blue: #A6C6ED;
+  --scs-indigo: #0C2440;
+  --scs-red: #A92F2D;
+  --bg-color: #000510;
+  --accent-cyan: #79E1FF;
+  --text-white: #ffffff;
+  --text-dim: rgba(255, 252, 225, 0.3);
+  --font-main: 'dharma-gothic-m-gvf2i7', sans-serif;
+  --font-secondary: 'mls-tifo-headline-b8wssb', sans-serif;
+  --font-script: 'folkies-vantage-script-r5ps4q', cursive;
 }
 
 body {
   margin: 0;
   background-color: var(--scs-off-white);
-  color: var(--scs-navy);
+  color: var(--scs-indigo);
   font-family: sans-serif; /* Squarespace will override this later */
 }
 
 h1, h2, h3 {
   margin: 0!important;
+}
+
+@font-face {
+  font-family: 'dharma-gothic-m-gvf2i7';
+  font-style: normal;
+  font-weight: 700;
+  /* Ensure the URL below is the full, un-clipped version from your source */
+  src: url('https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/69c2ef358a34ab18fd392d39/assets/fcd74b1f-f462-4e3c-a6a2-67f0129759ab/font.woff2') format('woff2');
+}
+
+/* MLS TIFO - The Heavy Hitter */
+@font-face {
+  font-family: 'mls-tifo-headline-b8wssb';
+  font-style: normal;
+  font-weight: 800;
+  src: url('https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/69c2ef358a34ab18fd392d39/assets/07fff099-84ef-4355-8a05-201de99c1ee5/font.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'folkies-vantage-script-r5ps4q';
+    font-style: normal;
+    font-weight: 400;
+    src: url("https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/69c2ef358a34ab18fd392d39/assets/1aa495c2-d331-431c-ab39-04f70a70ccb5/font.woff2") format('woff2');
 }

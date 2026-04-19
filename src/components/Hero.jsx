@@ -221,7 +221,9 @@ export default function Hero() {
                 <span className='flipping-soccer'>football</span>
                 <span className='flipping-soccer'>fútbol</span>
                 <span className='flipping-soccer'>futebol</span>
-                <span className='flipping-soccer'>calcio</span>
+                  <span className='flipping-soccer'>كرة القدم</span>
+                <span className='flipping-soccer'>voetbal</span>
+              
               </span>
             </h3>
           </div>
@@ -242,7 +244,8 @@ export default function Hero() {
       </div>
       <div className="summer-wrap" ref={summerRef}>
         <h2 className="text-outline">
-          <span className="summer-word">ALL</span>
+            
+          <span className="summer-word ">ALL</span>
           <span className="summer-word">SUMMER</span>
           <span className="summer-word">LONG</span>
           {/* <div className="summer-word">
@@ -262,8 +265,9 @@ export default function Hero() {
                             <div className="summer-word heart-icon">
             <img src='https://media.ffycdn.net/us/sporting-kansas-city/YurkiJoYWumen6sMzfAF.eps?width=2400' />
           </div>
-          {/* <span className="summer-word text-filled">tix</span>
-          <span className="summer-word text-filled">schedule</span>
+        <span className="summer-word bc-script">Kansas </span>
+        <span className="summer-word bc-script">City </span>
+          {/* <span className="summer-word text-filled">schedule</span>
           <span className="summer-word text-filled">experiences</span> */}
         </h2>
 
