@@ -1,0 +1,25 @@
+/* src/App.css */
+:root {
+  --scs-red: #A92F2D;
+  --scs-navy: #0C2440;
+  --scs-light-blue: #A6C6ED;
+  --scs-off-white: #FAFAFA;
+  --scs-white: #FFFFFF;
+  
+  /* You can also create semantic names */
+  --brand-primary: var(--scs-navy);
+  --brand-accent: var(--scs-red);
+
+  
+}
+
+body {
+  margin: 0;
+  background-color: var(--scs-off-white);
+  color: var(--scs-navy);
+  font-family: sans-serif; /* Squarespace will override this later */
+}
+
+h1, h2, h3 {
+  margin: 0!important;
+}

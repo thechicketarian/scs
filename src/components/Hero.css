@@ -1,0 +1,391 @@
+@font-face {
+  font-family: 'dharma-gothic-m-gvf2i7';
+  font-style: normal;
+  font-weight: 700;
+  /* Ensure the URL below is the full, un-clipped version from your source */
+  src: url('https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/69c2ef358a34ab18fd392d39/assets/fcd74b1f-f462-4e3c-a6a2-67f0129759ab/font.woff2') format('woff2');
+}
+
+/* MLS TIFO - The Heavy Hitter */
+@font-face {
+  font-family: 'mls-tifo-headline-b8wssb';
+  font-style: normal;
+  font-weight: 800;
+  src: url('https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/69c2ef358a34ab18fd392d39/assets/07fff099-84ef-4355-8a05-201de99c1ee5/font.woff2') format('woff2');
+}
+/* Target the specific Squarespace section container */
+[data-section-id="YOUR_SECTION_ID"] {
+  min-height: unset !important;
+  height: 100vh !important;
+}
+
+.bc-custom-home-hero {
+  /* Ensure no Squarespace global padding pushes your layout down */
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden;
+}
+.pin-spacer {
+  background-color: transparent !important; /* Prevents white flashes between sections */
+}
+/* Update your hero typography to use the new font */
+.marquee-track h1,
+.electric {
+  font-family: 'dharma-gothic-m-gvf2i7', sans-serif !important;
+  font-weight: 700;
+}
+
+.summer-word {
+  font-family: 'mls-tifo-headline-b8wssb', sans-serif;
+  font-weight: 800;
+}
+
+
+.bc-custom-home-hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-image: url('https://images.squarespace-cdn.com/content/v1/69c2ef358a34ab18fd392d39/ccbb18f7-5997-4714-81c4-ce65471f4e42/26-Logo-BG-16x9.jpg?format=2500w');
+  background-size: cover;
+  background-position: center;
+}
+
+.bc-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://images.squarespace-cdn.com/content/v1/69c2ef358a34ab18fd392d39/eb81d210-5abc-4c52-b4c8-f6499972ccfe/Untitled+%282%29.gif?format=2500w');
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  mix-blend-mode: overlay;
+  opacity: .3;
+}
+
+/* Base style for all relay layers */
+
+.marquee-wrapper,
+.electric-wrap,
+.summer-wrap {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+/* Act 1 Layer */
+.marquee-wrapper {
+  display: block;
+  z-index: 10;
+  text-align: left;
+  height: 100%;
+  width: 100%;
+  padding-left: 10vw;
+
+  @media (min-width: 768px) {
+    padding-left: 5vw;
+    /* justify-content: flex-start; */
+  }
+}
+
+.marquee-track {
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  /* padding-left: 5vw; */
+  @media (min-width: 768px) {
+    padding: 0;
+  }
+}
+
+.bc-hero-title {
+  font-family: 'mls-tifo-headline-b8wssb', sans-serif;
+  font-size: clamp(8rem, 15vw, 16rem);
+  line-height: clamp(7rem, 15vw, 15.5rem);
+  text-transform: uppercase;
+  display: grid;
+
+  @media (min-width: 1024px) {
+    display: flex;
+    gap: 1rem;
+  }
+}
+
+.supportingText {
+  position: absolute;
+  bottom: 10%;
+  text-transform: capitalize;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  font-size: 12px;
+  line-height: 10px;
+
+  @media (min-width: 1024px) {
+    position: relative;
+    flex-direction: row;
+    gap: 3rem;
+  }
+}
+
+.bc-soccer-ball-animation {
+
+  position: absolute;
+  height: 80vh;
+  left: 85%;
+  border-radius: 100%;
+  border: #fff solid 3px;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+
+  @media (min-width: 768px) {
+    
+    left: 50%;
+  }
+
+   @media (min-width: 900px) {
+    height: 86vh;
+left: 50%;
+   }
+   @media (min-width: 1024px) {
+left: 68%;
+   }
+      @media (min-width: 1200px) {
+           height: 100vh;
+left: 68%;
+   }
+
+  @media (min-width: 1280px) {
+    height: 110vh;
+    left: 70%;
+  }
+}
+
+.bc-soccer-ball-animation span {
+
+  display: none;
+
+}
+
+.bc-hr {
+  position: absolute;
+  height: 4px;
+  top: 20%;
+  left: 50%;
+  width: 120%;
+
+  border-top: 2px solid #fff;
+  border-bottom: 2px dashed #fff;
+  border-left: none;
+  border-right: none;
+
+  @media (min-width: 768px) {
+    width: 100%;
+  }
+
+  @media (min-width: 1024px) {
+    width: 90%;
+  }
+}
+
+.bc-dynamic-soccer {
+  position: absolute;
+  left: 100%;
+  top: 50%;
+
+  @media (min-width: 768px) {
+    left: 135%;
+  }
+
+  @media (min-width: 900px) {
+    left: 125%;
+  }
+    @media (min-width: 1024px) {
+    left: 135%;
+  }
+   @media (min-width: 1400px) {
+left: 130%;
+   }
+}
+
+.bc-dynamic-soccer h3 {
+  font-size: 1.25rem;
+  font-family: 'mls-tifo-headline-b8wssb', sans-serif;
+  color: white;
+  /* border: 2px solid #fff; */
+  width: 250px;
+  padding: 1rem;
+
+  @media (min-width: 768px) {
+    width: 300px;
+  }
+
+  @media (min-width: 900px){
+      font-size: 2rem;
+  }
+
+  @media (min-width: 1400px) {
+    font-size: 3rem;
+  }
+}
+
+.scs-logo {
+  width: 50%;
+}
+
+.scs-logo img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.flipping-soccer-wrapper {
+  position: relative;
+  display: inline-block;
+
+  margin-left: 15px;
+  height: .5em;
+  vertical-align: bottom;
+  perspective: 1000px;
+
+  @media (min-width: 768px) {
+    margin-left: 12px;
+    height: .8em;
+
+  }
+}
+
+.flipping-soccer {
+  padding: .8rem 1rem;
+  background-color: var(--scs-red);
+  position: absolute;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+  opacity: 0;
+  transform-origin: 50% 50% -10px;
+  /* Moves the pivot point back for a "barrel" flip */
+}
+
+
+
+/* Act 2 Layer */
+.electric-wrap {
+  text-align: left;
+  display: grid;
+  /* top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  z-index: 20;
+  opacity: 1;
+  gap: 1rem;
+  width: 90%;
+  padding: 2rem 0;
+
+  @media (min-width: 968px) {
+    width: 80%;
+    border-left: 4px solid #0c2340;
+    gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+    padding: 1rem;
+  }
+
+  @media (min-width: 1400px) {
+    grid-template-columns: 1fr 1fr;
+    padding: 4rem;
+    gap: 2rem;
+    width: 70%;
+  }
+}
+
+.electric {
+
+  font-family: 'mls-tifo-headline-b8wssb', sans-serif;
+  font-size: 3.5rem;
+  line-height: 3rem;
+  text-transform: uppercase;
+  /* padding: 0 2rem; */
+
+  /* text-wrap: nowrap; */
+  @media (min-width: 1024px) {
+    /* padding: 2rem; */
+    font-size: 6rem;
+    line-height: 5rem;
+  }
+}
+
+.bc-hero-about {
+  /* padding: 0 2rem; */
+  font-size: 1rem;
+
+  @media (min-width: 1024px) {
+    /* padding: 2; */
+    font-size: 1.25rem;
+  }
+}
+
+/* Act 3 Layer */
+
+.summer-wrap {
+  /* position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%; */
+  z-index: 30;
+
+}
+
+.summer-word {
+  display: inline-block;
+  margin: 0 1rem;
+  font-size: clamp(3rem, 12vw, 9rem);
+
+}
+
+
+.text-outline {
+  -webkit-text-stroke: 2px #0c2340;
+  color: transparent;
+  text-transform: uppercase;
+}
+
+.material-symbols-outlined {
+
+  -webkit-text-stroke: 0;
+  color: #0c2340;
+}
+
+
+.text-indigo {
+  color: #0c2340;
+}
+
+.text-filled {
+
+  font-size: 2rem;
+  padding: 1rem;
+  background-color: red;
+  color: #fff;
+}
+
+.heart-icon {
+  animation: pulse 3s infinite;
+  width: 150px;
+  margin: 0 auto;
+}
+
+.heart-icon img {
+  width: 100%;
+}
