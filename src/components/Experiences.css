@@ -6,7 +6,7 @@
   overflow-x: hidden;
 }
 
-.section-spacer {
+/* .section-spacer {
   height: 80vh;
   display: flex;
   align-items: center;
@@ -20,7 +20,7 @@
   letter-spacing: 4px;
   color: var(--accent-cyan);
   text-transform: uppercase;
-}
+} */
 
 /* .pin-section {
   height: 100vh;
@@ -154,9 +154,3 @@
   }
 }
 
-/* 7. DESKTOP POLISH (Ultrawide) */
-@media (min-width: 1600px) {
-  .content-wrapper {
-    padding: 0 15%; /* Extra breathing room on big screens */
-  }
-}
