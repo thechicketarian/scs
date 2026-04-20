@@ -67,7 +67,19 @@ export default function Schedule({ targetDate = null, filterMonth = null }) {
 
         return (
           <div key={index} className="scs-day-block" id={`date-${daySlug}`}>
-            <h3 className="scs-date-text">{day.date}</h3>
+           <div className='scs-day-date-wrapper'>
+ <h3 className="scs-date-text">{day.date}</h3>
+<div 
+  className='fivoButton' 
+  role='button'
+  onClick={() => window.GMWidget && window.GMWidget.open('SoccerCapitalSummer')}
+>
+  <span className='scs-sched-button-label'>  find tixs </span>
+<span class="material-symbols-outlined">
+arrow_outward
+</span>
+</div>
+            </div>
             <div className="scs-day-meta">
               <div className="scs-day-copy">
                 {day.theme ? (
@@ -84,12 +96,19 @@ export default function Schedule({ targetDate = null, filterMonth = null }) {
                     {day.doorsClose && <h5 className="scs-doors">{day.doorsClose}</h5>}
                   </div>
                 </div> */}
+               
               </div>
-
               <div>
-                <p className="scs-day-desc">{day.description}</p>
+                 <p className="scs-day-desc">{day.description}</p>
+                 {/* Only show the disclaimer if the day has multiple sessions */}
+{uniqueSessionsCount > 1 && (
+  <div className='cardDisclaimer'>
+    For days featuring two sessions, premium admission is ticketed separately—one ticket per session is required.
+  </div>
+)}
               </div>
             </div>
+
 <div className="scs-match-list">
   {/* We now just pass the match list, the session number, the full day object, and the count */}
   {renderSession(dayMatches, "1", day, uniqueSessionsCount)}
@@ -129,6 +148,7 @@ function renderSession(allMatches, sessionNum, day, totalSessions) {
 
   return (
     <div className="scs-session">
+
       <h6 className="scs-session-header">
         <div className="scs-session-title-group">
           <span>{showLabel ? `Session ${sessionNum}` : "Day Schedule"}</span>
@@ -139,7 +159,6 @@ function renderSession(allMatches, sessionNum, day, totalSessions) {
           <span className="scs-session-category">{matchCategory}</span>
         )} */}
       </h6>
-
       <div className="scs-match-grid">
         {matches.map((m, i) => (
           <div key={i} className="scs-match-card">

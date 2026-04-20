@@ -36,6 +36,27 @@ h6 {
 
 /* --- THEME HEADER --- */
 
+.scs-day-date-wrapper {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    /* flex-direction: column; */
+        justify-content: space-between;
+            border-bottom: 1px solid var(--scs-indigo);
+            padding-bottom: .5rem;
+}
+.fivoButton {
+font-family: 'mls-tifo-standard-cz9zex';
+    font-weight: 700;
+    text-transform: uppercase;
+    display: flex;
+    gap: .5rem;
+}
+.fivoButton .material-symbols-outlined {
+    font-size: 15px!important;
+}
+
 .scs-day-meta {
     display: grid;
     gap: 1rem;
@@ -63,8 +84,8 @@ h6 {
     line-height: 1rem; */
     text-transform: uppercase;
     color: var(--scs-indigo);
-    border-bottom: 1px solid var(--scs-indigo);
-padding-bottom: 1rem;
+
+/* padding-bottom: 1rem; */
 }
 
 .scs-day-desc {
@@ -81,13 +102,16 @@ padding-bottom: 1rem;
 }
 
 .scs-match-list {
-    display: grid;
+    display: flex;
     gap: 2rem;
     margin-top: 1rem;
+    flex-direction: column;
 }
 
 /* --- SESSION STYLING --- */
-.scs-session {}
+.scs-session {
+    width: 100%;
+}
 
 .scs-session-header {
     display: flex;
@@ -161,7 +185,7 @@ padding-bottom: 1rem;
       width: 100%;
 }
 .scs-flag{
-
+    max-width: 100px;
 }
 /* Add this to your Schedule.css if needed */
 /* .scs-flag-img img {
@@ -188,7 +212,7 @@ padding-bottom: 1rem;
         grid-template-columns: 1fr 1fr;
     }
     .scs-match-list {
-        grid-template-columns: 1fr 1fr;
+        flex-direction: row;
         gap: 2rem;
     }
 

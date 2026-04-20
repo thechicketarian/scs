@@ -113,15 +113,7 @@ width:100%;
       display: block;
 }
 
-.cardDisclaimer {
-  font-size: 11px;
-  color: #888;
-  line-height: 1.4;
-  margin-top: 1.5rem;
-  padding-top: 1rem;
-  border-top: 1px dashed #dedede;
-  font-style: italic;
-}
+
 
 .fevo-wrapper {
   width: 100%;
