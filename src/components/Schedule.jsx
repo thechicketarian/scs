@@ -67,18 +67,18 @@ export default function Schedule({ targetDate = null, filterMonth = null }) {
 
         return (
           <div key={index} className="scs-day-block" id={`date-${daySlug}`}>
-           <div className='scs-day-date-wrapper'>
- <h3 className="scs-date-text">{day.date}</h3>
-<div 
-  className='fivoButton' 
-  role='button'
-  onClick={() => window.GMWidget && window.GMWidget.open('SoccerCapitalSummer')}
->
-  <span className='scs-sched-button-label'>  find tixs </span>
-<span class="material-symbols-outlined">
-arrow_outward
-</span>
-</div>
+            <div className='scs-day-date-wrapper'>
+              <h3 className="scs-date-text">{day.date}</h3>
+              <div
+                className='fivoButton'
+                role='button'
+                onClick={() => window.GMWidget && window.GMWidget.open('SoccerCapitalSummer')}
+              >
+                <span className='scs-sched-button-label'>  find tixs </span>
+                <span className="material-symbols-outlined">
+                  arrow_outward
+                </span>
+              </div>
             </div>
             <div className="scs-day-meta">
               <div className="scs-day-copy">
@@ -96,28 +96,28 @@ arrow_outward
                     {day.doorsClose && <h5 className="scs-doors">{day.doorsClose}</h5>}
                   </div>
                 </div> */}
-               
+
               </div>
               <div>
-                 <p className="scs-day-desc">{day.description}</p>
-                 {/* Only show the disclaimer if the day has multiple sessions */}
-{uniqueSessionsCount > 1 && (
-  <div className='cardDisclaimer'>
-    For days featuring two sessions, premium admission is ticketed separately—one ticket per session is required.
-  </div>
-)}
+                <p className="scs-day-desc">{day.description}</p>
+                {/* Only show the disclaimer if the day has multiple sessions */}
+                {uniqueSessionsCount > 1 && (
+                  <div className='cardDisclaimer'>
+                    For days featuring two sessions, premium admission is ticketed separately—one ticket per session is required.
+                  </div>
+                )}
               </div>
             </div>
 
-<div className="scs-match-list">
-  {/* We now just pass the match list, the session number, the full day object, and the count */}
-  {renderSession(dayMatches, "1", day, uniqueSessionsCount)}
-  {renderSession(dayMatches, "2", day, uniqueSessionsCount)}
+            <div className="scs-match-list">
+              {/* We now just pass the match list, the session number, the full day object, and the count */}
+              {renderSession(dayMatches, "1", day, uniqueSessionsCount)}
+              {renderSession(dayMatches, "2", day, uniqueSessionsCount)}
 
-  {dayMatches.length === 0 && (
-    <p className="scs-no-matches">Matches for this day are currently being finalized.</p>
-  )}
-</div>
+              {dayMatches.length === 0 && (
+                <p className="scs-no-matches">Matches for this day are currently being finalized.</p>
+              )}
+            </div>
           </div>
         );
       })}
@@ -132,14 +132,14 @@ function renderSession(allMatches, sessionNum, day, totalSessions) {
   if (matches.length === 0) return null;
 
   const showLabel = totalSessions > 1;
-  const { doorsOpen,session1End, session2Start, doorsClose, matchCategory } = day;
+  const { doorsOpen, session1End, session2Start, doorsClose, matchCategory } = day;
 
   // Logic for the time range string
   let timeRange = "";
   if (totalSessions > 1) {
     // Session 1: Doors -> Session 2 | Session 2: Session 2 -> Close
-    timeRange = sessionNum === "1" 
-      ? `${doorsOpen} - ${session1End}` 
+    timeRange = sessionNum === "1"
+      ? `${doorsOpen} - ${session1End}`
       : `${session2Start} - ${doorsClose}`;
   } else {
     // Single Session: Doors -> Close
@@ -164,14 +164,22 @@ function renderSession(allMatches, sessionNum, day, totalSessions) {
           <div key={i} className="scs-match-card">
             <div className="scs-match-teams">
               <div className='scs-team-flags-wrapper'>
-               <div className="scs-flag">{m.teamAFlag && <img src={m.teamAFlag} alt="" />}</div>
-               <div className="scs-flag">{m.teamBFlag && <img src={m.teamBFlag} alt="" />}</div>
+                <div className="scs-flag">{m.teamAFlag && <img src={m.teamAFlag} alt="" />}</div>
+                <div className="scs-flag">{m.teamBFlag && <img src={m.teamBFlag} alt="" />}</div>
               </div>
               <div className='scs-team-details'>
                 <div className='scs-team-matchup'>
-                  <div className="scs-team-name">{m.teamA}</div>
-                  <span className="scs-vs">vs.</span>
-                  <div className="scs-team-name">{m.teamB}</div>
+                  {m.teamA === "TBA" && m.teamB === "TBA" ? (
+                    /* Case: Both are TBA */
+                    <div className="scs-team-name">Matchup TBA</div>
+                  ) : (
+                    /* Case: At least one team is known */
+                    <>
+                      <div className="scs-team-name">{m.teamA}</div>
+                      <span className="scs-vs">vs.</span>
+                      <div className="scs-team-name">{m.teamB}</div>
+                    </>
+                  )}
                 </div>
                 <span className="scs-match-time">{m.matchTime}</span>
               </div>

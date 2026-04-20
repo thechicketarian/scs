@@ -52,7 +52,12 @@ font-family: 'mls-tifo-standard-cz9zex';
     text-transform: uppercase;
     display: flex;
     gap: .5rem;
+    cursor: pointer;
 }
+
+/* .fivoButton:hover {
+  
+} */
 
 .scs-sched-button-label {
     
