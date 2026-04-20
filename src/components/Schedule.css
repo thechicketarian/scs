@@ -11,7 +11,7 @@
     padding: 4rem;
 }
 
-.scs-day-block:nth-child(odd) {
+.scs-day-block:nth-child(even) {
     background-color: #fff;
 }
 
