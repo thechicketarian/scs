@@ -80,7 +80,7 @@ export default function Schedule({ targetDate = null, filterMonth = null }) {
                 <div>
                   {day.doorsOpen && <h3 className="scs-doors"> {day.doorsOpen}</h3>}
                 </div>
-                <span>-</span>
+                <h3>-</h3>
                 <div>
                   {day.doorsClose && <h3 className="scs-doors">{day.doorsClose}</h3>}
                 </div>

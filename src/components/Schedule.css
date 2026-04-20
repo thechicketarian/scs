@@ -45,7 +45,9 @@
     padding: 1rem;
 }
 
-.scs-day-desc {}
+.scs-day-desc {
+    margin: 0!important;
+}
 
 /* .scs-day-match-category {
     font-family: 'mls-tifo-standard-cz9zex';
