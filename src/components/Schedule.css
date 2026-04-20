@@ -9,6 +9,12 @@
     display: grid;
     gap: 1rem;
     /* padding: 2rem; */
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.scs-day-block:nth-child(odd) {
+    background-color: #fff;
 }
 
 h3 {
@@ -17,19 +23,20 @@ h3 {
 }
 
 h5 {
-    font-family: 'mls-tifo-headline-b8wssb'!important;
+    font-family: 'mls-tifo-headline-b8wssb' !important;
     font-size: 1.5rem;
     line-height: 1rem;
-    margin: 0!important;
+    margin: 0 !important;
     color: var(--scs-red);
     padding-top: .5rem;
 }
+
 h6 {
-   font-family: 'mls-tifo-headline-b8wssb'!important;
+    font-family: 'mls-tifo-headline-b8wssb' !important;
     font-weight: 400;
     font-size: 1rem;
     line-height: 1rem;
-    margin: 0!important;
+    margin: 0 !important;
     text-transform: uppercase;
 }
 
@@ -42,12 +49,13 @@ h6 {
     gap: 1rem;
     align-items: center;
     /* flex-direction: column; */
-        justify-content: space-between;
-            border-bottom: 1px solid var(--scs-indigo);
-            padding-bottom: .5rem;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--scs-indigo);
+    padding-bottom: .5rem;
 }
+
 .fivoButton {
-font-family: 'mls-tifo-standard-cz9zex';
+    font-family: 'mls-tifo-standard-cz9zex';
     font-weight: 700;
     text-transform: uppercase;
     display: flex;
@@ -59,12 +67,10 @@ font-family: 'mls-tifo-standard-cz9zex';
   
 } */
 
-.scs-sched-button-label {
-    
-}
+.scs-sched-button-label {}
 
 .fivoButton .material-symbols-outlined {
-    font-size: 15px!important;
+    font-size: 15px !important;
 }
 
 .scs-day-meta {
@@ -75,7 +81,7 @@ font-family: 'mls-tifo-standard-cz9zex';
 }
 
 .scs-door-times {
-        display: flex;
+    display: flex;
     gap: .15rem;
 }
 
@@ -95,11 +101,11 @@ font-family: 'mls-tifo-standard-cz9zex';
     text-transform: uppercase;
     color: var(--scs-indigo);
 
-/* padding-bottom: 1rem; */
+    /* padding-bottom: 1rem; */
 }
 
 .scs-day-desc {
-    margin: 0!important;
+    margin: 0 !important;
 }
 
 .scs-day-match-category {
@@ -158,6 +164,12 @@ font-family: 'mls-tifo-standard-cz9zex';
     grid-template-columns: 1fr 1fr; */
 }
 
+.scs-team-tba {
+    font-style: italic;
+    color: #888;
+    font-size: 1rem !important;
+}
+
 .scs-team-details {
     display: flex;
     gap: .5rem;
@@ -171,6 +183,7 @@ font-family: 'mls-tifo-standard-cz9zex';
     flex-wrap: wrap;
     gap: .5rem;
 }
+
 .scs-vs,
 .scs-team-name {
     font-family: 'mls-tifo-standard-cz9zex';
@@ -179,6 +192,7 @@ font-family: 'mls-tifo-standard-cz9zex';
     font-size: 1.15rem;
     line-height: 1rem;
 }
+
 .scs-match-time {
     font-family: 'mls-tifo-standard-cz9zex';
     font-weight: 700;
@@ -188,15 +202,18 @@ font-family: 'mls-tifo-standard-cz9zex';
 }
 
 .scs-vs {}
+
 .scs-team-flags-wrapper {
     display: flex;
     gap: .5rem;
-      padding:.5rem 0;
-      width: 100%;
+    padding: .5rem 0;
+    width: 100%;
 }
-.scs-flag{
+
+.scs-flag {
     max-width: 100px;
 }
+
 /* Add this to your Schedule.css if needed */
 /* .scs-flag-img img {
   width: 32px;    
@@ -221,6 +238,7 @@ font-family: 'mls-tifo-standard-cz9zex';
 
         grid-template-columns: 1fr 1fr;
     }
+
     .scs-match-list {
         flex-direction: row;
         gap: 2rem;
@@ -243,13 +261,15 @@ font-family: 'mls-tifo-standard-cz9zex';
 
 /* TABLET (Landscape) / SMALL DESKTOP */
 @media (min-width: 1024px) {
+
     /* .scs-schedule-wrapper {
         grid-template-columns: 1fr 1fr;
     } */
-.scs-team-flags-wrapper {
+    .scs-team-flags-wrapper {
         flex-direction: row;
-         width: 40%;
+        width: 40%;
     }
+
     .scs-day-block {}
 
 }

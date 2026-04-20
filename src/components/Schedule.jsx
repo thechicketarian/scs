@@ -145,6 +145,7 @@ function renderSession(allMatches, sessionNum, day, totalSessions) {
     // Single Session: Doors -> Close
     timeRange = `${doorsOpen} - ${doorsClose}`;
   }
+  const isTBA = (team) => !team || team === "TBA" || team === "TBD" || team === "TBC";
 
   return (
     <div className="scs-session">
@@ -169,9 +170,9 @@ function renderSession(allMatches, sessionNum, day, totalSessions) {
               </div>
               <div className='scs-team-details'>
                 <div className='scs-team-matchup'>
-                  {m.teamA === "TBA" && m.teamB === "TBA" ? (
+                  {isTBA(m.teamA) && isTBA(m.teamB) ? (
                     /* Case: Both are TBA */
-                    <div className="scs-team-name">Matchup TBA</div>
+                    <div className="scs-team-name scs-team-tba">Matchup TBA</div>
                   ) : (
                     /* Case: At least one team is known */
                     <>
