@@ -112,13 +112,14 @@
 
 .supportingText {
   position: absolute;
-  bottom: 10%;
+  top: 10%;
   text-transform: capitalize;
   display: flex;
   flex-direction: column;
   gap: .5rem;
-  font-size: 14px;
-  line-height: 10px;
+  font-size: 16px;
+  font-style: italic;
+  line-height: 14px;
 
   @media (min-width: 1024px) {
     /* position: relative; */

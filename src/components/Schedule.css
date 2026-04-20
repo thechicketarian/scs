@@ -53,6 +53,11 @@ font-family: 'mls-tifo-standard-cz9zex';
     display: flex;
     gap: .5rem;
 }
+
+.scs-sched-button-label {
+    
+}
+
 .fivoButton .material-symbols-outlined {
     font-size: 15px!important;
 }
