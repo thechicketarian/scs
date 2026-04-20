@@ -120,6 +120,7 @@ padding-bottom: 1rem;
 .scs-team-flags-wrapper {
     display: flex;
     gap: .5rem;
+      padding:.5rem 0;
 }
 
 .scs-team {
@@ -159,7 +160,7 @@ padding-bottom: 1rem;
 .scs-vs {}
 
 .scs-flag-img {
-    width: 120px;
+ 
 }
 /* Add this to your Schedule.css if needed */
 /* .scs-flag-img img {
@@ -193,6 +194,10 @@ padding-bottom: 1rem;
         flex-direction: row;
     }
 
+    .scs-team-flags-wrapper {
+        flex-direction: column;
+    }
+
     /* .scs-session {
         border-right: 1px solid #0c2340;
     } */
@@ -204,7 +209,9 @@ padding-bottom: 1rem;
     /* .scs-schedule-wrapper {
         grid-template-columns: 1fr 1fr;
     } */
-
+.scs-team-flags-wrapper {
+        flex-direction: row;
+    }
     .scs-day-block {}
 
 }

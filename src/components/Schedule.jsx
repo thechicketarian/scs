@@ -159,9 +159,7 @@ function renderSession(category, allMatches, sessionNum, sessionStart, totalSess
               </div>
               <span className="scs-match-time">{m.matchTime}</span>
               </div>
-              
             </div>
-
           </div>
         ))}
       </div>
