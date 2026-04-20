@@ -63,7 +63,7 @@ h6 {
     line-height: 1rem; */
     text-transform: uppercase;
     color: var(--scs-indigo);
-    border-bottom: 2px solid var(--scs-indigo);
+    border-bottom: 1px solid var(--scs-indigo);
 padding-bottom: 1rem;
 }
 
