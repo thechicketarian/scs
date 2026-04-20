@@ -161,6 +161,14 @@ padding-bottom: 1rem;
 .scs-flag-img {
     width: 120px;
 }
+/* Add this to your Schedule.css if needed */
+/* .scs-flag-img img {
+  width: 32px;    
+  height: 20px;  
+  object-fit: cover;
+  border-radius: 2px;
+  display: block;
+} */
 
 .scs-flag-img img {
     width: 100%;
