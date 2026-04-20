@@ -69,12 +69,9 @@
 import { useSheetData } from '../useSheetData';
 import './TicketCards.css'
 
-// Removed the ='GA' default. Now it's a blank slate.
 export default function TicketCards({ category }) {
   const { data, loading } = useSheetData('693949832');
 
-  // We add a safety check here: if no category is passed, 
-  // we return null so the component doesn't crash or show random data.
   if (!category) {
     console.warn("TicketCards: No category prop provided.");
     return null;
@@ -103,9 +100,10 @@ export default function TicketCards({ category }) {
     <div className={`scs-grid-${category.toLowerCase()}`}>
       {filteredData.map((c, index) => (
         <div key={index} className="premiumCard animate__animated animate__fadeIn">
-          {c.premiumcardimage && (
+          {/* UPDATED: premiumCardImage */}
+          {c.premiumCardImage && (
             <div className="skc-cardImage">
-              <img src={c.premiumcardimage} alt={c.title} />
+              <img src={c.premiumCardImage} alt={c.title} />
             </div>
           )}
           
@@ -115,13 +113,16 @@ export default function TicketCards({ category }) {
               <p>{c.description}</p>
             </div>
 
-            {(c.perk1text || c.perk2text || c.perk3text) && (
+            {/* UPDATED: perk1Text, perk2Text, perk3Text */}
+            {(c.perk1Text || c.perk2Text || c.perk3Text) && (
               <>
-                {c.perkstitle && <div><h5>{c.perkstitle}</h5></div>}
+                {/* UPDATED: perksTitle */}
+                {c.perksTitle && <div><h5>{c.perksTitle}</h5></div>}
                 <div className="perks-list">
-                  {renderPerk(c.perk1icon, c.perk1text)}
-                  {renderPerk(c.perk2icon, c.perk2text)}
-                  {renderPerk(c.perk3icon, c.perk3text)}
+                  {/* UPDATED: perkIcons and perkTexts */}
+                  {renderPerk(c.perk1Icon, c.perk1Text)}
+                  {renderPerk(c.perk2Icon, c.perk2Text)}
+                  {renderPerk(c.perk3Icon, c.perk3Text)}
                 </div>
               </>
             )}
@@ -130,9 +131,9 @@ export default function TicketCards({ category }) {
               <button 
                 type="button" 
                 className="sqs-button-element--primary sqs-block-button-element" 
-                onClick={() => window.GMWidget?.open(c.fevoid)}
+                onClick={() => window.GMWidget?.open(c.fevoId)} // UPDATED: fevoId
               >
-                {c.buttontext || 'Find Tickets'}
+                {c.buttonText || 'Find Tickets'} {/* UPDATED: buttonText */}
               </button>
             </div>
             
