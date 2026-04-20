@@ -67,31 +67,35 @@ export default function Schedule({ targetDate = null, filterMonth = null }) {
 
         return (
           <div key={index} className="scs-day-block" id={`date-${daySlug}`}>
-            <h2 className="scs-date-text">{day.date}</h2>
+            <h3 className="scs-date-text">{day.date}</h3>
             <div className="scs-day-meta">
               <div className="scs-day-copy">
                 {day.theme ? (
                   <h3 className="scs-theme-title">{day.theme}</h3>
                 ) : (
-                  <h3 className="scs-theme-title" style={{ color: 'red' }}> Theme Needed </h3>
+                  <h3 className="scs-theme-title"> Theme Needed </h3>
                 )}
+                <div className="scs-door-times">
+                <div>
+                  {day.doorsOpen && <h5 className="scs-doors"> {day.doorsOpen}</h5>}
+                </div>
+                <h5>-</h5>
+                <div>
+                  {day.doorsClose && <h5 className="scs-doors">{day.doorsClose}</h5>}
+                </div>
               </div>
-              <div className="scs-door-times">
-                <div>
-                  {day.doorsOpen && <h3 className="scs-doors"> {day.doorsOpen}</h3>}
-                </div>
-                <h3>-</h3>
-                <div>
-                  {day.doorsClose && <h3 className="scs-doors">{day.doorsClose}</h3>}
-                </div>
+              </div>
+
+             <div>
+ <p className="scs-day-desc">{day.description}</p>
+             
               </div>
             </div>
-            <p className="scs-day-desc">{day.description}</p>
-            <div className='scs-day-match-category'>{day.matchCategory}</div>
+              {/* <div className='scs-day-match-category'>{day.matchCategory}</div> */}
             <div className="scs-match-list">
               {/* Pass uniqueSessionsCount to handle conditional labeling */}
-              {renderSession(dayMatches, "1", day.session1Start, uniqueSessionsCount)}
-              {renderSession(dayMatches, "2", day.session2Start, uniqueSessionsCount)}
+              {renderSession(day.matchCategory, dayMatches, "1", day.session1Start, uniqueSessionsCount)}
+              {renderSession(day.matchCategory, dayMatches, "2", day.session2Start, uniqueSessionsCount)}
 
               {dayMatches.length === 0 && (
                 <p className="scs-no-matches">Matches for this day are currently being finalized.</p>
@@ -108,7 +112,7 @@ export default function Schedule({ targetDate = null, filterMonth = null }) {
  * RENDER HELPER: Session Block
  * Only shows "Session X" labels if there is more than 1 session on that day.
  */
-function renderSession(allMatches, sessionNum, sessionStart, totalSessions) {
+function renderSession(category, allMatches, sessionNum, sessionStart, totalSessions) {
   const matches = allMatches.filter(m => m.session === sessionNum);
   if (matches.length === 0) return null;
 
@@ -116,21 +120,21 @@ function renderSession(allMatches, sessionNum, sessionStart, totalSessions) {
 
   return (
     <div className="scs-session">
+
       {(showLabel || sessionStart) && (
-        <h4 className="scs-session-header">
+        <h6 className="scs-session-header">
          <span> {showLabel && `Session ${sessionNum}`}</span>
           {sessionStart && (
             <span className="scs-time-label">
               {showLabel ? ` ${sessionStart}` : `${sessionStart}`}
             </span>
           )}
-        </h4>
+        </h6>
       )}
 
       <div className="scs-match-grid">
         {matches.map((m, i) => (
           <div key={i} className="scs-match-card">
-
             <div className="scs-match-teams">
             <div className='scs-team-flags-wrapper'>
               <div className='scs-team'>
@@ -145,12 +149,15 @@ function renderSession(allMatches, sessionNum, sessionStart, totalSessions) {
               </div>
               </div>
               <div className='scs-team-details'>
+                        {/* {category && (
+              <div className="scs-day-match-category">{category}</div>
+            )} */}
+              <div className='scs-team-matchup'>
                 <div className="scs-team-name">{m.teamA}</div>
                 <span className="scs-vs">vs.</span>
                 <div className="scs-team-name">{m.teamB}</div>
-                <div>
-                <span className="scs-match-time">{m.matchTime}</span>
               </div>
+              <span className="scs-match-time">{m.matchTime}</span>
               </div>
               
             </div>

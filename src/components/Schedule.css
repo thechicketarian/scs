@@ -8,16 +8,40 @@
 .scs-day-block {
     display: grid;
     gap: 1rem;
+    /* padding: 2rem; */
+    background-color: aliceblue;
 }
+
+h3 {
+    font-size: 4rem;
+    line-height: 3.5rem;
+}
+
+h5 {
+    font-family: 'mls-tifo-headline-b8wssb'!important;
+    font-size: 1.5rem;
+    line-height: 1rem;
+    margin: 0!important;
+    color: var(--scs-red);
+    padding-top: .5rem;
+}
+h6 {
+   font-family: 'mls-tifo-headline-b8wssb'!important;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1rem;
+    margin: 0!important;
+    text-transform: uppercase;
+}
+
 
 /* --- THEME HEADER --- */
 
 .scs-day-meta {
-    display: flex;
+    display: grid;
     gap: 1rem;
     width: 100%;
-    justify-items: center;
-    justify-content: space-between;
+    grid-template-columns: 1fr;
 }
 
 .scs-door-times {
@@ -41,20 +65,21 @@
     text-transform: uppercase;
     color: var(--scs-indigo);
     border-bottom: 2px solid var(--scs-indigo);
-    padding: 1rem;
+padding-bottom: 1rem;
 }
 
 .scs-day-desc {
     margin: 0!important;
 }
 
-/* .scs-day-match-category {
+.scs-day-match-category {
     font-family: 'mls-tifo-standard-cz9zex';
-    font-weight: 700;
-    font-size: 1.5rem;
+    font-weight: 400;
+    font-size: 1rem;
     font-weight: 1rem;
-    text-transform: uppercase;
-} */
+    text-transform: capitalize;
+    padding-top: 1rem;
+}
 
 .scs-match-list {
     display: grid;
@@ -88,7 +113,7 @@
     flex-direction: column;
     gap: 1rem;
     align-items: center;
-    border-bottom: 1px solid var(--scs-indigo);
+    border-bottom: 2px solid var(--scs-indigo);
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
@@ -105,26 +130,37 @@
 
 .scs-team-details {
     display: flex;
-    flex-wrap: wrap;
     gap: .5rem;
     width: 100%;
-    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
-.scs-team-name,
+.scs-team-matchup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
 .scs-vs,
+.scs-team-name {
+    font-family: 'mls-tifo-standard-cz9zex';
+    font-weight: 400;
+    /* text-transform: uppercase; */
+    font-size: 1.15rem;
+    line-height: 1rem;
+}
 .scs-match-time {
     font-family: 'mls-tifo-standard-cz9zex';
     font-weight: 700;
     text-transform: uppercase;
-    font-size: 1rem;
+    font-size: .925rem;
     line-height: 1rem;
 }
 
 .scs-vs {}
 
 .scs-flag-img {
-    width: 100%;
+    width: 120px;
 }
 
 .scs-flag-img img {
@@ -136,6 +172,11 @@
 
 /* TABLET (Portrait) */
 @media (min-width: 768px) {
+
+    .scs-day-meta {
+
+        grid-template-columns: 1fr 1fr;
+    }
     .scs-match-list {
         grid-template-columns: 1fr 1fr;
         gap: 2rem;
