@@ -112,7 +112,7 @@
 
 .supportingText {
   position: absolute;
-  top: 10%;
+  top: 20%;
   text-transform: capitalize;
   display: flex;
   flex-direction: column;
