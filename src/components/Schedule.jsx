@@ -10,8 +10,8 @@ const mapMetaData = (row) => ({
   date: row.date || "",
   doorsOpen: row.doorsOpen || "",
   doorsClose: row.doorsClose || "",
-  session1Start: row.session1 || "",
-  session2Start: row.session2 || "",
+  session1End: row.session1End || "",
+  session2Start: row.session2Start || "",
   theme: row.theme || "",
   description: row.description || "",
   matchCategory: row.matchCategory || ""
@@ -132,14 +132,14 @@ function renderSession(allMatches, sessionNum, day, totalSessions) {
   if (matches.length === 0) return null;
 
   const showLabel = totalSessions > 1;
-  const { doorsOpen, session2Start, doorsClose, matchCategory } = day;
+  const { doorsOpen,session1End, session2Start, doorsClose, matchCategory } = day;
 
   // Logic for the time range string
   let timeRange = "";
   if (totalSessions > 1) {
     // Session 1: Doors -> Session 2 | Session 2: Session 2 -> Close
     timeRange = sessionNum === "1" 
-      ? `${doorsOpen} - ${session2Start}` 
+      ? `${doorsOpen} - ${session1End}` 
       : `${session2Start} - ${doorsClose}`;
   } else {
     // Single Session: Doors -> Close
