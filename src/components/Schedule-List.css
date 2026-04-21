@@ -1,0 +1,201 @@
+/* --- BASE WRAPPER --- */
+.scs-layout-list {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+/* --- DAY BLOCK --- */
+.scs-layout-list .scs-day-block {
+    display: grid;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.scs-layout-list .scs-day-block:nth-child(even) {
+    background-color: #fff;
+}
+
+/* --- THEME HEADER --- */
+
+.scs-layout-list .scs-day-date-wrapper {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    /* flex-direction: column; */
+    justify-content: space-between;
+    border-bottom: 1px solid var(--scs-indigo);
+    padding-bottom: .5rem;
+}
+
+
+.scs-layout-list .scs-day-meta {
+    display: grid;
+    gap: 1rem;
+    width: 100%;
+    grid-template-columns: 1fr;
+}
+
+
+.scs-layout-list  .scs-day-desc {
+    margin: 0 !important;
+}
+
+.scs-layout-list .scs-day-match-category {
+    font-family: 'mls-tifo-standard-cz9zex';
+    font-weight: 400;
+    font-size: 1rem;
+    font-weight: 1rem;
+    text-transform: capitalize;
+    padding-top: 1rem;
+}
+
+.scs-layout-list .scs-match-list {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+    flex-direction: column;
+}
+
+/* --- SESSION STYLING --- */
+.scs-layout-list  .scs-session {
+    width: 100%;
+}
+
+.scs-layout-list  .scs-session-header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.scs-time-label {}
+
+/* --- MATCH CARDS --- */
+.scs-layout-list .scs-match-grid {
+    display: grid;
+}
+
+.scs-match-card {}
+
+.scs-match-time {}
+
+
+.scs-layout-list .scs-match-teams {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    border-bottom: 1px solid #dedede;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+
+
+.scs-team {
+    /* display: grid;
+    grid-template-columns: 1fr 1fr; */
+}
+
+
+
+.scs-layout-list .scs-team-details {
+    width: 100%;
+
+}
+
+.scs-layout-list .scs-team-matchup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    justify-content: space-between;
+}
+
+
+
+
+.scs-vs {}
+
+.scs-layout-list .scs-team-flags-wrapper {
+    display: flex;
+    gap: .5rem;
+    padding: .5rem 0;
+    width: 100%;
+}
+
+.scs-layout-list .scs-team-vs-wrapper {
+display: flex;
+gap: .15rem;
+flex-wrap: wrap;
+}
+
+/* Add this to your Schedule.css if needed */
+/* .scs-flag-img img {
+  width: 32px;    
+  height: 20px;  
+  object-fit: cover;
+  border-radius: 2px;
+  display: block;
+} */
+
+
+
+/* --- BREAKPOINTS --- */
+
+/* TABLET (Portrait) */
+@media (min-width: 768px) {
+
+    .scs-layout-list .scs-day-block {
+
+    }
+
+    .scs-layout-list .scs-day-meta {
+
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .scs-layout-list .scs-match-list {
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+    .scs-layout-list .scs-match-teams {
+        flex-direction: row;
+    }
+
+    .scs-layout-list .scs-team-flags-wrapper {
+        flex-direction: column;
+        width: 30%;
+    }
+
+    /* .scs-session {
+        border-right: 1px solid #0c2340;
+    } */
+
+}
+
+/* TABLET (Landscape) / SMALL DESKTOP */
+@media (min-width: 1024px) {
+
+    /* .scs-schedule-wrapper {
+        grid-template-columns: 1fr 1fr;
+    } */
+    .scs-layout-list .scs-team-flags-wrapper {
+        flex-direction: row;
+    }
+
+   .scs-layout-list .scs-day-block {}
+
+}
+
+/* LARGE DESKTOP */
+@media (min-width: 1280px) {
+    /* .scs-schedule-wrapper {
+        grid-template-columns: 1fr 1fr 1fr;
+    } */
+
+    .scs-layout-list .scs-match-grid {}
+}
+
+/* --- UTILS --- */
+.scs-loader {}

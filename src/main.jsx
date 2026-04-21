@@ -22,7 +22,8 @@ const mountIfElementExists = (idOrEl, Component, manualProps = {}) => {
       const dataProps = {
         targetDate: el.getAttribute('data-date') || undefined,
         filterMonth: el.getAttribute('data-month') || undefined,
-        category: el.getAttribute('data-category') || undefined
+        category: el.getAttribute('data-category') || undefined,
+        layout: el.getAttribute('layout') || 'list'
       };
 
       // 2. Merge data attributes with any manual props passed in JS

@@ -1,0 +1,120 @@
+.scs-layout-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.scs-layout-grid h3 {
+    font-size: 3rem !important;
+    line-height: 2rem !important;
+}
+
+
+.scs-layout-grid .scs-day-block {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.scs-layout-grid .scs-match-list {
+    display: grid;
+    gap: .5rem;
+}
+
+.scs-layout-grid .scs-day-desc, 
+.scs-layout-grid .fivoButton {
+    display: none;
+}
+
+.scs-session-grid {
+    display: grid;
+    gap: .5rem;
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid #cecece;
+    background-color: #fafafa;
+}
+
+.scs-session-grid .scs-session-header {
+    display: flex;
+    font-family: 'mls-tifo-standard-cz9zex' !important;
+    font-weight: 700;
+        font-size: .85rem !important;
+    line-height: .7rem !important;
+    gap: .5rem;
+    justify-content: space-between;
+    border-bottom: 1px solid #dedede;
+    padding-bottom: .5rem;
+}
+
+.scs-session-grid .scs-flag {
+  width: 40px;
+}
+
+.scs-session-grid .scs-flag img {
+    border-radius: 2px;
+
+}
+
+.scs-session-grid .scs-match-grid {
+    display: grid;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+.scs-session-grid .scs-match-teams {
+    display: flex;
+    gap: .5rem;
+        align-items: center;
+}
+
+.scs-session-grid .scs-vs,
+.scs-session-grid .scs-team-name,
+.scs-session-grid .scs-match-time {
+        font-family: 'mls-tifo-standard-cz9zex';
+    font-weight: 400;
+    font-size: .825rem;
+        line-height: .725rem;
+}
+
+.scs-session-grid .scs-team-flags-wrapper {
+    display: flex;
+    gap: .25rem;
+}
+
+.scs-session-grid .scs-team-vs-wrapper {
+display: flex;
+gap: .15rem;
+flex-wrap: wrap;
+width: 65%;
+}
+
+.scs-session-grid .scs-team-details {
+width: 100%;
+}
+
+.scs-session-grid .scs-team-matchup {
+   display: flex;
+    gap: .25rem;
+    align-items: center;
+        justify-content: space-between;
+}
+
+
+@media (min-width: 768px) {
+    .scs-layout-grid {
+
+        grid-template-columns: 1fr 1fr;
+
+    }
+}
+
+@media (min-width: 1024px) {
+    .scs-layout-grid {
+
+        grid-template-columns: 1fr 1fr 1fr;
+
+    }
+}
+
+@media (min-width: 1280px) {}

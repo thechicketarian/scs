@@ -1,10 +1,13 @@
+import React from 'react';
 import { useSheetData } from '../useSheetData';
 import './Schedule.css';
+import './Schedule-List.css';
+import './Schedule-Grid.css';
+import './Schedule-Carousel.css';
 
 /**
  * SCHEMA MAPPERS
  * These match the camelCase normalization from your hook.
- * "Doors Open" -> doorsOpen | "Session 1" -> session1Start (mapped from session1)
  */
 const mapMetaData = (row) => ({
   date: row.date || "",
@@ -27,13 +30,12 @@ const mapMatchData = (row) => ({
   matchTime: row.matchTime || "TBD"
 });
 
-export default function Schedule({ targetDate = null, filterMonth = null }) {
+export default function Schedule({ targetDate = null, filterMonth = null, layout }) {
   const { data: rawMeta, loading: metaLoading } = useSheetData('843872450');
   const { data: rawMatch, loading: matchLoading } = useSheetData('179580476');
 
   /**
    * Helper: Slugify
-   * Normalizes "June 17" to "june-17" for internal logic and HTML IDs
    */
   const slugify = (str) => {
     if (!str) return "";
@@ -56,8 +58,11 @@ export default function Schedule({ targetDate = null, filterMonth = null }) {
     displayDays = metaData.filter(m => slugify(m.date).includes(monthSlug));
   }
 
+  // Determine the active layout class
+  const activeLayout = layout || 'list';
+
   return (
-    <div className="scs-schedule-wrapper">
+    <div className={`scs-main-wrapper scs-layout-${activeLayout}`}>
       {displayDays.map((day, index) => {
         const daySlug = slugify(day.date);
         const dayMatches = matchData.filter(m => slugify(m.date) === daySlug);
@@ -66,7 +71,7 @@ export default function Schedule({ targetDate = null, filterMonth = null }) {
         const uniqueSessionsCount = [...new Set(dayMatches.map(m => m.session))].length;
 
         return (
-          <div key={index} className="scs-day-block" id={`date-${daySlug}`}>
+          <div key={index} className={`scs-day-block`} id={`date-${daySlug}`}>
             <div className='scs-day-date-wrapper'>
               <h3 className="scs-date-text">{day.date}</h3>
               <div
@@ -74,7 +79,7 @@ export default function Schedule({ targetDate = null, filterMonth = null }) {
                 role='button'
                 onClick={() => window.GMWidget && window.GMWidget.open('SoccerCapitalSummer')}
               >
-                <span className='scs-sched-button-label'>  find tixs </span>
+                <span className='scs-sched-button-label'> find tickets </span>
                 <span className="material-symbols-outlined">
                   arrow_outward
                 </span>
@@ -87,19 +92,9 @@ export default function Schedule({ targetDate = null, filterMonth = null }) {
                 ) : (
                   <h3 className="scs-theme-title"> Theme Needed </h3>
                 )}
-                {/* <div className="scs-door-times">
-                  <div>
-                    {day.doorsOpen && <h5 className="scs-doors"> {day.doorsOpen}</h5>}
-                  </div>
-                  <h5>-</h5>
-                  <div>
-                    {day.doorsClose && <h5 className="scs-doors">{day.doorsClose}</h5>}
-                  </div>
-                </div> */}
-
               </div>
-              <div>
-                <p className="scs-day-desc">{day.description}</p>
+              <div className="scs-day-desc">
+                <p>{day.description}</p>
                 {/* Only show the disclaimer if the day has multiple sessions */}
                 {uniqueSessionsCount > 1 && (
                   <div className='cardDisclaimer'>
@@ -110,9 +105,9 @@ export default function Schedule({ targetDate = null, filterMonth = null }) {
             </div>
 
             <div className="scs-match-list">
-              {/* We now just pass the match list, the session number, the full day object, and the count */}
-              {renderSession(dayMatches, "1", day, uniqueSessionsCount)}
-              {renderSession(dayMatches, "2", day, uniqueSessionsCount)}
+              {/* Added activeLayout to renderSession */}
+              {renderSession(dayMatches, "1", day, uniqueSessionsCount, activeLayout)}
+              {renderSession(dayMatches, "2", day, uniqueSessionsCount, activeLayout)}
 
               {dayMatches.length === 0 && (
                 <p className="scs-no-matches">Matches for this day are currently being finalized.</p>
@@ -124,65 +119,71 @@ export default function Schedule({ targetDate = null, filterMonth = null }) {
     </div>
   );
 }
+
 /**
  * RENDER HELPER: Session Block
  */
-function renderSession(allMatches, sessionNum, day, totalSessions) {
+function renderSession(allMatches, sessionNum, day, totalSessions, layout) {
   const matches = allMatches.filter(m => m.session === sessionNum);
   if (matches.length === 0) return null;
 
   const showLabel = totalSessions > 1;
-  const { doorsOpen, session1End, session2Start, doorsClose, matchCategory } = day;
+  const { doorsOpen, session1End, session2Start, doorsClose } = day;
 
   // Logic for the time range string
   let timeRange = "";
   if (totalSessions > 1) {
-    // Session 1: Doors -> Session 2 | Session 2: Session 2 -> Close
     timeRange = sessionNum === "1"
       ? `${doorsOpen} - ${session1End}`
       : `${session2Start} - ${doorsClose}`;
   } else {
-    // Single Session: Doors -> Close
     timeRange = `${doorsOpen} - ${doorsClose}`;
   }
+
   const isTBA = (team) => !team || team === "TBA" || team === "TBD" || team === "TBC";
 
-  return (
-    <div className="scs-session">
+  // Dynamic class for the container
+  const containerClass = layout === 'carousel' ? 'scs-match-carousel' : 'scs-match-grid';
 
+  return (
+    <div className={`scs-session scs-session-${layout}`}>
       <h6 className="scs-session-header">
         <div className="scs-session-title-group">
           <span>{showLabel ? `Session ${sessionNum}` : "Day Schedule"}</span>
         </div>
         <span className="scs-time-label"> {timeRange}</span>
-        {/* Pulling category directly from the day object we passed in */}
-        {/* {matchCategory && (
-          <span className="scs-session-category">{matchCategory}</span>
-        )} */}
       </h6>
-      <div className="scs-match-grid">
+      <div className={containerClass}>
         {matches.map((m, i) => (
           <div key={i} className="scs-match-card">
             <div className="scs-match-teams">
-              <div className='scs-team-flags-wrapper'>
-                <div className="scs-flag">{m.teamAFlag && <img src={m.teamAFlag} alt="" />}</div>
-                <div className="scs-flag">{m.teamBFlag && <img src={m.teamBFlag} alt="" />}</div>
-              </div>
+            
+                {isTBA(m.teamA) && isTBA(m.teamB) ? (
+                  null
+                ) : (
+                  <>
+                    <div className='scs-team-flags-wrapper'>
+                    <div className="scs-flag">{m.teamAFlag && <img src={m.teamAFlag} alt="" />}</div>
+                    <div className="scs-flag">{m.teamBFlag && <img src={m.teamBFlag} alt="" />}</div>
+                  </div>
+                  </>
+                )
+                }
               <div className='scs-team-details'>
                 <div className='scs-team-matchup'>
-                  {isTBA(m.teamA) && isTBA(m.teamB) ? (
-                    /* Case: Both are TBA */
-                    <div className="scs-team-name scs-team-tba">Matchup TBA</div>
-                  ) : (
-                    /* Case: At least one team is known */
-                    <>
-                      <div className="scs-team-name">{m.teamA}</div>
-                      <span className="scs-vs">vs.</span>
-                      <div className="scs-team-name">{m.teamB}</div>
-                    </>
-                  )}
+                  <div className='scs-team-vs-wrapper'>
+                    {isTBA(m.teamA) && isTBA(m.teamB) ? (
+                      <div className="scs-team-name scs-team-tba">Matchup TBA</div>
+                    ) : (
+                      <>
+                        <div className="scs-team-name">{m.teamA}</div>
+                        <span className="scs-vs">vs.</span>
+                        <div className="scs-team-name">{m.teamB}</div>
+                      </>
+                    )}
+                  </div>
+                  <span className="scs-match-time">{m.matchTime}</span>
                 </div>
-                <span className="scs-match-time">{m.matchTime}</span>
               </div>
             </div>
           </div>
