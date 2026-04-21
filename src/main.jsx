@@ -48,7 +48,8 @@ mountIfElementExists('scs-hero-root', Hero);
 const ticketConfigs = [
   { id: 'scs-tickets-ga', category: 'GA' },
   { id: 'scs-tickets-stm', category: 'STM' },
-  { id: 'scs-tickets-premium', category: 'Premium' }
+  { id: 'scs-tickets-premium', category: 'Premium' },
+   { id: 'scs-ticket-private', category: 'Private' }
 ];
 
 ticketConfigs.forEach(config => {

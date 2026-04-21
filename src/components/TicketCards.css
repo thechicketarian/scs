@@ -8,12 +8,14 @@
   color: inherit;
 }
 
-.eventlist-title, .eventitem-title {
+.eventlist-title,
+.eventitem-title {
   font-size: 3rem !important;
   line-height: 2.5rem;
 }
 
-.ticketNavMobile, .ticketNavDesktop {
+.ticketNavMobile,
+.ticketNavDesktop {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr !important;
   gap: 1rem;
@@ -39,33 +41,34 @@
 .scs-grid-stm{}
  */
 .premiumCard {
-  display:grid;
-  gap: 15px;
+  display: grid;
+  gap: 1rem;
 }
+
 .scs-grid-premium {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap:20px;
+  gap: 20px;
 }
 
 /* Card Styling */
 .scs-grid-premium .premiumCard {
- border-top: 1px solid #efefef;
-    display: flex;
+  border-top: 1px solid #efefef;
+  display: flex;
   flex-direction: column;
 }
 
 .cardCopyWrapper {
-  display:grid;
+  display: grid;
   gap: 10px;
 }
 
-.cardTitle { 
-  margin: 0; 
+.cardTitle {
+  margin: 0;
 }
 
-.cardDescription p{
-  margin:0!important;
+.cardDescription p {
+  margin: 0 !important;
 }
 
 .premiumCard h5 {
@@ -76,10 +79,10 @@
   margin: 0;
 }
 
-.perks-list { 
-  display: grid; 
-  gap: .5rem; 
-  flex-grow: 1; 
+.perks-list {
+  display: grid;
+  gap: .5rem;
+  flex-grow: 1;
 }
 
 .perkItem {
@@ -88,43 +91,45 @@
   gap: .825rem;
   border-bottom: 1px solid #dedede;
   padding-bottom: 5px;
-  min-height: 50px; /* Added to keep rows consistent if text wraps */
+  min-height: 50px;
+  /* Added to keep rows consistent if text wraps */
 }
 
-.perkImg { 
-  width: 40px; 
+.perkImg {
+  width: 40px;
   display: flex;
   justify-content: center;
-  flex-shrink: 0; /* Prevents the icon container from squishing */
+  flex-shrink: 0;
+  /* Prevents the icon container from squishing */
 }
 
-.perkItem span { 
-  text-transform: capitalize; 
+.perkItem span {
+  text-transform: capitalize;
   line-height: 1.2;
 }
 
 /* Image & Disclaimer Additions */
 
 .skc-cardImage {
-  width:100%;
+  width: 100%;
 }
 
 .skc-cardImage img {
-width:100%;
-      display: block;
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
 }
-
-
 
 .fevo-wrapper {
   width: 100%;
   margin-top: 1rem;
 }
+
 /*Mobile Only Overrides*/
 @media (max-width: 767px) {
-.fevo-wrapper button {
-  width: 100%;
-}
+  .fevo-wrapper button {
+    width: 100%;
+  }
 }
 
 /*Home Hero Custom */
@@ -132,24 +137,49 @@ width:100%;
 
 /* Desktop Icon Scaling */
 @media (min-width: 768px) {
+
+  .skc-cardImage img {
+    aspect-ratio: 16/9;
+  }
+
   .material-symbols-outlined {
-    font-size: 40px !important;  
+    font-size: 40px !important;
   }
+
   .premiumCard {
-      border: 2px solid #dedede;
+    border: 2px solid #dedede;
   }
-  
+
   .scs-grid-premium .premiumCard {
-        border: 2px solid #dedede; 
+    border: 2px solid #dedede;
   }
+
   .scs-grid-stm .premiumCard {
-display: grid;
-  grid-template-columns: 1fr 1fr;
+    display: grid;
+    grid-template-columns: 1fr;
     align-items: center;
-}
+  }
+
 
   .cardCopyWrapper {
-  padding: 2rem;
+    padding: 2rem;
+  }
+
 }
+
+@media (min-width: 1400px) {
+
   
+.scs-grid-stm .premiumCard .skc-cardImage img, 
+.scs-grid-private .premiumCard .skc-cardImage img {
+ aspect-ratio: 1/1;
+}
+
+.scs-grid-stm .premiumCard,
+  .scs-grid-private .premiumCard {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+
+
 }
