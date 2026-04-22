@@ -170,9 +170,9 @@
     align-items: center;
   }
 
-  /* .scs-grid-private .cardCopyWrapper {
-    display: none;
-  } */
+  .scs-grid-private .cardCopyWrapper {
+   padding: 0;
+  }
 
 
   .cardCopyWrapper {
