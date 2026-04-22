@@ -17,12 +17,14 @@
 .ticketNavMobile {
  display: flex;
 flex-wrap: wrap;
+gap: .5rem;
 }
 
 .ticketNavDesktop {
   display: grid;
   grid-template-columns: 1fr 1fr!important;
   gap: 1rem;
+  max-width: 75%;
 }
 
 .ticketNavMobile a {
