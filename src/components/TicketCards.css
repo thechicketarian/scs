@@ -16,8 +16,16 @@
 
 .ticketNavMobile {
   display: flex;
-  justify-content: space-between;
-  gap: .5rem;
+  /* justify-content: space-between; */
+  gap: 1rem;
+
+}
+
+.ticketNavMobile a {
+  display: grid;
+  justify-items: center;
+  padding: .825rem !important;
+    max-width: 100px;
 }
 
 .ticketNavDesktop {
@@ -26,11 +34,7 @@
   gap: 2rem;
 }
 
-.ticketNavMobile a {
-  display: grid;
-  justify-items: center;
-  padding: .825rem !important;
-}
+
 
 .ticketNavDesktop a {
   display: flex;
