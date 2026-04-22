@@ -42,7 +42,7 @@
  */
 .premiumCard {
   display: grid;
-  gap: 1rem;
+  /* gap: 1rem; */
 }
 
 .scs-grid-premium {
@@ -60,7 +60,7 @@
 
 .cardCopyWrapper {
   display: grid;
-  gap: 10px;
+  gap: 5px;
 }
 
 .cardTitle {
@@ -111,12 +111,14 @@
 /* Image & Disclaimer Additions */
 
 .skc-cardImage {
-  width: 100%;
+  display: flex;
+  background-color: pink;
 }
 
 .skc-cardImage img {
-  width: 100%;
-  object-fit: cover;
+ width: 100%;
+    object-fit: cover;
+    height: 100%;
 }
 
 .fevo-wrapper {
@@ -128,9 +130,7 @@
 
 /*Mobile Only Overrides*/
 @media (max-width: 767px) {
-    .scs-grid-ga .premiumCard .skc-cardImage  {
-    display: none;
-  }
+
   .fevo-wrapper button {
     width: 100%;
   }
@@ -148,7 +148,7 @@
      .scs-grid-ga .premiumCard {
 
     align-items: center;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 
 
@@ -168,7 +168,9 @@
 
 
   .cardCopyWrapper {
-    padding: 2rem;
+           padding: 2rem;
+        border: 1px solid #e5e5e5;
+    
   }
  .scs-grid-stm .premiumCard,
     .scs-grid-private .premiumCard {
@@ -202,7 +204,7 @@
  .scs-grid-stm .premiumCard,
     .scs-grid-private .premiumCard {
     display: grid;
-    grid-template-columns: 1fr 1.5fr;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
   }
 
