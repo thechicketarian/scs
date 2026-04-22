@@ -172,6 +172,7 @@
 
   .scs-grid-private .cardCopyWrapper {
    padding: 0;
+   display: block;
   }
 
 
