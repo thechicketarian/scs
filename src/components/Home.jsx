@@ -52,7 +52,7 @@ export default function Home() {
       {/* Existing Hero Elements */}
       <div className="marquee-wrapper" ref={trackRef}> ... </div>
       <div className="electric-wrap" ref={electricRef}> ... </div>
-      <div className="summer-wrap" ref={summerRef}> ... </div>
+     
 
       {/* NEW: Integrated Schedule Section */}
       <div className="home-schedule-integration" ref={scheduleRef}>
@@ -62,6 +62,8 @@ export default function Home() {
       
       {/* NEW: Integrated Experiences Section */}
       {/* You can add another Act to the timeline for this! */}
+
+       <div className="summer-wrap" ref={summerRef}> ... </div>
     </section>
   );
 }
