@@ -23,8 +23,7 @@
 .ticketNavDesktop {
   display: grid;
   grid-template-columns: 1fr 1fr !important;
-  gap: 1rem;
-  max-width: 85%;
+  gap: 2rem;
 }
 
 .ticketNavMobile a {
