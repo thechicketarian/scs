@@ -170,6 +170,10 @@
     align-items: center;
   }
 
+  /* .scs-grid-private .cardCopyWrapper {
+    display: none;
+  } */
+
 
   .cardCopyWrapper {
            padding: 2rem;
@@ -188,13 +192,11 @@
   gap: 10px;
 }
 
-
-   
-    .scs-grid-private .premiumCard {
+    /* .scs-grid-private .premiumCard {
     display: grid;
     grid-template-columns: 2fr 1fr;
     align-items: center;
-  }
+  } */
    .scs-grid-stm .premiumCard {
     display: grid;
     grid-template-columns: 1fr 1.5fr;

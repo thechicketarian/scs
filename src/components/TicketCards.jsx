@@ -8,12 +8,10 @@ export default function TicketCards({ category }) {
   if (!category) return null;
   if (loading) return <div className="loading">Syncing Tickets...</div>;
 
-  // 1. FILTER: Ignore ghost rows (no title) and match category
-  const filteredData = data.filter(item => 
-    item.title && 
-    (item.category || "").trim().toLowerCase() === category.trim().toLowerCase()
+const filteredData = data.filter(item => 
+    item.category && 
+    item.category.trim().toLowerCase() === category.trim().toLowerCase()
   );
-
   const getDynamicPerks = (row) => {
     return Object.keys(row)
       .filter(key => key.startsWith('perkLabel')) 
