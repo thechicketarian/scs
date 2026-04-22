@@ -188,13 +188,13 @@
 
   .scs-grid-stm .premiumCard {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
   }
 
   .scs-grid-private .premiumCard {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
+    display: flex;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
   }
 
