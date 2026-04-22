@@ -43,8 +43,8 @@
     line-height: .7rem !important;
     gap: .5rem;
     justify-content: space-between;
-    border-bottom: 1px solid #dedede;
-    padding-bottom: .5rem;
+    /* border-bottom: 1px solid #dedede; */
+    /* padding-bottom: .5rem; */
 }
 
 .scs-session-grid .scs-flag {
@@ -57,7 +57,7 @@
 }
 
 .scs-session-grid .scs-match-grid {
-    display: grid;
+    display: none;
     gap: 1rem;
     flex-direction: column;
 }
