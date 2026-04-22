@@ -45,11 +45,6 @@
   /* gap: 1rem; */
 }
 
-.scs-grid-premium {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 20px;
-}
 
 /* Card Styling */
 .scs-grid-premium .premiumCard {
@@ -60,7 +55,7 @@
 
 .cardCopyWrapper {
   display: grid;
-  gap: 5px;
+  gap: 10px;
 }
 
 .cardTitle {
@@ -110,15 +105,19 @@
 
 /* Image & Disclaimer Additions */
 
+   .scs-grid-ga .skc-image-wrapper {
+  display: none;
+}
+
 .skc-cardImage {
-  display: flex;
-  background-color: pink;
+  display: grid;
 }
 
 .skc-cardImage img {
  width: 100%;
     object-fit: cover;
     height: 100%;
+    aspect-ratio: 16/7;
 }
 
 .fevo-wrapper {
@@ -141,6 +140,11 @@
 
 /* Desktop Icon Scaling */
 @media (min-width: 768px) {
+
+  .skc-image-wrapper {
+    display: flex;
+    gap: .5rem;
+  }
 
   /* .material-symbols-outlined {
     font-size: 40px !important;
@@ -169,44 +173,38 @@
 
   .cardCopyWrapper {
            padding: 2rem;
-        border: 1px solid #e5e5e5;
-    
   }
- .scs-grid-stm .premiumCard,
-    .scs-grid-private .premiumCard {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-  }
-  .scs-grid-stm .premiumCard .skc-cardImage img,
+
+  /* .scs-grid-stm .premiumCard .skc-cardImage img,
   .scs-grid-private .premiumCard .skc-cardImage img {
        aspect-ratio: 4 / 5;
-  }
+  } */
 }
 
 @media (min-width: 1080px) {
+.scs-grid-premium {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 10px;
+}
 
-    .scs-grid-ga .premiumCard {
-    grid-template-columns: 1fr 1fr 2fr;
+
+   .scs-grid-stm .premiumCard,
+    .scs-grid-private .premiumCard {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    align-items: center;
   }
-   .scs-grid-ga .premiumCard .skc-cardImage img {
-    height: 500px;
+
+     .scs-grid-stm .premiumCard .skc-cardImage img,
+    .scs-grid-private .premiumCard .skc-cardImage img {
+    height: 500px!important;
   }
 
   .scs-grid-ga .premiumCard .cardCopyWrapper {
     padding: 1rem;
   }
 
-    .scs-grid-stm .premiumCard .skc-cardImage img,
-  .scs-grid-private .premiumCard .skc-cardImage img {
-       aspect-ratio: 4 / 4;
-  }
- .scs-grid-stm .premiumCard,
-    .scs-grid-private .premiumCard {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-  }
 
 }
 

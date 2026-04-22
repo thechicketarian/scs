@@ -63,11 +63,13 @@ export default function TicketCards({ category }) {
             {/* IMAGES: Rendered directly as children of premiumCard.
               If you have 2 images, there will be two separate <div> elements here.
             */}
+          <div className='skc-image-wrapper'>
             {imageList.map((imgUrl, i) => (
               <div key={i} className="skc-cardImage">
                 <img src={imgUrl} alt={`${c.title} view ${i + 1}`} />
               </div>
             ))}
+            </div>
             
             <div className="cardCopyWrapper">
               <div className="cardDescription">
