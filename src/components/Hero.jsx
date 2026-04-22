@@ -203,7 +203,7 @@ export default function Hero() {
             </h1>
             <div className='supportingText'>
               <span className="text-white ">sporting KC presents</span>
-              <span className="text-white">soccer capital of soccer</span>
+              <span className="text-white">soccer capital summer</span>
               <span className="text-white">kansas city</span>
 
             </div>

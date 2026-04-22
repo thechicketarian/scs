@@ -3,7 +3,6 @@ import { useSheetData } from '../useSheetData';
 import './Schedule.css';
 import './Schedule-List.css';
 import './Schedule-Grid.css';
-import './Schedule-Carousel.css';
 
 /**
  * SCHEMA MAPPERS

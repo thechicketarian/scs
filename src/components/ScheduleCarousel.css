@@ -1,0 +1,110 @@
+.scs-carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 50px; /* Space for arrows */
+}
+
+.scs-carousel-window {
+    overflow: hidden; /* Clips the items outside the view */
+    width: 100%;
+}
+
+.scs-carousel-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    gap: 2rem; /* Matches your gap */
+}
+
+/* Each item takes up 1/4th of the container on desktop */
+.scs-carousel-item {
+    min-width: calc(25% - 1.5rem); /* 1.5rem accounts for gap sharing */
+    flex-shrink: 0;
+}
+
+/* Navigation Buttons */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: all 0.2s ease;
+}
+
+.nav-btn:hover {
+    background: #fff;
+    color: #000;
+}
+
+.nav-btn.prev { left: 0; }
+.nav-btn.next { right: 0; }
+
+/* RE-APPLYING YOUR SPECIFIC STYLES */
+.scs-carousel-item h3 {
+    font-size: 3rem !important;
+    line-height: 2rem !important;
+    font-family: 'mls-tifo-standard-cz9zex' !important;
+}
+
+.scs-session-carousel {
+    display: grid;
+    gap: .5rem;
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid #cecece;
+    background-color: #fafafa;
+    color: #333; /* Ensuring readability on white bg */
+}
+
+.scs-session-carousel .scs-session-header {
+    display: flex;
+    font-family: 'mls-tifo-standard-cz9zex' !important;
+    font-weight: 700;
+    font-size: .85rem !important;
+    line-height: .7rem !important;
+    gap: .5rem;
+    justify-content: space-between;
+}
+
+.scs-session-carousel .scs-team-matchup {
+    display: flex;
+    gap: .25rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.scs-session-carousel .scs-vs,
+.scs-session-carousel .scs-team-name,
+.scs-session-carousel .scs-match-time {
+    font-family: 'mls-tifo-standard-cz9zex';
+    font-weight: 400;
+    font-size: .825rem;
+    line-height: .725rem;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 1024px) {
+    .scs-carousel-item {
+        min-width: calc(50% - 1rem); /* Show 2 items */
+    }
+    .scs-carousel-track {
+        /* Update the style in JS or handle transform via window size */
+    }
+}
+
+@media (max-width: 600px) {
+    .scs-carousel-item {
+        min-width: 100%; /* Show 1 item */
+    }
+}

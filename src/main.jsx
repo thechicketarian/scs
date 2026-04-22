@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Hero from './components/Hero';
+import Home from './components/Home';
 import TicketCards from './components/TicketCards';
 import Experiences from './components/Experiences';
 import Schedule from './components/Schedule';
@@ -41,6 +42,7 @@ const mountIfElementExists = (idOrEl, Component, manualProps = {}) => {
 };
 
 // --- 1. THE HERO ---
+mountIfElementExists('scs-home-root', Home);
 mountIfElementExists('scs-hero-root', Hero);
 
 // --- 2. TICKET CARDS ---
