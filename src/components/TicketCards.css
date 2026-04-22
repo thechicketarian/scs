@@ -15,16 +15,16 @@
 }
 
 .ticketNavMobile {
- display: flex;
-flex-wrap: wrap;
-gap: .5rem;
+  display: flex;
+  justify-content: space-between;
+  gap: .5rem;
 }
 
 .ticketNavDesktop {
   display: grid;
-  grid-template-columns: 1fr 1fr!important;
+  grid-template-columns: 1fr 1fr !important;
   gap: 1rem;
-  max-width: 75%;
+  max-width: 85%;
 }
 
 .ticketNavMobile a {
@@ -111,7 +111,7 @@ gap: .5rem;
 
 /* Image & Disclaimer Additions */
 
-   .scs-grid-ga .skc-image-wrapper {
+.scs-grid-ga .skc-image-wrapper {
   display: none;
 }
 
@@ -120,10 +120,10 @@ gap: .5rem;
 }
 
 .skc-cardImage img {
- width: 100%;
-    object-fit: cover;
-    height: 100%;
-    aspect-ratio: 16/7;
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+  aspect-ratio: 16/7;
 }
 
 .fevo-wrapper {
@@ -155,7 +155,7 @@ gap: .5rem;
   /* .material-symbols-outlined {
     font-size: 40px !important;
   } */
-     .scs-grid-ga .premiumCard {
+  .scs-grid-ga .premiumCard {
 
     align-items: center;
     grid-template-columns: 1fr;
@@ -177,13 +177,13 @@ gap: .5rem;
   }
 
   .scs-grid-private .cardCopyWrapper {
-   padding: 0;
-   display: block;
+    padding: 0;
+    display: block;
   }
 
 
   .cardCopyWrapper {
-           padding: 2rem;
+    padding: 2rem;
   }
 
   /* .scs-grid-stm .premiumCard .skc-cardImage img,
@@ -193,27 +193,27 @@ gap: .5rem;
 }
 
 @media (min-width: 1080px) {
-.scs-grid-premium {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 10px;
-}
+  .scs-grid-premium {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 10px;
+  }
 
-    /* .scs-grid-private .premiumCard {
+  /* .scs-grid-private .premiumCard {
     display: grid;
     grid-template-columns: 2fr 1fr;
     align-items: center;
   } */
-   .scs-grid-stm .premiumCard {
+  .scs-grid-stm .premiumCard {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
   }
 
 
-     .scs-grid-stm .premiumCard .skc-cardImage img,
-    .scs-grid-private .premiumCard .skc-cardImage img {
-    height: 550px!important;
+  .scs-grid-stm .premiumCard .skc-cardImage img,
+  .scs-grid-private .premiumCard .skc-cardImage img {
+    height: 550px !important;
   }
 
   .scs-grid-ga .premiumCard .cardCopyWrapper {
@@ -223,6 +223,4 @@ gap: .5rem;
 
 }
 
-@media (min-width: 1400px) {
-
-}
+@media (min-width: 1400px) {}
