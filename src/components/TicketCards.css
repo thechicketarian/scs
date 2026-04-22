@@ -189,16 +189,22 @@
 }
 
 
-   .scs-grid-stm .premiumCard,
+   
     .scs-grid-private .premiumCard {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+  }
+   .scs-grid-stm .premiumCard {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
     align-items: center;
   }
 
+
      .scs-grid-stm .premiumCard .skc-cardImage img,
     .scs-grid-private .premiumCard .skc-cardImage img {
-    height: 500px!important;
+    height: 550px!important;
   }
 
   .scs-grid-ga .premiumCard .cardCopyWrapper {
