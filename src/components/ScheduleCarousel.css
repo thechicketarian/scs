@@ -1,110 +1,115 @@
 .scs-carousel-container {
-    position: relative;
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 50px; /* Space for arrows */
+  width: 100%;
+  position: relative;
+  /* Ensuring nothing overlaps the Hero text above it */
+  padding-top: 20px; 
+}
+
+.scs-carousel-heading {
+  text-align: center;
+  font-family: 'dharma-gothic-m-gvf2i7', sans-serif !important;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+.scs-carousel-main-controls {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px; /* Limits width on big screens like the demo */
+  margin: 0 auto;
 }
 
 .scs-carousel-window {
-    overflow: hidden; /* Clips the items outside the view */
-    width: 100%;
+  width: 100%;
+  overflow: hidden;
+  /* This creates the 'stage' for the cards to slide across */
+  padding: 10px 0;
 }
 
 .scs-carousel-track {
-    display: flex;
-    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-    gap: 2rem; /* Matches your gap */
+  display: flex;
+  gap: 20px;
+  will-change: transform;
+  /* Start the first card slightly offset so it's not touching the left edge */
+  padding-left: 20px; 
 }
 
-/* Each item takes up 1/4th of the container on desktop */
 .scs-carousel-item {
-    min-width: calc(25% - 1.5rem); /* 1.5rem accounts for gap sharing */
-    flex-shrink: 0;
+  /* Fixes the 'weird width' by using a solid calculation */
+  width: 350px; 
+  flex-shrink: 0;
 }
 
-/* Navigation Buttons */
+/* BUTTONS - The 'Demo' Look */
 .nav-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: white;
-    cursor: pointer;
-    border-radius: 50%;
-    width: 45px;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-    transition: all 0.2s ease;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  background: #ffffff;
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
 }
 
 .nav-btn:hover {
-    background: #fff;
-    color: #000;
+  background: #f0f0f0;
+  transform: translateY(-50%) scale(1.1);
 }
 
-.nav-btn.prev { left: 0; }
-.nav-btn.next { right: 0; }
+/* Position buttons OUTSIDE the cards on desktop */
+.nav-btn.prev { left: -60px; }
+.nav-btn.next { right: -60px; }
 
-/* RE-APPLYING YOUR SPECIFIC STYLES */
-.scs-carousel-item h3 {
-    font-size: 3rem !important;
-    line-height: 2rem !important;
-    font-family: 'mls-tifo-standard-cz9zex' !important;
+/* THE CARD INTERIOR */
+.scs-date-text {
+  font-family: 'mls-tifo-standard-cz9zex', sans-serif !important;
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 12px;
 }
 
 .scs-session-carousel {
-    display: grid;
-    gap: .5rem;
-    padding: 1rem;
-    border-radius: 5px;
-    border: 1px solid #cecece;
-    background-color: #fafafa;
-    color: #333; /* Ensuring readability on white bg */
+  background: #ffffff;
+  border-radius: 8px; /* Slightly rounder for a modern look */
+  padding: 24px;
+  color: #0c2340;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
-.scs-session-carousel .scs-session-header {
-    display: flex;
-    font-family: 'mls-tifo-standard-cz9zex' !important;
-    font-weight: 700;
-    font-size: .85rem !important;
-    line-height: .7rem !important;
-    gap: .5rem;
-    justify-content: space-between;
+/* --- MOBILE SPECIFIC FIX --- */
+@media (max-width: 1300px) {
+  /* Bring buttons inside so they don't go off-screen */
+  .nav-btn.prev { left: 10px; }
+  .nav-btn.next { right: 10px; }
+  
+  .scs-carousel-main-controls {
+    padding: 0 20px;
+  }
 }
 
-.scs-session-carousel .scs-team-matchup {
-    display: flex;
-    gap: .25rem;
-    align-items: center;
-    justify-content: space-between;
-}
+@media (max-width: 768px) {
+  .scs-carousel-item {
+    /* On mobile, we go back to a percentage so it fits the screen */
+    width: 280px; 
+  }
+  
+  .scs-carousel-heading {
+    font-size: 2rem;
+  }
 
-.scs-session-carousel .scs-vs,
-.scs-session-carousel .scs-team-name,
-.scs-session-carousel .scs-match-time {
-    font-family: 'mls-tifo-standard-cz9zex';
-    font-weight: 400;
-    font-size: .825rem;
-    line-height: .725rem;
-}
-
-/* Mobile Adjustments */
-@media (max-width: 1024px) {
-    .scs-carousel-item {
-        min-width: calc(50% - 1rem); /* Show 2 items */
-    }
-    .scs-carousel-track {
-        /* Update the style in JS or handle transform via window size */
-    }
-}
-
-@media (max-width: 600px) {
-    .scs-carousel-item {
-        min-width: 100%; /* Show 1 item */
-    }
+  .nav-btn {
+    width: 40px;
+    height: 40px;
+  }
 }

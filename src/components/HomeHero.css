@@ -1,0 +1,108 @@
+.bc-hero-wrapper {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background-image: url('https://images.squarespace-cdn.com/content/v1/69c2ef358a34ab18fd392d39/ccbb18f7-5997-4714-81c4-ce65471f4e42/26-Logo-BG-16x9.jpg?format=2500w');
+  background-size: cover;
+  background-position: center;
+}
+
+.bc-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.squarespace-cdn.com/content/v1/69c2ef358a34ab18fd392d39/eb81d210-5abc-4c52-b4c8-f6499972ccfe/Untitled+%282%29.gif?format=2500w');
+  background-size: cover;
+  z-index: 1;
+  mix-blend-mode: overlay;
+  opacity: .55;
+  pointer-events: none;
+}
+
+.hero-track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 10vw;
+  white-space: nowrap;
+  z-index: 10;
+}
+@media (min-width: 768px) { .hero-track { padding-left: 5vw; } }
+
+/* Typography */
+.bc-hero-title {
+  font-family: 'mls-tifo-headline-b8wssb', sans-serif;
+  font-size: clamp(8rem, 15vw, 16rem);
+  line-height: 0.9;
+  text-transform: uppercase;
+  display: grid;
+}
+@media (min-width: 1024px) { .bc-hero-title { display: flex; gap: 1rem; } }
+
+.supportingText {
+  position: absolute;
+  top: 20%;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  font-size: 16px;
+  font-style: italic;
+  font-family: 'dharma-gothic-m-gvf2i7', sans-serif;
+}
+
+.bc-hr {
+  width: 300px;
+  border: none;
+  border-top: 3px solid #fff;
+  margin: 0 4rem;
+}
+
+/* Soccer Ball Animation */
+.bc-soccer-ball-animation {
+  height: 80vh;
+  aspect-ratio: 1/1;
+  border: 5px solid #fff;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bc-soccer-ball-animation .material-symbols-outlined {
+  font-size: 40vh;
+  color: #fff;
+}
+
+/* Flipper */
+.bc-dynamic-soccer h3 {
+  font-family: 'dharma-gothic-m-gvf2i7', sans-serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  color: #fff;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+}
+
+.flipping-soccer-wrapper {
+  position: relative;
+  display: inline-block;
+  height: 1.2em;
+  margin-left: 20px;
+  min-width: 200px;
+}
+
+.flipping-soccer {
+  position: absolute;
+  left: 0;
+  background-color: #e31837;
+  color: #fff;
+  padding: 0.2rem 1.5rem;
+  border-radius: 50px;
+  opacity: 0;
+  white-space: nowrap;
+}
+
+.text-indigo { color: #0c2340; }
+.text-white { color: #ffffff; }

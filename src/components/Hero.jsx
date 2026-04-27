@@ -190,7 +190,7 @@ export default function Hero() {
   }, []);
   return (
     <section className="bc-custom-home-hero" id="scs-hero-root" ref={sectionRef}>
-      <div className="bc-hero-overlay"></div>
+      {/* <div className="bc-hero-overlay"></div> */}
 
       <div className="marquee-wrapper">
         <div className="marquee-track" ref={trackRef}>
