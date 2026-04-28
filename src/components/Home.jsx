@@ -182,9 +182,9 @@ export default function Home() {
               <span className="scs-home-indigo">Our City.</span>
             </h1>
             <div className='scs-home-supportingText'>
-              <span className="text-white">sporting KC presents</span>
-              <span className="text-white">soccer capital summer</span>
-              <span className="text-white">kansas city</span>
+              <span>sporting KC presents</span>
+              <span>soccer capital summer</span>
+              <span>kansas city</span>
             </div>
           </div>
           <div className='scs-home-ball-animation'>

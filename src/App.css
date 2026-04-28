@@ -16,7 +16,7 @@
 body {
   margin: 0;
   background-color: var(--scs-off-white);
-  color: var(--scs-indigo);
+  color: #0c2340;
   font-family: sans-serif; /* Squarespace will override this later */
 }
 

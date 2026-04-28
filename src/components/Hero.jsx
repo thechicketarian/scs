@@ -202,9 +202,9 @@ export default function Hero() {
               <span className="text-indigo">Our City.</span>
             </h1>
             <div className='supportingText'>
-              <span className="text-white ">sporting KC presents</span>
-              <span className="text-white">soccer capital summer</span>
-              <span className="text-white">kansas city</span>
+              <span>sporting KC presents</span>
+              <span>soccer capital summer</span>
+              <span>kansas city</span>
 
             </div>
           </div>

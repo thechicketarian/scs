@@ -21,6 +21,10 @@ h6 {
     text-transform: uppercase;
 }
 
+.scs-date-text {
+color: #0c2340;
+}
+
 .scs-day-date-wrapper {
     width: 100%;
     display: flex;
