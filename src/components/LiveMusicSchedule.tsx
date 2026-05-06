@@ -196,11 +196,11 @@ export default function LiveMusicSchedule({ layout = "default" }) {
 
         </div>
         <div className="scs-breadcrumbs-bottom-nav">
-          <a className="scs-breadcrumbs-item" href="https://www.soccercapitalsummer.com/schedule" target="_blank"><span className="material-symbols-outlined">
+          <a className="scs-breadcrumbs-item" href="https://www.soccercapitalsummer.com/schedule"><span className="material-symbols-outlined">
             arrow_back
           </span>match schedule</a>
           
-          <a className="scs-breadcrumbs-item" href="https://www.soccercapitalsummer.com/experience" target="_blank">experiences <span className="material-symbols-outlined">
+          <a className="scs-breadcrumbs-item" href="https://www.soccercapitalsummer.com/experience">experiences <span className="material-symbols-outlined">
             arrow_forward
           </span></a>
         </div>
