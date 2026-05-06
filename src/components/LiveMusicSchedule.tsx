@@ -94,16 +94,18 @@ export default function LiveMusicSchedule({ layout = "default" }) {
   return (
     <div className={`scs-music-wrapper`}>
       <div className="scs-music-page">
+
         <div className="scs-music-nav">
           <div className="scs-headliner-date">Lineup</div>
           <button className="scs-music-cta scs-card-button"
             onClick={() => (window as any).GMWidget?.open("SoccerCapitalSummer")}
           >find ticket <span className="material-symbols-outlined">
-            confirmation_number
-          </span></button>
+              confirmation_number
+            </span></button>
           <div className="scs-headliner-date">2026</div>
         </div>
         <h1 className="scs-music-page-title">Sounds of the summer</h1>
+
         {/* HEADLINERS */}
         <div className="scs-headliners">
           {headliners.map((m, i) => (
@@ -114,10 +116,10 @@ export default function LiveMusicSchedule({ layout = "default" }) {
               onClick={() => setActiveArtist(m)}
             >
               {m.order === "1" ?
-                <div className="scs-headliner-spacer artist-img">
-                  <img src="https://placebear.com/200/400" alt="placeholder-bear" />
-                </div> :
-                null}
+                <div className="scs-headliner-spacer"></div>
+                :
+                null
+              }
               <div className="scs-headliner-info">
                 <div className="scs-headliner-date">{m.dateRange}</div>
                 <div className="scs-headliner-name">{m.artist}</div>
@@ -126,7 +128,7 @@ export default function LiveMusicSchedule({ layout = "default" }) {
                   className="scs-artist-modal"
 
                 >
-                  <span>learn more</span>
+                  <span>about</span>
                   <span className="material-symbols-outlined">
                     arrow_outward
                   </span>
@@ -145,7 +147,7 @@ export default function LiveMusicSchedule({ layout = "default" }) {
           {rest.map((m, i) => (
             <React.Fragment key={i}>
               {spacerMap[i] === "generic" && <StarSpacer />}
-               {spacerMap[i] === "third" && <ThirdSpacer />}
+              {spacerMap[i] === "third" && <ThirdSpacer />}
               <button className={`scs-music-item scs-card-button scs-music-${m.artist} ${m.image ? "has-image" : "no-image"
                 }`}
                 type="button"
@@ -156,11 +158,9 @@ export default function LiveMusicSchedule({ layout = "default" }) {
                   <div className="scs-music-date">{m.dateRange}</div>
                   <div className="scs-music-artist">{m.artist}</div>
                   <div
-
                     className="scs-artist-modal"
-
                   >
-                    <span>learn more</span>
+                    <span>about</span>
                     <span className="material-symbols-outlined">
                       arrow_outward
                     </span>
@@ -172,13 +172,17 @@ export default function LiveMusicSchedule({ layout = "default" }) {
                   </div>
                 )}
               </button>
-               
+
               {spacerMap[i] === "ticket" && <TicketPush />}
             </React.Fragment>
           ))}
 
         </div>
+                              <div className="scs-music-waves">
+   <img src="/icons/sounds-background.png" />
+</div>
       </div>
+
       {/* DRAWER */}
       {activeArtist && (
         <ArtistDrawer artist={activeArtist} onClose={() => setActiveArtist(null)} />
@@ -192,32 +196,53 @@ function TicketPush() {
     <button className="scs-spacer scs-card-button ticket-spacer"
       onClick={() => (window as any).GMWidget?.open("SoccerCapitalSummer")}
     >
-      <div> <img src="https://scs-ochre.vercel.app/icons/26-SCS-SoccerBall.svg" width={100}/></div>
       <div className="scs-music-date">find tickets</div>
-      <img src="https://scs-ochre.vercel.app/icons/net.png" alt="" className="" />
+      <div className="scs-music-goal-ball">
+       <div className="scs-music-ball">
+         <img  src="https://scs-ochre.vercel.app/icons/26-SCS-SoccerBall.svg" />
+       </div>
+        <div className="scs-music-goal">
+          <img  src="https://scs-ochre.vercel.app/icons/net.png" alt=""/>
+        </div>
+      </div>
     </button>
   );
+}
+
+function FireworkSpacer() {
+  return <div className="scs-spacer star-spacer">
+
+    <div>
+      <img src="https://scs-ochre.vercel.app/icons/SCS-BlueStar.svg" alt="blue-star-svg" />
+    </div>
+    <div>
+      <img src="https://scs-ochre.vercel.app/icons/SCS-BlueStar.svg" alt="blue-star-svg" />
+    </div>
+    <div>
+      <img src="https://scs-ochre.vercel.app/icons/SCS-BlueStar.svg" alt="blue-star-svg" />
+    </div>
+
+  </div>;
 }
 
 function StarSpacer() {
   return <div className="scs-spacer star-spacer">
 
     <div>
-       <img src="https://scs-ochre.vercel.app/icons/SCS-BlueStar.svg"alt="blue-star-svg" />
+      <img src="https://scs-ochre.vercel.app/icons/26-SCS-Shuttlecock.svg" alt="blue-star-svg" />
     </div>
-   <div>
-     <img src="https://scs-ochre.vercel.app/icons/SCS-BlueStar.svg" alt="blue-star-svg" />
-   </div>
-   <div>
-     <img src="https://scs-ochre.vercel.app/icons/SCS-BlueStar.svg" alt="blue-star-svg" />
-   </div>
-   
+    <div>
+      <img src="https://scs-ochre.vercel.app/icons/SCS-BlueStar.svg" alt="blue-star-svg" />
+    </div>
+    <div>
+      <img src="https://scs-ochre.vercel.app/icons/SCS-BlueStar.svg" alt="blue-star-svg" />
+    </div>
+
   </div>;
 }
 
 function ThirdSpacer() {
   return <div className="scs-spacer third-spacer">
-   <img src="https://scs-ochre.vercel.app/icons/" />
   </div>;
 }
 
@@ -240,46 +265,46 @@ function ArtistDrawer({ artist, onClose }: ArtistDrawerProps) {
         </div>
         <div className="scs-drawer" onClick={(e) => e.stopPropagation()}>
           <button className="scs-drawer-close" onClick={onClose}>×</button>
- <div className="scs-drawer-date">{artist.dateRange}</div>
+          <div className="scs-drawer-date">{artist.dateRange}</div>
           <h4 className="scs-drawer-title">{artist.artist}</h4>
-         <hr/>
+          <hr />
           {artist.bio && <p className="scs-drawer-bio">{artist.bio}</p>}
           {/* <h5 className="scs-drawer-links-title">Stay connected</h5> */}
           <div className="scs-drawer-links">
             {artist.website && <a className="scs-drawer-website-group" href={artist.website} target="_blank">
-               <span className="material-symbols-outlined">
-             computer
-            </span>
-            {/* <span>website</span> */}
+              <span className="material-symbols-outlined">
+                computer
+              </span>
+              {/* <span>website</span> */}
             </a>}
             {artist.ig && <a href={artist.ig} target="_blank">
-              <img  className="scs-drawer-social-icon" src="https://scs-ochre.vercel.app/icons/Instagram_Glyph_Gradient.jpg"/>
-              </a>
-              }
-              {artist.tiktok && <a href={artist.tiktok} target="_blank">
-              <img  className="scs-drawer-social-icon" src="https://scs-ochre.vercel.app/icons/tiktok.png"/>
-              </a>
-              }
-              {artist.x && <a href={artist.x} target="_blank">
-              <img  className="scs-drawer-social-icon" src="https://scs-ochre.vercel.app/icons/x.png"/>
-              </a>
-              }
-                            {artist.facebook && <a href={artist.facebook} target="_blank">
-              <img  className="scs-drawer-social-icon" src="https://scs-ochre.vercel.app/icons/Facebook_Logo_Primary.png"/>
-              </a>
-              }
+              <img className="scs-drawer-social-icon" src="https://scs-ochre.vercel.app/icons/Instagram_Glyph_Gradient.jpg" />
+            </a>
+            }
+            {artist.tiktok && <a href={artist.tiktok} target="_blank">
+              <img className="scs-drawer-social-icon" src="https://scs-ochre.vercel.app/icons/tiktok.png" />
+            </a>
+            }
+            {artist.x && <a href={artist.x} target="_blank">
+              <img className="scs-drawer-social-icon" src="https://scs-ochre.vercel.app/icons/x.png" />
+            </a>
+            }
+            {artist.facebook && <a href={artist.facebook} target="_blank">
+              <img className="scs-drawer-social-icon" src="https://scs-ochre.vercel.app/icons/Facebook_Logo_Primary.png" />
+            </a>
+            }
 
             {artist.youtube && <a href={artist.youtube} target="_blank">
-               <img  className="scs-drawer-social-icon" src="https://scs-ochre.vercel.app/icons/youtube-icon.svg"/>
-              </a>}
-                          {artist.twitch && <a href={artist.twitch} target="_blank">
-               <img  className="scs-drawer-social-icon" src="https://scs-ochre.vercel.app/icons/glitch_flat_purple.svg"/>
-              </a>}
-            {artist.spotify && <a href={artist.soundcloud} target="_blank">
-              <img  className="scs-drawer-social-icon" src="https://scs-ochre.vercel.app/icons/soundcloud.png"/>
+              <img className="scs-drawer-social-icon" src="https://scs-ochre.vercel.app/icons/youtube-icon.svg" />
             </a>}
-                        {artist.appleMusic && <a href={artist.appleMusic} target="_blank">
-              <img  className="scs-drawer-social-icon" src="https://scs-ochre.vercel.app/icons/apple-music.svg"/>
+            {artist.twitch && <a href={artist.twitch} target="_blank">
+              <img className="scs-drawer-social-icon" src="https://scs-ochre.vercel.app/icons/glitch_flat_purple.svg" />
+            </a>}
+            {artist.spotify && <a href={artist.soundcloud} target="_blank">
+              <img className="scs-drawer-social-icon" src="https://scs-ochre.vercel.app/icons/soundcloud.png" />
+            </a>}
+            {artist.appleMusic && <a href={artist.appleMusic} target="_blank">
+              <img className="scs-drawer-social-icon" src="https://scs-ochre.vercel.app/icons/apple-music.svg" />
             </a>}
           </div>
         </div>

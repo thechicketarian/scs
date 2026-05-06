@@ -5,15 +5,16 @@
 .scs-artist-modal {
     font-family: 'mls-tifo-standard-cz9zex';
     font-size: 14px;
+    line-height: 14px;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: .25rem;
     background-color: transparent !important;
     border: none !important;
 }
 
 .scs-artist-modal .material-symbols-outlined {
-   font-size: 20px!important;
+   font-size: 15px!important;
 }
 
 .scs-drawer-overlay {
@@ -132,8 +133,8 @@ gap: 1rem;
    ================================ */
 @media (min-width: 768px) {
     .scs-content-wrapper {
-        justify-content: flex-end;
-        align-items: stretch;
+          align-items: center;
+    justify-content: flex-end;
     }
 
     .scs-drawer {
@@ -153,7 +154,7 @@ gap: 1rem;
         padding: 4rem;
 
         >img {
-            border: 1px solid red;
+            border: 1px solid #EF3943;
             padding: 1rem;
             width: 100%;
         }
