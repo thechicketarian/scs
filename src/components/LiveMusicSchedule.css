@@ -134,22 +134,20 @@
 .scs-headliner-1 .scs-headliner-spacer {
     height: 70px;
     width: 100%;
-border-bottom: 1px solid #0c2340;
-  position: relative;
-  overflow: hidden; 
+    border-bottom: 1px solid #0c2340;
+    position: relative;
+    overflow: hidden;
 }
 
 .scs-headliner-1 .scs-headliner-spacer::before {
-  content: "";
-  position: absolute;
-  inset: -150%; /* give room for rotation */
-  background-image: url("https://scs-ochre.vercel.app/icons/SCS-RedStar.svg");
-  background-size: 60px;
-  background-repeat: repeat;
-  background-position: center;
-  mix-blend-mode: multiply;
-
-  transform: rotate(-15deg);
+    content: "";
+    position: absolute;
+    inset: -35%;
+    background-image: url("/icons/26-SCS-RedStripes.svg");
+    background-size: cover;
+    background-position: center;
+    mix-blend-mode: multiply;
+    background-repeat: no-repeat;
 }
 
 
@@ -194,7 +192,7 @@ border-bottom: 1px solid #0c2340;
     flex-wrap: wrap;
     justify-content: center;
     gap: .25rem;
-    padding: 1rem 1rem 0;
+    padding: .25rem 1rem 0;
 }
 
 .scs-music-item {
@@ -234,7 +232,7 @@ border-bottom: 1px solid #0c2340;
 }
 
 .star-spacer {
-    width: 30px;
+    width: 35px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -247,7 +245,7 @@ border-bottom: 1px solid #0c2340;
 }
 
 .shuttle-spacer {
-    width: 50px;
+    width: 35px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -257,24 +255,86 @@ border-bottom: 1px solid #0c2340;
     >img {
         width: 100%;
     }
+
     >div:nth-child(2) {
-       
+
         transform: scaleX(-1)
     }
-        /* >div:nth-child(3) {
+
+    /* >div:nth-child(3) {
         transform: rotate(-25deg);
     } */
 }
 
+.firework-spacer {
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    gap: 1rem;
+
+    background-image: linear-gradient(#ab322c50 0.6000000000000001px, transparent 0.6000000000000001px), linear-gradient(to right, #ab322c50 0.6000000000000001px, #fafafa00 0.6000000000000001px);
+    background-size: 12px 12px;
+
+    >img {
+        width: 100%;
+    }
+
+    >div:nth-child(2) {
+        border: 2px solid #A7C6ED;
+        padding: 1rem;
+        border-radius: 50%;
+
+    }
+
+    /* >div:nth-child(3) {
+        transform: rotate(-25deg);
+    } */
+}
+
+.scs-kc-title {
+    font-family: 'folkies-vantage-script-r5ps4q' !important;
+    color: #AB322C;
+    font-size: 20px;
+    line-height: 20px;
+}
+
+.skc-area-code {
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: 15%;
+}
 
 .third-spacer {
-    width: 120px;
-    padding: 1rem;
+    width: 80px;
     z-index: 1;
-    background-image: url("/icons/26-SCS-RedStripes.svg");
-    background-size: 500%;
-    background-position: center;
-    mix-blend-mode: multiply;
+    background-color: #fafafa00;
+    opacity: 1;
+    background-image: linear-gradient(#0c2340 0.7000000000000001px, transparent 0.7000000000000001px), linear-gradient(to right, #0c2340 0.7000000000000001px, #fafafa00 0.7000000000000001px);
+    background-size: 14px 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+
+    >div {
+        width: 50px;
+        height: 50px;
+        background: #fafafa;
+        padding: 1rem;
+        border: 1px solid #0c2340;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        >img {
+            width: 100%;
+        }
+    }
 }
 
 .scs-music-waves {
@@ -282,7 +342,8 @@ border-bottom: 1px solid #0c2340;
     z-index: -1;
     top: 2%;
     mix-blend-mode: multiply;
-    >img{
+
+    >img {
         width: 100%;
     }
 }
@@ -298,17 +359,21 @@ border-bottom: 1px solid #0c2340;
 }
 
 .scs-music-goal-ball {
-position: relative;
->div {
+    position: relative;
+
+    >div {
         >img {
-        width: 100%;
+            width: 100%;
+        }
     }
 }
+
+.scs-music-goal {
+    display: flex;
 }
 
-.scs-music-goal {display: flex;}
 .scs-music-ball {
-        position: absolute;
+    position: absolute;
     right: 50px;
     top: 25%;
     z-index: 2;
@@ -317,8 +382,13 @@ position: relative;
 }
 
 @keyframes scsBallSpin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 @media (min-width: 768px) {
@@ -386,6 +456,7 @@ position: relative;
     .scs-headliners {
         padding: 0 2rem;
     }
+
     .scs-music-page-title {
         font-size: 10rem;
         line-height: 9rem;
@@ -398,9 +469,9 @@ position: relative;
     }
 
     .artist-img {
-    border-top: none;
-    border-left: 1px solid #0c2340;
-}
+        border-top: none;
+        border-left: 1px solid #0c2340;
+    }
 
     .scs-headliner-1 {
         height: 400px;
@@ -423,7 +494,7 @@ position: relative;
     }
 
     .scs-headliner-1 .scs-headliner-spacer {
-        width: 12%;
+        width: 20%;
         height: 100%;
         border-bottom: none;
         border-right: 1px solid #0c2340;

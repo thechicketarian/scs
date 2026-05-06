@@ -84,11 +84,15 @@ export default function LiveMusicSchedule({ layout = "default" }) {
   const rest = sorted.filter(a => Number(a.order) > 3 || !a.order);
 
   const spacerMap: Record<number, "ticket" | "generic" | "third" | "shuttle" | "firework"> = {
-    1: "generic",
+    0: "generic",
+    // 1: "shuttle",
+    // 2: "generic",
     3: "ticket",
-    4: "firework",
-    7: "shuttle",
-    9: "third"
+    // 4: "generic",
+    // 5: "generic",
+    // 7: "firework",
+    // 7: "shuttle",
+    8: "firework"
   };
 
   return (
@@ -148,8 +152,6 @@ export default function LiveMusicSchedule({ layout = "default" }) {
             <React.Fragment key={i}>
               {spacerMap[i] === "generic" && <StarSpacer />}
               {spacerMap[i] === "third" && <ThirdSpacer />}
-                {spacerMap[i] === "shuttle" && <ShuttleSpacer />}
-                          {spacerMap[i] === "firework" && <FireworkSpacer />}
               <button className={`scs-music-item scs-card-button scs-music-${m.artist} ${m.image ? "has-image" : "no-image"
                 }`}
                 type="button"
@@ -174,15 +176,16 @@ export default function LiveMusicSchedule({ layout = "default" }) {
                   </div>
                 )}
               </button>
-          
+               {spacerMap[i] === "firework" && <FireworkSpacer />}
+{spacerMap[i] === "shuttle" && <ShuttleSpacer />}
               {spacerMap[i] === "ticket" && <TicketPush />}
             </React.Fragment>
           ))}
 
         </div>
-        <div className="scs-music-waves">
+        {/* <div className="scs-music-waves">
           <img src="/icons/sounds-background.png" />
-        </div>
+        </div> */}
       </div>
 
       {/* DRAWER */}
@@ -228,16 +231,16 @@ function ShuttleSpacer() {
 }
 
 function FireworkSpacer() {
-  return <div className="scs-spacer shuttle-spacer">
+  return <div className="scs-spacer firework-spacer">
 
     <div>
-      <img src="https://scs-ochre.vercel.app/icons/26-SCS-SportingBlueFirework.svg" alt="blue-star-svg" />
+      <h6 className="skc-area-code">816</h6>
+    </div>
+    <div >
+     <h6 className="scs-kc-title">kc</h6>
     </div>
     <div>
-      <img src="https://scs-ochre.vercel.app/icons/26-SCS-DarkIndigoFirework.svg" alt="blue-star-svg" />
-    </div>
-    <div>
-      <img src="https://scs-ochre.vercel.app/icons/26-SCS-SportingBlueFirework.svg" alt="blue-star-svg" />
+   <h6 className="skc-area-code">913</h6>
     </div>
 
   </div>;
@@ -249,7 +252,7 @@ function StarSpacer() {
       <img src="https://scs-ochre.vercel.app/icons/SCS-BlueStar.svg" alt="blue-star-svg" />
     </div>
     <div>
-      <img src="https://scs-ochre.vercel.app/icons/SCS-BlueStar.svg" alt="blue-star-svg" />
+      <img src="https://scs-ochre.vercel.app/icons/SCS-RedStar.svg" alt="blue-star-svg" />
     </div>
     <div>
       <img src="https://scs-ochre.vercel.app/icons/SCS-BlueStar.svg" alt="blue-star-svg" />
@@ -260,6 +263,9 @@ function StarSpacer() {
 
 function ThirdSpacer() {
   return <div className="scs-spacer third-spacer">
+     <div>
+      <img src="https://scs-ochre.vercel.app/icons/26-SCS-Shuttlecock.svg" alt="blue-star-svg" />
+    </div>
   </div>;
 }
 
