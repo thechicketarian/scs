@@ -2,18 +2,22 @@
 .scs-layout-list {
     display: grid;
     grid-template-columns: 1fr;
+    gap: .25rem;
+        padding: 2rem;
+        
 }
 
 /* --- DAY BLOCK --- */
 .scs-layout-list .scs-day-block {
     display: grid;
     gap: 1rem;
-    padding: 2rem;
+    padding: 1.5rem;
+    border: 1px solid #0c2340;
 }
 
-.scs-layout-list .scs-day-block:nth-child(even) {
+/* .scs-layout-list .scs-day-block:nth-child(even) {
     background-color: #fff;
-}
+} */
 
 /* --- THEME HEADER --- */
 

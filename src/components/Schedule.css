@@ -21,6 +21,13 @@ h6 {
     text-transform: uppercase;
 }
 
+.scs-layout-list {
+        inset: 0;
+    background-image: url("https://scs-ochre.vercel.app/textures/riso_texture.jpg");
+    background-size: 130%;
+    background-repeat: repeat;
+}
+
 .scs-date-text {
 color: #0c2340;
 }
@@ -76,7 +83,9 @@ color: #0c2340;
 }
 
 .scs-flag {
+    display: flex;
     max-width: 100px;
+    border: 1px solid #0c2340;
 }
 
 .scs-flag img {

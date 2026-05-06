@@ -4,6 +4,7 @@
     /* your page color */
     z-index: 1;
     /* create stacking context */
+   padding-bottom: 4rem;
 }
 
 .scs-music-wrapper::after {
@@ -14,9 +15,7 @@
     background-size: 130%;
     background-repeat: repeat;
     z-index: -5;
-    /* sit behind content */
     pointer-events: none;
-    /* so it doesn’t block clicks */
 }
 
 .scs-card-button {
@@ -161,6 +160,7 @@
     width: 100%;
 
     >img {
+        object-position: center!important;
         height: 350px;
     }
 }
@@ -340,16 +340,6 @@
     }
 }
 
-.scs-music-waves {
-    position: absolute;
-    z-index: -1;
-    top: 2%;
-    mix-blend-mode: multiply;
-
-    >img {
-        width: 100%;
-    }
-}
 
 .ticket-spacer {
     width: 250px;
@@ -485,7 +475,7 @@ grid-area: 2 / 3 / 3 / 4;
     }
 
     .scs-headliner-1 {
-        height: 450px;
+        height: 400px;
     }
 
     .scs-headliner-name {

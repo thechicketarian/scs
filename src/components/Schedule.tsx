@@ -121,6 +121,15 @@ export default function Schedule({
           </div>
         );
       })}
+          <div className="scs-breadcrumbs-bottom-nav">
+          <a className="scs-breadcrumbs-item" href="https://www.soccercapitalsummer.com/tickets" target="_blank"><span className="material-symbols-outlined">
+            arrow_back
+          </span>Find Tickets</a>
+          
+          <a className="scs-breadcrumbs-item" href="https://www.soccercapitalsummer.com/experience" target="_blank">Live Music<span className="material-symbols-outlined">
+            arrow_forward
+          </span></a>
+        </div>
     </div>
   );
 }
@@ -204,5 +213,6 @@ function renderSession(
         ))}
       </div>
     </div>
+    
   );
 }

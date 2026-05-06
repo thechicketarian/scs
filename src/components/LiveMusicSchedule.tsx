@@ -71,24 +71,24 @@ export default function LiveMusicSchedule({ layout = "default" }) {
   // Sort:
   // 1. Headliners by order (1,2,3)
   // 2. Everyone else by earliest date
-const sorted = artists.sort((a, b) => {
-  const aOrder = a.order ? Number(a.order) : Infinity;
-  const bOrder = b.order ? Number(b.order) : Infinity;
+  const sorted = artists.sort((a, b) => {
+    const aOrder = a.order ? Number(a.order) : Infinity;
+    const bOrder = b.order ? Number(b.order) : Infinity;
 
-  // Treat 1–4 as headliners
-  const aIsHeadliner = aOrder >= 1 && aOrder <= 4;
-  const bIsHeadliner = bOrder >= 1 && bOrder <= 4;
+    // Treat 1–4 as headliners
+    const aIsHeadliner = aOrder >= 1 && aOrder <= 4;
+    const bIsHeadliner = bOrder >= 1 && bOrder <= 4;
 
-  // Headliners always come first
-  if (aIsHeadliner && !bIsHeadliner) return -1;
-  if (!aIsHeadliner && bIsHeadliner) return 1;
+    // Headliners always come first
+    if (aIsHeadliner && !bIsHeadliner) return -1;
+    if (!aIsHeadliner && bIsHeadliner) return 1;
 
-  // If both are headliners, sort by order
-  if (aIsHeadliner && bIsHeadliner) return aOrder - bOrder;
+    // If both are headliners, sort by order
+    if (aIsHeadliner && bIsHeadliner) return aOrder - bOrder;
 
-  // Otherwise sort by earliest date
-  return a.firstDate.localeCompare(b.firstDate);
-});
+    // Otherwise sort by earliest date
+    return a.firstDate.localeCompare(b.firstDate);
+  });
 
 
   // Split into two groups
@@ -115,7 +115,7 @@ const sorted = artists.sort((a, b) => {
           <div className="scs-headliner-date">Lineup</div>
           <button className="scs-music-cta scs-card-button"
             onClick={() => (window as any).GMWidget?.open("SoccerCapitalSummer")}
-          >find ticket <span className="material-symbols-outlined">
+          >find tickets <span className="material-symbols-outlined">
               confirmation_number
             </span></button>
           <div className="scs-headliner-date">2026</div>
@@ -188,16 +188,22 @@ const sorted = artists.sort((a, b) => {
                   </div>
                 )}
               </button>
-               {spacerMap[i] === "firework" && <FireworkSpacer />}
-{spacerMap[i] === "shuttle" && <ShuttleSpacer />}
+              {spacerMap[i] === "firework" && <FireworkSpacer />}
+              {spacerMap[i] === "shuttle" && <ShuttleSpacer />}
               {spacerMap[i] === "ticket" && <TicketPush />}
             </React.Fragment>
           ))}
 
         </div>
-        {/* <div className="scs-music-waves">
-          <img src="/icons/sounds-background.png" />
-        </div> */}
+        <div className="scs-breadcrumbs-bottom-nav">
+          <a className="scs-breadcrumbs-item" href="https://www.soccercapitalsummer.com/schedule" target="_blank"><span className="material-symbols-outlined">
+            arrow_back
+          </span>match schedule</a>
+          
+          <a className="scs-breadcrumbs-item" href="https://www.soccercapitalsummer.com/experience" target="_blank">experiences <span className="material-symbols-outlined">
+            arrow_forward
+          </span></a>
+        </div>
       </div>
 
       {/* DRAWER */}
@@ -249,10 +255,10 @@ function FireworkSpacer() {
       <h6 className="skc-area-code">816</h6>
     </div>
     <div >
-     <h6 className="scs-kc-title">kc</h6>
+      <h6 className="scs-kc-title">kc</h6>
     </div>
     <div>
-   <h6 className="skc-area-code">913</h6>
+      <h6 className="skc-area-code">913</h6>
     </div>
 
   </div>;
@@ -275,7 +281,7 @@ function StarSpacer() {
 
 function ThirdSpacer() {
   return <div className="scs-spacer third-spacer">
-     <div>
+    <div>
       <img src="https://scs-ochre.vercel.app/icons/26-SCS-Shuttlecock.svg" alt="blue-star-svg" />
     </div>
   </div>;
