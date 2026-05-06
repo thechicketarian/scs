@@ -192,6 +192,7 @@ function TicketPush() {
     <button className="scs-spacer scs-card-button ticket-spacer"
       onClick={() => (window as any).GMWidget?.open("SoccerCapitalSummer")}
     >
+      <div> <img src="https://scs-ochre.vercel.app/icons/26-SCS-SoccerBall.svg" width={100}/></div>
       <div className="scs-music-date">find tickets</div>
       <img src="https://scs-ochre.vercel.app/icons/net.png" alt="" className="" />
     </button>
