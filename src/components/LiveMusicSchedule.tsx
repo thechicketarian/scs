@@ -71,17 +71,29 @@ export default function LiveMusicSchedule({ layout = "default" }) {
   // Sort:
   // 1. Headliners by order (1,2,3)
   // 2. Everyone else by earliest date
-  const sorted = artists.sort((a, b) => {
-    const aOrder = a.order ? Number(a.order) : Infinity;
-    const bOrder = b.order ? Number(b.order) : Infinity;
+const sorted = artists.sort((a, b) => {
+  const aOrder = a.order ? Number(a.order) : Infinity;
+  const bOrder = b.order ? Number(b.order) : Infinity;
 
-    if (aOrder !== bOrder) return aOrder - bOrder;
-    return a.firstDate.localeCompare(b.firstDate);
-  });
+  // Treat 1–4 as headliners
+  const aIsHeadliner = aOrder >= 1 && aOrder <= 4;
+  const bIsHeadliner = bOrder >= 1 && bOrder <= 4;
+
+  // Headliners always come first
+  if (aIsHeadliner && !bIsHeadliner) return -1;
+  if (!aIsHeadliner && bIsHeadliner) return 1;
+
+  // If both are headliners, sort by order
+  if (aIsHeadliner && bIsHeadliner) return aOrder - bOrder;
+
+  // Otherwise sort by earliest date
+  return a.firstDate.localeCompare(b.firstDate);
+});
+
 
   // Split into two groups
-  const headliners = sorted.filter(a => Number(a.order) >= 1 && Number(a.order) <= 3);
-  const rest = sorted.filter(a => Number(a.order) > 3 || !a.order);
+  const headliners = sorted.filter(a => Number(a.order) >= 1 && Number(a.order) <= 4);
+  const rest = sorted.filter(a => Number(a.order) > 4 || !a.order);
 
   const spacerMap: Record<number, "ticket" | "generic" | "third" | "shuttle" | "firework"> = {
     0: "generic",

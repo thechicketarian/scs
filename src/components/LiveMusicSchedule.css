@@ -10,7 +10,6 @@
     content: "";
     position: absolute;
     inset: 0;
-    /* top:0; right:0; bottom:0; left:0 */
     background-image: url("https://scs-ochre.vercel.app/textures/riso_texture.jpg");
     background-size: 130%;
     background-repeat: repeat;
@@ -104,7 +103,9 @@
 }
 
 .scs-headliners {
-    display: grid;
+    display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
     gap: .25rem;
     padding: 0rem 1rem;
 }
@@ -152,9 +153,7 @@
 
 
 .scs-headliner-info {
-    text-align: center;
     padding: 1.5rem;
-
 }
 
 .scs-headliner-1 .scs-headliner-image {
@@ -169,14 +168,17 @@
 
 
 .scs-headliner-2,
-.scs-headliner-3 {
+.scs-headliner-3,
+.scs-headliner-4 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 30%;
 }
 
 .scs-headliner-2 .scs-headliner-image,
-.scs-headliner-3 .scs-headliner-image {
+.scs-headliner-3 .scs-headliner-image,
+.scs-headliner-4 .scs-headliner-image {
     height: 300px;
 }
 
@@ -185,6 +187,7 @@
     display: flex;
     width: 100%;
     object-fit: cover;
+    object-position: top;
 }
 
 .scs-music-lineup {
@@ -408,14 +411,18 @@
         width: 220px;
     }
 
+
+
     .scs-headliner-1 {
-        grid-area: 1 / 1 / 2 / 3;
+      grid-area: 1 / 1 / 2 / 4;
     }
 
 
     .scs-headliner-2 .scs-headliner-image,
-    .scs-headliner-3 .scs-headliner-image {
-        height: 250px;
+    .scs-headliner-3 .scs-headliner-image,
+    .scs-headliner-4 .scs-headliner-image {
+        /* height: 250px; */
+             border-top: 1px solid #0c2340
     }
 
     .scs-headliner-2 {
@@ -423,8 +430,12 @@
     }
 
     .scs-headliner-3 {
-        grid-area: 2 / 2 / 3 / 3;
+      grid-area: 2 / 2 / 3 / 3;
 
+    }
+
+    .scs-headliner-4 {
+grid-area: 2 / 3 / 3 / 4; 
     }
 
     .scs-music-item.has-image {
@@ -474,7 +485,7 @@
     }
 
     .scs-headliner-1 {
-        height: 400px;
+        height: 450px;
     }
 
     .scs-headliner-name {
@@ -494,7 +505,7 @@
     }
 
     .scs-headliner-1 .scs-headliner-spacer {
-        width: 20%;
+        width: 12%;
         height: 100%;
         border-bottom: none;
         border-right: 1px solid #0c2340;
@@ -510,8 +521,10 @@
     }
 
     .scs-headliner-2 .scs-headliner-image,
-    .scs-headliner-3 .scs-headliner-image {
-        height: 300px;
+    .scs-headliner-3 .scs-headliner-image,
+    .scs-headliner-4 .scs-headliner-image {
+        /* height: 300px; */
+        border-left:none;
     }
 
 
@@ -537,10 +550,6 @@
         flex-direction: row;
     }
 
-    .scs-headliner-2,
-    .scs-headliner-3 {
-        flex-direction: row;
-    }
 }
 
 @media (min-width: 1280px) {
