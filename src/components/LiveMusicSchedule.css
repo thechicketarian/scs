@@ -50,7 +50,7 @@
 }
 
 .scs-music-nav {
-    padding: 2rem 1rem 1rem;
+    padding: 2rem 2rem 1rem;
     text-align: center;
     display: grid;
     gap: 1rem;
@@ -106,7 +106,7 @@
 .scs-headliners {
     display: grid;
     gap: .25rem;
-    padding: 0rem 1rem;
+    padding: 0rem 2rem;
 }
 
 .scs-headliner-item {

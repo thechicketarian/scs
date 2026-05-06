@@ -96,7 +96,7 @@ export default function LiveMusicSchedule({ layout = "default" }) {
       <div className="scs-music-page">
         <div className="scs-music-nav">
           <div className="scs-headliner-date">Lineup</div>
-          <button className="scs-music-cta"
+          <button className="scs-music-cta scs-card-button"
             onClick={() => (window as any).GMWidget?.open("SoccerCapitalSummer")}
           >find ticket <span className="material-symbols-outlined">
             confirmation_number
