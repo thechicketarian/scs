@@ -1,0 +1,410 @@
+.scs-music-wrapper {
+    position: relative;
+    background-color: #fafafa;
+    /* your page color */
+    z-index: 0;
+    /* create stacking context */
+}
+
+.scs-music-wrapper::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* top:0; right:0; bottom:0; left:0 */
+    background-image: url("/textures/riso_texture.jpg");
+    background-size: 130%;
+
+    z-index: -1;
+    /* sit behind content */
+    pointer-events: none;
+    /* so it doesn’t block clicks */
+}
+
+.scs-card-button {
+    all: unset;
+    /* remove native button styles */
+    display: block;
+    /* preserve layout */
+    cursor: pointer;
+    width: 100%;
+}
+
+.scs-card-button:focus-visible {
+    outline: 3px solid #0c2340;
+    outline-offset: 4px;
+}
+
+
+/* .scs-music-page {
+    margin: 0 auto;
+    max-width: 1480px;
+} */
+
+.scs-music-page-title {
+    width: 280px;
+    margin: 0 auto !important;
+    padding: 1rem;
+    font-size: 6rem;
+    line-height: 5rem;
+    text-align: center;
+}
+
+.scs-music-nav {
+    padding: 2rem 1rem 1rem;
+    text-align: center;
+    display: grid;
+    gap: 1rem;
+}
+
+.scs-music-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #0c2340;
+    gap: .5rem;
+    padding: .5rem;
+    border-radius: 50px;
+    font-family: 'mls-tifo-headline-b8wssb', sans-serif;
+    text-transform: uppercase;
+    font-size: 1rem;
+    line-height: 1.25rem;
+}
+
+.scs-headliner-name,
+.scs-music-artist {
+    font-family: 'dharma-gothic-m-gvf2i7';
+    text-transform: uppercase;
+}
+
+
+
+.scs-headliner-1 .scs-headliner-name {
+    font-size: 4.5rem !important;
+    line-height: 4.5rem !important;
+}
+
+.scs-headliner-name {
+    font-size: 3.5rem !important;
+    line-height: 3.25rem !important;
+}
+
+.scs-music-artist {
+    font-size: 3rem;
+    line-height: 2.5rem;
+    text-wrap: nowrap;
+}
+
+.scs-music-date,
+.scs-headliner-date {
+    font-family: 'mls-tifo-headline-b8wssb', sans-serif;
+    text-transform: uppercase;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    letter-spacing: 5%;
+}
+
+.scs-headliners {
+    display: grid;
+    gap: .25rem;
+    padding: 0rem 1rem;
+}
+
+.scs-headliner-item {
+    border: 1px solid #0c2340;
+}
+
+.scs-headliner-image {
+    display: flex;
+}
+
+.scs-headliner-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 2.5rem;
+    gap: .5rem
+}
+
+.scs-headliner-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.scs-headliner-1 .scs-headliner-spacer {
+    width: 100%;
+    border-bottom: 1px solid #0c2340;
+
+    >img {
+        height: 60px;
+    }
+}
+
+.scs-headliner-info {
+    text-align: center;
+    padding: 1.5rem;
+
+}
+
+.scs-headliner-1 .scs-headliner-image {
+    border-bottom: 1px solid #0c2340;
+    width: 100%;
+
+    >img {
+        height: 350px;
+    }
+}
+
+
+
+.scs-headliner-2,
+.scs-headliner-3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.scs-headliner-2 .scs-headliner-image,
+.scs-headliner-3 .scs-headliner-image {
+    height: 300px;
+}
+
+
+.artist-img img {
+    display: flex;
+    width: 100%;
+    object-fit: cover;
+}
+
+.scs-music-lineup {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .25rem;
+    padding: 1rem 1rem;
+}
+
+.scs-music-item {
+    border: 1px solid #0c2340;
+    display: flex;
+    align-items: center;
+}
+
+.scs-music-artist-image {
+    border-top: 1px solid #0c2340;
+}
+
+.scs-music-item.has-image {
+    display: flex;
+    flex-direction: column;
+}
+
+.scs-music-artist-image img {
+    aspect-ratio: 1/1;
+}
+
+.scs-music-item.no-image {
+    display: flex;
+    justify-content: center;
+}
+
+.scs-music-item.no-image .scs-music-artist-image {
+    display: none;
+}
+
+.scs-music-info {
+    padding: 1rem;
+}
+
+.scs-spacer {
+    border: 1px solid #0c2340;
+}
+
+.star-spacer {
+     width:30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    gap: .5rem;
+
+        >img {
+            width: 100%;
+        }
+}
+
+.third-spacer {
+    width: 150px;
+    padding: 1rem;
+}
+
+.ticket-spacer {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding: 2rem 1rem 0;
+
+    >img {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    .scs-music-page-title {
+        width: 100%;
+        padding: 1rem 0;
+    }
+
+    .scs-music-nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .scs-music-cta {
+        width: 220px;
+    }
+
+    .scs-headliner-1 {
+        grid-area: 1 / 1 / 2 / 3;
+    }
+
+
+    .scs-headliner-2 .scs-headliner-image,
+    .scs-headliner-3 .scs-headliner-image {
+        height: 250px;
+    }
+
+    .scs-headliner-2 {
+        grid-area: 2 / 1 / 3 / 2;
+    }
+
+    .scs-headliner-3 {
+        grid-area: 2 / 2 / 3 / 3;
+
+    }
+
+    .scs-music-item.has-image {
+        display: flex;
+
+    }
+
+     .scs-music-item {
+       width: 300px;
+    } 
+.scs-music-artist-image img {
+    aspect-ratio: 16/9;
+}
+
+
+       .scs-music-info {
+        padding: 2rem 2rem;
+    }
+
+    .scs-music-artist-image {
+        /* width: 200px; */
+        /* border-left: 1px solid #0c2340; */
+        border-top: none;
+    }
+
+
+}
+
+@media (min-width: 1024px) {
+    .scs-music-page-title {
+        font-size: 10rem;
+        line-height: 9rem;
+        text-align: center;
+    }
+
+    .scs-headliner-1 .scs-headliner-name {
+        font-size: 6rem !important;
+        line-height: 5rem !important;
+    }
+
+    .scs-headliner-name {
+        font-size: 5rem !important;
+        line-height: 4rem !important;
+        text-wrap: nowrap;
+    }
+
+    .scs-headliner-info {
+        width: fit-content;
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .scs-headliner-1 {
+        flex-direction: row;
+    }
+
+    .scs-headliner-1 .scs-headliner-spacer {
+        width: 16%;
+        border-bottom: none;
+
+        >img {
+            height: 100%;
+        }
+    }
+
+    .scs-headliner-1 .scs-headliner-image {
+        width: 40%;
+        border-bottom: none;
+
+        >img {
+            height: 100%;
+        }
+    }
+
+    .scs-headliner-2 .scs-headliner-image,
+    .scs-headliner-3 .scs-headliner-image {
+        height: 300px;
+    }
+
+
+    .scs-music-artist {
+        font-size: 4rem;
+        line-height: 3.5rem;
+    }
+
+     .scs-music-item {
+       width: auto;
+    } 
+
+    .scs-music-artist-image {
+        width: 250px;
+    }
+.scs-music-artist-image img {
+    aspect-ratio: 1/1;
+}
+
+    .scs-music-item.has-image {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .scs-headliner-2,
+    .scs-headliner-3 {
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 1280px) {
+
+    /* .scs-headliner-2 .scs-headliner-info,
+    .scs-headliner-3 .scs-headliner-info {
+        text-wrap: nowrap;
+    } */
+    .scs-music-artist-image {
+        width: 300px;
+    }
+
+    .scs-headliner-1 .scs-headliner-image {
+        width: 50%;
+    }
+}

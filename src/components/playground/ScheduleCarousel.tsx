@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
-import { useSheetData } from '../useSheetData';
+import { useSheetData } from '../hooks/useSheetData';
 import './ScheduleCarousel.css';
 
 export default function ScheduleCarousel() {
