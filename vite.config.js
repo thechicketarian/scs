@@ -23,7 +23,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   build: {
-// cssCodeSplit: false,
+cssCodeSplit: false,
     rollupOptions: {
       output: {
         format: 'iife', // This is the magic fix for injection
