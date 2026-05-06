@@ -193,7 +193,7 @@ function TicketPush() {
       onClick={() => (window as any).GMWidget?.open("SoccerCapitalSummer")}
     >
       <div className="scs-music-date">find tickets</div>
-      <img src="/icons/net.png" alt="" className="" />
+      <img src="https://scs-ochre.vercel.app/icons/net.png" alt="" className="" />
     </button>
   );
 }
@@ -202,13 +202,13 @@ function StarSpacer() {
   return <div className="scs-spacer star-spacer">
 
     <div>
-       <img src="/icons/SCS-BlueStar.svg" alt="" className="" />
+       <img src="https://scs-ochre.vercel.app/icons/SCS-BlueStar.svg"alt="blue-star-svg" />
     </div>
    <div>
-     <img src="/icons/SCS-BlueStar.svg" alt="" className="" />
+     <img src="https://scs-ochre.vercel.app/icons/SCS-BlueStar.svg" alt="blue-star-svg" />
    </div>
    <div>
-     <img src="/icons/SCS-BlueStar.svg" alt="" className="" />
+     <img src="https://scs-ochre.vercel.app/icons/SCS-BlueStar.svg" alt="blue-star-svg" />
    </div>
    
   </div>;
@@ -216,7 +216,7 @@ function StarSpacer() {
 
 function ThirdSpacer() {
   return <div className="scs-spacer third-spacer">
-    2026
+   <img src="https://scs-ochre.vercel.app/icons/" />
   </div>;
 }
 
@@ -252,33 +252,33 @@ function ArtistDrawer({ artist, onClose }: ArtistDrawerProps) {
             {/* <span>website</span> */}
             </a>}
             {artist.ig && <a href={artist.ig} target="_blank">
-              <img  className="scs-drawer-social-icon" src="/icons/Instagram_Glyph_Gradient.jpg"/>
+              <img  className="scs-drawer-social-icon" src="https://scs-ochre.vercel.app/icons/Instagram_Glyph_Gradient.jpg"/>
               </a>
               }
               {artist.tiktok && <a href={artist.tiktok} target="_blank">
-              <img  className="scs-drawer-social-icon" src="/icons/tiktok.png"/>
+              <img  className="scs-drawer-social-icon" src="https://scs-ochre.vercel.app/icons/tiktok.png"/>
               </a>
               }
               {artist.x && <a href={artist.x} target="_blank">
-              <img  className="scs-drawer-social-icon" src="/icons/x.png"/>
+              <img  className="scs-drawer-social-icon" src="https://scs-ochre.vercel.app/icons/x.png"/>
               </a>
               }
                             {artist.facebook && <a href={artist.facebook} target="_blank">
-              <img  className="scs-drawer-social-icon" src="/icons/Facebook_Logo_Primary.png"/>
+              <img  className="scs-drawer-social-icon" src="https://scs-ochre.vercel.app/icons/Facebook_Logo_Primary.png"/>
               </a>
               }
 
             {artist.youtube && <a href={artist.youtube} target="_blank">
-               <img  className="scs-drawer-social-icon" src="/icons/youtube-icon.svg"/>
+               <img  className="scs-drawer-social-icon" src="https://scs-ochre.vercel.app/icons/youtube-icon.svg"/>
               </a>}
                           {artist.twitch && <a href={artist.twitch} target="_blank">
-               <img  className="scs-drawer-social-icon" src="/icons/glitch_flat_purple.svg"/>
+               <img  className="scs-drawer-social-icon" src="https://scs-ochre.vercel.app/icons/glitch_flat_purple.svg"/>
               </a>}
             {artist.spotify && <a href={artist.soundcloud} target="_blank">
-              <img  className="scs-drawer-social-icon" src="/icons/soundcloud.png"/>
+              <img  className="scs-drawer-social-icon" src="https://scs-ochre.vercel.app/icons/soundcloud.png"/>
             </a>}
                         {artist.appleMusic && <a href={artist.appleMusic} target="_blank">
-              <img  className="scs-drawer-social-icon" src="/icons/apple-music.svg"/>
+              <img  className="scs-drawer-social-icon" src="https://scs-ochre.vercel.app/icons/apple-music.svg"/>
             </a>}
           </div>
         </div>
