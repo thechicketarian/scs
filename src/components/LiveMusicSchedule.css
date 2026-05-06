@@ -8,7 +8,7 @@
 
 .scs-music-wrapper::after {
     content: "";
-    position: fixed;
+    position: absolute;
     inset: 0;
     /* top:0; right:0; bottom:0; left:0 */
     background-image: url("https://scs-ochre.vercel.app/textures/riso_texture.jpg");
@@ -143,7 +143,7 @@
     content: "";
     position: absolute;
     inset: -35%;
-    background-image: url("/icons/26-SCS-RedStripes.svg");
+    background-image: url("https://scs-ochre.vercel.app/icons/26-SCS-RedStripes.svg");
     background-size: cover;
     background-position: center;
     mix-blend-mode: multiply;
