@@ -246,6 +246,27 @@ border-bottom: 1px solid #0c2340;
     }
 }
 
+.shuttle-spacer {
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    gap: 1rem;
+
+    >img {
+        width: 100%;
+    }
+    >div:nth-child(2) {
+       
+        transform: scaleX(-1)
+    }
+        /* >div:nth-child(3) {
+        transform: rotate(-25deg);
+    } */
+}
+
+
 .third-spacer {
     width: 120px;
     padding: 1rem;

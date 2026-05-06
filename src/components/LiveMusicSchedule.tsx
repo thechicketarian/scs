@@ -83,11 +83,11 @@ export default function LiveMusicSchedule({ layout = "default" }) {
   const headliners = sorted.filter(a => Number(a.order) >= 1 && Number(a.order) <= 3);
   const rest = sorted.filter(a => Number(a.order) > 3 || !a.order);
 
-  const spacerMap: Record<number, "ticket" | "generic" | "third"> = {
+  const spacerMap: Record<number, "ticket" | "generic" | "third" | "shuttle" | "firework"> = {
     1: "generic",
     3: "ticket",
-    4: "generic",
-    7: "generic",
+    4: "firework",
+    7: "shuttle",
     9: "third"
   };
 
@@ -148,6 +148,8 @@ export default function LiveMusicSchedule({ layout = "default" }) {
             <React.Fragment key={i}>
               {spacerMap[i] === "generic" && <StarSpacer />}
               {spacerMap[i] === "third" && <ThirdSpacer />}
+                {spacerMap[i] === "shuttle" && <ShuttleSpacer />}
+                          {spacerMap[i] === "firework" && <FireworkSpacer />}
               <button className={`scs-music-item scs-card-button scs-music-${m.artist} ${m.image ? "has-image" : "no-image"
                 }`}
                 type="button"
@@ -172,15 +174,15 @@ export default function LiveMusicSchedule({ layout = "default" }) {
                   </div>
                 )}
               </button>
-
+          
               {spacerMap[i] === "ticket" && <TicketPush />}
             </React.Fragment>
           ))}
 
         </div>
-                              <div className="scs-music-waves">
-   <img src="/icons/sounds-background.png" />
-</div>
+        <div className="scs-music-waves">
+          <img src="/icons/sounds-background.png" />
+        </div>
       </div>
 
       {/* DRAWER */}
@@ -198,28 +200,44 @@ function TicketPush() {
     >
       <div className="scs-music-date">find tickets</div>
       <div className="scs-music-goal-ball">
-       <div className="scs-music-ball">
-         <img  src="https://scs-ochre.vercel.app/icons/26-SCS-SoccerBall.svg" />
-       </div>
+        <div className="scs-music-ball">
+          <img src="https://scs-ochre.vercel.app/icons/26-SCS-SoccerBall.svg" />
+        </div>
         <div className="scs-music-goal">
-          <img  src="https://scs-ochre.vercel.app/icons/net.png" alt=""/>
+          <img src="https://scs-ochre.vercel.app/icons/net.png" alt="" />
         </div>
       </div>
     </button>
   );
 }
 
-function FireworkSpacer() {
-  return <div className="scs-spacer star-spacer">
+function ShuttleSpacer() {
+  return <div className="scs-spacer shuttle-spacer">
 
     <div>
-      <img src="https://scs-ochre.vercel.app/icons/SCS-BlueStar.svg" alt="blue-star-svg" />
+      <img src="https://scs-ochre.vercel.app/icons/26-SCS-Shuttlecock.svg" alt="blue-star-svg" />
     </div>
     <div>
-      <img src="https://scs-ochre.vercel.app/icons/SCS-BlueStar.svg" alt="blue-star-svg" />
+      <img src="https://scs-ochre.vercel.app/icons/26-SCS-Shuttlecock.svg" alt="blue-star-svg" />
     </div>
     <div>
-      <img src="https://scs-ochre.vercel.app/icons/SCS-BlueStar.svg" alt="blue-star-svg" />
+      <img src="https://scs-ochre.vercel.app/icons/26-SCS-Shuttlecock.svg" alt="blue-star-svg" />
+    </div>
+
+  </div>;
+}
+
+function FireworkSpacer() {
+  return <div className="scs-spacer shuttle-spacer">
+
+    <div>
+      <img src="https://scs-ochre.vercel.app/icons/26-SCS-SportingBlueFirework.svg" alt="blue-star-svg" />
+    </div>
+    <div>
+      <img src="https://scs-ochre.vercel.app/icons/26-SCS-DarkIndigoFirework.svg" alt="blue-star-svg" />
+    </div>
+    <div>
+      <img src="https://scs-ochre.vercel.app/icons/26-SCS-SportingBlueFirework.svg" alt="blue-star-svg" />
     </div>
 
   </div>;
@@ -227,9 +245,8 @@ function FireworkSpacer() {
 
 function StarSpacer() {
   return <div className="scs-spacer star-spacer">
-
     <div>
-      <img src="https://scs-ochre.vercel.app/icons/26-SCS-Shuttlecock.svg" alt="blue-star-svg" />
+      <img src="https://scs-ochre.vercel.app/icons/SCS-BlueStar.svg" alt="blue-star-svg" />
     </div>
     <div>
       <img src="https://scs-ochre.vercel.app/icons/SCS-BlueStar.svg" alt="blue-star-svg" />
