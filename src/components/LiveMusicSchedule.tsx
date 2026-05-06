@@ -188,7 +188,7 @@ export default function LiveMusicSchedule({ layout = "default" }) {
 function TicketPush() {
   return (
     <button className="scs-spacer scs-card-button ticket-spacer"
-           onClick={() => (window as any).GMWidget.open('SoccerCapitalSummer')}
+      onClick={() => (window as any).GMWidget?.open("SoccerCapitalSummer")}
     >
       <div className="scs-music-date">find tickets</div>
       <img src="/icons/net.png" alt="" className="" />
