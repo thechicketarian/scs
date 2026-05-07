@@ -99,7 +99,7 @@ export default function HorizontalScroller() {
           </p> */}
           </div>
           <div className="border">
-            <img src="/public/icons/26-SCS-StadiumRoofline.svg" />
+            <img src="https://scs-ochre.vercel.app/icons/26-SCS-StadiumRoofline.svg" />
           </div>
         </div>
       </div>

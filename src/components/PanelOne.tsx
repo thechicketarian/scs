@@ -13,7 +13,7 @@ export default function PanelOne() {
                 soccer
                </div>
                                          <div className="panel-skc-logo">
-                <img src="/public/icons/SKC-Wordmark_SportingKansasCity-LightBG.svg"/>
+                <img src="https://scs-ochre.vercel.app/icons/SKC-Wordmark_SportingKansasCity-LightBG.svg" alt="Sporting Kansas City Logo"/>
                </div>
                
                <div className="scs-text-span-sm">
