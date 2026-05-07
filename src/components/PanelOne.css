@@ -43,7 +43,7 @@ justify-items: center;
 .panel-skc-logo {
     border:1px solid #0c2340;
     width: 100px;
-        padding: 1.5rem 2rem;
+       padding: 1.5rem 2rem 1rem;
     border-radius: 100%;
 
     >img {
