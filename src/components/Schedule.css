@@ -3,24 +3,6 @@
     line-height: 3.5rem;
 } */
 
-h5 {
-    font-family: 'mls-tifo-headline-b8wssb' !important;
-    font-size: 1.5rem;
-    line-height: 1rem;
-    margin: 0 !important;
-    color: var(--scs-red);
-    padding-top: .5rem;
-}
-
-h6 {
-    font-family: 'mls-tifo-headline-b8wssb' !important;
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 1rem;
-    margin: 0 !important;
-    text-transform: uppercase;
-}
-
 .scs-layout-list {
         inset: 0;
     background-image: url("https://scs-ochre.vercel.app/textures/riso_texture.jpg");

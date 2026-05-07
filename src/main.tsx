@@ -7,6 +7,10 @@ import Hero from "./components/Hero";
 import TicketCards from "./components/TicketCards";
 import Schedule from "./components/Schedule";
 import LiveMusicSchedule from "./components/LiveMusicSchedule";
+import HomeLiveMusicWidget from "./components/HomeLiveMusicWidget";
+import Home from "./components/Home";
+import PanelOne from "./components/PanelOne";
+
 
 const isProd = import.meta.env.PROD;
 
@@ -53,8 +57,10 @@ const mountIfElementExists = (
 };
 
 // --- 1. THE HERO ---
-// mountIfElementExists("scs-home-root", Home);
+mountIfElementExists("scs-home-root", Home);
 mountIfElementExists("scs-hero-root", Hero);
+mountIfElementExists("scs-panel-1", PanelOne);
+
 
 // --- 2. TICKET CARDS ---
 const ticketConfigs = [
@@ -76,5 +82,9 @@ document.querySelectorAll("[id^='scs-schedule']").forEach((el) => {
 document.querySelectorAll("[id^='scs-music-schedule']").forEach((el) => {
   mountIfElementExists(el as HTMLElement, LiveMusicSchedule);
 });
+document.querySelectorAll("[id^='scs-home-lineup']").forEach((el) => {
+  mountIfElementExists(el as HTMLElement, HomeLiveMusicWidget);})
+
+  
 
 console.log(`🚀 Soccer Capital Suite: ${isProd ? "PROD" : "DEV"} - Mounted.`);

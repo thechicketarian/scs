@@ -1,0 +1,44 @@
+.summer-wrap {
+  text-align: center;
+  background-color: #0c2340;
+}
+
+.summer-word {
+  display: inline-block;
+  margin: 0 1rem;
+  font-size: clamp(3rem, 12vw, 9rem);
+  font-family: 'mls-tifo-headline-b8wssb', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.text-outline {
+  -webkit-text-stroke: 2px #0c2340;
+  color: transparent;
+  text-transform: uppercase;
+}
+
+.heart-icon {
+  animation: pulse 3s infinite;
+  width: 100px;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .heart-icon {
+    width: 180px;
+  }
+}
+
+.heart-icon img {
+  width: 100%;
+}
+
+.bc-script {
+  font-family: 'folkies-vantage-script-r5ps4q';
+  font-style: normal;
+  font-weight: 400;
+  text-transform: capitalize;
+  color: var(--scs-red);
+  -webkit-text-stroke: 0;
+}

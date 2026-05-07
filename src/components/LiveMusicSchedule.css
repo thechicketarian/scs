@@ -173,7 +173,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 30%;
 }
 
 .scs-headliner-2 .scs-headliner-image,
@@ -407,11 +406,15 @@
       grid-area: 1 / 1 / 2 / 4;
     }
 
+    .scs-headliner-2,
+.scs-headliner-3,
+.scs-headliner-4 {
+            width: 32%;
+}
 
     .scs-headliner-2 .scs-headliner-image,
     .scs-headliner-3 .scs-headliner-image,
     .scs-headliner-4 .scs-headliner-image {
-        /* height: 250px; */
              border-top: 1px solid #0c2340
     }
 
@@ -481,9 +484,9 @@ grid-area: 2 / 3 / 3 / 4;
     .scs-headliner-name {
         font-size: 5rem !important;
         line-height: 4rem !important;
-        text-wrap: nowrap;
+        /* text-wrap: nowrap; */
     }
-
+    
     .scs-headliner-info {
         width: fit-content;
         text-align: left;
