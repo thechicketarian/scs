@@ -124,9 +124,9 @@ export default function Schedule({
           <div className="scs-breadcrumbs-bottom-nav">
           <a className="scs-breadcrumbs-item" href="https://www.soccercapitalsummer.com/tickets"><span className="material-symbols-outlined">
             arrow_back
-          </span>Find Tickets</a>
+          </span>Tickets</a>
           
-          <a className="scs-breadcrumbs-item" href="https://www.soccercapitalsummer.com/experience">Live Music<span className="material-symbols-outlined">
+          <a className="scs-breadcrumbs-item" href="https://www.soccercapitalsummer.com/experience">Concerts<span className="material-symbols-outlined">
             arrow_forward
           </span></a>
         </div>

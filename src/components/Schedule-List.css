@@ -3,8 +3,6 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: .25rem;
-        padding: 2rem;
-        
 }
 
 /* --- DAY BLOCK --- */
