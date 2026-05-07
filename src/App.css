@@ -12,6 +12,13 @@
   --font-secondary: 'mls-tifo-headline-b8wssb', sans-serif;
   --font-script: 'folkies-vantage-script-r5ps4q', cursive;
 }
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden; /* prevents accidental sideways scroll */
+}
 
 @font-face {
   font-family: 'mls-tifo-headline-b8wssb';
@@ -61,8 +68,8 @@ h1, h2, h3, h4 {
 
 h5 {
     font-family: 'mls-tifo-headline-b8wssb' !important;
-    font-size: 1.35rem;
-    line-height: 1.35rem;
+    font-size: 1.15rem;
+    line-height: 1.15rem;
     margin: 0 !important;
     padding-top: .5rem;
     text-transform: uppercase;
