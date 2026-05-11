@@ -11,7 +11,7 @@
     gap: .25rem;
     background-color: transparent !important;
     border: none !important;
-    z-index: 14
+    z-index: 14;
 }
 
 .scs-artist-modal .material-symbols-outlined {

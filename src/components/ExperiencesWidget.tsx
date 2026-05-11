@@ -8,7 +8,7 @@ export default function ExperiencesWidget() {
   const { schedule, loading } = useFestivalSchedule();
   const [activeActivation, setActiveActivation] = useState<ActivationEntry | null>(null);
 
-
+  
   // ⭐ Memoized activation pipeline (dedupe + collect dates)
   const activations = React.useMemo(() => {
     if (loading) return [];
@@ -54,10 +54,26 @@ export default function ExperiencesWidget() {
     return () => window.removeEventListener("keydown", handler);
   }, []);
 
+  // ⭐ ADD THIS
+useEffect(() => {
+  if (activeActivation) {
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "";
+    document.documentElement.style.overflow = "";
+  }
+
+  return () => {
+    document.body.style.overflow = "";
+    document.documentElement.style.overflow = "";
+  };
+}, [activeActivation]);
   // ⭐ SAFE conditional render (after hooks + memo)
   if (loading) {
     return <div>Loading…</div>;
   }
+  
 
   return (
     <div className="scs-experiences-widget">

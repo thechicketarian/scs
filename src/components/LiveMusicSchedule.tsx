@@ -8,21 +8,20 @@ import "./ArtistDrawer.css";
 export default function LiveMusicSchedule({ layout = "default" }) {
   const { schedule, loading } = useFestivalSchedule();
   const [activeArtist, setActiveArtist] = React.useState<ArtistEntry | null>
-    (null);
+    (null);React.useEffect(() => {
+  if (activeArtist) {
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden"; // <html>
+  } else {
+    document.body.style.overflow = "";
+    document.documentElement.style.overflow = "";
+  }
 
-  React.useEffect(() => {
-    if (activeArtist) {
-      // Disable scroll
-      document.body.style.overflow = "hidden";
-    } else {
-      // Re-enable scroll
-      document.body.style.overflow = "";
-    }
-
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [activeArtist]);
+  return () => {
+    document.body.style.overflow = "";
+    document.documentElement.style.overflow = "";
+  };
+}, [activeArtist]);
 
   if (loading) {
     return <div>Loading Live Music…</div>;
