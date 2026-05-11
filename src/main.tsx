@@ -10,7 +10,7 @@ import LiveMusicSchedule from "./components/LiveMusicSchedule";
 import HomeLiveMusicWidget from "./components/HomeLiveMusicWidget";
 import Home from "./components/Home";
 import PanelOne from "./components/PanelOne";
-
+import ExperiencesWidget from "./components/ExperiencesWidget";
 
 const isProd = import.meta.env.PROD;
 
@@ -60,6 +60,8 @@ const mountIfElementExists = (
 mountIfElementExists("scs-home-root", Home);
 mountIfElementExists("scs-hero-root", Hero);
 mountIfElementExists("scs-panel-1", PanelOne);
+
+mountIfElementExists("scs-experiences", ExperiencesWidget);
 
 
 // --- 2. TICKET CARDS ---

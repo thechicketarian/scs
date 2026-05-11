@@ -59,10 +59,16 @@ export interface ArtistEntry extends MusicRow {
 
 // EXPERIENCES SHEET
 export interface ExperienceRow extends SheetRow {
-  title: string;
-  startTime: string;
-  endTime: string;
-  location: string;
+  category: string
+    image:string
+  experience: string
+  description: string;
+  partner: string;
+  time: string;
+  vendor: string;
+vendorWeb: string;
+vendorIg: string
+
 }
 
 // UNIFIED DAY
@@ -75,7 +81,6 @@ export interface FestivalDay {
 
 // FULL SCHEDULE
 export type SoccerCapSchedule = Record<string, FestivalDay>;
-
 
 export interface TicketCardsProps {
   category?: string;

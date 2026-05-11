@@ -1,8 +1,9 @@
 /* --- BASE WRAPPER --- */
 .scs-layout-list {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: .25rem;
+padding: 1rem;
 }
 
 /* --- DAY BLOCK --- */

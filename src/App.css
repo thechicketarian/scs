@@ -61,6 +61,7 @@ body {
   font-family: sans-serif; /* Squarespace will override this later */
 }
 
+
 h1, h2, h3, h4 {
   font-family: 'dharma-gothic-m-gvf2i7';
   text-transform: uppercase;
@@ -68,12 +69,12 @@ h1, h2, h3, h4 {
 }
 
 
-  /* h1{
-       
-        font-size: calc((var(--heading-1-size-value) - 1) * 1.2vw + 1rem);
+ h1{
+       font-size: 12rem;
+        /* font-size: calc((var(--heading-1-size-value) - 1) * 1.2vw + 1rem); */
         line-height: 12rem;
         text-align: center;
-    } */
+    } 
 
 h5 {
     font-family: 'mls-tifo-headline-b8wssb' !important;
@@ -130,18 +131,24 @@ color: var(--scs-red);
 }
 
 .scs-breadcrumbs-bottom-nav {
-padding: 4rem 2rem;
+padding: 2rem 0;
 display: flex;
 justify-content: space-between;
 >a {
     font-family: 'dharma-gothic-m-gvf2i7';
     text-transform: uppercase;
     text-decoration: none;
-    font-size: 3rem;
+    font-size: 2.5rem;
     line-height: 3rem;
     color: #AB322C;
     display: flex;
-gap: 1rem;
+gap: .3rem;
 }
 }
 
+
+@media (min-width: 768px) {
+  .scs-breadcrumbs-bottom-nav {
+    padding: 4rem 2rem;
+    }
+}
