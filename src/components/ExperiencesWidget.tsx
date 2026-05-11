@@ -71,15 +71,13 @@ export default function ExperiencesWidget() {
           >
             <div className="scs-headliner-info">
               
-                  <div className="scs-music-date">{exp.category}</div>
+                  <div className="scs-music-date">{formatExperienceDates(exp.date)} </div>
                   <div className="scs-music-artist scs-vendor-name">{exp.experience}</div>
-
-                  <div> {formatExperienceDates(exp.date)}</div>
-                   {/* <div>{exp.date}</div> */}
+                  {/* <div> {exp.category}</div> */}
                   <div
                     className="scs-artist-modal"
                   >
-                    <span>about</span>
+                    <span>learn more</span>
                     <span className="material-symbols-outlined">
                       arrow_outward
                     </span>
@@ -120,7 +118,11 @@ const dateRange = formatExperienceDates(activation.date);
       <div className="scs-content-wrapper">
 
         {/* ⭐ Optional image */}
-        <div className="scs-drawer-img"></div>
+      <div className="scs-drawer-img">
+          {activation.image && (
+            <img src={activation.image} alt={activation.experience} />
+          )}
+        </div>
 
         <div className="scs-drawer" onClick={(e) => e.stopPropagation()}>
           <button className="scs-drawer-close" onClick={onClose}>×</button>
