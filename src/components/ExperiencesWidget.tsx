@@ -3,6 +3,7 @@ import { useFestivalSchedule } from "../hooks/useFestivalSchedule";
 import "./ExperiencesWidget.css";
 import { ExperienceRow } from "../types/types";
 import { formatExperienceDates } from "../utils/datesParser";
+import { createPortal } from "react-dom";
 
 export default function ExperiencesWidget() {
   const { schedule, loading } = useFestivalSchedule();
@@ -108,9 +109,13 @@ useEffect(() => {
         ))}
       </div>
 
-      {activeActivation && (
-        <ActivationDrawer activation={activeActivation} onClose={closeDrawer} />
-      )}
+      {activeActivation &&
+  createPortal(
+    <ActivationDrawer activation={activeActivation} onClose={closeDrawer} />,
+    document.body
+  )
+}
+
     </div>
   );
 }
