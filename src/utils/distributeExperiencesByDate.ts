@@ -4,51 +4,52 @@ import { ExperienceRow, SoccerCapSchedule } from "../types/types";
  * Distributes experiences across the correct dates.
  * Supports:
  * - "all"
- * - blank date = all dates
- * - comma-separated dates
- * - single date
+ * - ISO date string
+ * - ISO date array
+ * - blank/null/undefined = no dates
  */
-export function distributeExperiencesByDate(
-  experiences: (ExperienceRow & { date: string | null })[],
+export function distributeExperiencesByDate<
+  T extends ExperienceRow & { date?: string | string[] | null }
+>(
+  experiences: T[],
   schedule: SoccerCapSchedule
 ) {
   const allDates = Object.keys(schedule);
 
-  // Ensure each day has an experiences array
-  allDates.forEach(date => {
-    if (!schedule[date].experiences) {
-      schedule[date].experiences = [];
-    }
-  });
-
   experiences.forEach(exp => {
-    const raw = exp.date?.trim().toLowerCase();
+    const raw = exp.date;
 
-    let datesToApply: string[] = [];
+    // No date → skip
+    if (!raw) return;
 
-    if (!raw || raw === "all") {
-      // No date or "all" → appears on ALL festival days
-      datesToApply = allDates;
+    // Handle "all"
+    if (raw === "all") {
+      allDates.forEach(dateKey => {
+        schedule[dateKey].experiences.push(exp);
+      });
+      return;
+    }
+
+    // Normalize to array
+    let dates: string[] = [];
+
+    if (Array.isArray(raw)) {
+      dates = raw;
     } else {
-      // Split comma-separated list
-      datesToApply = raw
+      // raw is a string — could be "2026-06-17" or "2026-06-17,2026-06-18"
+      dates = raw
         .split(",")
         .map(d => d.trim())
-        .filter(Boolean);
+        .filter(Boolean); // remove blanks
     }
 
-    datesToApply.forEach(date => {
-      // ⭐ FIX: Create missing date buckets
-      if (!schedule[date]) {
-        schedule[date] = {
-          meta: null,
-          matches: [],
-          music: [],
-          experiences: []
-        };
+    // Push into schedule
+    dates.forEach(dateKey => {
+      if (!schedule[dateKey]) {
+        console.warn("Unexpected date in experiences:", dateKey);
+        return;
       }
-
-      schedule[date].experiences.push(exp);
+      schedule[dateKey].experiences.push(exp);
     });
   });
 }

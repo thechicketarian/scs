@@ -1,28 +1,51 @@
-import { SoccerCapSchedule } from "../types/types";
-import { normalizeDateKey } from "./normalizeDate";
+// import { SoccerCapSchedule } from "../types/types";
 
-export function groupSheetByDate<T extends { date: string | null }>(
+import { SoccerCapSchedule } from "../types/types";
+
+// export function groupSheetByDate<T extends { date: string | string[] | null }>(
+//   rows: T[],
+//   key: keyof SoccerCapSchedule[string],
+//   schedule: SoccerCapSchedule
+// ) {
+//   rows.forEach(row => {
+//     if (!row.date) return;
+
+//     const dates = Array.isArray(row.date) ? row.date : [row.date];
+
+//     dates.forEach(dateKey => {
+//       if (!schedule[dateKey]) {
+//         schedule[dateKey] = {
+//           meta: null,
+//           matches: [],
+//           music: [],
+//           experiences: []
+//         };
+//       }
+
+//       if (key === "meta") {
+//         schedule[dateKey].meta = row as any;
+//       } else {
+//         (schedule[dateKey][key] as any[]).push(row);
+//       }
+//     });
+//   });
+// }
+
+export function groupSheetByDate<
+  T extends { date?: string | string[] | null }
+>(
   rows: T[],
   key: keyof SoccerCapSchedule[string],
   schedule: SoccerCapSchedule
 ) {
   rows.forEach(row => {
-    const { date, ...rest } = row;
+    if (!row.date) return;
 
-    if (!date) return;
+    const dates = Array.isArray(row.date) ? row.date : [row.date];
 
-    // Support comma-separated dates: "June 17, June 18"
-    const dateParts = date
-      .split(",")
-      .map(d => d.trim())
-      .filter(Boolean);
-
-    dateParts.forEach(dateStr => {
-      const normalized = normalizeDateKey(dateStr);
-      if (!normalized) return;
-
-      if (!schedule[normalized]) {
-        schedule[normalized] = {
+    dates.forEach(dateKey => {
+      if (!schedule[dateKey]) {
+        schedule[dateKey] = {
           meta: null,
           matches: [],
           music: [],
@@ -31,9 +54,9 @@ export function groupSheetByDate<T extends { date: string | null }>(
       }
 
       if (key === "meta") {
-        schedule[normalized].meta = rest as any;
+        schedule[dateKey].meta = row as any;
       } else {
-        (schedule[normalized][key] as any[]).push(rest);
+        (schedule[dateKey][key] as any[]).push(row);
       }
     });
   });

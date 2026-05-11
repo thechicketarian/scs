@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useFestivalSchedule } from "../hooks/useFestivalSchedule";
 import "./ExperiencesWidget.css";
 import { ExperienceRow } from "../types/types";
+import { formatExperienceDates } from "../utils/datesParser";
 
 export default function ExperiencesWidget() {
   const { schedule, loading } = useFestivalSchedule();
   const [activeActivation, setActiveActivation] = useState<ActivationEntry | null>(null);
+
 
   // ⭐ Memoized activation pipeline (dedupe + collect dates)
   const activations = React.useMemo(() => {
@@ -59,8 +61,7 @@ export default function ExperiencesWidget() {
 
   return (
     <div className="scs-experiences-widget">
-      <h1 className="scs-experiences-title">Experiences & Activations</h1>
-
+      <h1 className="scs-experiences-title">Experiences</h1>
       <div className="scs-experiences-list">
         {activations.map((exp, i) => (
           <button
@@ -68,10 +69,13 @@ export default function ExperiencesWidget() {
             className="scs-experience-card scs-card-button"
             onClick={() => openDrawer(exp)}
           >
-            <div className="scs-music-info">
-              <div>{exp.dates}</div>
+            <div className="scs-headliner-info">
+              
                   <div className="scs-music-date">{exp.category}</div>
-                  <div className="scs-music-artist">{exp.experience}</div>
+                  <div className="scs-music-artist scs-vendor-name">{exp.experience}</div>
+
+                  <div> {formatExperienceDates(exp.date)}</div>
+                   {/* <div>{exp.date}</div> */}
                   <div
                     className="scs-artist-modal"
                   >
@@ -82,8 +86,8 @@ export default function ExperiencesWidget() {
                   </div>
                 </div>
                 {exp.image && (
-                  <div className="scs-music-artist-image artist-img">
-                    <img src={exp.image} alt={exp.vendor} className="scs-artist-image" />
+                  <div className="scs-vendor-image artist-img">
+                    <img src={exp.image} alt={exp.vendor} />
                   </div>
                 )}
           </button>
@@ -108,12 +112,8 @@ interface DrawerProps {
 }
 
 function ActivationDrawer({ activation, onClose }: DrawerProps) {
-  // ⭐ Compute date range for drawer
-  const sortedDates = [...activation.dates].sort();
-  const dateRange =
-    sortedDates.length === 1
-      ? sortedDates[0]
-      : `${sortedDates[0]} – ${sortedDates[sortedDates.length - 1]}`;
+
+const dateRange = formatExperienceDates(activation.date);
 
   return (
     <div className="scs-drawer-overlay" onClick={onClose}>
@@ -129,27 +129,20 @@ function ActivationDrawer({ activation, onClose }: DrawerProps) {
           <div className="scs-drawer-date">{dateRange}</div>
 
           {/* ⭐ Vendor */}
-          <h4 className="scs-drawer-title">{activation.vendor}</h4>
-
-          <hr />
+          <div className="scs-drawer-title">{activation.experience}</div>
 
           {/* ⭐ Activation name */}
-          <h3 className="scs-drawer-activation-title">{activation.experience}</h3>
-
+          <div className="scs-drawer-activation-title"> {activation.vendor}</div>
+                 <hr />
+          {activation.partner && (
+            <p><strong>Presented By:</strong> {activation.partner}</p>
+          )}
           {/* ⭐ Description */}
           {activation.description && (
             <p className="scs-drawer-bio">{activation.description}</p>
           )}
-
-          {/* ⭐ Time */}
-          {activation.time && (
-            <p><strong>Time:</strong> {activation.time}</p>
-          )}
-
           {/* ⭐ Partner */}
-          {activation.partner && (
-            <p><strong>Partner:</strong> {activation.partner}</p>
-          )}
+
 
           {/* ⭐ Links */}
           <div className="scs-drawer-links">

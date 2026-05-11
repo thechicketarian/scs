@@ -1,9 +1,31 @@
 .scs-experiences-list {
    display: grid;
-   grid-template-columns: 1fr 1fr 1fr;
    gap: 1rem;
 }
 .scs-experience-card {
     border: 1px solid #0c2340;
 }
 
+
+.scs-vendor-image {
+    height: 300px;
+    display: flex;
+}
+
+.scs-vendor-name {
+    text-wrap: wrap!important;
+}
+
+
+ @media (min-width: 768px) {
+.scs-experiences-list {
+grid-template-columns: 1fr 1fr;
+}
+
+ }
+
+ @media (min-width: 1024px) {
+.scs-experiences-list {
+grid-template-columns: 1fr 1fr 1fr;
+}
+ }

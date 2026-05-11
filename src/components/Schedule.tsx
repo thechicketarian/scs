@@ -2,10 +2,8 @@ import React from "react";
 import { useFestivalSchedule } from "../hooks/useFestivalSchedule";
 
 import {
-  FestivalDay,
   MetaRow,
   MatchRow,
-  SoccerCapSchedule,
   ScheduleProps
 } from "../types/types";
 

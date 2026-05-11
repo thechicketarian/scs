@@ -4,7 +4,9 @@ export interface UseSheetDataResult {
 }
 
 // BASE ROW TYPE (dynamic Google Sheet row)
-export interface SheetRow {}
+export type SheetRow = {
+  date?: string;   // <-- ADD THIS (the only change)
+} & Record<string, any>;
 
 export interface UseFestivalScheduleResult {
   schedule: SoccerCapSchedule;
@@ -59,6 +61,7 @@ export interface ArtistEntry extends MusicRow {
 
 // EXPERIENCES SHEET
 export interface ExperienceRow extends SheetRow {
+  
   category: string
     image:string
   experience: string
