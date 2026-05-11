@@ -4,6 +4,7 @@ import { MusicRow, ArtistEntry } from "../types/types";
 import { DateTime } from "luxon";
 import "./LiveMusicSchedule.css";
 import "./ArtistDrawer.css";
+import { createPortal } from "react-dom";
 
 export default function LiveMusicSchedule({ layout = "default" }) {
   const { schedule, loading } = useFestivalSchedule();
@@ -206,9 +207,12 @@ export default function LiveMusicSchedule({ layout = "default" }) {
       </div>
 
       {/* DRAWER */}
-      {activeArtist && (
-        <ArtistDrawer artist={activeArtist} onClose={() => setActiveArtist(null)} />
-      )}
+      {activeArtist && 
+ createPortal(
+<ArtistDrawer artist={activeArtist} onClose={() => setActiveArtist(null)} />,
+  document.body
+      )
+    }
     </div>
   );
 }
