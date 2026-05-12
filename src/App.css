@@ -80,10 +80,10 @@ h4 {
 }
 
 
-h1 {
+/* h1 {
   font-size: calc((var(--heading-1-size-value) - 1) * 1.2vw + 1rem);
   text-align: center;
-}
+} */
 
 h5 {
   font-family: 'mls-tifo-headline-b8wssb' !important;
@@ -179,7 +179,7 @@ h6 {
     /* display: block; */
     /* preserve layout */
     cursor: pointer;
-    /* width: 100%; */
+    width: 100%;
 }
 
 .scs-card-button:focus-visible {

@@ -4,7 +4,8 @@
     /* your page color */
     z-index: 1;
     /* create stacking context */
-   padding-bottom: 4rem;
+    padding-bottom: 4rem;
+    padding-top: 4rem;
 }
 
 .scs-music-wrapper::after {
@@ -33,7 +34,7 @@
 }
 
 .scs-music-nav {
-    padding: 0rem 2rem 2rem;
+    padding: 0rem 2rem 1.5rem;
     text-align: center;
     display: grid;
     gap: 1rem;
@@ -51,6 +52,7 @@
     text-transform: uppercase;
     font-size: 1rem;
     line-height: 1.25rem;
+    width: auto;
 }
 
 .scs-headliner-name,
@@ -88,11 +90,11 @@
 
 .scs-headliners {
     display: flex;
-   flex-wrap: wrap;
-   justify-content: center;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: .25rem;
     padding: 0rem 1rem;
-    
+
 }
 
 .scs-headliner-item {
@@ -147,7 +149,7 @@
     width: 100%;
 
     >img {
-        object-position: center!important;
+        object-position: center !important;
         height: 350px;
     }
 }
@@ -384,25 +386,23 @@
     }
 
     .scs-music-cta {
-        width: 220px;
+        width: 300px;
     }
 
-
-
     .scs-headliner-1 {
-      grid-area: 1 / 1 / 2 / 4;
+        grid-area: 1 / 1 / 2 / 4;
     }
 
     .scs-headliner-2,
-.scs-headliner-3,
-.scs-headliner-4 {
-            width: 32%;
-}
+    .scs-headliner-3,
+    .scs-headliner-4 {
+        width: 32%;
+    }
 
     .scs-headliner-2 .scs-headliner-image,
     .scs-headliner-3 .scs-headliner-image,
     .scs-headliner-4 .scs-headliner-image {
-             border-top: 1px solid #0c2340
+        border-top: 1px solid #0c2340
     }
 
     .scs-headliner-2 {
@@ -410,12 +410,12 @@
     }
 
     .scs-headliner-3 {
-      grid-area: 2 / 2 / 3 / 3;
+        grid-area: 2 / 2 / 3 / 3;
 
     }
 
     .scs-headliner-4 {
-grid-area: 2 / 3 / 3 / 4; 
+        grid-area: 2 / 3 / 3 / 4;
     }
 
     .scs-music-item.has-image {
@@ -473,7 +473,7 @@ grid-area: 2 / 3 / 3 / 4;
         line-height: 4rem !important;
         /* text-wrap: nowrap; */
     }
-    
+
     .scs-headliner-info {
         width: fit-content;
         text-align: left;
@@ -504,7 +504,7 @@ grid-area: 2 / 3 / 3 / 4;
     .scs-headliner-3 .scs-headliner-image,
     .scs-headliner-4 .scs-headliner-image {
         /* height: 300px; */
-        border-left:none;
+        border-left: none;
     }
 
 
