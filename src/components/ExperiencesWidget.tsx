@@ -78,7 +78,7 @@ export default function ExperiencesWidget() {
 
   return (
     <div className="scs-experiences-widget">
-      <h1 className="scs-experiences-title">Experiences</h1>
+      <h1>Experiences</h1>
       <div className="scs-experiences-list">
         {activations.map((exp, i) => (
           <button
