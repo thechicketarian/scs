@@ -9,7 +9,7 @@ export default function ExperiencesWidget() {
   const { schedule, loading } = useFestivalSchedule();
   const [activeActivation, setActiveActivation] = useState<ActivationEntry | null>(null);
 
-  
+
   // ⭐ Memoized activation pipeline (dedupe + collect dates)
   const activations = React.useMemo(() => {
     if (loading) return [];
@@ -56,25 +56,25 @@ export default function ExperiencesWidget() {
   }, []);
 
   // ⭐ ADD THIS
-useEffect(() => {
-  if (activeActivation) {
-    document.body.style.overflow = "hidden";
-    document.documentElement.style.overflow = "hidden";
-  } else {
-    document.body.style.overflow = "";
-    document.documentElement.style.overflow = "";
-  }
+  useEffect(() => {
+    if (activeActivation) {
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    }
 
-  return () => {
-    document.body.style.overflow = "";
-    document.documentElement.style.overflow = "";
-  };
-}, [activeActivation]);
+    return () => {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    };
+  }, [activeActivation]);
   // ⭐ SAFE conditional render (after hooks + memo)
   if (loading) {
     return <div>Loading…</div>;
   }
-  
+
 
   return (
     <div className="scs-experiences-widget">
@@ -87,34 +87,35 @@ useEffect(() => {
             onClick={() => openDrawer(exp)}
           >
             <div className="scs-headliner-info">
-              
-                  <div className="scs-music-date">{formatExperienceDates(exp.date)} </div>
-                  <div className="scs-music-artist scs-vendor-name">{exp.experience}</div>
-                  {/* <div> {exp.category}</div> */}
-                  <div
-                    className="scs-artist-modal"
-                  >
-                    <span>learn more</span>
-                    <span className="material-symbols-outlined">
-                      arrow_outward
-                    </span>
-                  </div>
-                </div>
-                {exp.image && (
-                  <div className="scs-vendor-image artist-img">
-                    <img src={exp.image} alt={exp.vendor} />
-                  </div>
-                )}
+
+              <div className="scs-music-date">{formatExperienceDates(exp.date)} </div>
+              <div className="scs-vendor-name">{exp.experience}</div>
+              {/* <div> {exp.category}</div> */}
+              {/* { exp.partner && <div className="scs-partner-title">Presented By: {exp.partner}</div>} */}
+              <div
+                className="scs-artist-modal"
+              >
+                <span>learn more</span>
+                <span className="material-symbols-outlined">
+                  arrow_outward
+                </span>
+              </div>
+            </div>
+            {exp.image && (
+              <div className="scs-vendor-image artist-img">
+                <img src={exp.image} alt={exp.vendor} />
+              </div>
+            )}
           </button>
         ))}
       </div>
 
       {activeActivation &&
-  createPortal(
-    <ActivationDrawer activation={activeActivation} onClose={closeDrawer} />,
-    document.body
-  )
-}
+        createPortal(
+          <ActivationDrawer activation={activeActivation} onClose={closeDrawer} />,
+          document.body
+        )
+      }
 
     </div>
   );
@@ -132,14 +133,14 @@ interface DrawerProps {
 
 function ActivationDrawer({ activation, onClose }: DrawerProps) {
 
-const dateRange = formatExperienceDates(activation.date);
+  const dateRange = formatExperienceDates(activation.date);
 
   return (
     <div className="scs-drawer-overlay" onClick={onClose}>
       <div className="scs-content-wrapper">
 
         {/* ⭐ Optional image */}
-      <div className="scs-drawer-img">
+        <div className="scs-drawer-img">
           {activation.image && (
             <img src={activation.image} alt={activation.experience} />
           )}
@@ -156,9 +157,9 @@ const dateRange = formatExperienceDates(activation.date);
 
           {/* ⭐ Activation name */}
           <div className="scs-drawer-activation-title"> {activation.vendor}</div>
-                 <hr />
+          <hr />
           {activation.partner && (
-            <p><strong>Presented By:</strong> {activation.partner}</p>
+            <p className="scs-partner-title"><strong>Presented By:</strong> {activation.partner}</p>
           )}
           {/* ⭐ Description */}
           {activation.description && (

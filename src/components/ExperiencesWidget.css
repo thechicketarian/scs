@@ -1,14 +1,18 @@
-.scs-experiences-list {
-   display: grid;
-   gap: 1rem;
+.scs-experiences-widget {
+    padding: 1rem;
 }
+
+.scs-experiences-list {
+    display: grid;
+    gap: .25rem;
+}
+
 .scs-experience-card {
     border: 1px solid #0c2340;
-        display: flex;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
-
 
 .scs-vendor-image {
     height: 300px;
@@ -16,23 +20,56 @@
 }
 
 .scs-vendor-name {
-    text-wrap: wrap!important;
+    text-wrap: wrap !important;
 }
 
-
- @media (min-width: 768px) {
-.scs-experiences-list {
-grid-template-columns: 1fr 1fr;
+.scs-drawer-activation-title {
+    font-size: .825rem;
+    text-transform: uppercase;
+    font-family: 'mls-tifo-standard-cz9zex';
+    font-style: normal;
+    font-weight: 700;
 }
 
- }
+.scs-vendor-name {
+    font-family: 'dharma-gothic-m-gvf2i7';
+    text-transform: uppercase;
+    font-size: 3.5rem !important;
+    line-height: 3.25rem !important;
+}
 
- @media (min-width: 1024px) {
-.scs-experiences-list {
-grid-template-columns: 1fr 1fr 1fr;
+.scs-partner-title  {
+    text-transform: uppercase;
+     font-family: 'mls-tifo-standard-cz9zex';
+    font-style: normal;
+    font-weight: 700;
+font-size: 12px;
+line-height: 10px;
 }
-.artist-img {
-    border-left:none;
-    border-top: 1px solid #0c2340;
+
+@media (min-width: 768px) {
+    .scs-experiences-list {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .scs-experiences-widget {
+        padding: 2rem;
+    }
+
+    .scs-vendor-name, .scs-drawer-title {
+        font-size: 5rem !important;
+        line-height: 4rem !important;
+    }
+
 }
- }
+
+@media (min-width: 1024px) {
+    .scs-experiences-list {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .artist-img {
+        border-left: none;
+        border-top: 1px solid #0c2340;
+    }
+}
