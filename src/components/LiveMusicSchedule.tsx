@@ -9,20 +9,20 @@ import { createPortal } from "react-dom";
 export default function LiveMusicSchedule({ layout = "default" }) {
   const { schedule, loading } = useFestivalSchedule();
   const [activeArtist, setActiveArtist] = React.useState<ArtistEntry | null>
-    (null);React.useEffect(() => {
-  if (activeArtist) {
-    document.body.style.overflow = "hidden";
-    document.documentElement.style.overflow = "hidden"; // <html>
-  } else {
-    document.body.style.overflow = "";
-    document.documentElement.style.overflow = "";
-  }
+    (null); React.useEffect(() => {
+      if (activeArtist) {
+        document.body.style.overflow = "hidden";
+        document.documentElement.style.overflow = "hidden"; // <html>
+      } else {
+        document.body.style.overflow = "";
+        document.documentElement.style.overflow = "";
+      }
 
-  return () => {
-    document.body.style.overflow = "";
-    document.documentElement.style.overflow = "";
-  };
-}, [activeArtist]);
+      return () => {
+        document.body.style.overflow = "";
+        document.documentElement.style.overflow = "";
+      };
+    }, [activeArtist]);
 
   if (loading) {
     return <div>Loading Live Music…</div>;
@@ -111,17 +111,18 @@ export default function LiveMusicSchedule({ layout = "default" }) {
     <div className={`scs-music-wrapper`}>
       <div className="scs-music-page">
 
+        <h1 className="scs-music-page-title">Sounds of the summer</h1>
         <div className="scs-music-nav">
-          <div className="scs-headliner-date">Lineup</div>
+          <div className="scs-music-nav-date">Lineup</div>
           <button className="scs-music-cta scs-card-button"
             onClick={() => (window as any).GMWidget?.open("SoccerCapitalSummer")}
-          >find tickets <span className="material-symbols-outlined">
+          >find tickets
+          <span className="material-symbols-outlined">
               confirmation_number
-            </span></button>
-          <div className="scs-headliner-date">2026</div>
+            </span>
+          </button>
+          <div className="scs-music-nav-date">2026</div>
         </div>
-        <h1 className="scs-music-page-title">Sounds of the summer</h1>
-
         {/* HEADLINERS */}
         <div className="scs-headliners">
           {headliners.map((m, i) => (
@@ -199,7 +200,7 @@ export default function LiveMusicSchedule({ layout = "default" }) {
           <a className="scs-breadcrumbs-item" href="https://www.soccercapitalsummer.com/schedule"><span className="material-symbols-outlined">
             arrow_back
           </span>match schedule</a>
-          
+
           <a className="scs-breadcrumbs-item" href="https://www.soccercapitalsummer.com/experience">experiences <span className="material-symbols-outlined">
             arrow_forward
           </span></a>
@@ -207,12 +208,12 @@ export default function LiveMusicSchedule({ layout = "default" }) {
       </div>
 
       {/* DRAWER */}
-      {activeArtist && 
- createPortal(
-<ArtistDrawer artist={activeArtist} onClose={() => setActiveArtist(null)} />,
-  document.body
-      )
-    }
+      {activeArtist &&
+        createPortal(
+          <ArtistDrawer artist={activeArtist} onClose={() => setActiveArtist(null)} />,
+          document.body
+        )
+      }
     </div>
   );
 }

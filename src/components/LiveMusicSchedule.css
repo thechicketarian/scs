@@ -18,21 +18,6 @@
     pointer-events: none;
 }
 
-.scs-card-button {
-    all: unset;
-    /* remove native button styles */
-    display: block;
-    /* preserve layout */
-    cursor: pointer;
-    width: 100%;
-}
-
-.scs-card-button:focus-visible {
-    outline: 3px solid #0c2340;
-    outline-offset: 4px;
-}
-
-
 /* .scs-music-page {
     margin: 0 auto;
     max-width: 1480px;
@@ -48,7 +33,7 @@
 }
 
 .scs-music-nav {
-    padding: 2rem 2rem 1rem;
+    padding: 0rem 2rem 2rem;
     text-align: center;
     display: grid;
     gap: 1rem;
@@ -107,6 +92,7 @@
    justify-content: center;
     gap: .25rem;
     padding: 0rem 1rem;
+    
 }
 
 .scs-headliner-item {
@@ -129,6 +115,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 100%;
 }
 
 .scs-headliner-1 .scs-headliner-spacer {

@@ -64,7 +64,6 @@ export default function HomeLiveMusicWidget() {
 
     return (
         <div className="scs-home-lineup-wrapper">
-
             <h2 className="scs-music-page-title">Sounds of the summer</h2>
             {/* ⭐ Headliners */}
             <div className="scs-home-headliners">

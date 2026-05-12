@@ -78,7 +78,16 @@ export default function ExperiencesWidget() {
 
   return (
     <div className="scs-experiences-widget">
-      <h1>Experiences</h1>
+      <h1 className="scs-experiences-title">Experiences</h1>
+      <div className="scs-music-nav scs-music-nav-exp">
+        <div className="scs-music-nav-date">Summer Fun</div>
+        <button className="scs-music-cta scs-card-button"
+          onClick={() => (window as any).GMWidget?.open("SoccerCapitalSummer")}
+        >find tickets <span className="material-symbols-outlined">
+            confirmation_number
+          </span></button>
+        <div className="scs-music-nav-date">2026</div>
+      </div>
       <div className="scs-experiences-list">
         {activations.map((exp, i) => (
           <button

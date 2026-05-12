@@ -11,14 +11,18 @@
   --font-main: 'dharma-gothic-m-gvf2i7', sans-serif;
   --font-secondary: 'mls-tifo-headline-b8wssb', sans-serif;
   --font-script: 'folkies-vantage-script-r5ps4q', cursive;
-      --heading-1-size-value: 10;
+  --heading-1-size-value: 10;
 }
-html, body, #root {
+
+html,
+body,
+#root {
   margin: 0;
   padding: 0;
   width: 100%;
   min-height: 100%;
-  overflow-x: hidden; /* prevents accidental sideways scroll */
+  overflow-x: hidden;
+  /* prevents accidental sideways scroll */
 }
 
 @font-face {
@@ -27,18 +31,21 @@ html, body, #root {
   font-weight: 800;
   src: url('https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/69c2ef358a34ab18fd392d39/assets/07fff099-84ef-4355-8a05-201de99c1ee5/font.woff2') format('woff2');
 }
+
 @font-face {
   font-family: 'dharma-gothic-m-gvf2i7';
   font-style: normal;
   font-weight: 700;
   src: url('https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/69c2ef358a34ab18fd392d39/assets/fcd74b1f-f462-4e3c-a6a2-67f0129759ab/font.woff2') format('woff2');
 }
+
 @font-face {
   font-family: 'mls-tifo-standard-cz9zex';
   font-style: normal;
   font-weight: 700;
   src: url('https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/69c2ef358a34ab18fd392d39/assets/3a41a9fb-73b6-48ea-a747-c1f863fd8b8c/font.woff2') format('woff2');
 }
+
 @font-face {
   font-family: 'mls-tifo-standard-cz9zex';
   font-style: normal;
@@ -47,10 +54,10 @@ html, body, #root {
 }
 
 @font-face {
-font-family: 'folkies-vantage-script-r5ps4q';
-    font-style: normal;
-    font-weight: 400;
-    src: url("https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/69c2ef358a34ab18fd392d39/assets/1aa495c2-d331-431c-ab39-04f70a70ccb5/font.woff2") format('woff2');
+  font-family: 'folkies-vantage-script-r5ps4q';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/69c2ef358a34ab18fd392d39/assets/1aa495c2-d331-431c-ab39-04f70a70ccb5/font.woff2") format('woff2');
 }
 
 
@@ -58,61 +65,65 @@ body {
   margin: 0;
   background-color: var(--scs-off-white);
   color: #0c2340;
-  font-family: sans-serif; /* Squarespace will override this later */
+  font-family: sans-serif;
+  /* Squarespace will override this later */
 }
 
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: 'dharma-gothic-m-gvf2i7';
   text-transform: uppercase;
-  margin: 0!important;
+  margin: 0 !important;
 }
 
 
- h1{
-       font-size: 12rem;
-        /* font-size: calc((var(--heading-1-size-value) - 1) * 1.2vw + 1rem); */
-        line-height: 12rem;
-        text-align: center;
-    } 
+h1 {
+  font-size: calc((var(--heading-1-size-value) - 1) * 1.2vw + 1rem);
+  text-align: center;
+}
 
 h5 {
-    font-family: 'mls-tifo-headline-b8wssb' !important;
-    font-size: 1.15rem;
-    line-height: 1.15rem;
-    margin: 0 !important;
-    padding-top: .5rem;
-    text-transform: uppercase;
+  font-family: 'mls-tifo-headline-b8wssb' !important;
+  font-size: 1.15rem;
+  line-height: 1.15rem;
+  margin: 0 !important;
+  padding-top: .5rem;
+  text-transform: uppercase;
 }
+
 .text-red {
   color: #A92F2D;
 }
 
 h6 {
-    font-family: 'mls-tifo-headline-b8wssb' !important;
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 1rem;
-    margin: 0 !important;
-    text-transform: uppercase;
+  font-family: 'mls-tifo-headline-b8wssb' !important;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1rem;
+  margin: 0 !important;
+  text-transform: uppercase;
 }
 
 .scs-text-span-sm {
-   font-family: 'mls-tifo-standard-cz9zex' !important;
-    font-weight: 700;
-    font-size: .725rem;
-    line-height: 1rem;
-    margin: 0 !important;
-    text-transform: uppercase;
-color: var(--scs-red);
-    >span {
-      color: #0C2440;
-    }
+  font-family: 'mls-tifo-standard-cz9zex' !important;
+  font-weight: 700;
+  font-size: .725rem;
+  line-height: 1rem;
+  margin: 0 !important;
+  text-transform: uppercase;
+  color: var(--scs-red);
+
+  >span {
+    color: #0C2440;
+  }
 }
 
 .scs-display-stacked {
   display: flex;
-  gap:2rem
+  gap: 2rem
 }
 
 /* p {
@@ -131,10 +142,11 @@ color: var(--scs-red);
 }
 
 .scs-breadcrumbs-bottom-nav {
-padding: 2rem 0;
-display: flex;
-justify-content: space-between;
->a {
+  padding: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+
+  >a {
     font-family: 'dharma-gothic-m-gvf2i7';
     text-transform: uppercase;
     text-decoration: none;
@@ -142,13 +154,35 @@ justify-content: space-between;
     line-height: 3rem;
     color: #AB322C;
     display: flex;
-gap: .3rem;
-}
+    gap: .3rem;
+  }
 }
 
 
 @media (min-width: 768px) {
   .scs-breadcrumbs-bottom-nav {
     padding: 4rem 2rem;
-    }
+  }
+}
+
+.scs-music-nav-date {
+  font-family: 'mls-tifo-headline-b8wssb', sans-serif;
+  text-transform: uppercase;
+  font-size: .825rem;
+  line-height: 1.25rem;
+  letter-spacing: 5%;
+}
+
+.scs-card-button {
+    all: unset;
+    /* remove native button styles */
+    /* display: block; */
+    /* preserve layout */
+    cursor: pointer;
+    /* width: 100%; */
+}
+
+.scs-card-button:focus-visible {
+    outline: 3px solid #0c2340;
+    outline-offset: 4px;
 }
