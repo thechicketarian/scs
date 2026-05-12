@@ -24,7 +24,7 @@
 }
 
 .scs-drawer-activation-title {
-    font-size: .825rem;
+    font-size: .85rem;
     text-transform: uppercase;
     font-family: 'mls-tifo-standard-cz9zex';
     font-style: normal;
@@ -39,12 +39,13 @@
 }
 
 .scs-partner-title  {
-    text-transform: uppercase;
+    /* text-transform: uppercase;
      font-family: 'mls-tifo-standard-cz9zex';
     font-style: normal;
     font-weight: 700;
 font-size: 12px;
-line-height: 10px;
+line-height: 10px; */
+font-style: italic;
 }
 
 @media (min-width: 768px) {
@@ -56,7 +57,8 @@ line-height: 10px;
         padding: 2rem;
     }
 
-    .scs-vendor-name, .scs-drawer-title {
+    .scs-vendor-name,
+    .scs-drawer-title {
         font-size: 5rem !important;
         line-height: 4rem !important;
     }

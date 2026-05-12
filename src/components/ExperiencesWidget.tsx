@@ -159,7 +159,7 @@ function ActivationDrawer({ activation, onClose }: DrawerProps) {
           <div className="scs-drawer-activation-title"> {activation.vendor}</div>
           <hr />
           {activation.partner && (
-            <p className="scs-partner-title"><strong>Presented By:</strong> {activation.partner}</p>
+            <p className="scs-partner-title">Presented By: {activation.partner}</p>
           )}
           {/* ⭐ Description */}
           {activation.description && (
