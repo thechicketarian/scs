@@ -119,7 +119,7 @@ export default function Schedule({
           </div>
         );
       })}
-          <div className="scs-breadcrumbs-bottom-nav">
+          {/* <div className="scs-breadcrumbs-bottom-nav">
           <a className="scs-breadcrumbs-item" href="https://www.soccercapitalsummer.com/tickets"><span className="material-symbols-outlined">
             arrow_back
           </span>Tickets</a>
@@ -127,7 +127,7 @@ export default function Schedule({
           <a className="scs-breadcrumbs-item" href="https://www.soccercapitalsummer.com/experience">Concerts<span className="material-symbols-outlined">
             arrow_forward
           </span></a>
-        </div>
+        </div> */}
     </div>
   );
 }

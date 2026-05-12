@@ -196,7 +196,7 @@ export default function LiveMusicSchedule({ layout = "default" }) {
           ))}
 
         </div>
-        <div className="scs-breadcrumbs-bottom-nav">
+        {/* <div className="scs-breadcrumbs-bottom-nav">
           <a className="scs-breadcrumbs-item" href="https://www.soccercapitalsummer.com/schedule"><span className="material-symbols-outlined">
             arrow_back
           </span>match schedule</a>
@@ -204,7 +204,7 @@ export default function LiveMusicSchedule({ layout = "default" }) {
           <a className="scs-breadcrumbs-item" href="https://www.soccercapitalsummer.com/experience">experiences <span className="material-symbols-outlined">
             arrow_forward
           </span></a>
-        </div>
+        </div> */}
       </div>
 
       {/* DRAWER */}
