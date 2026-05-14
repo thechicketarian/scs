@@ -69,7 +69,6 @@ export function buildSchedule(input: {
   // Sort matches + experiences
   Object.keys(schedule).forEach(dateKey => {
     const day = schedule[dateKey];
-    day.matches = sortByTime(day.matches, "matchTime");
     day.experiences = sortByTime(day.experiences, "startTime");
   });
 
