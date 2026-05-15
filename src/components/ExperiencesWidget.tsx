@@ -11,30 +11,62 @@ export default function ExperiencesWidget() {
 
 
   // ⭐ Memoized activation pipeline (dedupe + collect dates)
+  // const activations = React.useMemo(() => {
+  //   if (loading) return [];
+
+  //   const map = new Map<string, ActivationEntry>();
+
+  //   Object.entries(schedule).forEach(([dateKey, day]) => {
+  //     (day.experiences || []).forEach((exp: ExperienceRow) => {
+  //       const key = `${exp.experience}|${exp.description}|${exp.time}|${exp.partner}|${exp.vendor}`;
+
+  //       if (!map.has(key)) {
+  //         map.set(key, {
+  //           ...exp,
+  //           dates: [dateKey]
+  //         });
+  //       } else {
+  //         map.get(key)!.dates.push(dateKey);
+  //       }
+  //     });
+  //   });
+
+  //   return Array.from(map.values()).sort((a, b) =>
+  //     a.experience.localeCompare(b.experience)
+  //   );
+  // }, [loading, schedule]);
+
   const activations = React.useMemo(() => {
-    if (loading) return [];
+  if (loading) return [];
 
-    const map = new Map<string, ActivationEntry>();
+  const map = new Map<string, ActivationEntry>();
 
-    Object.entries(schedule).forEach(([dateKey, day]) => {
-      (day.experiences || []).forEach((exp: ExperienceRow) => {
-        const key = `${exp.experience}|${exp.description}|${exp.time}|${exp.partner}|${exp.vendor}`;
+  Object.entries(schedule).forEach(([dateKey, day]) => {
+    (day.experiences || []).forEach((exp: ExperienceRow) => {
+      const key = `${exp.experience}|${exp.description}|${exp.time}|${exp.partner}|${exp.vendor}`;
 
-        if (!map.has(key)) {
-          map.set(key, {
-            ...exp,
-            dates: [dateKey]
-          });
-        } else {
-          map.get(key)!.dates.push(dateKey);
-        }
-      });
+      if (!map.has(key)) {
+        map.set(key, {
+          ...exp,
+          dates: [dateKey]
+        });
+      } else {
+        map.get(key)!.dates.push(dateKey);
+      }
     });
+  });
 
-    return Array.from(map.values()).sort((a, b) =>
-      a.experience.localeCompare(b.experience)
-    );
-  }, [loading, schedule]);
+  return Array.from(map.values()).sort((a, b) => {
+    const aIsAll = a.date === "all" || a.dates?.includes("all");
+    const bIsAll = b.date === "all" || b.dates?.includes("all");
+
+    if (aIsAll && !bIsAll) return -1;
+    if (!aIsAll && bIsAll) return 1;
+
+    return a.experience.localeCompare(b.experience);
+  });
+}, [loading, schedule]);
+
 
   const openDrawer = (activation: ActivationEntry) => {
     setActiveActivation(activation);
@@ -75,7 +107,6 @@ export default function ExperiencesWidget() {
     return <div>Loading…</div>;
   }
 
-
   return (
     <div className="scs-experiences-widget">
       <h1 className="scs-music-page-title">Experiences</h1>
@@ -110,11 +141,20 @@ export default function ExperiencesWidget() {
                 </span>
               </div>
             </div>
+
             {exp.image && (
-              <div className="scs-vendor-image artist-img">
+              <div className="scs-vendor-image artist-img-vendor">
                 <img src={exp.image} alt={exp.vendor} />
+                {exp.offer && (
+                  <div className="scs-vendor-offer-icon"><span className="material-symbols-outlined">
+                    featured_seasonal_and_gifts
+                  </span>
+                  <span>free offer</span>
+                  </div>
+                )}
               </div>
             )}
+
           </button>
         ))}
       </div>
@@ -174,6 +214,14 @@ function ActivationDrawer({ activation, onClose }: DrawerProps) {
           {activation.description && (
             <p className="scs-drawer-bio">{activation.description}</p>
           )}
+          {activation.offer && (
+            <p className="scs-drawer-offer"><span className="material-symbols-outlined">
+              featured_seasonal_and_gifts
+            </span>
+              <span>{activation.offer}</span>
+            </p>
+          )}
+
           {/* ⭐ Partner */}
 
 

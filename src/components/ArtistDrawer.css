@@ -103,7 +103,26 @@
     font-family: 'mls-tifo-standard-cz9zex';
     font-size: .825rem;
     line-height: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+}
+
+.scs-drawer-offer {
+       font-family: 'mls-tifo-standard-cz9zex';
+    font-size: .825rem;
+    line-height: 1rem;
+    background-color: #a7c6ed4a;
+    border: 1px dashed #0c2340;
+    
+    display: flex;
+    border-radius: 10px;
+
+    >span:nth-child(1) {
+padding: 1rem;
+border-right: 1px dashed #0c2340;
+    }
+    >span:nth-child(2) {
+        padding: .825rem;
+    }
 }
 
 .scs-drawer-links {
@@ -134,7 +153,7 @@ gap: 1rem;
    ================================ */
 @media (min-width: 768px) {
 
-    .scs-drawer-bio {
+    .scs-drawer-bio, .scs-drawer-offer {
     font-size: 1rem;
         line-height: 1.25rem;
 }

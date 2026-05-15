@@ -66,6 +66,7 @@ export interface ExperienceRow extends SheetRow {
     image:string
   experience: string
   description: string;
+  offer: string;
   partner: string;
   time: string;
   vendor: string;

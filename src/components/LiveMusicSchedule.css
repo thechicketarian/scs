@@ -92,13 +92,13 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: .25rem;
+     gap: .825rem;
     padding: 0rem 1rem;
 
 }
 
 .scs-headliner-item {
-    border: 1px solid #0c2340;
+    border: 2px solid #0c2340;
 }
 
 .scs-headliner-image {
@@ -123,7 +123,7 @@
 .scs-headliner-1 .scs-headliner-spacer {
     height: 70px;
     width: 100%;
-    border-bottom: 1px solid #0c2340;
+    border-bottom: 2px solid #0c2340;
     position: relative;
     overflow: hidden;
 }
@@ -145,7 +145,7 @@
 }
 
 .scs-headliner-1 .scs-headliner-image {
-    border-bottom: 1px solid #0c2340;
+    border-bottom: 2px solid #0c2340;
     width: 100%;
 
     >img {
@@ -182,18 +182,18 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: .25rem;
-    padding: .25rem 1rem 0;
+    gap: .825rem;
+    padding: .825rem 1rem 0;
 }
 
 .scs-music-item {
-    border: 1px solid #0c2340;
+    border: 2px solid #0c2340;
     display: flex;
     align-items: center;
 }
 
 .artist-img {
-    border-top: 1px solid #0c2340;
+    border-top: 2px solid #0c2340;
 }
 
 .scs-music-item.has-image {
@@ -219,7 +219,7 @@
 }
 
 .scs-spacer {
-    border: 1px solid #0c2340;
+    border: 2px solid #0c2340;
 }
 
 .star-spacer {
@@ -316,7 +316,7 @@
         height: 50px;
         background: #fafafa;
         padding: 1rem;
-        border: 1px solid #0c2340;
+        border: 2px solid #0c2340;
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -402,7 +402,7 @@
     .scs-headliner-2 .scs-headliner-image,
     .scs-headliner-3 .scs-headliner-image,
     .scs-headliner-4 .scs-headliner-image {
-        border-top: 1px solid #0c2340
+        border-top: 2px solid #0c2340
     }
 
     .scs-headliner-2 {
@@ -461,7 +461,7 @@
 
     .artist-img {
         border-top: none;
-        border-left: 1px solid #0c2340;
+        border-left: 2px solid #0c2340;
     }
 
     .scs-headliner-1 {
@@ -488,7 +488,7 @@
         width: 12%;
         height: 100%;
         border-bottom: none;
-        border-right: 1px solid #0c2340;
+        border-right: 2px solid #0c2340;
     }
 
     .scs-headliner-1 .scs-headliner-image {
