@@ -113,7 +113,7 @@ export default function ExperiencesWidget() {
       <div className="scs-music-nav scs-music-nav-exp">
         <div className="scs-music-nav-date">Summer Fun</div>
         <button className="scs-music-cta scs-card-button"
-          onClick={() => (window as any).GMWidget?.open("SoccerCapitalSummer")}
+          onClick={() => (window as any).GMWidget?.open("SoccerCapitalSummer" , {ref: 'WEB'})}
         >find tickets <span className="material-symbols-outlined">
             confirmation_number
           </span></button>
