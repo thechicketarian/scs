@@ -99,7 +99,7 @@ export default function TicketCards({ category }: TicketCardsProps) {
                   <button
                     type="button"
                     className="sqs-button-element--primary sqs-block-button-element"
-                    onClick={() => (window as any).GMWidget?.open(rawCta)}
+                    onClick={() => (window as any).GMWidget?.open(rawCta, {ref: 'WEB'})}
                   >
                     {bText || "Find Tickets"}
                   </button>

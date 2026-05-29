@@ -1,12 +1,30 @@
 .full-schedule-wrapper {
+
+    margin: 0 auto;
     display: grid;
     gap: .825rem;
  
 }
+
+/* .fs-date, .fs-theme {
+    font-family: 'mls-tifo-headline-b8wssb' !important;
+    letter-spacing: 4%;
+    text-transform: uppercase;
+    font-size: 20px;
+} */
+
 .full-schedule-day {
-    padding: 1rem;
+    border: 1px solid red;
     overflow: hidden;
-     border: 2px solid #0c2340;
+}
+
+.fs-meta-wrapper {
+    padding: 1rem;
+border-bottom: 1px solid red;
+}
+ .fs-section {
+   
+ padding: 1rem;
 }
 
 .watch-matches-wrapper {
@@ -18,8 +36,17 @@
 }
 
 .watch-item {
-  
         border: 2px solid #0c2340;
+}
+
+.bold-label {
+    display: flex;
+        align-items: center;
+        gap: .125rem;
+}
+
+.sched-label-mini {
+font-size: 13px;
 }
 
 @media (min-width: 768px) {
@@ -40,8 +67,29 @@ grid-template-columns: 1fr 1fr;
 
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1280px) {}
 
-    
+.fs-match-grid {
+    display: grid;
+    /* display: flex; */
+  /* 
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); */
+  gap: 5px;
+  margin: 16px 0;
+}
 
+.fs-match-card {
+  background: #fafafa;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid #333;
+    display: flex;
+      justify-content: space-between;
+          align-items: center;
+      gap: 2rem;
+}
+
+.fs-session-item {
+  display: flex;
+      justify-content: space-between;
 }
