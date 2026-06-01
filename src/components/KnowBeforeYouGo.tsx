@@ -58,7 +58,7 @@ items.forEach((item) => {
       return (
         <button
           key={i}
-          className="kbyg-item"
+          className="kbyg-item-button"
           onClick={() => setActiveItem(item)}
         >
           {item.label}
@@ -75,21 +75,20 @@ items.forEach((item) => {
 
   return (
     <div className="kbyg-wrapper">
-      <div className="kbyg-col">
-        <h3>Public Transportation</h3>
-        {grouped.publicTransportation.map(renderItem)}
+              <div className="kbyg-col">
+        <div className="scs-vendor-name">Sporting Park</div>
+        <div>{grouped.sportingPark.map(renderItem)}</div>
       </div>
 
       <div className="kbyg-col">
-        <h3>Parking & Rideshare</h3>
-        {grouped.parkingRideshare.map(renderItem)}
+        <div className="scs-vendor-name">Public Transportation</div>
+        <div>{grouped.publicTransportation.map(renderItem)}</div>
       </div>
 
       <div className="kbyg-col">
-        <h3>Sporting Park</h3>
-        {grouped.sportingPark.map(renderItem)}
+        <div className="scs-vendor-name">Parking & Rideshare</div>
+        <div>{grouped.parkingRideshare.map(renderItem)}</div>
       </div>
-
       {activeItem &&
         createPortal(
           <KBYGDrawer item={activeItem} onClose={() => setActiveItem(null)} />,
@@ -146,7 +145,7 @@ function KBYGDrawer({ item, onClose }: { item: KBItem; onClose: () => void }) {
     <div className="scs-drawer-overlay" onClick={onClose}>
       <div className="scs-content-wrapper">
                   {item.drawerImage && (
-            <div className="scs-drawer-img">
+            <div className="scs-drawer-img-kbyg">
               <img src={item.drawerImage} alt={item.drawerTitle} />
             </div>
           )}

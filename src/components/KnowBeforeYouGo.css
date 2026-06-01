@@ -1,13 +1,18 @@
 .kbyg-wrapper {
   display: grid;
   gap: 1rem;
-  padding: 1rem;
 }
 
 @media (min-width: 768px) {
   .kbyg-wrapper {
     grid-template-columns: repeat(3, 1fr);
+
   }
+}
+
+.kbyg-col {
+      border: 2px solid #0c2340;
+        padding: 1rem;
 }
 
 .kbyg-col h3 {
@@ -17,7 +22,7 @@
   font-weight: 700;
 }
 
-.kbyg-item {
+.kbyg-item, .kbyg-item-button {
   display: block;
   padding: .75rem 1rem;
   border: 2px solid #0c2340;
@@ -27,7 +32,12 @@
   text-align: left;
   cursor: pointer;
   font-size: .9rem;
+text-decoration: none;
 }
+.kbyg-item-button {
+    width: 100%;
+}
+
 
 .kbyg-item:hover {
   background: #f5f7fa;

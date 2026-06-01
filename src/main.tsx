@@ -13,6 +13,7 @@ import PanelOne from "./components/PanelOne";
 import ExperiencesWidget from "./components/ExperiencesWidget";
 import FullSchedule from "./components/FullSchedule";
 import KnowBeforeYouGo from "./components/KnowBeforeYouGo";
+import TicketNav from "./components/TicketNav";
 
 const isProd = import.meta.env.PROD;
 
@@ -63,7 +64,7 @@ const mountIfElementExists = (
 mountIfElementExists("scs-home-root", Home);
 mountIfElementExists("scs-hero-root", Hero);
 mountIfElementExists("scs-panel-1", PanelOne);
-
+mountIfElementExists("scs-ticket-nav", TicketNav);
 mountIfElementExists("scs-experiences", ExperiencesWidget);
 mountIfElementExists("scs-home-upcoming", FullSchedule);
 mountIfElementExists("scs-full-schedule", FullSchedule);

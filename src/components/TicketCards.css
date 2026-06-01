@@ -14,19 +14,7 @@
   line-height: 2.5rem;
 }
 
-.ticketNavMobile {
-  display: flex;
-  /* justify-content: space-between; */
-  gap: 1rem;
 
-}
-
-.ticketNavMobile a {
-  display: grid;
-  justify-items: center;
-  padding: .825rem !important;
-    max-width: 100px;
-}
 
 .ticketNavDesktop {
   display: grid;

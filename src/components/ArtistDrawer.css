@@ -29,8 +29,8 @@
 
 .scs-content-wrapper {
     height: 100%;
-    display: flex;
-    align-items: flex-end;
+display: grid;
+    align-content: end;
 }
 
 .scs-drawer-img {
@@ -42,7 +42,7 @@
    ================================ */
 .scs-drawer {
     background: #fafafa;
-    width: 100%;
+    /* width: 100%; */
 
     /* border-top: 2px solid #0c2340;
     border-left: 2px solid #0c2340;
@@ -159,6 +159,7 @@ gap: 1rem;
 }
 
     .scs-content-wrapper {
+            display: flex;
           align-items: center;
     justify-content: flex-end;
     }
@@ -226,5 +227,12 @@ gap: 1rem;
 @media (min-width: 1280px) {
     .scs-drawer {
         width: 520px;
+    }
+}
+
+.scs-drawer-img-kbyg {
+    display: flex;
+    >img {
+        width: 100%;
     }
 }

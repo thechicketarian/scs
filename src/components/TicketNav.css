@@ -1,0 +1,47 @@
+.ticketNavMobile {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    min-width: 280px;
+    margin: 0 auto;
+}
+
+.ticketNavMobile a {
+    color: #0c2340;
+    display: grid;
+    justify-items: center;
+    padding: .825rem !important;
+    text-decoration: none;
+    width: 60px;
+    height: 60px;
+}
+
+.ticketNavLabel {
+    font-size: 13px;
+    font-family: 'mls-tifo-standard-cz9zex';
+    text-transform: uppercase;
+    font-weight: 700;
+
+}
+
+@media (min-width: 768px) {
+    .ticketNavMobile {
+        width: 100%;
+    }
+
+    .ticketNavMobile a {
+        width: 100px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .ticketNavMobile {
+        display: flex;
+        gap: .5rem;
+    }
+
+    .ticketNavLabel {
+        font-size: 16px;
+    }
+
+}
