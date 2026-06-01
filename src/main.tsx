@@ -12,6 +12,7 @@ import Home from "./components/Home";
 import PanelOne from "./components/PanelOne";
 import ExperiencesWidget from "./components/ExperiencesWidget";
 import FullSchedule from "./components/FullSchedule";
+import KnowBeforeYouGo from "./components/KnowBeforeYouGo";
 
 const isProd = import.meta.env.PROD;
 
@@ -42,6 +43,7 @@ const mountIfElementExists = (
       filterMonth: el.getAttribute("data-month") || undefined,
       category: el.getAttribute("data-category") || undefined,
       layout: el.getAttribute("layout") || "list",
+      mode: el.getAttribute("data-mode") || undefined,
     };
 
     const finalProps = { ...dataProps, ...manualProps };
@@ -63,7 +65,11 @@ mountIfElementExists("scs-hero-root", Hero);
 mountIfElementExists("scs-panel-1", PanelOne);
 
 mountIfElementExists("scs-experiences", ExperiencesWidget);
+mountIfElementExists("scs-home-upcoming", FullSchedule);
 mountIfElementExists("scs-full-schedule", FullSchedule);
+
+mountIfElementExists("scs-know-before", KnowBeforeYouGo);
+
 
 
 // --- 2. TICKET CARDS ---

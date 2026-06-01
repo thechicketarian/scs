@@ -80,16 +80,24 @@
 } */
 
 @media (min-width: 768px) {
-    .full-schedule-wrapper {
+   .full-schedule--full {
         grid-template-columns: 1fr 1fr;
     }
 
 }
 
 @media (min-width: 1024px) {
+
     .full-schedule-wrapper {
+font-size: 16px;
+    }
+
+       /* .full-schedule--upcoming {
+        max-width: 30%;
+       } */
+
+     .full-schedule--full {
         grid-template-columns: 1fr 1fr 1fr;
-        font-size: 16px;
     }
 
     /* .full-schedule-day:nth-child(1) {

@@ -1,0 +1,34 @@
+.kbyg-wrapper {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .kbyg-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.kbyg-col h3 {
+  font-size: 1rem;
+  margin-bottom: .5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.kbyg-item {
+  display: block;
+  padding: .75rem 1rem;
+  border: 2px solid #0c2340;
+  margin-bottom: .5rem;
+  border-radius: 6px;
+  background: #fff;
+  text-align: left;
+  cursor: pointer;
+  font-size: .9rem;
+}
+
+.kbyg-item:hover {
+  background: #f5f7fa;
+}
