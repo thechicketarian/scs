@@ -1,148 +1,25 @@
-// import React from "react";
-// import { useFestivalSchedule } from "../hooks/useFestivalSchedule";
-// import { DateTime } from "luxon";
-// import "./FullSchedule.css";
-
-// export default function FullSchedule() {
-//   const { schedule, loading } = useFestivalSchedule();
-
-//   if (loading) return <div>Loading full schedule…</div>;
-
-//   const days = Object.entries(schedule);
-
-//   return (
-//     <div className="full-schedule-wrapper">
-//       {days.map(([dateKey, day]) => {
-//         const formatted = DateTime.fromISO(dateKey, { zone: "America/Chicago" })
-//           .toFormat("cccc LLLL d");
-
-//         /* -----------------------------------------
-//            Build unified timeline using ISO fields
-//         ------------------------------------------ */
-//         const timeline: {
-//           type: "meta" | "match" | "music";
-//           label: string;
-//           time: string;
-//           iso: string | null | undefined;
-//         }[] = [];
-
-//         /* -----------------------------------------
-//            META EVENTS
-//         ------------------------------------------ */
-//         if (day.meta) {
-//           const m = day.meta;
-
-//           if (m.doorsOpen) {
-//             timeline.push({
-//               type: "meta",
-//               label: "Session 1",
-//               time: m.doorsOpen,
-//               iso: m.doorsOpenDateTime
-//             });
-//           }
-
-//           if (m.session1End) {
-//             timeline.push({
-//               type: "meta",
-//               label: "Session 1 Ends",
-//               time: m.session1End,
-//               iso: m.session1EndDateTime
-//             });
-//           }
-
-//           if (m.session2Start) {
-//             timeline.push({
-//               type: "meta",
-//               label: "Session 2",
-//               time: m.session2Start,
-//               iso: m.session2StartDateTime
-//             });
-//           }
-
-//           if (m.doorsClose) {
-//             timeline.push({
-//               type: "meta",
-//               label: "Doors Close",
-//               time: m.doorsClose,
-//               iso: m.doorsCloseDateTime
-//             });
-//           }
-//         }
-
-//         /* -----------------------------------------
-//            MATCHES
-//         ------------------------------------------ */
-//         day.matches?.forEach((m) => {
-//           timeline.push({
-//             type: "match",
-//             label: `${m.teamA} vs ${m.teamB}`,
-//             time: m.matchTime,
-//             iso: m.matchDateTime
-//           });
-//         });
-
-//         /* -----------------------------------------
-//            MUSIC
-//         ------------------------------------------ */
-//         day.music?.forEach((m) => {
-//           timeline.push({
-//             type: "music",
-//             label: m.artist,
-//             time: m.time,
-//             iso: m.musicDateTime
-//           });
-//         });
-
-//         /* -----------------------------------------
-//            SORT BY ISO DATETIME
-//         ------------------------------------------ */
-
-//         console.log(timeline)
-//         timeline.sort((a, b) => {
-//           if (!a.iso || !b.iso) return 0;
-//           return (
-//             DateTime.fromISO(a.iso).toMillis() -
-//             DateTime.fromISO(b.iso).toMillis()
-//           );
-//         });
-
-//         return (
-//           <div key={dateKey} className="full-schedule-day">
-//             <h2 className="fs-date">{formatted}</h2>
-
-//             {/* META BLOCK */}
-//             {day.meta && (
-//               <div className="fs-meta">
-//                 <h3>{day.meta.theme}</h3>
-//                 {/* <p>{day.meta.description}</p> */}
-//               </div>
-//             )}
-//               <h4>Schedule</h4>
-//             {/* UNIFIED TIMELINE */}
-//             <div className="fs-section">
-//               {timeline.map((item, i) => (
-//                 <div key={i} className="fs-item">
-//                   <strong>
-//                     {item.type === "match" && "⚽ "}
-//                     {item.type === "music" && "🎤 "}
-//                     {item.type === "meta" && ""}
-//                     {item.label}
-//                   </strong>
-//                   <div>{item.time}</div>
-//                 </div>
-//               ))}
-//             </div>
-//           </div>
-//         );
-//       })}
-//     </div>
-//   );
-// }
-
 import React from "react";
 import { useFestivalSchedule } from "../hooks/useFestivalSchedule";
 import { DateTime } from "luxon";
 import "./FullSchedule.css";
+
+/* -----------------------------------------
+   TIME FORMATTER → "4pm", "5:30pm", "11am"
+------------------------------------------ */
+function formatTime(dtString: string | null | undefined) {
+  if (!dtString) return "";
+
+  const dt = DateTime.fromISO(dtString);
+  if (!dt.isValid) return "";
+
+  // "4:30pm"
+  let formatted = dt.toFormat("h:mma").toLowerCase();
+
+  // Remove :00 → "4pm"
+  formatted = formatted.replace(":00", "");
+
+  return formatted;
+}
 
 export default function FullSchedule() {
   const { schedule, loading } = useFestivalSchedule();
@@ -158,7 +35,7 @@ export default function FullSchedule() {
         if (!m) return null;
 
         const formatted = DateTime.fromISO(dateKey, { zone: "America/Chicago" })
-          .toFormat("LLLL d");
+          .toFormat("ccc LLLL d");
 
         const isTwoSessionDay =
           m.session1EndDateTime &&
@@ -174,7 +51,7 @@ export default function FullSchedule() {
           timeline.push({
             type: "meta",
             label: "Gates Open",
-            time: DateTime.fromISO(m.doorsOpenDateTime!).toFormat("h:mm a"),
+            time: formatTime(m.doorsOpenDateTime),
             iso: m.doorsOpenDateTime
           });
         }
@@ -184,8 +61,8 @@ export default function FullSchedule() {
           timeline.push({
             type: "session",
             label: "Session 1",
-            time: DateTime.fromISO(m.doorsOpenDateTime!).toFormat("h:mm a"),
-            end: DateTime.fromISO(m.session1EndDateTime!).toFormat("h:mm a"),
+            time: formatTime(m.doorsOpenDateTime),
+            end: formatTime(m.session1EndDateTime),
             iso: m.doorsOpenDateTime
           });
         }
@@ -194,8 +71,8 @@ export default function FullSchedule() {
         day.matches?.forEach((match) => {
           timeline.push({
             type: "match",
-            label: `${match.teamA} vs ${match.teamB}`,
-            time: match.matchTime,
+            label: `${match.teamA} vs. ${match.teamB}`,
+            time: formatTime(match.matchDateTime),
             iso: match.matchDateTime
           });
         });
@@ -205,27 +82,39 @@ export default function FullSchedule() {
           timeline.push({
             type: "session",
             label: "Session 2",
-            time: DateTime.fromISO(m.session2StartDateTime!).toFormat("h:mm a"),
-            end: DateTime.fromISO(m.doorsCloseDateTime!).toFormat("h:mm a"),
+            time: formatTime(m.session2StartDateTime),
+            end: formatTime(m.doorsCloseDateTime),
             iso: m.session2StartDateTime
           });
         }
 
         // MUSIC
-        // day.music?.forEach((mus) => {
-        //   timeline.push({
-        //     type: "music",
-        //     label: mus.artist,
-        //     time: mus.time,
-        //     iso: mus.musicDateTime
-        //   });
-        // });
+        const djSets: any[] = [];
 
-        // ⭐ ALL DAYS → Doors Close (FIXED)
+        day.music?.forEach((mus) => {
+          const hasTime = Boolean(mus.time && mus.musicDateTime);
+
+          if (hasTime) {
+            // Timed concert → goes into grid
+            timeline.push({
+              type: "music",
+              label: mus.artist,
+              time: formatTime(mus.musicDateTime),
+              iso: mus.musicDateTime
+            });
+          } else {
+            // Untimed DJ set → pop OUT of timeline
+            djSets.push({
+              label: mus.artist
+            });
+          }
+        });
+
+        // ⭐ ALL DAYS → Doors Close
         timeline.push({
           type: "meta",
           label: "Gates Close",
-          time: m.doorsClose,
+          time: formatTime(m.doorsCloseDateTime),
           iso: m.doorsCloseDateTime
         });
 
@@ -259,13 +148,11 @@ export default function FullSchedule() {
           if (item.type === "match" || item.type === "music") {
             grid.push(item);
           } else {
-            // session or meta → break the grid
             flushGrid();
             rendered.push(item);
           }
         });
 
-        // flush final grid
         flushGrid();
 
         return (
@@ -277,6 +164,19 @@ export default function FullSchedule() {
               </div>
             </div>
 
+            {djSets.length < 0 && (
+              <div className="dj-section">
+                <div>
+                  <span>Sounds By:</span>
+                  {djSets.map((dj, i) => (
+                    <div key={i} className="dj-item">
+                      <strong>🎧 {dj.label}</strong>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             <div className="fs-section">
               {rendered.map((block, i) => {
                 if (block.type === "grid") {
@@ -284,11 +184,11 @@ export default function FullSchedule() {
                     <div key={i} className="fs-match-grid">
                       {block.items.map((item: any, j: number) => (
                         <div key={j} className="fs-match-card">
-                          <strong className="bold-label">
-                            {/* <span>  {item.type === "match" && "⚽ "}</span>
-                            <span> {item.type === "music" && "🎤 "}</span> */}
-                            <span className="sched-label-mini"> {item.label}</span>
-                          </strong>
+                          <div className="bold-label">
+                            <span>{item.type === "match" && "⚽ "}</span>
+                            <span>{item.type === "music" && "🎤 "}</span>
+                            <span className="sched-label-mini">{item.label}</span>
+                          </div>
                           <div className="sched-label-mini">{item.time}</div>
                         </div>
                       ))}
@@ -299,7 +199,7 @@ export default function FullSchedule() {
                 // session or meta
                 return (
                   <div key={i} className="fs-item fs-session-item">
-                    <strong>{block.label}</strong>
+                    <strong className="fs-uppercase">{block.label}</strong>
                     {block.type === "session" ? (
                       <div>{block.time} – {block.end}</div>
                     ) : (

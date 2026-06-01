@@ -69,6 +69,9 @@ body {
   /* Squarespace will override this later */
 }
 
+strong {
+    font-family: 'mls-tifo-standard-cz9zex';
+}
 
 h1,
 h2,
