@@ -88,13 +88,25 @@ export default function KnowBeforeYouGo() {
             <div className="kbyg-list">
                 <div className="kbyg-col">
                     <div className="kbyg-title">Sporting Park</div>
-                    <div>cashless • clear bags • </div>
+                    <div>
+                        <div><span className="material-symbols-outlined">
+                            payment_card
+                        </span>
+                            <span className="kbyg-icon-label"> cashless</span>
+                        </div>
+                        <div><span className="material-symbols-outlined">
+                            shopping_bag
+                        </span>
+                            <span className="kbyg-icon-label"> clear bags</span>
+                        </div>
+
+                    </div>
                     <div>{grouped.sportingPark.map(renderItem)}</div>
                 </div>
 
                 <div className="kbyg-col">
                     <div className="kbyg-title">Public Transportation</div>
-                    <div>get around Kansas City </div>
+                    <div>Get around Kansas City </div>
                     <div>{grouped.publicTransportation.map(renderItem)}</div>
                 </div>
 
@@ -151,23 +163,23 @@ function normalizeCategory(raw: string = ""): KBYGCategory | null {
    DRAWER COMPONENT (matches ExperiencesWidget)
 ------------------------------------------ */
 function KBYGDrawer({ item, onClose }: { item: KBItem; onClose: () => void }) {
-  useEffect(() => {
-    // ⭐ Lock scroll like ExperiencesWidget
-    document.body.style.overflow = "hidden";
-    document.documentElement.style.overflow = "hidden";
+    useEffect(() => {
+        // ⭐ Lock scroll like ExperiencesWidget
+        document.body.style.overflow = "hidden";
+        document.documentElement.style.overflow = "hidden";
 
-    const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-    };
-    window.addEventListener("keydown", handleEsc);
+        const handleEsc = (e: KeyboardEvent) => {
+            if (e.key === "Escape") onClose();
+        };
+        window.addEventListener("keydown", handleEsc);
 
-    return () => {
-      // ⭐ Unlock scroll
-      document.body.style.overflow = "";
-      document.documentElement.style.overflow = "";
-      window.removeEventListener("keydown", handleEsc);
-    };
-  }, [onClose]);
+        return () => {
+            // ⭐ Unlock scroll
+            document.body.style.overflow = "";
+            document.documentElement.style.overflow = "";
+            window.removeEventListener("keydown", handleEsc);
+        };
+    }, [onClose]);
 
     return (
         <div className="scs-drawer-overlay" onClick={onClose}>
@@ -189,7 +201,7 @@ function KBYGDrawer({ item, onClose }: { item: KBItem; onClose: () => void }) {
                         {item.drawerLink && (
                             <a href={item.drawerLink} target="_blank" className="scs-drawer-a">
                                 <span className="material-symbols-outlined">confirmation_number</span>
-                                   <span className="scs-drawer-icon-label">buy pass</span>
+                                <span className="scs-drawer-icon-label">buy pass</span>
                             </a>
                         )}
                         {item.drawerPin && (
