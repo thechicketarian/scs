@@ -84,7 +84,7 @@ export default function KnowBeforeYouGo() {
 
     return (
         <div className="kbyg-wrapper">
-            <h3 className="scs-music-vendor">Know before you go</h3>
+            <h3 className="scs-vendor-name">Know before you go</h3>
             <div className="kbyg-list">
                 <div className="kbyg-col">
                     <div className="kbyg-title">Sporting Park</div>
@@ -151,12 +151,21 @@ function normalizeCategory(raw: string = ""): KBYGCategory | null {
    DRAWER COMPONENT (matches ExperiencesWidget)
 ------------------------------------------ */
 function KBYGDrawer({ item, onClose }: { item: KBItem; onClose: () => void }) {
-    useEffect(() => {
-        document.body.style.overflow = "hidden";
+
+          useEffect(() => {
+        if (item) {
+          document.body.style.overflow = "hidden";
+          document.documentElement.style.overflow = "hidden";
+        } else {
+          document.body.style.overflow = "";
+          document.documentElement.style.overflow = "";
+        }
+    
         return () => {
-            document.body.style.overflow = "";
+          document.body.style.overflow = "";
+          document.documentElement.style.overflow = "";
         };
-    }, []);
+      }, [item]);
 
     return (
         <div className="scs-drawer-overlay" onClick={onClose}>
@@ -183,6 +192,7 @@ function KBYGDrawer({ item, onClose }: { item: KBItem; onClose: () => void }) {
                         {item.drawerPin && (
                             <a href={item.drawerPin} target="_blank">
                                 <span className="material-symbols-outlined">pin_drop</span>
+                                <span className="scs-drawer-icon-label">directions</span>
                             </a>
                         )}
 

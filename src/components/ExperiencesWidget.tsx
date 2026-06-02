@@ -127,7 +127,6 @@ export default function ExperiencesWidget() {
             onClick={() => openDrawer(exp)}
           >
             <div className="scs-headliner-info">
-
               <div className="scs-music-date">{formatExperienceDates(exp.date)} </div>
               <div className="scs-vendor-name">{exp.experience}</div>
               {/* <div> {exp.category}</div> */}

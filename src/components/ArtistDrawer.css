@@ -237,3 +237,9 @@ gap: 1rem;
         width: 100%;
     }
 }
+
+.scs-drawer-icon-label {
+    font-size: 12px;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
