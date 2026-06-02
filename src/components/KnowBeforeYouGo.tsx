@@ -151,21 +151,23 @@ function normalizeCategory(raw: string = ""): KBYGCategory | null {
    DRAWER COMPONENT (matches ExperiencesWidget)
 ------------------------------------------ */
 function KBYGDrawer({ item, onClose }: { item: KBItem; onClose: () => void }) {
+  useEffect(() => {
+    // ⭐ Lock scroll like ExperiencesWidget
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
 
-          useEffect(() => {
-        if (item) {
-          document.body.style.overflow = "hidden";
-          document.documentElement.style.overflow = "hidden";
-        } else {
-          document.body.style.overflow = "";
-          document.documentElement.style.overflow = "";
-        }
-    
-        return () => {
-          document.body.style.overflow = "";
-          document.documentElement.style.overflow = "";
-        };
-      }, [item]);
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", handleEsc);
+
+    return () => {
+      // ⭐ Unlock scroll
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+      window.removeEventListener("keydown", handleEsc);
+    };
+  }, [onClose]);
 
     return (
         <div className="scs-drawer-overlay" onClick={onClose}>

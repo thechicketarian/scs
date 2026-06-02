@@ -74,5 +74,6 @@ gap: .25rem;
 
 .scs-drawer-a {
   display: grid;
+  justify-items: center;
   gap: .25rem;
 }
