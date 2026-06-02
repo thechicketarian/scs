@@ -185,12 +185,13 @@ function KBYGDrawer({ item, onClose }: { item: KBItem; onClose: () => void }) {
 
                     <div className="scs-drawer-links">
                         {item.drawerLink && (
-                            <a href={item.drawerLink} target="_blank">
+                            <a href={item.drawerLink} target="_blank" className="scs-drawer-a">
                                 <span className="material-symbols-outlined">confirmation_number</span>
+                                   <span className="scs-drawer-icon-label">buy pass</span>
                             </a>
                         )}
                         {item.drawerPin && (
-                            <a href={item.drawerPin} target="_blank">
+                            <a href={item.drawerPin} target="_blank" className="scs-drawer-a">
                                 <span className="material-symbols-outlined">pin_drop</span>
                                 <span className="scs-drawer-icon-label">directions</span>
                             </a>

@@ -71,3 +71,8 @@ gap: .25rem;
 .kbyg-item:hover {
   background: #f5f7fa;
 }
+
+.scs-drawer-a {
+  display: grid;
+  gap: .25rem;
+}
