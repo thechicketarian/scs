@@ -232,6 +232,7 @@ gap: 1rem;
 
 .scs-drawer-img-kbyg {
     display: flex;
+        align-items: center;
     >img {
         width: 100%;
     }
