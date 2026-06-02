@@ -23,6 +23,7 @@ gap: 1rem;
                gap: 2rem;
                >div {
                 display: grid;
+                justify-items: center;
                 gap: .15rem;
                }
 
