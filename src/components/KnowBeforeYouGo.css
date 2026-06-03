@@ -8,10 +8,9 @@
   gap: 1rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .kbyg-list {
-    /* grid-template-columns: repeat(3, 1fr); */
-grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -44,8 +43,10 @@ display: flex;
 
 .kbyg-info-group-wrapper {
   display: flex;
+  align-items: center;
 
   >div {
+    display: flex;
     >img {
       width: 100%;
     }

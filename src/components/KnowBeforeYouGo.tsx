@@ -152,14 +152,15 @@ export default function KnowBeforeYouGo() {
                     {/* <p className="kybg-col-des"></p> */}
                     {/* INFO ITEMS */}
                     <div className="kbyg-info-group-wrapper">
-                                            {/* <div>
-                        <img src="https://scs-ochre.vercel.app/kbyg/26-SCS-Plaza-Website-Map-opt.jpg"/>
-                    </div>  */}
+
                         <div className="kbyg-info-group">
                             {grouped.sportingPark
                             .filter((i) => i.type === "info")
                             .map(renderItem)}
                         </div>
+                     {/* <div>
+                        <img src="https://scs-ochre.vercel.app/kbyg/26-SCS-Plaza-Website-Map-cropped.jpg"/>
+                    </div>  */}
                     </div>
 
                     {/* DRAWER + LINK ITEMS */}
