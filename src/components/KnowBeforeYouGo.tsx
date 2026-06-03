@@ -3,133 +3,26 @@ import { useSheetData } from "../hooks/useSheetData";
 import { createPortal } from "react-dom";
 import "./KnowBeforeYouGo.css";
 
-export default function KnowBeforeYouGo() {
-    const { data, loading } = useSheetData("1658720290");
-    const [activeItem, setActiveItem] = useState<KBItem | null>(null);
-
-    if (loading) return <div>Loading info…</div>;
-
-    console.log(data)
-    // Normalize rows
-    const items: KBItem[] = data.map((row) => ({
-        label: row.label?.trim() || "",
-        link: row.externalLink?.trim() || "",
-        drawerTitle: row.drawerTitle?.trim() || "",
-        drawerDescription: row.drawerDescription?.trim() || "",
-        drawerImage: row.drawerImage?.trim() || "",
-        drawerLink: row.drawerLink?.trim() || "",
-        drawerPin: row.drawerPin?.trim() || "",
-        category: normalizeCategory(row.category)
-    }));
-
-
-    console.log(items)
-    // Group by category
-    const grouped: Record<KBYGCategory, KBItem[]> = {
-        publicTransportation: [],
-        parkingRideshare: [],
-        sportingPark: []
-    };
-
-    items.forEach((item) => {
-        if (item.category) {
-            grouped[item.category].push(item);
-        }
-    });
-
-
-    const renderItem = (item: KBItem, i: number) => {
-        const isExternal = item.link && item.link.startsWith("http");
-        const hasDrawer =
-            item.drawerTitle || item.drawerDescription || item.drawerImage;
-
-        if (isExternal) {
-            return (
-                <a
-                    key={i}
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="kbyg-link"
-                >
-                    {item.label} <span className="material-symbols-outlined">
-                        link
-                    </span>
-                </a>
-            );
-        }
-
-        if (hasDrawer) {
-            return (
-                <button
-                    key={i}
-                    className="kbyg-item-button"
-                    onClick={() => setActiveItem(item)}
-                >
-                    {item.label}
-                    <span className="material-symbols-outlined">
-                        expand_content
-                    </span>
-                </button>
-            );
-        }
-
-        return (
-            null
-            // <div key={i} className="kbyg-item">
-            //     <span> {item.label}</span>
-            // </div>
-        );
-    };
-
-    return (
-        <div className="kbyg-wrapper">
-            <h3 className="scs-vendor-name">Know before you go</h3>
-            <div className="kbyg-list">
-                <div className="kbyg-col">
-                    <div className="kbyg-title">Sporting Park</div>
-                    <div>
-                        <div><span className="material-symbols-outlined">
-                            payment_card
-                        </span>
-                            <span className="kbyg-icon-label"> cashless</span>
-                        </div>
-                        <div><span className="material-symbols-outlined">
-                            shopping_bag
-                        </span>
-                            <span className="kbyg-icon-label"> clear bags</span>
-                        </div>
-
-                    </div>
-                    <div>{grouped.sportingPark.map(renderItem)}</div>
-                </div>
-
-                <div className="kbyg-col">
-                    <div className="kbyg-title">Public Transportation</div>
-                    <div>Get around Kansas City </div>
-                    <div>{grouped.publicTransportation.map(renderItem)}</div>
-                </div>
-
-                <div className="kbyg-col">
-                    <div className="kbyg-title">Parking & Rideshare</div>
-                    <div>get to sporting park</div>
-                    <div>{grouped.parkingRideshare.map(renderItem)}</div>
-                </div>
-                {activeItem &&
-                    createPortal(
-                        <KBYGDrawer item={activeItem} onClose={() => setActiveItem(null)} />,
-                        document.body
-                    )}
-            </div>
-        </div>
-    );
-}
+/* -----------------------------------------
+   CATEGORY TYPES
+------------------------------------------ */
+type KBYGCategory =
+    | "publicTransportation"
+    | "parkingRideshare"
+    | "sportingPark";
 
 /* -----------------------------------------
-   TYPES
+   CONTENT TYPES
+------------------------------------------ */
+type KBYGType = "info" | "drawer" | "link";
+
+/* -----------------------------------------
+   ITEM TYPE
 ------------------------------------------ */
 interface KBItem {
+    type: KBYGType;
     label: string;
+    icon: string;
     link: string;
     drawerTitle: string;
     drawerDescription: string;
@@ -139,11 +32,9 @@ interface KBItem {
     category: KBYGCategory | null;
 }
 
-type KBYGCategory =
-    | "publicTransportation"
-    | "parkingRideshare"
-    | "sportingPark";
-
+/* -----------------------------------------
+   NORMALIZE CATEGORY
+------------------------------------------ */
 function normalizeCategory(raw: string = ""): KBYGCategory | null {
     const cleaned = raw.toLowerCase().trim().replace(/\s+/g, " ");
 
@@ -155,16 +46,166 @@ function normalizeCategory(raw: string = ""): KBYGCategory | null {
         case "sporting park":
             return "sportingPark";
         default:
-            return null; // optional: catch unexpected categories
+            return null;
     }
 }
 
 /* -----------------------------------------
-   DRAWER COMPONENT (matches ExperiencesWidget)
+   MAIN COMPONENT
+------------------------------------------ */
+export default function KnowBeforeYouGo() {
+    const { data, loading } = useSheetData("1658720290");
+    const [activeItem, setActiveItem] = useState<KBItem | null>(null);
+
+    if (loading) return <div>Loading info…</div>;
+
+    /* -----------------------------------------
+       NORMALIZE ROWS
+    ------------------------------------------ */
+    const items: KBItem[] = data.map((row) => ({
+        type: (row.type?.trim().toLowerCase() as KBYGType) || "info",
+        label: row.label?.trim() || "",
+        icon: row.infoIcon?.trim() || "",
+        link: row.externalLink?.trim() || "",
+        drawerTitle: row.drawerTitle?.trim() || "",
+        drawerDescription: row.drawerDescription?.trim() || "",
+        drawerImage: row.drawerImage?.trim() || "",
+        drawerLink: row.drawerLink?.trim() || "",
+        drawerPin: row.drawerPin?.trim() || "",
+        category: normalizeCategory(row.category)
+    }));
+
+    /* -----------------------------------------
+       GROUP BY CATEGORY
+    ------------------------------------------ */
+    const grouped: Record<KBYGCategory, KBItem[]> = {
+        publicTransportation: [],
+        parkingRideshare: [],
+        sportingPark: []
+    };
+
+    items.forEach((item) => {
+        if (item.category) grouped[item.category].push(item);
+    });
+
+    /* -----------------------------------------
+       RENDER ITEM
+    ------------------------------------------ */
+    const renderItem = (item: KBItem, i: number) => {
+        // External link
+        if (item.type === "link" && item.link) {
+            return (
+                <a
+                    key={i}
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="kbyg-link"
+                >
+                    {item.label}
+                    <span className="material-symbols-outlined">link</span>
+                </a>
+            );
+        }
+
+        // INFO ITEM — icon above label (Sporting Park style)
+        if (item.type === "info") {
+            return (
+                <div
+                    key={i}
+                    className="kbyg-info-block"
+                    onClick={() => setActiveItem(item)}
+                >
+                    {item.icon && (
+                        <span className="material-symbols-outlined">{item.icon}</span>
+                    )}
+                    <span className="kbyg-icon-label">{item.label}</span>
+                </div>
+            );
+        }
+
+        // DRAWER ITEM — full-width expandable row
+        if (item.type === "drawer") {
+            return (
+                <button
+                    key={i}
+                    className="kbyg-item-button"
+                    onClick={() => setActiveItem(item)}
+                >
+                    <span>{item.label}</span>
+                    <span className="material-symbols-outlined">expand_content</span>
+                </button>
+            );
+        }
+
+        return null;
+    };
+
+    return (
+        <div className="kbyg-wrapper">
+            <h3 className="scs-vendor-name">Know before you go</h3>
+
+            <div className="kbyg-list">
+                {/* SPORTING PARK */}
+                <div className="kbyg-col">
+                    <div className="kbyg-title">Sporting Park</div>
+                    {/* <p className="kybg-col-des"></p> */}
+                    {/* INFO ITEMS */}
+                    <div className="kbyg-info-group-wrapper">
+                                            {/* <div>
+                        <img src="https://scs-ochre.vercel.app/kbyg/26-SCS-Plaza-Website-Map-opt.jpg"/>
+                    </div>  */}
+                        <div className="kbyg-info-group">
+                            {grouped.sportingPark
+                            .filter((i) => i.type === "info")
+                            .map(renderItem)}
+                        </div>
+                    </div>
+
+                    {/* DRAWER + LINK ITEMS */}
+                    {/* <div className="kbyg-link-drawer-group">
+                        {grouped.sportingPark
+                            .filter((i) => i.type !== "info")
+                            .map(renderItem)}
+                    </div> */}
+                </div>
+
+
+                {/* PUBLIC TRANSPORTATION */}
+                <div className="kbyg-col">
+                    <div className="kbyg-title">Public Transportation</div>
+                    <p className="kybg-col-des">
+                        Connect KC26 Region Direct and the Ride KC Legends Loop will be
+                        available throughout Soccer Capital Summer.
+                    </p>
+                    <div className="kbyg-link-drawer-group">{grouped.publicTransportation.map(renderItem)}</div>
+                </div>
+
+                {/* PARKING & RIDESHARE */}
+                <div className="kbyg-col">
+                    <div className="kbyg-title">Parking & Rideshare</div>
+                    <p className="kybg-col-des">
+                        We’ve made it easy! Parking and Rideshare pick-up are available at
+                        Sporting Park all throughout Soccer Capital Summer.
+                    </p>
+                    <div className="kbyg-link-drawer-group">{grouped.parkingRideshare.map(renderItem)}</div>
+                </div>
+            </div>
+
+            {activeItem &&
+                createPortal(
+                    <KBYGDrawer item={activeItem} onClose={() => setActiveItem(null)} />,
+                    document.body
+                )}
+        </div>
+    );
+}
+
+/* -----------------------------------------
+   DRAWER COMPONENT
 ------------------------------------------ */
 function KBYGDrawer({ item, onClose }: { item: KBItem; onClose: () => void }) {
     useEffect(() => {
-        // ⭐ Lock scroll like ExperiencesWidget
         document.body.style.overflow = "hidden";
         document.documentElement.style.overflow = "hidden";
 
@@ -174,7 +215,6 @@ function KBYGDrawer({ item, onClose }: { item: KBItem; onClose: () => void }) {
         window.addEventListener("keydown", handleEsc);
 
         return () => {
-            // ⭐ Unlock scroll
             document.body.style.overflow = "";
             document.documentElement.style.overflow = "";
             window.removeEventListener("keydown", handleEsc);
@@ -189,8 +229,10 @@ function KBYGDrawer({ item, onClose }: { item: KBItem; onClose: () => void }) {
                         <img src={item.drawerImage} alt={item.drawerTitle} />
                     </div>
                 )}
+
                 <div className="scs-drawer" onClick={(e) => e.stopPropagation()}>
                     <button className="scs-drawer-close" onClick={onClose}>×</button>
+
                     <div className="scs-drawer-title">{item.drawerTitle}</div>
 
                     {item.drawerDescription && (
@@ -200,17 +242,19 @@ function KBYGDrawer({ item, onClose }: { item: KBItem; onClose: () => void }) {
                     <div className="scs-drawer-links">
                         {item.drawerLink && (
                             <a href={item.drawerLink} target="_blank" className="scs-drawer-a">
-                                <span className="material-symbols-outlined">confirmation_number</span>
+                                <span className="material-symbols-outlined">
+                                    confirmation_number
+                                </span>
                                 <span className="scs-drawer-icon-label">buy pass</span>
                             </a>
                         )}
+
                         {item.drawerPin && (
                             <a href={item.drawerPin} target="_blank" className="scs-drawer-a">
                                 <span className="material-symbols-outlined">pin_drop</span>
                                 <span className="scs-drawer-icon-label">directions</span>
                             </a>
                         )}
-
                     </div>
                 </div>
             </div>

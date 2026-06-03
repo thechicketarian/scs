@@ -3,71 +3,110 @@
   gap: 1rem;
 }
 
-  .kbyg-list{
-display: grid;
-gap: 1rem;
-  }
+.kbyg-list {
+  display: grid;
+  gap: 1rem;
+}
 
 @media (min-width: 768px) {
-  .kbyg-list{
-    grid-template-columns: repeat(3, 1fr);
-
+  .kbyg-list {
+    /* grid-template-columns: repeat(3, 1fr); */
+grid-template-columns: 2fr 1fr 1fr;
   }
 }
 
 .kbyg-col {
-      border: 2px solid #0c2340;
-            >div:nth-child(2){
-               padding: 1rem;
-               display: flex;
-               gap: 2rem;
-               >div {
-                display: grid;
-                justify-items: center;
-                gap: .15rem;
-               }
+  border: 2px solid #0c2340;
 
-      }
-      >div:nth-child(3){
-               padding: 1rem;
-      }
- 
+
+  p {
+    padding: 1rem;
+    display: flex;
+    gap: 2rem;
+    margin: 0 !important;
+  }
+
+  .kbyg-link-drawer-group {
+    padding: 1rem;
+  }
+
 }
+
+.kbyg-link-drawer-group-sp{
+
+display: flex;
+>div {display: flex;
+  >img {
+    width: 100%;
+  }
+}
+}
+
+.kbyg-info-group-wrapper {
+  display: flex;
+
+  >div {
+    >img {
+      width: 100%;
+    }
+  }
+}
+
+.kbyg-info-group {
+  display: flex;
+  padding: 1rem 1rem 0;
+  gap: .5rem;
+  cursor: pointer;
+  flex-wrap: wrap;
+  >div {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    gap: .15rem;
+    border: 2px solid #0c2340;
+    padding: .5rem;
+    width: 65px;
+    border-radius: 6px;
+  }
+
+}
+
 .kbyg-title {
-         padding: 1rem!important;
+  padding: 1rem !important;
   font-size: 20px;
-    font-family: 'mls-tifo-headline-b8wssb';
-    text-transform: uppercase;
+  font-family: 'mls-tifo-headline-b8wssb';
+  text-transform: uppercase;
 
-    border-bottom: 2px solid #0c2340;
+  border-bottom: 2px solid #0c2340;
 }
-
-
 
 .kbyg-wrapper h3 {
-text-align: center;
+  text-align: center;
 }
+
 .kbyg-item {
   width: fit-content;
 }
 
-.kbyg-link, .kbyg-item-button {
+.kbyg-link,
+.kbyg-item-button {
   background-color: transparent;
   font-family: 'mls-tifo-headline-b8wssb';
   padding: .75rem 1rem;
   border: 2px solid #0c2340;
   margin-bottom: .5rem;
   border-radius: 6px;
-color: #0c2340;
+  color: #0c2340;
   text-align: left;
   cursor: pointer;
   font-size: .9rem;
-text-decoration: none; 
-display: flex;
-align-items: center;
-justify-content: space-between;
-gap: .25rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .25rem;
 }
+
 .kbyg-item-button {
   width: stretch;
 }
@@ -84,6 +123,6 @@ gap: .25rem;
 }
 
 .kbyg-icon-label {
-      font-size: 12px;
-    font-weight: bolder;
+  font-size: 12px;
+  font-weight: bolder;
 }
