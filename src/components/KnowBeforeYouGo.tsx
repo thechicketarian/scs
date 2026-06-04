@@ -237,8 +237,12 @@ function KBYGDrawer({ item, onClose }: { item: KBItem; onClose: () => void }) {
                     <div className="scs-drawer-title">{item.drawerTitle}</div>
 
                     {item.drawerDescription && (
-                        <p className="scs-drawer-bio">{item.drawerDescription}</p>
-                    )}
+                        // <p className="scs-drawer-bio">{item.drawerDescription}</p>
+                   <div
+            className="scs-drawer-bio"
+            dangerouslySetInnerHTML={{ __html: item.drawerDescription }}
+          />
+                   )}
 
                     <div className="scs-drawer-links">
                         {item.drawerLink && (
