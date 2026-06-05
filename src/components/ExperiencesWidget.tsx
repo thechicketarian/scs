@@ -9,7 +9,6 @@ export default function ExperiencesWidget() {
   const { schedule, loading } = useFestivalSchedule();
   const [activeActivation, setActiveActivation] = useState<ActivationEntry | null>(null);
 
-
   // ⭐ Memoized activation pipeline (dedupe + collect dates)
   // const activations = React.useMemo(() => {
   //   if (loading) return [];
@@ -56,15 +55,37 @@ export default function ExperiencesWidget() {
     });
   });
 
+  // return Array.from(map.values()).sort((a, b) => {
+  //   const aIsAll = a.date === "all" || a.dates?.includes("all");
+  //   const bIsAll = b.date === "all" || b.dates?.includes("all");
+
+  //   if (aIsAll && !bIsAll) return -1;
+  //   if (!aIsAll && bIsAll) return 1;
+
+  //   return a.experience.localeCompare(b.experience);
+  // });
+  
   return Array.from(map.values()).sort((a, b) => {
-    const aIsAll = a.date === "all" || a.dates?.includes("all");
-    const bIsAll = b.date === "all" || b.dates?.includes("all");
+  // ⭐ 1. Priority override
+  const SPECIAL = "Celebrate Argentina"; // <-- change to your activation name
 
-    if (aIsAll && !bIsAll) return -1;
-    if (!aIsAll && bIsAll) return 1;
+  const aIsSpecial = a.experience === SPECIAL;
+  const bIsSpecial = b.experience === SPECIAL;
 
-    return a.experience.localeCompare(b.experience);
-  });
+  if (aIsSpecial && !bIsSpecial) return -1;
+  if (!aIsSpecial && bIsSpecial) return 1;
+
+  // ⭐ 2. Existing ALL-date logic
+  const aIsAll = a.date === "all" || a.dates?.includes("all");
+  const bIsAll = b.date === "all" || b.dates?.includes("all");
+
+  if (aIsAll && !bIsAll) return -1;
+  if (!aIsAll && bIsAll) return 1;
+
+  // ⭐ 3. Alphabetical fallback
+  return a.experience.localeCompare(b.experience);
+});
+
 }, [loading, schedule]);
 
 
@@ -113,7 +134,7 @@ export default function ExperiencesWidget() {
       <div className="scs-music-nav scs-music-nav-exp">
         <div className="scs-music-nav-date">Summer Fun</div>
         <button className="scs-music-cta scs-card-button"
-          onClick={() => (window as any).GMWidget?.open("SoccerCapitalSummer" , {ref: 'WEB'})}
+          onClick={() => (window as any).GMWidget?.open("SoccerCapitalSummer")}
         >find tickets <span className="material-symbols-outlined">
             confirmation_number
           </span></button>
@@ -149,6 +170,13 @@ export default function ExperiencesWidget() {
                     featured_seasonal_and_gifts
                   </span>
                   <span>free offer</span>
+                  </div>
+                )}
+                {exp.guest && (
+                  <div className="scs-vendor-offer-icon"><span className="material-symbols-outlined">
+                    featured_seasonal_and_gifts
+                  </span>
+                  <span>meet & greet</span>
                   </div>
                 )}
               </div>

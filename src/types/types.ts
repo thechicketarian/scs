@@ -43,7 +43,7 @@ export interface MusicRow extends SheetRow {
   bio: string;
   website: string
   ig: string;
-    tiktok: string;
+  tiktok: string;
   facebook: string;
   x: string;
   youtube: string;
@@ -61,17 +61,18 @@ export interface ArtistEntry extends MusicRow {
 
 // EXPERIENCES SHEET
 export interface ExperienceRow extends SheetRow {
-  
+
   category: string
-    image:string
+  image: string
   experience: string
   description: string;
   offer: string;
+  guest: string
   partner: string;
   time: string;
   vendor: string;
-vendorWeb: string;
-vendorIg: string
+  vendorWeb: string;
+  vendorIg: string
 
 }
 

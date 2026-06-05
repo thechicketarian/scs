@@ -79,9 +79,11 @@ export default function HorizontalScroller() {
     <div className="h-timeline-container" ref={sectionRef}>
       <div className="h-panel h-panel-1" ref={panel1Ref}>
        {/* <PanelOne/> */}
+       test one
       </div>
       <div className="h-panel h-panel-2" ref={panel2Ref}>
-        <PanelTwo />
+        {/* <PanelTwo /> */}
+        test two
       </div>
 
       {/* ⭐ ABOUT SECTION — slides up from below */}
