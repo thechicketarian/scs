@@ -126,6 +126,41 @@
     }
 }
 
+.scs-drawer-guest {
+    display: flex;
+     font-size: .825rem;
+    background-color: #a7c6ed4a;
+    margin-bottom: 1rem;
+      border-radius: 10px;
+       border: 1px solid #0c2340;
+      >span:nth-child(1) {
+         padding: 1rem;
+        border-right: 1px solid #0c2340;
+      }
+    >div:nth-child(2) {
+        padding: 1rem;
+    }
+    .scs-drawer-bio {
+        margin: 0;
+
+    }
+}
+
+.drawer-direction {
+padding-top: .5rem;
+    text-decoration: none;
+    color: #0c2340;
+display: flex;
+    gap: .15rem;
+    justify-content: start;
+    align-items: center;
+            >span:nth-child(2) {
+            font-weight: bolder;
+            font-style: italic;
+        }
+}
+
+
 .scs-drawer-links {
     display: flex;
     gap: 1rem;
@@ -149,24 +184,31 @@
 }
 
 /* ================================
-   TABLET BREAKPOINT (768px)
+   TABLET BREAKPOINT (1024px)
    Right-side drawer begins here
    ================================ */
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
 
     .scs-drawer-bio,
     .scs-drawer-offer {
         font-size: 1rem;
         line-height: 1.25rem;
     }
-
+.scs-drawer-overlay {
+    display: grid;
+            justify-items: end;
+        align-content: center;
+}
     .scs-content-wrapper {
-        /* display: flex; */
+        display: grid;
         /* align-items: center; */
         /* justify-content: flex-end; */
-        grid-template-columns: 1fr 1fr;
-            align-content: center;
-    justify-items: center;
+    grid-template-columns: 1fr 1fr;
+    /* align-items: center; */
+    /* align-content: center; */
+        max-width: 1400px;
+        /* margin: 0 auto; */
+        animation: drawerSlideIn 0.3s ease;
     }
 
     .scs-drawer {
@@ -177,7 +219,8 @@
         border-top: none;
         border: 2px solid #0c2340;
         border-right: none;
-        animation: drawerSlideIn 0.3s ease;
+        /* animation: drawerSlideIn 0.3s ease; */
+        animation: none;
     }
 
     .scs-drawer-img {
@@ -189,7 +232,7 @@
         padding: 1rem;
 
         >img {
-            aspect-ratio: 16/9;
+            aspect-ratio: 16/12;
             object-fit: cover;
             width: 100%;
             object-position: top;

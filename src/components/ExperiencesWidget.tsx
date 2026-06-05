@@ -173,8 +173,8 @@ export default function ExperiencesWidget() {
                   </div>
                 )}
                 {exp.guest && (
-                  <div className="scs-vendor-offer-icon"><span className="material-symbols-outlined">
-                    featured_seasonal_and_gifts
+                  <div className="scs-vendor-offer-icon scs-vendor-meet-icon"><span className="material-symbols-outlined">
+                    award_star
                   </span>
                     <span>meet & greet</span>
                   </div>
@@ -238,20 +238,31 @@ function ActivationDrawer({ activation, onClose }: DrawerProps) {
             <p className="scs-partner-title">Presented By: {activation.partner}</p>
           )}
           {activation.guest && (
-            // <p className="scs-drawer-bio">{item.drawerDescription}</p>
-            <div
-              className="scs-drawer-guest"
-              dangerouslySetInnerHTML={{ __html: activation.guest }}
-            />
+            <div className="scs-drawer-guest">
+              <span className="material-symbols-outlined">
+                award_star
+              </span>
+              <div
+                dangerouslySetInnerHTML={{ __html: activation.guest }}
+              />
+            </div>
           )}
           {/* ⭐ Description */}
-          {activation.description && (
+          {/* {activation.description && (
             <p className="scs-drawer-bio">{activation.description}</p>
+          )} */}
+
+          {activation.description && (
+            <div
+              className="scs-drawer-bio"
+              dangerouslySetInnerHTML={{ __html: activation.description }}
+            />
           )}
           {activation.offer && (
-            <p className="scs-drawer-offer"><span className="material-symbols-outlined">
-              featured_seasonal_and_gifts
-            </span>
+            <p className="scs-drawer-offer">
+              <span className="material-symbols-outlined">
+                featured_seasonal_and_gifts
+              </span>
               <span>{activation.offer}</span>
             </p>
           )}
