@@ -69,7 +69,7 @@ background-color: #FABC3F;
     width: 100%;
     object-fit: cover;
     object-position: top;
-    aspect-ratio: 16/9;
+    aspect-ratio: 16/12;
 }
 
 .scs-vendor-name {

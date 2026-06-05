@@ -21,8 +21,8 @@
 .scs-drawer-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(4px);
+    background: rgba(0, 0, 0, 0.75);
+    /* backdrop-filter: blur(4px); */
     z-index: 9999;
     padding: 0;
 }
