@@ -161,15 +161,18 @@
     }
 
     .scs-content-wrapper {
-        display: flex;
+        /* display: flex; */
         /* align-items: center; */
-        justify-content: flex-end;
+        /* justify-content: flex-end; */
+        grid-template-columns: 1fr 1fr;
+            align-content: center;
+    justify-items: center;
     }
 
     .scs-drawer {
         /* width: 420px;
         max-width: 420px; */
-        width: 50%;
+        /* width: 50%; */
         max-height: none;
         border-top: none;
         border: 2px solid #0c2340;
@@ -180,14 +183,14 @@
     .scs-drawer-img {
         display: flex;
         align-items: center;
-        width: 50%;
+        /* width: 50%; */
         padding: 0rem;
+        border: 1px solid #EF3943;
+        padding: 1rem;
 
         >img {
-            aspect-ratio: 16/12;
+            aspect-ratio: 16/9;
             object-fit: cover;
-            border: 1px solid #EF3943;
-            padding: 1rem;
             width: 100%;
             object-position: top;
         }
@@ -214,7 +217,7 @@
    ================================ */
 @media (min-width: 1024px) {
     .scs-drawer {
-        width: 480px;
+        /* width: 480px; */
         padding: 2.5rem;
     }
 
@@ -227,11 +230,11 @@
 /* ================================
    XL DESKTOP BREAKPOINT (1280px)
    ================================ */
-@media (min-width: 1280px) {
+/* @media (min-width: 1280px) {
     .scs-drawer {
         width: 520px;
     }
-}
+} */
 
 .scs-drawer-img-kbyg {
     display: flex;

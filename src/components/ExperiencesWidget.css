@@ -32,7 +32,7 @@
 }
 
 .scs-vendor-image {
-    height: 300px;
+    /* height: 240px; */
     display: flex;
     border-top: 2px solid #0c2340;
     position: relative;
@@ -65,6 +65,7 @@
     width: 100%;
     object-fit: cover;
     object-position: top;
+    aspect-ratio: 16/9;
 }
 
 .scs-vendor-name {

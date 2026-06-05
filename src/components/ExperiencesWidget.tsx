@@ -36,57 +36,57 @@ export default function ExperiencesWidget() {
   // }, [loading, schedule]);
 
   const activations = React.useMemo(() => {
-  if (loading) return [];
+    if (loading) return [];
 
-  const map = new Map<string, ActivationEntry>();
+    const map = new Map<string, ActivationEntry>();
 
-  Object.entries(schedule).forEach(([dateKey, day]) => {
-    (day.experiences || []).forEach((exp: ExperienceRow) => {
-      const key = `${exp.experience}|${exp.description}|${exp.time}|${exp.partner}|${exp.vendor}`;
+    Object.entries(schedule).forEach(([dateKey, day]) => {
+      (day.experiences || []).forEach((exp: ExperienceRow) => {
+        const key = `${exp.experience}|${exp.description}|${exp.time}|${exp.partner}|${exp.vendor}`;
 
-      if (!map.has(key)) {
-        map.set(key, {
-          ...exp,
-          dates: [dateKey]
-        });
-      } else {
-        map.get(key)!.dates.push(dateKey);
-      }
+        if (!map.has(key)) {
+          map.set(key, {
+            ...exp,
+            dates: [dateKey]
+          });
+        } else {
+          map.get(key)!.dates.push(dateKey);
+        }
+      });
     });
-  });
 
-  // return Array.from(map.values()).sort((a, b) => {
-  //   const aIsAll = a.date === "all" || a.dates?.includes("all");
-  //   const bIsAll = b.date === "all" || b.dates?.includes("all");
+    // return Array.from(map.values()).sort((a, b) => {
+    //   const aIsAll = a.date === "all" || a.dates?.includes("all");
+    //   const bIsAll = b.date === "all" || b.dates?.includes("all");
 
-  //   if (aIsAll && !bIsAll) return -1;
-  //   if (!aIsAll && bIsAll) return 1;
+    //   if (aIsAll && !bIsAll) return -1;
+    //   if (!aIsAll && bIsAll) return 1;
 
-  //   return a.experience.localeCompare(b.experience);
-  // });
-  
-  return Array.from(map.values()).sort((a, b) => {
-  // ⭐ 1. Priority override
-  const SPECIAL = "Celebrate Argentina"; // <-- change to your activation name
+    //   return a.experience.localeCompare(b.experience);
+    // });
 
-  const aIsSpecial = a.experience === SPECIAL;
-  const bIsSpecial = b.experience === SPECIAL;
+    return Array.from(map.values()).sort((a, b) => {
+      // ⭐ 1. Priority override
+      const SPECIAL = "Celebrate Argentina"; // <-- change to your activation name
 
-  if (aIsSpecial && !bIsSpecial) return -1;
-  if (!aIsSpecial && bIsSpecial) return 1;
+      const aIsSpecial = a.experience === SPECIAL;
+      const bIsSpecial = b.experience === SPECIAL;
 
-  // ⭐ 2. Existing ALL-date logic
-  const aIsAll = a.date === "all" || a.dates?.includes("all");
-  const bIsAll = b.date === "all" || b.dates?.includes("all");
+      if (aIsSpecial && !bIsSpecial) return -1;
+      if (!aIsSpecial && bIsSpecial) return 1;
 
-  if (aIsAll && !bIsAll) return -1;
-  if (!aIsAll && bIsAll) return 1;
+      // ⭐ 2. Existing ALL-date logic
+      const aIsAll = a.date === "all" || a.dates?.includes("all");
+      const bIsAll = b.date === "all" || b.dates?.includes("all");
 
-  // ⭐ 3. Alphabetical fallback
-  return a.experience.localeCompare(b.experience);
-});
+      if (aIsAll && !bIsAll) return -1;
+      if (!aIsAll && bIsAll) return 1;
 
-}, [loading, schedule]);
+      // ⭐ 3. Alphabetical fallback
+      return a.experience.localeCompare(b.experience);
+    });
+
+  }, [loading, schedule]);
 
 
   const openDrawer = (activation: ActivationEntry) => {
@@ -169,14 +169,14 @@ export default function ExperiencesWidget() {
                   <div className="scs-vendor-offer-icon"><span className="material-symbols-outlined">
                     featured_seasonal_and_gifts
                   </span>
-                  <span>free offer</span>
+                    <span>free offer</span>
                   </div>
                 )}
                 {exp.guest && (
                   <div className="scs-vendor-offer-icon"><span className="material-symbols-outlined">
                     featured_seasonal_and_gifts
                   </span>
-                  <span>meet & greet</span>
+                    <span>meet & greet</span>
                   </div>
                 )}
               </div>
@@ -237,6 +237,13 @@ function ActivationDrawer({ activation, onClose }: DrawerProps) {
           {activation.partner && (
             <p className="scs-partner-title">Presented By: {activation.partner}</p>
           )}
+          {activation.guest && (
+            // <p className="scs-drawer-bio">{item.drawerDescription}</p>
+            <div
+              className="scs-drawer-guest"
+              dangerouslySetInnerHTML={{ __html: activation.guest }}
+            />
+          )}
           {/* ⭐ Description */}
           {activation.description && (
             <p className="scs-drawer-bio">{activation.description}</p>
@@ -248,6 +255,7 @@ function ActivationDrawer({ activation, onClose }: DrawerProps) {
               <span>{activation.offer}</span>
             </p>
           )}
+
 
           {/* ⭐ Partner */}
 
