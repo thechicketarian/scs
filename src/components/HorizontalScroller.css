@@ -2,7 +2,7 @@
 .h-timeline-container {
   position: relative;
   height: 100vh;
-  /* overflow: hidden; */
+  overflow: hidden;
   background: #A7C6ED;
   background-image: url('https://images.squarespace-cdn.com/content/v1/69c2ef358a34ab18fd392d39/ccbb18f7-5997-4714-81c4-ce65471f4e42/26-Logo-BG-16x9.jpg?format=2500w');
   background-size: cover;
@@ -30,7 +30,7 @@
   left: 0;
    box-sizing: border-box;
    display: flex;
-   padding: 1rem;
+   /* padding: 1rem; */
 }
 
 /* Panel 1 */

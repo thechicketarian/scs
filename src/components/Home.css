@@ -1,5 +1,42 @@
 .home-wrapper {
   width: 100%;
-  overflow-x: hidden; /* allow vertical scrolling */
+  overflow-x: hidden;
+  /* allow vertical scrolling */
 }
 
+.home-grid {
+  display: none;
+  /* grid-template-columns: 1fr 1fr 1fr; */
+  position: relative;
+  background: #A7C6ED;
+  /* background-image: url('https://images.squarespace-cdn.com/content/v1/69c2ef358a34ab18fd392d39/ccbb18f7-5997-4714-81c4-ce65471f4e42/26-Logo-BG-16x9.jpg?format=2500w');
+  background-size: cover; */
+  background-position: center;
+  z-index: 2;
+  overflow: hidden;
+  gap: 1rem;
+
+  >div:nth-child(1) {
+    border: 2px solid #0c2340;
+    /* >div{
+      padding: 1rem;
+    } */
+    >img {
+      width: 100%;
+      aspect-ratio: 5/4;
+      object-fit: cover;
+    }
+  }
+}
+/* 
+.home-grid::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.squarespace-cdn.com/content/v1/69c2ef358a34ab18fd392d39/eb81d210-5abc-4c52-b4c8-f6499972ccfe/Untitled+%282%29.gif?format=2500w');
+  background-size: cover;
+  background-position: center;
+  mix-blend-mode: overlay;
+  opacity: .55;
+  z-index: -1;
+} */

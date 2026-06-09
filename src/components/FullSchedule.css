@@ -5,7 +5,7 @@
     font-size: 12px;
     position: relative;
 }
-
+/* 
 .full-schedule-wrapper::after {
     content: "";
     position: absolute;
@@ -15,7 +15,7 @@
     background-repeat: repeat;
     z-index: -5;
     pointer-events: none;
-}
+} */
 
 
 /* .fs-date, .fs-theme {

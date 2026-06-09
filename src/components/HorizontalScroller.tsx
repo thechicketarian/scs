@@ -4,6 +4,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import "./HorizontalScroller.css";
 import PanelTwo from "./PanelTwo";
 import PanelOne from "./PanelOne";
+import HomeLiveMusicWidget from "./HomeLiveMusicWidget";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,12 +30,13 @@ export default function HorizontalScroller() {
         scrub: 1,
         pin: true,
         anticipatePin: 1,
+
       },
     });
 
     // ACT 1 — slide panel 1 left
     tl.to(p1, {
-      x: () => -p2.offsetLeft,
+      x: () => -p2.offsetWidth,
       duration: 1.5,
     });
 
@@ -42,7 +44,7 @@ export default function HorizontalScroller() {
     tl.to(
       p2,
       {
-        x: () => -p2.offsetLeft,
+        x: () => -p2.offsetWidth,
         duration: 1.5,
       },
       "-=0.9"
@@ -78,12 +80,10 @@ export default function HorizontalScroller() {
   return (
     <div className="h-timeline-container" ref={sectionRef}>
       <div className="h-panel h-panel-1" ref={panel1Ref}>
-       {/* <PanelOne/> */}
-       test one
+       <PanelOne/>
       </div>
       <div className="h-panel h-panel-2" ref={panel2Ref}>
-        {/* <PanelTwo /> */}
-        test two
+        <PanelTwo />
       </div>
 
       {/* ⭐ ABOUT SECTION — slides up from below */}

@@ -38,7 +38,7 @@ export default function PanelOne() {
                     Soccer Capital Summer brings together the game and the city — celebrating the energy, passion, and culture that Kansas City brings to soccer all summer long. 
                 </p> */}
             </div>
-                                                    <div className="panel-1-bar">
+            <div className="panel-1-bar">
                                         <div className="scs-text-span-sm">
                 soccer
                </div>
@@ -49,7 +49,7 @@ export default function PanelOne() {
                <div className="scs-text-span-sm">
                 summer
                </div>
-                                    </div>
+        </div>
                 
         </div>
     );
