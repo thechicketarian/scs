@@ -181,7 +181,9 @@ const [showMapKey, setShowMapKey] = useState(false);
       className="kbyg-map-toggle"
       onClick={() => setShowMapKey(!showMapKey)}
     >
-      {showMapKey ? "Hide Key" : "Map Key"}
+      {showMapKey ? "Hide Key" : "Key"} <span className="material-symbols-outlined">
+info
+</span>
     </button>
   </div>
 </div>
