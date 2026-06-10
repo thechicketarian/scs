@@ -143,24 +143,26 @@ export default function KnowBeforeYouGo() {
 
     return (
         <div className="kbyg-wrapper">
-            <h3 className="scs-vendor-name">Know before you go</h3>
-
+          
+            <div className="kbyg-map">
+                  <h3 className="scs-vendor-name">Know before you go</h3>
+                  <h5>Plaza Map</h5>
+                <img src="https://scs-ochre.vercel.app/kbyg/26-SCS-Plaza-Website-Map-cropped.jpg" />
+            </div>
             <div className="kbyg-list">
                 {/* SPORTING PARK */}
                 <div className="kbyg-col">
                     <div className="kbyg-title">Sporting Park</div>
-                    {/* <p className="kybg-col-des"></p> */}
+                    <p className="kybg-col-des">We can’t wait to see you at Soccer Capital Summer! Here is some quick information you should know to make your visit to Sporting Park as smooth as possible.  </p>
                     {/* INFO ITEMS */}
                     <div className="kbyg-info-group-wrapper">
 
                         <div className="kbyg-info-group">
                             {grouped.sportingPark
-                            .filter((i) => i.type === "info")
-                            .map(renderItem)}
+                                .filter((i) => i.type === "info")
+                                .map(renderItem)}
                         </div>
-                     {/* <div>
-                        <img src="https://scs-ochre.vercel.app/kbyg/26-SCS-Plaza-Website-Map-cropped.jpg"/>
-                    </div>  */}
+
                     </div>
 
                     {/* DRAWER + LINK ITEMS */}
@@ -238,11 +240,11 @@ function KBYGDrawer({ item, onClose }: { item: KBItem; onClose: () => void }) {
 
                     {item.drawerDescription && (
                         // <p className="scs-drawer-bio">{item.drawerDescription}</p>
-                   <div
-            className="scs-drawer-bio"
-            dangerouslySetInnerHTML={{ __html: item.drawerDescription }}
-          />
-                   )}
+                        <div
+                            className="scs-drawer-bio"
+                            dangerouslySetInnerHTML={{ __html: item.drawerDescription }}
+                        />
+                    )}
 
                     <div className="scs-drawer-links">
                         {item.drawerLink && (

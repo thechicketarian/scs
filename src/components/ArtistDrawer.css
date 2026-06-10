@@ -31,6 +31,7 @@
     height: 100%;
     display: grid;
     align-content: end;
+    overflow-y: auto;
 }
 
 .scs-drawer-img {
@@ -104,6 +105,10 @@
     font-size: .825rem;
     line-height: 1rem;
     margin-bottom: 1rem;
+
+    >ul {
+        padding-inline-start: 10px;
+    }
 }
 
 .scs-drawer-offer {
@@ -128,18 +133,21 @@
 
 .scs-drawer-guest {
     display: flex;
-     font-size: .825rem;
+    font-size: .825rem;
     background-color: #a7c6ed4a;
     margin-bottom: 1rem;
-      border-radius: 10px;
-       border: 1px solid #0c2340;
-      >span:nth-child(1) {
-         padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid #0c2340;
+
+    >span:nth-child(1) {
+        padding: 1rem;
         border-right: 1px solid #0c2340;
-      }
+    }
+
     >div:nth-child(2) {
         padding: 1rem;
     }
+
     .scs-drawer-bio {
         margin: 0;
 
@@ -147,17 +155,18 @@
 }
 
 .drawer-direction {
-padding-top: .5rem;
+    padding-top: .5rem;
     text-decoration: none;
     color: #0c2340;
-display: flex;
+    display: flex;
     gap: .15rem;
     justify-content: start;
     align-items: center;
-            >span:nth-child(2) {
-            font-weight: bolder;
-            font-style: italic;
-        }
+
+    >span:nth-child(2) {
+        font-weight: bolder;
+        font-style: italic;
+    }
 }
 
 
@@ -194,18 +203,21 @@ display: flex;
         font-size: 1rem;
         line-height: 1.25rem;
     }
-.scs-drawer-overlay {
-    display: grid;
-            justify-items: end;
+
+    .scs-drawer-overlay {
+        display: grid;
+        justify-items: end;
         align-content: center;
-}
+    }
+
     .scs-content-wrapper {
+
         display: grid;
         /* align-items: center; */
         /* justify-content: flex-end; */
-    grid-template-columns: 1fr 1fr;
-    /* align-items: center; */
-    /* align-content: center; */
+        grid-template-columns: 1fr 1fr;
+        /* align-items: center; */
+        /* align-content: center; */
         max-width: 1400px;
         /* margin: 0 auto; */
         animation: drawerSlideIn 0.3s ease;
@@ -217,7 +229,7 @@ display: flex;
         /* width: 50%; */
         max-height: none;
         border-top: none;
-        border: 2px solid #0c2340;
+        /* border: 2px solid #0c2340; */
         border-right: none;
         /* animation: drawerSlideIn 0.3s ease; */
         animation: none;
