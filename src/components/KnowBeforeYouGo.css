@@ -1,3 +1,5 @@
+
+
 .kbyg-wrapper {
   display: flex;
   flex-direction: column;
@@ -149,6 +151,9 @@
 }
 
 @media (min-width: 1024px) {
+  .kbyg-override {
+          justify-items: center!important;
+}
   .kbyg-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;

@@ -230,7 +230,7 @@ function KBYGDrawer({ item, onClose }: { item: KBItem; onClose: () => void }) {
     }, [onClose]);
 
     return (
-        <div className="scs-drawer-overlay" onClick={onClose}>
+        <div className="scs-drawer-overlay kbyg-override" onClick={onClose}>
             <div className="scs-content-wrapper">
                 {item.drawerImage && (
                     <div className="scs-drawer-img-kbyg">

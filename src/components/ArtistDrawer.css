@@ -109,6 +109,10 @@
     >ul {
         padding-inline-start: 10px;
     }
+    a {
+        color: #0c2340;
+        font-weight: bold;
+    }
 }
 
 .scs-drawer-offer {
