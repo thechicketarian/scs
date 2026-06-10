@@ -27,8 +27,10 @@ interface KBItem {
     drawerTitle: string;
     drawerDescription: string;
     drawerImage: string;
-    drawerLink: string;
+    drawerTickets:string
+    drawerParking: string;
     drawerPin: string;
+    drawerApp: string;
     category: KBYGCategory | null;
 }
 
@@ -70,8 +72,10 @@ export default function KnowBeforeYouGo() {
         drawerTitle: row.drawerTitle?.trim() || "",
         drawerDescription: row.drawerDescription?.trim() || "",
         drawerImage: row.drawerImage?.trim() || "",
-        drawerLink: row.drawerLink?.trim() || "",
+        drawerParking: row.drawerParking?.trim() || "",
+        drawerTickets: row.drawerTickets?.trim() || "",
         drawerPin: row.drawerPin?.trim() || "",
+        drawerApp: row.drawerApp?.trim() || "",
         category: normalizeCategory(row.category)
     }));
 
@@ -248,12 +252,26 @@ function KBYGDrawer({ item, onClose }: { item: KBItem; onClose: () => void }) {
                     )}
 
                     <div className="scs-drawer-links">
-                        {item.drawerLink && (
-                            <a href={item.drawerLink} target="_blank" className="scs-drawer-a">
+                        {item.drawerTickets && (
+                            <a href={item.drawerTickets} target="_blank" className="scs-drawer-a">
+                                <span className="material-symbols-outlined">
+                                    confirmation_number
+                                </span>
+                                <span className="scs-drawer-icon-label">find tickets</span>
+                            </a>
+                        )}
+                        {item.drawerParking && (
+                            <a href={item.drawerParking} target="_blank" className="scs-drawer-a">
                                 <span className="material-symbols-outlined">
                                     confirmation_number
                                 </span>
                                 <span className="scs-drawer-icon-label">buy pass</span>
+                            </a>
+                        )}
+                          {item.drawerApp && (
+                            <a href={item.drawerApp} target="_blank" className="scs-drawer-a">
+                                <span className="material-symbols-outlined">mobile_ticket</span>
+                                <span className="scs-drawer-icon-label">download the app</span>
                             </a>
                         )}
 

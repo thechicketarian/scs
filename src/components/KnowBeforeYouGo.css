@@ -7,10 +7,11 @@
 .kbyg-list {
   display: grid;
   gap: 1rem;
+  padding: 1rem;
 }
 
 .kbyg-map {
-  background-color: pink;
+  background-color: #fafafa;
   text-align: center;
   display: grid;
   padding: 2rem;
@@ -61,23 +62,21 @@
   display: flex;
   align-items: center;
 
-  >div {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: 100%;
 
-    >img {
-      width: 100%;
-    }
-  }
 }
 
 .kbyg-info-group {
-
+  display: grid;
+  width: 100%;
   padding: 1rem;
   gap: .5rem;
   cursor: pointer;
+
+  >img {
+    width: 100%;
+  }
 }
+
 
 .kbyg-info-block {
   padding: .75rem 1rem;
@@ -91,6 +90,7 @@
 }
 
 .kbyg-title {
+  text-align: center;
   padding: 1rem !important;
   font-size: 20px;
   font-family: 'mls-tifo-headline-b8wssb';
@@ -137,7 +137,10 @@
 .scs-drawer-a {
   display: grid;
   justify-items: center;
-  gap: .25rem;
+  gap: .5rem;
+  border: 2px solid #0c2340;
+  padding: .825rem;
+  border-radius: 10px;
 }
 
 .kbyg-icon-label {
@@ -148,6 +151,11 @@
 @media (min-width: 1024px) {
   .kbyg-wrapper {
     display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+
+  .kbyg-info-group {
     grid-template-columns: 1fr 1fr;
   }
 

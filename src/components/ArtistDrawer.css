@@ -34,7 +34,7 @@
     overflow-y: auto;
 }
 
-.scs-drawer-img {
+.scs-drawer-img, .scs-drawer-img-kbyg {
     display: none;
 }
 
@@ -172,7 +172,8 @@
 
 .scs-drawer-links {
     display: flex;
-    gap: 1rem;
+  gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .scs-drawer-links a {
@@ -190,6 +191,14 @@
 
 .scs-drawer-social-icon {
     width: 30px;
+}
+
+.scs-drawer-icon-label {
+    font-size: 10px;
+    line-height: 10px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    text-align: center;
 }
 
 /* ================================
@@ -265,12 +274,25 @@
         font-size: 3.5rem;
         line-height: 3rem;
     }
+    .scs-drawer-icon-label {
+    font-size: 12px;
+    line-height: 10px;
+}
 }
 
 /* ================================
    DESKTOP BREAKPOINT (1024px)
    ================================ */
 @media (min-width: 1024px) {
+    .scs-drawer-img-kbyg {
+    display: flex;
+    align-items: center;
+
+    >img {
+        width: 100%;
+    }
+}
+
     .scs-drawer {
         /* width: 480px; */
         padding: 2.5rem;
@@ -291,17 +313,4 @@
     }
 } */
 
-.scs-drawer-img-kbyg {
-    display: flex;
-    align-items: center;
 
-    >img {
-        width: 100%;
-    }
-}
-
-.scs-drawer-icon-label {
-    font-size: 12px;
-    font-weight: bolder;
-    text-transform: uppercase;
-}
