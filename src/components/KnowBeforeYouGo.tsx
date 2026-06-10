@@ -116,10 +116,11 @@ export default function KnowBeforeYouGo() {
                     className="kbyg-info-block"
                     onClick={() => setActiveItem(item)}
                 >
+
+                    <span className="kbyg-icon-label">{item.label}</span>
                     {item.icon && (
                         <span className="material-symbols-outlined">{item.icon}</span>
                     )}
-                    <span className="kbyg-icon-label">{item.label}</span>
                 </div>
             );
         }
@@ -143,10 +144,10 @@ export default function KnowBeforeYouGo() {
 
     return (
         <div className="kbyg-wrapper">
-          
+
             <div className="kbyg-map">
-                  <h3 className="scs-vendor-name">Know before you go</h3>
-                  <h5>Plaza Map</h5>
+                <h3 className="scs-vendor-name">Know before you go</h3>
+                <h5>Plaza Map</h5>
                 <img src="https://scs-ochre.vercel.app/kbyg/26-SCS-Plaza-Website-Map-cropped.jpg" />
             </div>
             <div className="kbyg-list">
