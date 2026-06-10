@@ -30,17 +30,19 @@
 }
 
 .kbyg-map-img {
+  
   position: relative;
   >img {
+            background: #A7C6ED;
     width: 100%;
-
+aspect-ratio: 1 / 1;
+            object-fit: contain;
   }
 }
 
 .kbyg-map-toggle {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
+  
+  margin-bottom: 1rem;
   background: #000;
   color: #fff;
   border: none;
@@ -175,6 +177,14 @@
   font-size: .9rem;
 }
 
+@media (min-width: 768px) {
+  .kbyg-map-toggle {
+      position: absolute;
+  top: 4rem;
+  right: 4rem;
+  }
+}
+
 @media (min-width: 1024px) {
   .kbyg-override {
     justify-items: center !important;
@@ -215,11 +225,5 @@
         border-radius: 10px;
     }
       padding: 0 2rem 2rem;
-    }
-
-    .kbyg-map-toggle {
-top: 2rem;
-right: 4rem;
-
     }
 }

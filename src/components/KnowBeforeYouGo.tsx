@@ -165,13 +165,7 @@ const [showMapKey, setShowMapKey] = useState(false);
   </div>
 
   <div className="kbyg-map-img">
-        {/* ⭐ Toggle button */}
-    <button
-      className="kbyg-map-toggle"
-      onClick={() => setShowMapKey(!showMapKey)}
-    >
-      {showMapKey ? "Hide Key" : "Map Key"}
-    </button>
+    
     {!showMapKey ? (
       <img
         src="https://scs-ochre.vercel.app/kbyg/26-SCS-Plaza-Website-Map-0610260Updated.jpg"
@@ -179,10 +173,16 @@ const [showMapKey, setShowMapKey] = useState(false);
       />
     ) : (
       <img
-        src="https://scs-ochre.vercel.app/kbyg/map-key.jpg"
+        src="https://scs-ochre.vercel.app/kbyg/key-2.jpg"
         alt="Map Key"
       />
     )}
+    <button
+      className="kbyg-map-toggle"
+      onClick={() => setShowMapKey(!showMapKey)}
+    >
+      {showMapKey ? "Hide Key" : "Map Key"}
+    </button>
   </div>
 </div>
 
