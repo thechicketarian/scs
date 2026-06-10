@@ -58,7 +58,7 @@ function normalizeCategory(raw: string = ""): KBYGCategory | null {
 export default function KnowBeforeYouGo() {
     const { data, loading } = useSheetData("1658720290");
     const [activeItem, setActiveItem] = useState<KBItem | null>(null);
-
+const [showMapKey, setShowMapKey] = useState(false);
     if (loading) return <div>Loading info…</div>;
 
     /* -----------------------------------------
@@ -148,12 +148,44 @@ export default function KnowBeforeYouGo() {
 
     return (
         <div className="kbyg-wrapper">
-
-            <div className="kbyg-map">
-                <h3 className="scs-vendor-name">Know before you go</h3>
+            {/* <div className="kbyg-map">
+               <div className="kybg-map-title">
+                 <h3 className="scs-vendor-name">Know before you go</h3>
                 <h5>Plaza Map</h5>
-                <img src="https://scs-ochre.vercel.app/kbyg/26-SCS-Plaza-Website-Map-cropped.jpg" />
-            </div>
+               </div>
+              <div className="kbyg-map-img">
+                  <img src="https://scs-ochre.vercel.app/kbyg/26-SCS-Plaza-Website-Map-0610260Updated.jpg" />
+              </div>
+            </div> */}
+
+<div className="kbyg-map">
+  <div className="kybg-map-title">
+    <h3 className="scs-vendor-name">Know before you go</h3>
+    <h5>Plaza Map</h5>
+  </div>
+
+  <div className="kbyg-map-img">
+        {/* ⭐ Toggle button */}
+    <button
+      className="kbyg-map-toggle"
+      onClick={() => setShowMapKey(!showMapKey)}
+    >
+      {showMapKey ? "Hide Key" : "Map Key"}
+    </button>
+    {!showMapKey ? (
+      <img
+        src="https://scs-ochre.vercel.app/kbyg/26-SCS-Plaza-Website-Map-0610260Updated.jpg"
+        alt="Plaza Map"
+      />
+    ) : (
+      <img
+        src="https://scs-ochre.vercel.app/kbyg/map-key.jpg"
+        alt="Map Key"
+      />
+    )}
+  </div>
+</div>
+
             <div className="kbyg-list">
                 {/* SPORTING PARK */}
                 <div className="kbyg-col">
