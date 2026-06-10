@@ -193,8 +193,7 @@ export default function KnowBeforeYouGo() {
                 <div className="kbyg-col">
                     <div className="kbyg-title">Parking & Rideshare</div>
                     <p className="kybg-col-des">
-                        We’ve made it easy! Parking and Rideshare pick-up are available at
-                        Sporting Park all throughout Soccer Capital Summer.
+                        We’ve made it easy! Parking and Rideshare pick-up are available at Sporting Park all throughout Soccer Capital Summer. Save on parking by purchasing before you arrive.
                     </p>
                     <div className="kbyg-link-drawer-group">{grouped.parkingRideshare.map(renderItem)}</div>
                 </div>
