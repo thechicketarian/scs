@@ -27,7 +27,7 @@ interface KBItem {
     drawerTitle: string;
     drawerDescription: string;
     drawerImage: string;
-    drawerTickets:string
+    drawerTickets: string
     drawerParking: string;
     drawerPin: string;
     drawerApp: string;
@@ -58,7 +58,7 @@ function normalizeCategory(raw: string = ""): KBYGCategory | null {
 export default function KnowBeforeYouGo() {
     const { data, loading } = useSheetData("1658720290");
     const [activeItem, setActiveItem] = useState<KBItem | null>(null);
-const [showMapKey, setShowMapKey] = useState(false);
+    const [showMapKey, setShowMapKey] = useState(false);
     if (loading) return <div>Loading info…</div>;
 
     /* -----------------------------------------
@@ -158,35 +158,47 @@ const [showMapKey, setShowMapKey] = useState(false);
               </div>
             </div> */}
 
-<div className="kbyg-map">
-  <div className="kybg-map-title">
-    <h3 className="scs-vendor-name">Know before you go</h3>
-    <h5>Plaza Map</h5>
-  </div>
+            <div className="kbyg-map">
+                <div className="kybg-map-title">
+                    <h3 className="scs-vendor-name">Know before you go</h3>
+                    <h5>Plaza Map</h5>
+                </div>
 
-  <div className="kbyg-map-img">
-    
-    {!showMapKey ? (
-      <img
-        src="https://scs-ochre.vercel.app/kbyg/26-SCS-Plaza-Website-Map-0610260Updated.jpg"
-        alt="Plaza Map"
-      />
-    ) : (
-      <img
-        src="https://scs-ochre.vercel.app/kbyg/key-2.jpg"
-        alt="Map Key"
-      />
-    )}
-    <button
-      className="kbyg-map-toggle"
-      onClick={() => setShowMapKey(!showMapKey)}
-    >
-      {showMapKey ? "Hide Key" : "Key"} <span className="material-symbols-outlined">
-info
-</span>
-    </button>
-  </div>
-</div>
+                <div className="kbyg-map-img">
+
+                    {!showMapKey ? (
+                        <img
+                            src="https://scs-ochre.vercel.app/kbyg/26-SCS-Plaza-Website-Map-0610260Updated.jpg"
+                            alt="Plaza Map"
+                        />
+                    ) : (
+                        <img
+                            src="https://scs-ochre.vercel.app/kbyg/key-2.jpg"
+                            alt="Map Key"
+                        />
+                    )}
+                    <button
+                        className="kbyg-map-toggle"
+                        onClick={() => setShowMapKey(!showMapKey)}
+                    >
+                        {showMapKey ? <span>
+                            <span>
+                                hide
+                            </span>
+                            <span className="material-symbols-outlined">
+                                visibility_off
+                            </span>
+                        </span> :
+                            <span>
+                                <span>key</span>
+                                <span className="material-symbols-outlined">
+                                    info
+                                </span>
+                            </span>
+                        }
+                    </button>
+                </div>
+            </div>
 
             <div className="kbyg-list">
                 {/* SPORTING PARK */}
@@ -301,7 +313,7 @@ function KBYGDrawer({ item, onClose }: { item: KBItem; onClose: () => void }) {
                                 <span className="scs-drawer-icon-label">buy pass</span>
                             </a>
                         )}
-                          {item.drawerApp && (
+                        {item.drawerApp && (
                             <a href={item.drawerApp} target="_blank" className="scs-drawer-a">
                                 <span className="material-symbols-outlined">mobile_ticket</span>
                                 <span className="scs-drawer-icon-label">download the app</span>

@@ -30,26 +30,39 @@
 }
 
 .kbyg-map-img {
-  
+
   position: relative;
+
   >img {
-            background: #A7C6ED;
+    background: #A7C6ED;
     width: 100%;
-aspect-ratio: 1 / 1;
-            object-fit: contain;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
   }
 }
 
 .kbyg-map-toggle {
-  
-  margin-bottom: 1rem;
-  background: #000;
+
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  background: #0c2340;
   color: #fff;
   border: none;
   padding: 6px 12px;
   border-radius: 4px;
   cursor: pointer;
   font-size: 14px;
+
+  >span {
+    font-size: .725rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .25rem;
+  }
 }
 
 .kbyg-map-toggle:hover {
@@ -179,9 +192,10 @@ aspect-ratio: 1 / 1;
 
 @media (min-width: 768px) {
   .kbyg-map-toggle {
-      position: absolute;
-  top: 4rem;
-  right: 4rem;
+    margin: 0;
+    >span {
+      flex-direction: row;
+    }
   }
 }
 
@@ -220,10 +234,12 @@ aspect-ratio: 1 / 1;
   .kbyg-map {
     border-radius: 10px;
   }
+
   .kbyg-map-img {
-    >img{
-        border-radius: 10px;
+    >img {
+      border-radius: 10px;
     }
-      padding: 0 2rem 2rem;
-    }
+
+    padding: 0 2rem 2rem;
+  }
 }
