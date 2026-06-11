@@ -17,6 +17,35 @@ import TicketNav from "./components/TicketNav";
 
 const isProd = import.meta.env.PROD;
 
+// -----------------------------
+// GLOBAL ANCHOR STABILIZER
+// -----------------------------
+function stableAnchorScroll() {
+  const hash = window.location.hash;
+  if (!hash) return;
+
+  let attempts = 0;
+
+  const tryScroll = () => {
+    const el = document.querySelector(hash);
+    attempts++;
+
+    if (el) {
+      // Smooth scroll once layout is stable
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else if (attempts < 20) {
+      // Retry while React components mount + fetch data
+      setTimeout(tryScroll, 100);
+    }
+  };
+
+  // Wait for Squarespace + React hydration
+  setTimeout(tryScroll, 300);
+}
+
+window.addEventListener("load", stableAnchorScroll);
+
+
 // Types for the helper
 type MountTarget = string | HTMLElement;
 type AnyProps = Record<string, any>;
