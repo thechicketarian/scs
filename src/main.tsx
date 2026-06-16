@@ -5,7 +5,7 @@ import "./App.css";
 // import Home from "./components/Home";
 import Hero from "./components/Hero";
 import TicketCards from "./components/TicketCards";
-import Schedule from "./components/Schedule";
+import Schedule from "./components/Archived/Schedule";
 import LiveMusicSchedule from "./components/LiveMusicSchedule";
 import HomeLiveMusicWidget from "./components/HomeLiveMusicWidget";
 import Home from "./components/Home";

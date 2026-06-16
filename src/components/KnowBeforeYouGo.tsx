@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSheetData } from "../hooks/useSheetData";
 import { createPortal } from "react-dom";
 import "./KnowBeforeYouGo.css";
+import Loading from "./Loading";
 
 /* -----------------------------------------
    CATEGORY TYPES
@@ -59,7 +60,7 @@ export default function KnowBeforeYouGo() {
     const { data, loading } = useSheetData("1658720290");
     const [activeItem, setActiveItem] = useState<KBItem | null>(null);
     const [showMapKey, setShowMapKey] = useState(false);
-    if (loading) return <div>Loading info…</div>;
+    if (loading) return <Loading label="Loading Know Before You Go..." />;
 
     /* -----------------------------------------
        NORMALIZE ROWS

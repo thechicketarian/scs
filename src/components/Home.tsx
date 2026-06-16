@@ -5,10 +5,10 @@ import { useLayoutEffect } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-import Schedule from "./Schedule";
+import Schedule from "./Archived/Schedule";
 import PanelOne from "./PanelOne";
 import FullSchedule from "./FullSchedule";
-import HomeHero from "./HomeHero";
+import HomeHero from "./Archived/HomeHero";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 

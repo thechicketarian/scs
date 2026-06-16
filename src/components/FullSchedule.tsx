@@ -277,6 +277,7 @@ import { DateTime } from "luxon";
 import "./FullSchedule.css";
 import { ExperiencesCarousel } from "./ExperiencesCarousel";
 import { sortExperiences } from "../utils/SortExperiences";
+import Loading from "./Loading";
 
 /* -----------------------------------------
    TIME FORMATTER → "4pm", "5:30pm", "11am"
@@ -299,7 +300,7 @@ export default function FullSchedule({
 }) {
   const { schedule, loading } = useFestivalSchedule();
 
-  if (loading) return <div>Loading full schedule…</div>;
+  if (loading) return <Loading label="Syncing schedule…" />;
 
   const days = Object.entries(schedule);
 

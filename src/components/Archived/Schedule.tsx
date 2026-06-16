@@ -1,19 +1,19 @@
 import React from "react";
-import { useFestivalSchedule } from "../hooks/useFestivalSchedule";
+import { useFestivalSchedule } from "../../hooks/useFestivalSchedule";
 
 import {
   MetaRow,
   MatchRow,
   ScheduleProps
-} from "../types/types";
+} from "../../types/types";
 
 import "./Schedule.css";
 import "./Schedule-List.css";
 import "./Schedule-Grid.css";
 import { DateTime } from "luxon";
-import { ExperiencesCarousel } from "./ExperiencesCarousel";
-import { sortExperiences } from "../utils/SortExperiences";
-import { ExperiencesCarouselThumb } from "./ExperiencesCarouselThubnails";
+import { ExperiencesCarousel } from "../ExperiencesCarousel";
+import { sortExperiences } from "../../utils/SortExperiences";
+import { ExperiencesCarouselThumb } from "../ExperiencesCarouselThubnails";
 /* -----------------------------
    Helpers
 ------------------------------ */

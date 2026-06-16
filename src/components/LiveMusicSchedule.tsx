@@ -5,6 +5,7 @@ import { DateTime } from "luxon";
 import "./LiveMusicSchedule.css";
 import "./ArtistDrawer.css";
 import { createPortal } from "react-dom";
+import Loading from "./Loading";
 
 export default function LiveMusicSchedule({ layout = "default" }) {
   const { schedule, loading } = useFestivalSchedule();
@@ -25,7 +26,7 @@ export default function LiveMusicSchedule({ layout = "default" }) {
     }, [activeArtist]);
 
   if (loading) {
-    return <div>Loading Live Music…</div>;
+    return <Loading label="Syncing Concerts…" />;
   }
 
   // Map of artist → enriched entry

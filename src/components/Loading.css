@@ -1,0 +1,39 @@
+.scs-loading-wrapper {
+  width: 100%;
+  padding: 48px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: scsFadeIn 0.4s ease-out forwards;
+}
+
+.scs-loading-ball {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 12px;
+  animation: scsSpin 1s linear infinite;
+}
+
+.scs-loading-ball img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.scs-loading-text {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.8;
+}
+
+/* Motion */
+@keyframes scsSpin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes scsFadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}

@@ -2,6 +2,7 @@ import React from "react";
 import "./TicketCards.css";
 import { useSheetData } from "../hooks/useSheetData";
 import { TicketCardsProps } from "../types/types";
+import Loading from "./Loading";
 
 
 // ---- Component ----
@@ -9,7 +10,7 @@ export default function TicketCards({ category }: TicketCardsProps) {
   const { data, loading } = useSheetData("693949832");
 
   if (!category) return null;
-  if (loading) return <div className="loading">Syncing Tickets...</div>;
+  if (loading) return <Loading label="Syncing Tickets…" />;
 
   // ---- Filter tickets by category ----
   const filteredData = data.filter(

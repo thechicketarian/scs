@@ -300,6 +300,7 @@ import "./ExperiencesWidget.css";
 import { ExperienceRow } from "../types/types";
 import { formatExperienceDates } from "../utils/datesParser";
 import { createPortal } from "react-dom";
+import Loading from "./Loading";
 
 export default function ExperiencesWidget() {
   const { schedule, loading } = useFestivalSchedule();
@@ -415,7 +416,7 @@ export default function ExperiencesWidget() {
   }, [activeActivation]);
 
   if (loading) {
-    return <div>Loading…</div>;
+    return <Loading label="Syncing schedule…" />;
   }
 
   return (
