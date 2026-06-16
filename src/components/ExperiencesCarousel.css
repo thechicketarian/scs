@@ -1,0 +1,125 @@
+.fs-experiences-carousel,
+.fs-experiences-carousel-combined {
+    overflow: hidden;
+    position: relative;
+    /* padding: 0 0 0 1rem; */
+}
+
+
+/* Embla base */
+.embla {
+    overflow: hidden;
+    /* width: 100%; */
+    position: relative;
+    border-radius: 8px;
+    border: 1px solid #0c2340;
+}
+
+.embla__container {
+    display: flex;
+    height: 100%;
+    /* gap: .5rem; */
+}
+
+.embla__container-thumb {
+    gap: .5rem;
+}
+
+.embla__slide {
+    flex: 0 0 auto;
+    /* 1/3 layout */
+    box-sizing: border-box;
+    padding: .825rem 1rem;
+    /* background-color: rgb(233, 233, 233); */
+    border-right: 1px solid #0c2340;
+}
+
+.embla__slide_thumb{
+    flex: 0 0 60%;
+        box-sizing: border-box;
+}
+
+.fs-experience-header_thumb {
+        padding: .825rem 1rem;
+}
+
+
+.fs-experiences-label {
+    text-transform: capitalize;
+    /* text-align: center; */
+    padding-bottom: .5rem;
+}
+
+
+
+.fs-experience-name {
+    text-transform: capitalize;
+}
+
+/* Arrows */
+.embla__prev,
+.embla__next {
+    margin-top: .5rem;
+    /* position: absolute;
+  top: 50%;
+  transform: translateY(-50%); */
+    background: transparent;
+    border: 1px solid #0c2340;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 22px;
+    text-align: center;
+}
+
+.embla__prev {
+    left: 0.5rem;
+}
+
+.embla__next {
+    right: 0.5rem;
+}
+
+.embla-buttons {
+    display: flex;
+    justify-content: flex-start;
+    gap: .5rem;
+    /* padding: 0 1rem; */
+}
+
+.fs-experience-thumb {
+
+    background-color: pink;
+    /* width: 200px; */
+    display: grid;
+
+    >img {
+        width: 100%;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+        object-position: top;
+    }
+}
+
+@media (min-width: 1024px) {
+    .fs-experiences-carousel {
+        padding: 0rem 2rem;
+    }
+    .embla__slide_thumb{
+    flex: 0 0 15%;
+}
+
+    .embla__container-thumb {
+    gap: .5rem;
+        align-items: center;
+}
+}
+
+@media (min-width: 1280px) {
+    .fs-experiences-carousel {
+        padding: 0rem 5rem;
+    }
+
+}

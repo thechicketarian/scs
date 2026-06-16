@@ -11,6 +11,9 @@ import "./Schedule.css";
 import "./Schedule-List.css";
 import "./Schedule-Grid.css";
 import { DateTime } from "luxon";
+import { ExperiencesCarousel } from "./ExperiencesCarousel";
+import { sortExperiences } from "../utils/SortExperiences";
+import { ExperiencesCarouselThumb } from "./ExperiencesCarouselThubnails";
 /* -----------------------------
    Helpers
 ------------------------------ */
@@ -60,7 +63,25 @@ export default function Schedule({
   return (
     <div className={`scs-main-wrapper scs-layout-${activeLayout}`}>
       {displayDays.map((day, index) => {
-        const { key, meta, matches } = day;
+        const { key, meta, matches, experiences, music } = day;
+        const sortedExperiences = sortExperiences(experiences || []);
+        const sortedMusic = [...(music || [])].sort((a, b) =>
+          (a.musicDateTime || "").localeCompare(b.musicDateTime || "")
+        );
+        const combinedItems = [
+            // Music
+  ...sortedMusic.map(m => ({
+    label: m.artist,
+    image: m.image,
+    time: m.time,
+  })),
+  // Experiences
+  ...sortedExperiences.map(exp => ({
+    label: exp.experience,
+    image: exp.image,
+  })),
+];
+
         const daySlug = slugify(key);
         const EventDate = DateTime.fromISO(key).toFormat("ccc LLLL d")
         const uniqueSessions = [...new Set(matches.map((m) => m.session))];
@@ -72,7 +93,7 @@ export default function Schedule({
                 Date + Ticket Button
             ------------------------------ */}
             <div className="scs-day-date-wrapper">
-              <h3 className="scs-date-text">{EventDate}</h3>
+              <div className="fs-date scs-music-date">{EventDate}</div>
               <div
                 className="fivoButton"
                 role="button"
@@ -88,7 +109,7 @@ export default function Schedule({
             ------------------------------ */}
             <div className="scs-day-meta">
               <div className="scs-day-copy">
-                <h3 className="scs-theme-title">{meta.theme || "Theme Needed"}</h3>
+                <div className="fs-theme scs-vendor-name">{meta.theme || "Theme Needed"}</div>
               </div>
 
               <div className="scs-day-desc">
@@ -103,6 +124,7 @@ export default function Schedule({
               </div>
             </div>
 
+
             {/* -----------------------------
                 Matches
             ------------------------------ */}
@@ -116,10 +138,34 @@ export default function Schedule({
                 </p>
               )}
             </div>
+
+            {/* <div className="scs-ent">
+              {sortedMusic.length > 0 && (
+                <div className="scs-music-ent-wrapper">
+                  <div className="fs-experiences-label fs-label-global-sm">Concert Lineup</div>
+                  <div className="scs-music-ent">
+                    {sortedMusic.map((m, i) => (
+                      <div key={i} className="scs-music-ent-item">
+                        <div className="scs-music-ent-image">
+                          {m.image && <img src={m.image} alt={m.artist} />}
+                        </div>
+
+                        <div className="scs-music-ent-info">
+                          <div className="scs-team-name">{m.artist}</div>
+                          <div className="scs-team-name">{m.time}</div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div> */}
+            <ExperiencesCarouselThumb items={combinedItems} />
+
           </div>
         );
       })}
-          {/* <div className="scs-breadcrumbs-bottom-nav">
+      {/* <div className="scs-breadcrumbs-bottom-nav">
           <a className="scs-breadcrumbs-item" href="https://www.soccercapitalsummer.com/tickets"><span className="material-symbols-outlined">
             arrow_back
           </span>Tickets</a>
@@ -211,6 +257,6 @@ function renderSession(
         ))}
       </div>
     </div>
-    
+
   );
 }

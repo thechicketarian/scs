@@ -77,6 +77,31 @@ color: #0c2340;
     
 }
 
+.scs-ent {
+    display: flex;
+    gap: 1rem;
+    overflow: hidden;
+}
+
+.scs-music-ent {
+    display: flex;
+    gap: 1rem;
+}
+
+.scs-music-ent-image {
+    width: 200px;
+    >img {
+        width: 100%;
+        aspect-ratio: 16/9;
+        object-position: top;
+        object-fit: cover;
+    }
+}
+
+.scs-music-ent-info {
+    padding-top:.5rem;
+}
+
 @media (min-width: 768px) {
 
 }

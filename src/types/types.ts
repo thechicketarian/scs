@@ -29,8 +29,10 @@ export interface MatchRow extends SheetRow {
   session: string;
   teamA: string;
   teamAFlag: string;
+  teamACode: string
   teamB: string;
   teamBFlag: string;
+  teamBCode: string;
   matchTime: string;
 }
 

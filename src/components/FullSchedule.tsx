@@ -2,6 +2,8 @@
 // import { useFestivalSchedule } from "../hooks/useFestivalSchedule";
 // import { DateTime } from "luxon";
 // import "./FullSchedule.css";
+// import { ExperiencesCarousel } from "./ExperiencesCarousel";
+// import { sortExperiences } from "../utils/SortExperiences";
 
 // /* -----------------------------------------
 //    TIME FORMATTER → "4pm", "5:30pm", "11am"
@@ -12,25 +14,49 @@
 //   const dt = DateTime.fromISO(dtString);
 //   if (!dt.isValid) return "";
 
-//   // "4:30pm"
-//   let formatted = dt.toFormat("h:mma").toLowerCase();
-
-//   // Remove :00 → "4pm"
+//   let formatted = dt.toFormat("h:mm a ").toLowerCase();
 //   formatted = formatted.replace(":00", "");
-
 //   return formatted;
 // }
 
-// export default function FullSchedule() {
+
+// export default function FullSchedule({
+//   mode = "full"
+// }: {
+//   mode?: "full" | "upcoming";
+// }) {
 //   const { schedule, loading } = useFestivalSchedule();
 
 //   if (loading) return <div>Loading full schedule…</div>;
 
 //   const days = Object.entries(schedule);
 
+//   /* -----------------------------------------
+//      UPCOMING MODE → pick next active date
+//   ------------------------------------------ */
+//   let filteredDays = days;
+
+//   if (mode === "upcoming") {
+//     const now = DateTime.now().setZone("America/Chicago");
+
+//     const next = days.find(([dateKey, day]) => {
+//       const date = DateTime.fromISO(dateKey, { zone: "America/Chicago" });
+
+//       if (date < now.startOf("day")) return false;
+
+//       const hasContent =
+//         (day.matches && day.matches.length > 0) ||
+//         (day.music && day.music.length > 0);
+
+//       return hasContent;
+//     });
+
+//     filteredDays = next ? [next] : [];
+//   }
+
 //   return (
-//     <div className="full-schedule-wrapper">
-//       {days.map(([dateKey, day]) => {
+//     <div className={`full-schedule-wrapper full-schedule--${mode}`}>
+//       {filteredDays.map(([dateKey, day]) => {
 //         const m = day.meta;
 //         if (!m) return null;
 
@@ -45,8 +71,8 @@
 //            BUILD RAW TIMELINE
 //         ------------------------------------------ */
 //         const timeline: any[] = [];
+//         const djSets: any[] = [];
 
-//         // ONE-SESSION DAY → Doors Open
 //         if (!isTwoSessionDay) {
 //           timeline.push({
 //             type: "meta",
@@ -56,7 +82,6 @@
 //           });
 //         }
 
-//         // TWO-SESSION DAY → Session 1
 //         if (isTwoSessionDay) {
 //           timeline.push({
 //             type: "session",
@@ -67,17 +92,19 @@
 //           });
 //         }
 
-//         // MATCHES
 //         day.matches?.forEach((match) => {
 //           timeline.push({
 //             type: "match",
+//             teamAFlag: `${match.teamAFlag}`,
+//             teamBFlag: `${match.teamBFlag}`,
+//             teamACode: `${match.teamACode}`,
+//             teamBCode: `${match.teamBCode}`,
 //             label: `${match.teamA} vs. ${match.teamB}`,
 //             time: formatTime(match.matchDateTime),
 //             iso: match.matchDateTime
 //           });
 //         });
 
-//         // TWO-SESSION DAY → Session 2
 //         if (isTwoSessionDay) {
 //           timeline.push({
 //             type: "session",
@@ -88,29 +115,22 @@
 //           });
 //         }
 
-//         // MUSIC
-//         const djSets: any[] = [];
-
 //         day.music?.forEach((mus) => {
 //           const hasTime = Boolean(mus.time && mus.musicDateTime);
 
 //           if (hasTime) {
-//             // Timed concert → goes into grid
 //             timeline.push({
 //               type: "music",
 //               label: mus.artist,
 //               time: formatTime(mus.musicDateTime),
-//               iso: mus.musicDateTime
+//               iso: mus.musicDateTime,
+//               image: mus.image
 //             });
 //           } else {
-//             // Untimed DJ set → pop OUT of timeline
-//             djSets.push({
-//               label: mus.artist
-//             });
+//             djSets.push({ label: mus.artist });
 //           }
 //         });
 
-//         // ⭐ ALL DAYS → Doors Close
 //         timeline.push({
 //           type: "meta",
 //           label: "Gates Close",
@@ -118,9 +138,6 @@
 //           iso: m.doorsCloseDateTime
 //         });
 
-//         /* -----------------------------------------
-//            SORT BY ISO
-//         ------------------------------------------ */
 //         timeline.sort((a, b) => {
 //           if (!a.iso || !b.iso) return 0;
 //           return (
@@ -129,18 +146,15 @@
 //           );
 //         });
 
-//         /* -----------------------------------------
-//            RENDER USING A-SMART GRID BREAK LOGIC
-//         ------------------------------------------ */
 //         const rendered: any[] = [];
+//         const experiences = sortExperiences(day.experiences || []);
+
+
 //         let grid: any[] = [];
 
 //         const flushGrid = () => {
 //           if (grid.length === 0) return;
-//           rendered.push({
-//             type: "grid",
-//             items: [...grid]
-//           });
+//           rendered.push({ type: "grid", items: [...grid] });
 //           grid = [];
 //         };
 
@@ -158,24 +172,11 @@
 //         return (
 //           <div key={dateKey} className="full-schedule-day">
 //             <div className="fs-meta-wrapper">
-//               <div className="fs-date scs-vendor-name">{formatted}</div>
-//               <div className="fs-theme scs-music-date">
-//                 {m.theme}
-//               </div>
+//               <div className="fs-date scs-music-date">{formatted}</div>
+//               <div className="fs-theme scs-vendor-name">{m.theme}</div>
 //             </div>
 
-//             {djSets.length < 0 && (
-//               <div className="dj-section">
-//                 <div>
-//                   <span>Sounds By:</span>
-//                   {djSets.map((dj, i) => (
-//                     <div key={i} className="dj-item">
-//                       <strong>🎧 {dj.label}</strong>
-//                     </div>
-//                   ))}
-//                 </div>
-//               </div>
-//             )}
+
 
 //             <div className="fs-section">
 //               {rendered.map((block, i) => {
@@ -183,43 +184,99 @@
 //                   return (
 //                     <div key={i} className="fs-match-grid">
 //                       {block.items.map((item: any, j: number) => (
-//                         <div key={j} className="fs-match-card">
-//                           <div className="bold-label">
-//                             <span>{item.type === "match" && "⚽ "}</span>
-//                             <span>{item.type === "music" && "🎤 "}</span>
-//                             <span className="sched-label-mini">{item.label}</span>
+//                         <>
+//                           <div key={j} className="fs-match-card">
+//                             {item.type === "match" ?
+//                               <>
+//                                 <div className="fs-match-group">
+//                                   <div className="fs-match-team">
+//                                     <div className="fs-match-flag"> <img src={item.teamAFlag} /></div>
+//                                     <span className="fs-match-teamCode fs-uppercase">{item.teamACode}</span>
+//                                   </div>
+//                                   <div className="fs-match-team">
+//                                     <div className="fs-match-flag">
+//                                       <img src={item.teamBFlag} />
+//                                     </div>
+//                                     <span className="fs-match-teamCode fs-uppercase">{item.teamBCode}</span>
+//                                   </div>
+//                                 </div>
+//                                 <div className="fs-match-time fs-label-global-sm fs-uppercase">{item.time}</div>
+//                               </>
+//                               :
+//                               null
+//                             }
+//                             {item.type === "music"
+//                               ?
+//                               <>
+//                                 <div className="fs-music-group">
+//                                   <div className="fs-music-artist">
+//                                     <div className="fs-music-image">
+//                                       <img src={item.image} />
+//                                     </div>
+//                                     <span className="fs-music-artist-name fs-uppercase">{item.label}
+//                                     </span>
+//                                   </div>
+//                                 </div>
+//                                 <div className="fs-match-time fs-label-global-sm fs-uppercase">{item.time}</div>
+//                               </>
+//                               :
+//                               null
+//                             }
+
 //                           </div>
-//                           <div className="sched-label-mini">{item.time}</div>
-//                         </div>
+//                           <span className="fs-match-divider">\</span>
+//                         </>
 //                       ))}
+
 //                     </div>
 //                   );
 //                 }
 
-//                 // session or meta
 //                 return (
 //                   <div key={i} className="fs-item fs-session-item">
-//                     <strong className="fs-uppercase">{block.label}</strong>
+//                     <strong className="fs-label-global-sm">{block.label}</strong>
 //                     {block.type === "session" ? (
-//                       <div>{block.time} – {block.end}</div>
+//                       <div className="fs-label-global-sm fs-uppercase">{block.time} – {block.end}</div>
 //                     ) : (
-//                       <div>{block.time}</div>
+//                       <div className="fs-label-global-sm fs-uppercase">{block.time}</div>
 //                     )}
 //                   </div>
 //                 );
 //               })}
 //             </div>
+
+
+//             {djSets.length > 0 && (
+//               <div className="dj-section">
+//                 <div className="dj-section-title fs-label-global-sm">Sounds By</div>
+//                 {/* <div><img src="" /></div> */}
+//                 <div className="fs-dj-group">
+//                   {djSets.map((dj, i) => (
+//                     <div key={i} className="dj-item">
+//                       {dj.label}
+//                     </div>
+//                   ))}
+//                 </div>
+//               </div>
+//             )}
+//             {/* -----------------------------------------
+//     DAILY EXPERIENCES SECTION
+// ------------------------------------------ */}
+//             {experiences.length > 0 && (
+//               <ExperiencesCarousel experiences={experiences} />
+//             )}
 //           </div>
 //         );
 //       })}
 //     </div>
 //   );
 // }
-
 import React from "react";
 import { useFestivalSchedule } from "../hooks/useFestivalSchedule";
 import { DateTime } from "luxon";
 import "./FullSchedule.css";
+import { ExperiencesCarousel } from "./ExperiencesCarousel";
+import { sortExperiences } from "../utils/SortExperiences";
 
 /* -----------------------------------------
    TIME FORMATTER → "4pm", "5:30pm", "11am"
@@ -230,9 +287,8 @@ function formatTime(dtString: string | null | undefined) {
   const dt = DateTime.fromISO(dtString);
   if (!dt.isValid) return "";
 
-  let formatted = dt.toFormat("h:mma").toLowerCase();
+  let formatted = dt.toFormat("h:mm a ").toLowerCase();
   formatted = formatted.replace(":00", "");
-
   return formatted;
 }
 
@@ -276,6 +332,11 @@ export default function FullSchedule({
         const m = day.meta;
         if (!m) return null;
 
+        /* -----------------------------------------
+           ANCHOR SLUG → #day-YYYYMMDD
+        ------------------------------------------ */
+        const daySlug = DateTime.fromISO(dateKey).toFormat("yyyyLLdd");
+
         const formatted = DateTime.fromISO(dateKey, { zone: "America/Chicago" })
           .toFormat("ccc LLLL d");
 
@@ -311,6 +372,10 @@ export default function FullSchedule({
         day.matches?.forEach((match) => {
           timeline.push({
             type: "match",
+            teamAFlag: `${match.teamAFlag}`,
+            teamBFlag: `${match.teamBFlag}`,
+            teamACode: `${match.teamACode}`,
+            teamBCode: `${match.teamBCode}`,
             label: `${match.teamA} vs. ${match.teamB}`,
             time: formatTime(match.matchDateTime),
             iso: match.matchDateTime
@@ -335,7 +400,8 @@ export default function FullSchedule({
               type: "music",
               label: mus.artist,
               time: formatTime(mus.musicDateTime),
-              iso: mus.musicDateTime
+              iso: mus.musicDateTime,
+              image: mus.image
             });
           } else {
             djSets.push({ label: mus.artist });
@@ -358,6 +424,8 @@ export default function FullSchedule({
         });
 
         const rendered: any[] = [];
+        const experiences = sortExperiences(day.experiences || []);
+
         let grid: any[] = [];
 
         const flushGrid = () => {
@@ -378,22 +446,15 @@ export default function FullSchedule({
         flushGrid();
 
         return (
-          <div key={dateKey} className="full-schedule-day">
+          <div
+            key={dateKey}
+            className="full-schedule-day"
+            id={`day-${daySlug}`}   // ⭐ ANCHOR ID HERE
+          >
             <div className="fs-meta-wrapper">
-              <div className="fs-date scs-vendor-name">{formatted}</div>
-              <div className="fs-theme scs-music-date">{m.theme}</div>
+              <div className="fs-date scs-music-date">{formatted}</div>
+              <div className="fs-theme scs-vendor-name">{m.theme}</div>
             </div>
-
-            {djSets.length > 0 && (
-              <div className="dj-section">
-                <span>Sounds By:</span>
-                {djSets.map((dj, i) => (
-                  <div key={i} className="dj-item">
-                    🎧 {dj.label}
-                  </div>
-                ))}
-              </div>
-            )}
 
             <div className="fs-section">
               {rendered.map((block, i) => {
@@ -401,14 +462,55 @@ export default function FullSchedule({
                   return (
                     <div key={i} className="fs-match-grid">
                       {block.items.map((item: any, j: number) => (
-                        <div key={j} className="fs-match-card">
-                          <div className="bold-label">
-                            <span>{item.type === "match" && "⚽ "}</span>
-                            <span>{item.type === "music" && "🎤 "}</span>
-                            <span className="sched-label-mini">{item.label}</span>
+                        <>
+                          <div key={j} className="fs-match-card">
+                            {item.type === "match" ? (
+                              <>
+                                <div className="fs-match-group">
+                                  <div className="fs-match-team">
+                                    <div className="fs-match-flag">
+                                      <img src={item.teamAFlag} />
+                                    </div>
+                                    <span className="fs-match-teamCode fs-uppercase">
+                                      {item.teamACode}
+                                    </span>
+                                  </div>
+                                  <div className="fs-match-team">
+                                    <div className="fs-match-flag">
+                                      <img src={item.teamBFlag} />
+                                    </div>
+                                    <span className="fs-match-teamCode fs-uppercase">
+                                      {item.teamBCode}
+                                    </span>
+                                  </div>
+                                </div>
+                                <div className="fs-match-time fs-label-global-sm fs-uppercase">
+                                  {item.time}
+                                </div>
+                              </>
+                            ) : null}
+
+                            {item.type === "music" ? (
+                              <>
+                                <div className="fs-music-group">
+                                  <div className="fs-music-artist">
+                                    <div className="fs-music-image">
+                                      <img src={item.image} />
+                                    </div>
+                                    <span className="fs-music-artist-name fs-uppercase">
+                                      {item.label}
+                                    </span>
+                                  </div>
+                                </div>
+                                <div className="fs-match-time fs-label-global-sm fs-uppercase">
+                                  {item.time}
+                                </div>
+                              </>
+                            ) : null}
                           </div>
-                          <div className="sched-label-mini">{item.time}</div>
-                        </div>
+
+                          <span className="fs-match-divider">\</span>
+                        </>
                       ))}
                     </div>
                   );
@@ -416,16 +518,37 @@ export default function FullSchedule({
 
                 return (
                   <div key={i} className="fs-item fs-session-item">
-                    <strong className="fs-uppercase">{block.label}</strong>
+                    <strong className="fs-label-global-sm">{block.label}</strong>
                     {block.type === "session" ? (
-                      <div>{block.time} – {block.end}</div>
+                      <div className="fs-label-global-sm fs-uppercase">
+                        {block.time} – {block.end}
+                      </div>
                     ) : (
-                      <div>{block.time}</div>
+                      <div className="fs-label-global-sm fs-uppercase">
+                        {block.time}
+                      </div>
                     )}
                   </div>
                 );
               })}
             </div>
+
+            {djSets.length > 0 && (
+              <div className="dj-section">
+                <div className="dj-section-title fs-label-global-sm">Sounds By</div>
+                <div className="fs-dj-group">
+                  {djSets.map((dj, i) => (
+                    <div key={i} className="dj-item">
+                      {dj.label}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {experiences.length > 0 && (
+              <ExperiencesCarousel experiences={experiences} />
+            )}
           </div>
         );
       })}
