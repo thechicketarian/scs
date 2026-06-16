@@ -9,7 +9,8 @@
 }
 
 
-.dj-item, .fs-experience-name {
+.dj-item,
+.fs-experience-name {
     font-size: 13px;
     line-height: 13px;
     font-weight: bold;
@@ -61,7 +62,7 @@
 
 .dj-section-title {
     padding-bottom: .5rem;
-    
+
 }
 
 
@@ -146,9 +147,32 @@
     display: block;
 }
 
+.upcoming-hot-links {
+    display: flex;
+    gap: .5rem;
+    position: absolute;
+    bottom: -2rem;
+    right: 5%;
+
+    >a {
+        color: inherit;
+        padding: .825rem;
+        border: 2px solid #0c2340;
+        background-color: #fafafa;
+        text-decoration: none;
+    }
+}
+
 /* TABLET / DESKTOP */
 
 @media (min-width: 768px) {
+
+    /* .upcoming-hot-links {
+
+    position: absolute;
+    bottom: 2rem;
+    right: -2rem;
+    } */
 
     .fs-match-teamCode,
     .fs-music-artist-name {
@@ -163,11 +187,14 @@
 }
 
 @media (min-width: 1024px) {
+
+
     .full-schedule-day {
         padding: 3rem 0;
     }
 
-    .fs-section, .dj-section  {
+    .fs-section,
+    .dj-section {
         padding: 0rem 2rem;
     }
 
@@ -190,8 +217,16 @@
 }
 
 @media (min-width: 1280px) {
+    .upcoming-hot-links {
+    display: grid;
+    gap: .5rem;
+    position: absolute;
+    bottom: 2rem;
+    right: -2rem;
+}
 
-    .fs-section, .dj-section   {
+    .fs-section,
+    .dj-section {
         padding: 0rem 5rem;
     }
 

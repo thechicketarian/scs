@@ -1,30 +1,64 @@
 .scs-home-hero-panel-1-wrapper {
-     position: relative; 
-        text-align: center;
+    position: relative;
+    text-align: center;
     width: 100%;
-    height: 100vh;
     display: grid;
-justify-items: center;
-    align-content: center;
-    justify-content: center;
-            background: #A7C6ED;
-  background-image: url('https://images.squarespace-cdn.com/content/v1/69c2ef358a34ab18fd392d39/ccbb18f7-5997-4714-81c4-ce65471f4e42/26-Logo-BG-16x9.jpg?format=2500w');
-  background-size: cover;
-  background-position: center;
-  z-index: 2;
- overflow: hidden;  
+    align-items: center;
+    justify-items: center;
+    background: #A7C6ED;
+    background-image: url('https://images.squarespace-cdn.com/content/v1/69c2ef358a34ab18fd392d39/ccbb18f7-5997-4714-81c4-ce65471f4e42/26-Logo-BG-16x9.jpg?format=2500w');
+    background-size: cover;
+    background-position: center;
+    z-index: 2;
+    overflow: hidden;
 }
 
 .scs-home-hero-panel-1-wrapper::after {
     content: "";
     position: absolute;
     inset: 0;
-  background-image: url('https://images.squarespace-cdn.com/content/v1/69c2ef358a34ab18fd392d39/eb81d210-5abc-4c52-b4c8-f6499972ccfe/Untitled+%282%29.gif?format=2500w');
-  background-size: cover;
-  background-position: center;
-  mix-blend-mode: overlay;
-  opacity: .55;
+    background-image: url('https://images.squarespace-cdn.com/content/v1/69c2ef358a34ab18fd392d39/eb81d210-5abc-4c52-b4c8-f6499972ccfe/Untitled+%282%29.gif?format=2500w');
+    background-size: cover;
+    background-position: center;
+    mix-blend-mode: overlay;
+    opacity: .55;
     z-index: -1;
+}
+
+.panel-copy-widget {
+    padding: 2rem 0 0;
+}
+
+.scs-lottie-arrow {
+    display: flex;
+        align-items: center;
+        height: 80px;
+    >img {
+        height: 190px;
+    }
+}
+
+.panel-sched-widget {
+       padding: 1rem 1rem 5rem 1rem;
+    position: relative;
+}
+
+.panel-sched-widget .full-schedule--upcoming {
+    padding: 0;
+    text-align: left;
+}
+
+.panel-sched-star {
+    transform: rotate(-20deg);
+    z-index: 999;
+    position: absolute;
+    left: -2rem;
+    top: -3rem;
+    width: 30%;
+
+    >img {
+        width: 100%;
+    }
 }
 
 .panel-1-bar {
@@ -41,9 +75,9 @@ justify-items: center;
 }
 
 .panel-skc-logo {
-    border:1px solid #0c2340;
+    border: 1px solid #0c2340;
     width: 100px;
-       padding: 1.5rem 2rem 1rem;
+    padding: 1.5rem 2rem 1rem;
     border-radius: 100%;
 
     >img {
@@ -53,13 +87,13 @@ justify-items: center;
 
 
 .scs-panel-1-inner {
-    padding: 1rem;
     display: grid;
+    justify-items: center;
     gap: .5rem;
-  >p {
-    min-width: 70%;
-    margin: 0 auto;
-  }
+}
+
+.scs-panel-1-inner h5 {
+    padding-bottom: .5rem;
 }
 
 .scs-panel-1-inner h1 {
@@ -77,37 +111,91 @@ justify-items: center;
 }
 
 
-@media (min-width: 768px) {
-    .panel-1-bar {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-}
 
-.panel-1-bar {
-    flex-direction: row;
-    .scs-text-span-sm {
-        display: block;
+@media (min-width: 768px) {
+    .panel-sched-star {
+        top: 0;
+        left: 0;
+        width: 20%;
     }
-    
-}
-.scs-display-stacked {
-gap: 1rem;
-    flex-direction: row;
-}
+
+    .panel-sched-widget {
+        padding: 5rem;
+    }
+
+    .panel-1-bar {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    .panel-1-bar {
+        flex-direction: row;
+
+        .scs-text-span-sm {
+            display: block;
+        }
+
+    }
+
+    .scs-display-stacked {
+        gap: 1rem;
+        flex-direction: row;
+    }
 
 
 }
 
 @media (min-width: 1024px) {
-    .scs-panel-1-inner h1 {
-        
-font-size: 15rem;
-        line-height: 14rem;
-        
+    .scs-home-hero-panel-1-wrapper {
+        grid-template-columns: 1fr 1fr;
     }
+
+    .panel-copy-widget {
+        padding: 2rem;
+    }
+
+    .panel-sched-widget {
+        padding: 5rem 2rem 5rem 2rem;
+    }
+
+    .panel-sched-star {
+        top: 2rem;
+        left: -2rem;
+        width: 25%;
+    }
+
+    .scs-panel-1-inner h1 {
+
+        font-size: 10rem;
+        line-height: 8rem;
+
+    }
+
 }
 
-@media (min-width: 1280px) {}
+@media (min-width: 1280px) {
+
+    .scs-panel-1-inner h1 {
+        font-size: 15rem;
+        line-height: 12rem;
+    }
+
+    .scs-home-hero-panel-1-wrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .panel-sched-star {
+        transform: rotate(-25deg);
+        top: 0;
+        left: -3rem;
+        width: 25%;
+    }
+
+    .panel-sched-widget {
+        width: 600px;
+    }
+
+}

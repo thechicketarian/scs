@@ -550,8 +550,26 @@ export default function FullSchedule({
             {experiences.length > 0 && (
               <ExperiencesCarousel experiences={experiences} />
             )}
+
+            {
+              mode === "upcoming" ?
+                <div className="upcoming-hot-links">
+                <a href="https://www.soccercapitalsummer.com/tickets"><span className="material-symbols-outlined">
+                    confirmation_number
+                  </span></a>
+                   <a href="https://www.soccercapitalsummer.com/schedule"><span className="material-symbols-outlined">
+                 calendar_month
+                  </span></a>
+                   <a href="https://www.soccercapitalsummer.com/kbyg"><span className="material-symbols-outlined">
+                    question_mark
+                  </span></a>
+                </div>
+                :
+                null
+            }
           </div>
         );
+
       })}
     </div>
   );

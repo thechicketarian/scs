@@ -3,11 +3,12 @@ import { useFestivalSchedule } from "../hooks/useFestivalSchedule";
 import { MusicRow, ArtistEntry } from "../types/types";
 import { DateTime } from "luxon";
 import "./PanelOne.css";
+import FullSchedule from "./FullSchedule";
 
 export default function PanelOne() {
     return (
         <div className="scs-home-hero-panel-1-wrapper">
-                                        {/* <div className="scs-display-stacked">
+            {/* <div className="scs-display-stacked">
                 <span className="scs-text-span-sm">
                     <span>watch parties</span>
                 </span>
@@ -26,31 +27,42 @@ export default function PanelOne() {
                        
                 </div> */}
 
-            <div className="scs-panel-1-inner" >
-                <h5>Watch the world’s game at Sporting Park  </h5>
-                <h1>
-                    <span className="text-indigo">Our Game.</span>
-                    <span className="text-indigo">Our City.</span>
-                </h1>
-                
-                {/* <p>This summer, the world’s game is visiting Kansas City. But here, it’s always been part of who we are.</p> */}
-                {/* <p>
+            <div className="panel-copy-widget">
+                <div className="scs-panel-1-inner" >
+                    <h5>Watch the world’s game at Sporting Park</h5>
+                    <h1>
+                        <span className="text-indigo">Our Game.</span>
+                        <span className="text-indigo">Our City.</span>
+                    </h1>
+
+                    {/* <p>This summer, the world’s game is visiting Kansas City. But here, it’s always been part of who we are.</p> */}
+                    {/* <p>
                     Soccer Capital Summer brings together the game and the city — celebrating the energy, passion, and culture that Kansas City brings to soccer all summer long. 
                 </p> */}
+                    {/* <div className="scs-lottie-arrow">
+                        <img src="public/icons/arrowjumpdownlottie.svg" />
+                    </div> */}
+                </div>
+                {/* <div className="panel-1-bar">
+                    <div className="scs-text-span-sm">
+                        soccer
+                    </div>
+                    <div className="panel-skc-logo">
+                        <img src="https://scs-ochre.vercel.app/icons/SKC-Wordmark_SportingKansasCity-LightBG.svg" alt="Sporting Kansas City Logo" />
+                    </div>
+
+                    <div className="scs-text-span-sm">
+                        summer
+                    </div>
+                </div> */}
             </div>
-            <div className="panel-1-bar">
-                                        <div className="scs-text-span-sm">
-                soccer
-               </div>
-                                         <div className="panel-skc-logo">
-                <img src="https://scs-ochre.vercel.app/icons/SKC-Wordmark_SportingKansasCity-LightBG.svg" alt="Sporting Kansas City Logo"/>
-               </div>
-               
-               <div className="scs-text-span-sm">
-                summer
-               </div>
-        </div>
-                
+            <div className="panel-sched-widget">
+                <div className="panel-sched-star">
+                    <img src="https://scs-ochre.vercel.app/icons/SCS-RedStar.svg" />
+                </div>
+                <FullSchedule mode="upcoming" />
+            </div>
+
         </div>
     );
 }

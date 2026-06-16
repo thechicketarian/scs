@@ -416,7 +416,7 @@ export default function ExperiencesWidget() {
   }, [activeActivation]);
 
   if (loading) {
-    return <Loading label="Syncing schedule…" />;
+    return <Loading label="Syncing Experiences…" />;
   }
 
   return (
