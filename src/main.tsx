@@ -15,6 +15,7 @@ import FullSchedule from "./components/FullSchedule";
 import KnowBeforeYouGo from "./components/KnowBeforeYouGo";
 import TicketNav from "./components/TicketNav";
 import AppSched from "./components/AppSched";
+import { WidgetRouter } from "./components/WidgetRouter";
 
 const isProd = import.meta.env.PROD;
 
@@ -128,3 +129,17 @@ document.querySelectorAll("[id^='scs-home-lineup']").forEach((el) => {
   mountIfElementExists(el as HTMLElement, HomeLiveMusicWidget);})
 
 console.log(`🚀 Soccer Capital Suite: ${isProd ? "PROD" : "DEV"} - Mounted.`);
+
+
+const rootEl = document.getElementById("scs-root");
+
+// If Squarespace didn't mount anything, use router mode
+if (rootEl && !(rootEl as any)._reactRoot) {
+  const root = ReactDOM.createRoot(rootEl);
+  root.render(
+    <React.StrictMode>
+      <WidgetRouter />
+    </React.StrictMode>
+  );
+  (rootEl as any)._reactRoot = root;
+}
