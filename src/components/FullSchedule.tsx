@@ -555,7 +555,7 @@ if (mode === "upcoming" || mode === "app") {
             {
               mode === "upcoming" ?
                 <div className="upcoming-hot-links">
-                <a href="https://seatgeek.com/argyle-events-tickets/entertainment/2026-06-17-11-am/18027366"><span className="material-symbols-outlined">
+                <a href="https://seatgeek.com/argyle-events-tickets/entertainment/2026-06-17-11-am/18027366" target="_blank"><span className="material-symbols-outlined">
                     confirmation_number
                   </span></a>
                    <a href="https://www.soccercapitalsummer.com/schedule"><span className="material-symbols-outlined">
