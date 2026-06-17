@@ -309,7 +309,7 @@ export default function FullSchedule({
   ------------------------------------------ */
   let filteredDays = days;
 
-  if (mode === "upcoming" || "app") {
+  if (mode === "upcoming") {
     const now = DateTime.now().setZone("America/Chicago");
 
     const next = days.find(([dateKey, day]) => {
