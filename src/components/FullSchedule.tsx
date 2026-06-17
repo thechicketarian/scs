@@ -296,7 +296,7 @@ function formatTime(dtString: string | null | undefined) {
 export default function FullSchedule({
   mode = "full"
 }: {
-  mode?: "full" | "upcoming";
+  mode?: "full" | "upcoming" | "app";
 }) {
   const { schedule, loading } = useFestivalSchedule();
 
@@ -309,7 +309,7 @@ export default function FullSchedule({
   ------------------------------------------ */
   let filteredDays = days;
 
-  if (mode === "upcoming") {
+  if (mode === "upcoming" || "app") {
     const now = DateTime.now().setZone("America/Chicago");
 
     const next = days.find(([dateKey, day]) => {

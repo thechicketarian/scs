@@ -43,7 +43,7 @@
     position: relative;
 }
 
-.panel-sched-widget .full-schedule--upcoming {
+.panel-sched-widget .full-schedule--upcoming, .full-schedule--app {
     padding: 0;
     text-align: left;
 }
@@ -198,4 +198,8 @@
         width: 600px;
     }
 
+}
+
+.scs-app-overrides {
+    display: flex;
 }

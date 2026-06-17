@@ -39,9 +39,9 @@ export default function PanelOne() {
                     {/* <p>
                     Soccer Capital Summer brings together the game and the city — celebrating the energy, passion, and culture that Kansas City brings to soccer all summer long. 
                 </p> */}
-                    {/* <div className="scs-lottie-arrow">
-                        <img src="public/icons/arrowjumpdownlottie.svg" />
-                    </div> */}
+                    <div className="scs-lottie-arrow">
+                        <img src="/icons/arrowjumpdownlottie.svg" />
+                    </div>
                 </div>
                 {/* <div className="panel-1-bar">
                     <div className="scs-text-span-sm">
