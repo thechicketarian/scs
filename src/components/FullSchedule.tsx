@@ -309,7 +309,8 @@ export default function FullSchedule({
   ------------------------------------------ */
   let filteredDays = days;
 
-  if (mode === "upcoming") {
+if (mode === "upcoming" || mode === "app") {
+
     const now = DateTime.now().setZone("America/Chicago");
 
     const next = days.find(([dateKey, day]) => {
@@ -554,7 +555,7 @@ export default function FullSchedule({
             {
               mode === "upcoming" ?
                 <div className="upcoming-hot-links">
-                <a href="https://www.soccercapitalsummer.com/tickets"><span className="material-symbols-outlined">
+                <a href="https://seatgeek.com/argyle-events-tickets/entertainment/2026-06-17-11-am/18027366"><span className="material-symbols-outlined">
                     confirmation_number
                   </span></a>
                    <a href="https://www.soccercapitalsummer.com/schedule"><span className="material-symbols-outlined">

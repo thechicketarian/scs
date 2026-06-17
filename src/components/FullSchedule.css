@@ -149,10 +149,10 @@
 
 .upcoming-hot-links {
     display: flex;
-    gap: .5rem;
+    gap: .25rem;
     position: absolute;
-    bottom: -2rem;
-    right: 5%;
+    bottom: 2rem;
+    right: 7%;
 
     >a {
         color: inherit;
@@ -218,12 +218,12 @@
 
 @media (min-width: 1280px) {
     .upcoming-hot-links {
-    display: grid;
-    gap: .5rem;
-    position: absolute;
-    bottom: 2rem;
-    right: -2rem;
-}
+        display: grid;
+        gap: .5rem;
+        position: absolute;
+        bottom: 2rem;
+        right: -2rem;
+    }
 
     .fs-section,
     .dj-section {
@@ -249,4 +249,28 @@
     justify-content: space-between;
     align-items: center; */
     gap: 2rem;
+}
+
+.full-schedule--app {
+    .scs-music-date {
+        font-size: 12px;
+        line-height: 10px;
+    }
+
+    .scs-vendor-name {
+        font-size: 3rem !important;
+        line-height: 2.5rem;
+    }
+.fs-match-grid {
+    justify-content: space-between;
+}
+.fs-match-flag {
+    >img {
+        height: 15px;
+    }
+}
+.fs-match-time, .dj-item, .fs-experience-name {
+    font-size: 10px;
+    line-height: 9px;
+}
 }

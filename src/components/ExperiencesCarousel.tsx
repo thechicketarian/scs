@@ -30,10 +30,14 @@ export function ExperiencesCarousel({
 
     <div className="embla-buttons">
           <button className="embla__prev" onClick={() => embla?.scrollPrev()}>
-        ‹
+        <span className="material-symbols-outlined">
+chevron_backward
+</span>
       </button>
       <button className="embla__next" onClick={() => embla?.scrollNext()}>
-        ›
+        <span className="material-symbols-outlined">
+chevron_forward
+</span>
       </button>
     </div>
     </div>

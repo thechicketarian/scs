@@ -22,9 +22,9 @@ export default function AppSched() {
 
             </div>
             <div className="panel-sched-widget">
-                <div className="panel-sched-star">
+                {/* <div className="panel-sched-star">
                     <img src="https://scs-ochre.vercel.app/icons/SCS-RedStar.svg" />
-                </div>
+                </div> */}
                 <FullSchedule mode="app" />
             </div>
 
