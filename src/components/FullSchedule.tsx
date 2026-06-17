@@ -558,6 +558,9 @@ if (mode === "upcoming" || mode === "app") {
                 <a href="https://seatgeek.com/argyle-events-tickets/entertainment/2026-06-17-11-am/18027366" target="_blank"><span className="material-symbols-outlined">
                     confirmation_number
                   </span></a>
+                   <a href="https://seatgeek.com/argyle-events-tickets/parking" target="_blank"><span className="material-symbols-outlined">
+                parking_sign
+                  </span></a>
                    <a href="https://www.soccercapitalsummer.com/schedule"><span className="material-symbols-outlined">
                  calendar_month
                   </span></a>
