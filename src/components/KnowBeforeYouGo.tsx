@@ -203,7 +203,7 @@ export default function KnowBeforeYouGo() {
 
             <div className="kbyg-list">
                 {/* SPORTING PARK */}
-                <div className="kbyg-col">
+                <div className="kbyg-col" id="sporting-park">
                     <div className="kbyg-title">Sporting Park</div>
                     <p className="kybg-col-des">We can’t wait to see you at Soccer Capital Summer! Here is some quick information you should know to make your visit to Sporting Park as smooth as possible.  </p>
                     {/* INFO ITEMS */}
@@ -227,7 +227,7 @@ export default function KnowBeforeYouGo() {
 
 
                 {/* PUBLIC TRANSPORTATION */}
-                <div className="kbyg-col">
+                <div className="kbyg-col" id="public">
                     <div className="kbyg-title">Public Transportation</div>
                     <p className="kybg-col-des">
                         Connect KC26 Region Direct and the Ride KC Legends Loop will be
@@ -237,7 +237,7 @@ export default function KnowBeforeYouGo() {
                 </div>
 
                 {/* PARKING & RIDESHARE */}
-                <div className="kbyg-col">
+                <div className="kbyg-col" id="parking">
                     <div className="kbyg-title">Parking & Rideshare</div>
                     <p className="kybg-col-des">
                         We’ve made it easy! Parking and Rideshare pick-up are available at Sporting Park all throughout Soccer Capital Summer. Save on parking by purchasing before you arrive.
