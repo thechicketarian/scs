@@ -69,17 +69,17 @@
     width: 32px;
     height: 32px;
     cursor: pointer;
-    font-size: 20px;
-    line-height: 22px;
+    /* font-size: 20px;
+    line-height: 22px; */
     text-align: center;
 }
 
 .embla__prev {
-    left: 0.5rem;
+    color: #0c2340;
 }
 
 .embla__next {
-    right: 0.5rem;
+    color: #0c2340;
 }
 
 .embla-buttons {
