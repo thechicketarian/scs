@@ -150,7 +150,7 @@
 .upcoming-hot-links {
     display: flex;
     gap: .25rem;
-    justify-content: space-between;
+    justify-content: flex-start;
 
     >a {
         color: inherit;
