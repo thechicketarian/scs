@@ -151,6 +151,9 @@ function normalizeRows<T extends { date?: string }>(rows: T[]): T[] {
     if (!raw) return { ...row, date: null };
 
     const cleaned = cleanDateString(raw);
+    if (cleaned === "tbd") {
+  return { ...row, date: "TBD" };
+}
 
     if (cleaned === "all") return { ...row, date: "all" };
 

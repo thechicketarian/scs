@@ -58,6 +58,8 @@ export function buildSchedule(input: {
 }): SoccerCapSchedule {
   const schedule: SoccerCapSchedule = {};
 
+
+  console.log(input.music)
   // Group meta, matches, music normally
   groupSheetByDate(input.meta, "meta", schedule);
   groupSheetByDate(input.matches, "matches", schedule);

@@ -51,6 +51,12 @@ export default function LiveMusicSchedule({ layout = "default" }) {
 
   // Compute earliest date + date range
   artistMap.forEach((artist) => {
+    const isTBD = artist.dates.includes("TBD");
+
+  if (isTBD) {
+    artist.dateRange = "TBD";
+    return; // skip normal date formatting
+  }
     artist.dates.sort();
     artist.firstDate = artist.dates[0];
 
