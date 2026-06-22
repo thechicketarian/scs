@@ -76,7 +76,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: .5rem;
+    /* gap: .5rem; */
     margin: 6px 0;
     flex-wrap: wrap;
 }
@@ -159,7 +159,7 @@
 .fs-match-time {
 
     text-align: right;
-    font-size: 13px;
+    font-size: 13px!important;
     margin-top: .35rem;
     /* font-style: italic; */
     padding: .5rem 0;
@@ -267,8 +267,6 @@
     } */
 }
 
-
-
 .fs-match-card {
     padding: 6px 0;
     /* border-radius: 8px; */
@@ -303,7 +301,7 @@
     .fs-match-time,
     .dj-item,
     .fs-experience-name {
-        font-size: 10px;
+        font-size: 10px!important;
         line-height: 9px;
     }
 }

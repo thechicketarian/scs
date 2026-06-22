@@ -504,7 +504,7 @@ export default function FullSchedule({
                                         {/* {item.label} */}
                                         Sounds By
                                       </span>
-                                        <span className="fs-match-time fs-label-global-sm">
+                                      <span className="fs-match-time fs-label-global-sm">
                                         {item.label}
                                       </span>
                                     </div>
