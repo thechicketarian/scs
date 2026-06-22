@@ -396,18 +396,54 @@ export default function FullSchedule({
           });
         }
 
-        day.music?.forEach((mus) => {
-          const hasTime = Boolean(mus.time && mus.musicDateTime);
+        // day.music?.forEach((mus) => {
+        //   const hasTime = Boolean(mus.time && mus.musicDateTime);
 
-          if (hasTime) {
+        //   if (hasTime) {
+        //     timeline.push({
+        //       type: "music",
+        //       label: mus.artist,
+        //       time: formatTime(mus.musicDateTime),
+        //       secondTime: formatTime(mus.secondTime),
+        //       iso: mus.musicDateTime,
+        //       image: mus.image
+        //     });
+        //   } else {
+        //     djSets.push({ label: mus.artist });
+        //   }
+        // });
+        day.music?.forEach((mus) => {
+          console.log(day.music)
+          const primaryIso = mus.musicDateTime;
+          const secondIso = mus.musicSecondTime;
+
+          const hasPrimary = Boolean(primaryIso);
+          const hasSecond = Boolean(secondIso);
+
+          // ⭐ Primary set time
+          if (hasPrimary) {
             timeline.push({
               type: "music",
               label: mus.artist,
-              time: formatTime(mus.musicDateTime),
-              iso: mus.musicDateTime,
+              time: formatTime(primaryIso),
+              iso: primaryIso,
               image: mus.image
             });
-          } else {
+          }
+
+          // ⭐ Secondary set time (separate timeline entry)
+          if (hasSecond) {
+            timeline.push({
+              type: "music2",
+              label: mus.artist,
+              time: formatTime(secondIso),
+              iso: secondIso,
+              image: mus.image
+            });
+          }
+
+          // ⭐ No times → DJ bucket
+          if (!hasPrimary && !hasSecond) {
             djSets.push({ label: mus.artist });
           }
         });
@@ -439,7 +475,7 @@ export default function FullSchedule({
         };
 
         timeline.forEach((item) => {
-          if (item.type === "match" || item.type === "music") {
+          if (item.type === "match" || item.type === "music" || item.type === "music2") {
             grid.push(item);
           } else {
             flushGrid();
@@ -495,27 +531,39 @@ export default function FullSchedule({
                             ) : null}
 
                             {item.type === "music" ? (
-                              <>
+                              <div>
                                 <div className="fs-music-group">
                                   <div className="fs-music-artist">
-                                    <div className="fs-music-image">
-                                      <img src={item.image} />
-                                    </div>
+
                                     <div className="fs-music-label">
                                       <span className="fs-music-artist-name fs-uppercase">
                                         {item.label}
                                       </span>
                                       {/* <span className="fs-match-time-alt fs-uppercase">
                                       </span> */}
-                                      <div className="fs-match-time fs-uppercase fs-centered">  {item.time}*</div>
+                                    </div>
+                                    <div className="fs-music-image">
+                                      <img src={item.image} />
                                     </div>
                                   </div>
                                 </div>
-                                <div className="fs-music-time">
+                                <div className="fs-match-time fs-uppercase">  {item.time}*</div>
+                              </div>
+                            ) : null}
 
-                                  <div className="fs-music-disclaimer">* time subject to change due to match schedule</div>
+                            {item.type === "music2" ? (
+                              <div>
+                                <div className="fs-music-group">
+                                  <div className="fs-music-artist-2">
+                                    <div className="fs-music-label">
+                                      <span className="fs-music-artist-name fs-uppercase">
+                                        {item.label}
+                                      </span>
+                                    </div>
+                                  </div>
                                 </div>
-                              </>
+                                <div className="fs-match-time fs-uppercase">  {item.time}*</div>
+                              </div>
                             ) : null}
                           </div>
                           {/* <span className="fs-match-divider">\</span> */}
@@ -578,6 +626,7 @@ export default function FullSchedule({
                 :
                 null
             }
+             <div className="fs-music-disclaimer">* time subject to change due to match schedule</div>
           </div>
         );
 

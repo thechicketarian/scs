@@ -183,6 +183,9 @@ function normalizeRows<T extends { date?: string }>(rows: T[]): T[] {
         ? toIsoDateTime(dateIso, (row as any).time)
         : undefined,
 
+        musicSecondTime: "secondTime" in row
+        ? toIsoDateTime(dateIso, (row as any).secondTime)
+        : undefined,
       // META
       doorsOpenDateTime: "doorsOpen" in row
         ? toIsoDateTime(dateIso, (row as any).doorsOpen)

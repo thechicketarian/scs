@@ -41,6 +41,7 @@ export interface MusicRow extends SheetRow {
   order: string
   artist: string;
   time: string;
+  secondTime?: string;
   image: string;
   bio: string;
   website: string
