@@ -309,7 +309,7 @@ export default function FullSchedule({
   ------------------------------------------ */
   let filteredDays = days;
 
-if (mode === "upcoming" || mode === "app") {
+  if (mode === "upcoming" || mode === "app") {
 
     const now = DateTime.now().setZone("America/Chicago");
 
@@ -499,9 +499,15 @@ if (mode === "upcoming" || mode === "app") {
                                     <div className="fs-music-image">
                                       <img src={item.image} />
                                     </div>
-                                    <span className="fs-music-artist-name fs-uppercase">
-                                      {item.label}
-                                    </span>
+                                    <div className="fs-music-label">
+                                      <span className="fs-music-artist-name fs-uppercase">
+                                        {/* {item.label} */}
+                                        Sounds By
+                                      </span>
+                                        <span className="fs-match-time fs-label-global-sm">
+                                        {item.label}
+                                      </span>
+                                    </div>
                                   </div>
                                 </div>
                                 <div className="fs-match-time fs-label-global-sm fs-uppercase">
@@ -510,8 +516,7 @@ if (mode === "upcoming" || mode === "app") {
                               </>
                             ) : null}
                           </div>
-
-                          <span className="fs-match-divider">\</span>
+                          {/* <span className="fs-match-divider">\</span> */}
                         </>
                       ))}
                     </div>
@@ -555,16 +560,16 @@ if (mode === "upcoming" || mode === "app") {
             {
               mode === "upcoming" ?
                 <div className="upcoming-hot-links">
-                <a href="https://seatgeek.com/argyle-events-tickets/entertainment/2026-06-17-11-am/18027366" target="_blank"><span className="material-symbols-outlined">
+                  <a href="https://seatgeek.com/argyle-events-tickets/entertainment/2026-06-17-11-am/18027366" target="_blank"><span className="material-symbols-outlined">
                     confirmation_number
                   </span></a>
-                   <a href="https://seatgeek.com/argyle-events-tickets/parking" target="_blank"><span className="material-symbols-outlined">
-                parking_sign
+                  <a href="https://seatgeek.com/argyle-events-tickets/parking" target="_blank"><span className="material-symbols-outlined">
+                    parking_sign
                   </span></a>
-                   <a href="https://www.soccercapitalsummer.com/schedule"><span className="material-symbols-outlined">
-                 calendar_month
+                  <a href="https://www.soccercapitalsummer.com/schedule"><span className="material-symbols-outlined">
+                    calendar_month
                   </span></a>
-                   <a href="https://www.soccercapitalsummer.com/kbyg"><span className="material-symbols-outlined">
+                  <a href="https://www.soccercapitalsummer.com/kbyg"><span className="material-symbols-outlined">
                     question_mark
                   </span></a>
                 </div>
