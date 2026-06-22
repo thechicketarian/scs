@@ -4,7 +4,7 @@
 .fs-match-teamCode,
 .fs-music-artist-name {
     font-weight: bolder;
-    font-size: 8px;
+    font-size: 10px;
     text-align: center;
 }
 
@@ -24,7 +24,6 @@
     margin: 0 auto;
     display: grid;
     gap: .825rem;
-    font-size: 14px;
     position: relative;
     padding: 2rem 1rem;
 }
@@ -94,10 +93,6 @@
     justify-content: center;
 }
 
-.fs-music-group {
-    display: grid;
-    justify-content: center;
-}
 
 .fs-match-team {
     text-align: center;
@@ -106,27 +101,27 @@
 
 .fs-music-artist {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
     align-items: center;
-    border: 1px solid #0c2340;
+    border:1px solid #0c2340;
 }
 
 .fs-music-image {
     border-right: 1px solid #0c2340;
-
 }
 
 .fs-music-label {
-    display: grid;
+    padding: 1rem;
+    /* display: grid;
     align-content: center;
-    justify-content: center;
-    padding: 0 0.5rem;
+    justify-content: center; */
     text-align: center;
 }
 
 .fs-music-artist-name {
     display: flex;
 }
+
 
 .fs-match-flag {
     /* max-width: 100px;
@@ -166,13 +161,31 @@
     /* border-bottom: 1px solid #0c2340; */
 }
 
+
+.fs-match-time-alt {
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.fs-music-disclaimer {
+    border-top: 1px solid #0c2340;
+    margin-top: .35rem;
+    padding: .5rem 0;
+    width: 100%;
+    text-align: center;
+    font-style: italic;
+    font-size: 10px;
+    line-height: 9px;
+}
+
+
 .fs-match-divider:last-child {
     display: none;
 }
 
 .fs-match-teamCode,
 .fs-music-artist-name {
-    padding: .35rem;
+    padding: .45rem;
     display: block;
 }
 
@@ -214,7 +227,6 @@
 }
 
 @media (min-width: 1024px) {
-
 
     .full-schedule-day {
         padding: 3rem 0;
@@ -264,6 +276,11 @@
     /* .fs-music-image {
         width: 120px;
     } */
+/* .fs-match-time {
+font-size: 16px;
+line-height: 14px;
+} */
+
 }
 
 .fs-match-card {
@@ -276,6 +293,7 @@
     gap: 2rem;
 }
 
+/* 
 .full-schedule--app {
     .scs-music-date {
         font-size: 12px;
@@ -303,4 +321,4 @@
         font-size: 10px!important;
         line-height: 9px;
     }
-}
+} */

@@ -136,9 +136,23 @@ h5 {
   text-transform: uppercase;
 }
 
+.fs-left {
+    text-align: left !important;
+}
+
+.fs-centered {
+    text-align: center !important;
+}
+
+.fs-noBorder {
+  border: none!important;
+  padding: 0!important;
+}
+
 .fs-label-global-sm {
   font-family: 'mls-tifo-headline-b8wssb' !important;
   font-size: 13px;
+  line-height: 12px;
   font-weight: bolder;
 }
 
@@ -202,13 +216,16 @@ h6 {
   }
 }
 
+
+
 @media (min-width: 768px) {
   .scs-breadcrumbs-bottom-nav {
     padding: 4rem 2rem;
   }
 
   .fs-label-global-sm {
-    font-size: 16px;
+    font-size: 14px;
+    line-height: 13px;
   }
 }
 

@@ -288,7 +288,7 @@ function formatTime(dtString: string | null | undefined) {
   const dt = DateTime.fromISO(dtString);
   if (!dt.isValid) return "";
 
-  let formatted = dt.toFormat("h:mm a ").toLowerCase();
+  let formatted = dt.toFormat("h:mm a").toLowerCase();
   formatted = formatted.replace(":00", "");
   return formatted;
 }
@@ -378,6 +378,8 @@ export default function FullSchedule({
             teamBFlag: `${match.teamBFlag}`,
             teamACode: `${match.teamACode}`,
             teamBCode: `${match.teamBCode}`,
+            teamAName: `${match.teamA}`,
+            teamBName: `${match.teamB}`,
             label: `${match.teamA} vs. ${match.teamB}`,
             time: formatTime(match.matchDateTime),
             iso: match.matchDateTime
@@ -474,7 +476,7 @@ export default function FullSchedule({
                                       <img src={item.teamAFlag} />
                                     </div>
                                     <span className="fs-match-teamCode fs-uppercase">
-                                      {item.teamACode}
+                                      {item.teamAName}
                                     </span>
                                   </div>
                                   <div className="fs-match-team">
@@ -482,7 +484,7 @@ export default function FullSchedule({
                                       <img src={item.teamBFlag} />
                                     </div>
                                     <span className="fs-match-teamCode fs-uppercase">
-                                      {item.teamBCode}
+                                      {item.teamBName}
                                     </span>
                                   </div>
                                 </div>
@@ -501,17 +503,17 @@ export default function FullSchedule({
                                     </div>
                                     <div className="fs-music-label">
                                       <span className="fs-music-artist-name fs-uppercase">
-                                        {/* {item.label} */}
-                                        Sounds By
-                                      </span>
-                                      <span className="fs-match-time fs-label-global-sm">
                                         {item.label}
                                       </span>
+                                      {/* <span className="fs-match-time-alt fs-uppercase">
+                                      </span> */}
+                                      <div className="fs-match-time fs-uppercase fs-centered">  {item.time}*</div>
                                     </div>
                                   </div>
                                 </div>
-                                <div className="fs-match-time fs-uppercase">
-                                  {item.time}
+                                <div className="fs-music-time">
+
+                                  <div className="fs-music-disclaimer">* time subject to change due to match schedule</div>
                                 </div>
                               </>
                             ) : null}
