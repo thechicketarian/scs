@@ -340,7 +340,7 @@ export default function FullSchedule({
         const daySlug = DateTime.fromISO(dateKey).toFormat("yyyyLLdd");
 
         const formatted = DateTime.fromISO(dateKey, { zone: "America/Chicago" })
-          .toFormat("ccc LLLL d");
+          .toFormat("cccc LLLL d");
 
         const isTwoSessionDay =
           m.session1EndDateTime &&
@@ -456,8 +456,8 @@ export default function FullSchedule({
             id={`day-${daySlug}`}   // ⭐ ANCHOR ID HERE
           >
             <div className="fs-meta-wrapper">
-              <div className="fs-date scs-music-date">{formatted}</div>
-              <div className="fs-theme scs-vendor-name">{m.theme}</div>
+              <div className="fs-date scs-vendor-name">{formatted}</div>
+              {/* <div className="fs-theme scs-music-date  scs-vendor-name">{m.theme}</div> */}
             </div>
 
             <div className="fs-section">
