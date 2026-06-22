@@ -157,11 +157,10 @@
 }
 
 .fs-match-time {
-
     text-align: right;
-    font-size: 13px!important;
+    font-size: 13px;
     margin-top: .35rem;
-    /* font-style: italic; */
+    font-weight: bolder;
     padding: .5rem 0;
     border-top: 1px solid #0c2340;
     /* border-bottom: 1px solid #0c2340; */

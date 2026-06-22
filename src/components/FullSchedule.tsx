@@ -486,7 +486,7 @@ export default function FullSchedule({
                                     </span>
                                   </div>
                                 </div>
-                                <div className="fs-match-time fs-label-global-sm fs-uppercase">
+                                <div className="fs-match-time fs-uppercase">
                                   {item.time}
                                 </div>
                               </>
@@ -510,7 +510,7 @@ export default function FullSchedule({
                                     </div>
                                   </div>
                                 </div>
-                                <div className="fs-match-time fs-label-global-sm fs-uppercase">
+                                <div className="fs-match-time fs-uppercase">
                                   {item.time}
                                 </div>
                               </>
