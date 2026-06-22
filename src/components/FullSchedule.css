@@ -150,9 +150,7 @@
 .upcoming-hot-links {
     display: flex;
     gap: .25rem;
-    position: absolute;
-    bottom: 2rem;
-    right: 7%;
+
 
     >a {
         color: inherit;
@@ -167,12 +165,12 @@
 
 @media (min-width: 768px) {
 
-    /* .upcoming-hot-links {
+    .upcoming-hot-links {
 
     position: absolute;
-    bottom: 2rem;
-    right: -2rem;
-    } */
+    bottom: -1rem;
+    right: 7%;
+    }
 
     .fs-match-teamCode,
     .fs-music-artist-name {
