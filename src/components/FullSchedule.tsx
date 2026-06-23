@@ -654,9 +654,19 @@ export default function FullSchedule({
             {
               mode === "upcoming" ?
                 <div className="upcoming-hot-links">
-                  <a href="https://www.gofevo.com/group/SoccerCapitalSummer?ref=WEB" target="_blank"><span className="material-symbols-outlined">
+                  {/* <a href="https://www.gofevo.com/group/SoccerCapitalSummer?ref=WEB" target="_blank">
+                  <span className="material-symbols-outlined">
                     confirmation_number
-                  </span></a>
+                  </span>
+                  </a> */}
+                  <button
+                    onClick={() => (window as any).GMWidget?.open("SoccerCapitalSummer")}
+                  >
+                    <span className="material-symbols-outlined">
+                    confirmation_number
+                  </span>
+
+                  </button>
                   <a href="https://seatgeek.com/argyle-events-tickets/parking" target="_blank"><span className="material-symbols-outlined">
                     parking_sign
                   </span></a>
@@ -674,7 +684,7 @@ export default function FullSchedule({
               mode === "full" ?
                 <div className="fs-cta-tickets">
                   <button
-                    className="scs-music-cta scs-card-button"
+                    className="fs-fevo-cta scs-card-button"
                     onClick={() => (window as any).GMWidget?.open("SoccerCapitalSummer")}
                   >
                     find tickets

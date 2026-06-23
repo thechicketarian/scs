@@ -211,13 +211,30 @@ width: 48%;
     gap: .25rem;
     justify-content: flex-start;
 
-    >a {
+    >a, button {
         color: inherit;
         padding: .825rem;
         border: 2px solid #0c2340;
         background-color: #fafafa;
         text-decoration: none;
     }
+}
+
+
+.fs-fevo-cta {
+    text-transform: uppercase;
+    border: 1px solid #0c2340;
+    border-radius: 50px;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    width: auto;
+    padding: .5rem;
+    font-family: mls-tifo-headline-b8wssb, sans-serif;
+    font-size: .825rem;
+    line-height: 1rem;
+    display: flex;
+    width: 100%;
 }
 
 /* TABLET / DESKTOP */
