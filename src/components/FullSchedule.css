@@ -10,7 +10,9 @@
 
 
 .dj-item,
-.fs-experience-name {
+.fs-experience-name,
+.fs-match-teamCode,
+    .fs-music-artist-name {
     font-size: 13px;
     line-height: 13px;
     font-weight: bold;
@@ -82,20 +84,19 @@
     justify-content: center;
     align-items: center;
     gap: .5rem;
-    margin: 6px 0;
+    margin: 10px 0;
     flex-wrap: wrap;
 }
-/* 
+
 .fs-match-card {
-    width: auto;
-} */
+    width: 100%;
+}
 /* .fs-match-card {
 width: 48%;
-}
-.fs-match-card:nth-child(3) {
-    background-color: pink;
-   flex-basis: 100%;
 } */
+.fs-match-card:nth-child(3) {
+   flex-basis: 100%;
+}
 
 .fs-match-group {
     display: flex;
@@ -235,12 +236,12 @@ width: 48%;
         right: 7%;
     }
 
-    .fs-match-teamCode,
+    /* .fs-match-teamCode,
     .fs-music-artist-name {
         font-weight: bolder;
         font-size: 10px;
         text-align: center;
-    }
+    } */
 
     .full-schedule--full {
         grid-template-columns: 1fr 1fr;
@@ -312,15 +313,6 @@ line-height: 14px;
 
 }
 
-.fs-match-card {
-    padding: 6px 0;
-    /* border-radius: 8px; */
-    /* border: 1px solid #c3cad3; */
-    /* display: flex;
-    justify-content: space-between;
-    align-items: center; */
-    gap: 2rem;
-}
 
 /* 
 .full-schedule--app {

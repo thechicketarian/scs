@@ -330,46 +330,46 @@ export default function FullSchedule({
 
   const now = DateTime.now().setZone("America/Chicago");
 
-if (mode === "upcoming" || mode === "app") {
+  if (mode === "upcoming" || mode === "app") {
 
-  const next = days.find(([dateKey, day]) => {
-    const meta = day.meta;
-    if (!meta || !meta.doorsCloseDateTime) return false;
+    const next = days.find(([dateKey, day]) => {
+      const meta = day.meta;
+      if (!meta || !meta.doorsCloseDateTime) return false;
 
-    const close = DateTime.fromISO(meta.doorsCloseDateTime, {
-      zone: "America/Chicago"
+      const close = DateTime.fromISO(meta.doorsCloseDateTime, {
+        zone: "America/Chicago"
+      });
+
+      // Skip days that have fully ended
+      if (now >= close) return false;
+
+      const hasContent =
+        (day.matches && day.matches.length > 0) ||
+        (day.music && day.music.length > 0);
+
+      return hasContent;
     });
 
-    // Skip days that have fully ended
-    if (now >= close) return false;
+    filteredDays = next ? [next] : [];
+  } else {
+    // full mode → show all valid days
+    filteredDays = days.filter(([dateKey, day]) => {
+      const meta = day.meta;
+      if (!meta || !meta.doorsCloseDateTime) return false;
 
-    const hasContent =
-      (day.matches && day.matches.length > 0) ||
-      (day.music && day.music.length > 0);
+      const close = DateTime.fromISO(meta.doorsCloseDateTime, {
+        zone: "America/Chicago"
+      });
 
-    return hasContent;
-  });
+      if (now >= close) return false;
 
-  filteredDays = next ? [next] : [];
-} else {
-  // full mode → show all valid days
-  filteredDays = days.filter(([dateKey, day]) => {
-    const meta = day.meta;
-    if (!meta || !meta.doorsCloseDateTime) return false;
+      const hasContent =
+        (day.matches && day.matches.length > 0) ||
+        (day.music && day.music.length > 0);
 
-    const close = DateTime.fromISO(meta.doorsCloseDateTime, {
-      zone: "America/Chicago"
+      return hasContent;
     });
-
-    if (now >= close) return false;
-
-    const hasContent =
-      (day.matches && day.matches.length > 0) ||
-      (day.music && day.music.length > 0);
-
-    return hasContent;
-  });
-}
+  }
 
 
 
@@ -537,10 +537,9 @@ if (mode === "upcoming" || mode === "app") {
             id={`day-${daySlug}`}   // ⭐ ANCHOR ID HERE
           >
             <div className="fs-meta-wrapper">
+              <div className="fs-theme scs-music-date">{m.matchCategory}</div>
               <div className="fs-date scs-vendor-name">{formatted}</div>
-              {/* <div className="fs-theme scs-music-date  scs-vendor-name">{m.theme}</div> */}
             </div>
-
             <div className="fs-section">
               {rendered.map((block, i) => {
                 if (block.type === "grid") {
@@ -671,7 +670,7 @@ if (mode === "upcoming" || mode === "app") {
                 :
                 null
             }
-             <div className="fs-music-disclaimer">* time subject to change due to match schedule</div>
+            <div className="fs-music-disclaimer">* time subject to change due to match schedule</div>
           </div>
         );
 
