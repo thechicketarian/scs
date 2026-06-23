@@ -309,24 +309,69 @@ export default function FullSchedule({
   ------------------------------------------ */
   let filteredDays = days;
 
-  if (mode === "upcoming" || mode === "app") {
+  // if (mode === "upcoming" || mode === "app") {
 
-    const now = DateTime.now().setZone("America/Chicago");
+  //   const now = DateTime.now().setZone("America/Chicago");
 
-    const next = days.find(([dateKey, day]) => {
-      const date = DateTime.fromISO(dateKey, { zone: "America/Chicago" });
+  //   const next = days.find(([dateKey, day]) => {
+  //     const date = DateTime.fromISO(dateKey, { zone: "America/Chicago" });
 
-      if (date < now.startOf("day")) return false;
+  //     if (date < now.startOf("day")) return false;
 
-      const hasContent =
-        (day.matches && day.matches.length > 0) ||
-        (day.music && day.music.length > 0);
+  //     const hasContent =
+  //       (day.matches && day.matches.length > 0) ||
+  //       (day.music && day.music.length > 0);
 
-      return hasContent;
+  //     return hasContent;
+  //   });
+
+  //   filteredDays = next ? [next] : [];
+  // }
+
+  const now = DateTime.now().setZone("America/Chicago");
+
+if (mode === "upcoming" || mode === "app") {
+
+  const next = days.find(([dateKey, day]) => {
+    const meta = day.meta;
+    if (!meta || !meta.doorsCloseDateTime) return false;
+
+    const close = DateTime.fromISO(meta.doorsCloseDateTime, {
+      zone: "America/Chicago"
     });
 
-    filteredDays = next ? [next] : [];
-  }
+    // Skip days that have fully ended
+    if (now >= close) return false;
+
+    const hasContent =
+      (day.matches && day.matches.length > 0) ||
+      (day.music && day.music.length > 0);
+
+    return hasContent;
+  });
+
+  filteredDays = next ? [next] : [];
+} else {
+  // full mode → show all valid days
+  filteredDays = days.filter(([dateKey, day]) => {
+    const meta = day.meta;
+    if (!meta || !meta.doorsCloseDateTime) return false;
+
+    const close = DateTime.fromISO(meta.doorsCloseDateTime, {
+      zone: "America/Chicago"
+    });
+
+    if (now >= close) return false;
+
+    const hasContent =
+      (day.matches && day.matches.length > 0) ||
+      (day.music && day.music.length > 0);
+
+    return hasContent;
+  });
+}
+
+
 
   return (
     <div className={`full-schedule-wrapper full-schedule--${mode}`}>
@@ -512,7 +557,7 @@ export default function FullSchedule({
                                       <img src={item.teamAFlag} />
                                     </div>
                                     <span className="fs-match-teamCode fs-uppercase">
-                                      {item.teamAName}
+                                      {item.teamACode}
                                     </span>
                                   </div>
                                   <div className="fs-match-team">
@@ -520,7 +565,7 @@ export default function FullSchedule({
                                       <img src={item.teamBFlag} />
                                     </div>
                                     <span className="fs-match-teamCode fs-uppercase">
-                                      {item.teamBName}
+                                      {item.teamBCode}
                                     </span>
                                   </div>
                                 </div>
