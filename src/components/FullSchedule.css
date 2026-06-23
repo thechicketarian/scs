@@ -256,7 +256,7 @@ width: 48%;
 
     .fs-section,
     .dj-section,
-    .fs-music-disclaimer {
+    .fs-music-disclaimer, .fs-cta-tickets {
         padding: 0rem 2rem;
     }
 
@@ -295,7 +295,7 @@ width: 48%;
 
     .fs-section,
     .dj-section,
-     .fs-music-disclaimer  {
+     .fs-music-disclaimer, .fs-cta-tickets  {
         padding: 0rem 5rem;
     }
 

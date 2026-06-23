@@ -654,7 +654,7 @@ export default function FullSchedule({
             {
               mode === "upcoming" ?
                 <div className="upcoming-hot-links">
-                  <a href="https://seatgeek.com/argyle-events-tickets/entertainment/2026-06-17-11-am/18027366" target="_blank"><span className="material-symbols-outlined">
+                  <a href="https://www.gofevo.com/group/SoccerCapitalSummer?ref=WEB" target="_blank"><span className="material-symbols-outlined">
                     confirmation_number
                   </span></a>
                   <a href="https://seatgeek.com/argyle-events-tickets/parking" target="_blank"><span className="material-symbols-outlined">
@@ -669,6 +669,19 @@ export default function FullSchedule({
                 </div>
                 :
                 null
+            }
+            {
+              mode === "full" ?
+                <div className="fs-cta-tickets">
+                  <button
+                    className="scs-music-cta scs-card-button"
+                    onClick={() => (window as any).GMWidget?.open("SoccerCapitalSummer")}
+                  >
+                    find tickets
+                  </button>
+                </div>
+
+                : null
             }
             <div className="fs-music-disclaimer">* time subject to change due to match schedule</div>
           </div>

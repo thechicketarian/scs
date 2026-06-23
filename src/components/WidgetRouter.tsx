@@ -15,6 +15,8 @@ export function WidgetRouter() {
 
     case "/schedule":
       return <FullSchedule mode="full" />;
+         case "/hero":
+      return <FullSchedule mode="upcoming" />;
 
     case "/music":
       return <LiveMusicSchedule />;
