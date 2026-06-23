@@ -220,6 +220,10 @@ width: 48%;
     }
 }
 
+.fs-cta-tickets {
+        display: flex;
+    justify-content: center;
+}
 
 .fs-fevo-cta {
     text-transform: uppercase;
@@ -228,13 +232,13 @@ width: 48%;
     justify-content: center;
     align-items: center;
     gap: .5rem;
-    width: auto;
+    width: 100%;
     padding: .5rem;
     font-family: mls-tifo-headline-b8wssb, sans-serif;
     font-size: .825rem;
     line-height: 1rem;
     display: flex;
-    width: 100%;
+
 }
 
 /* TABLET / DESKTOP */
@@ -331,7 +335,7 @@ line-height: 14px;
 }
 
 
-/* 
+
 .full-schedule--app {
     .scs-music-date {
         font-size: 12px;
@@ -347,11 +351,11 @@ line-height: 14px;
         justify-content: space-between;
     }
 
-    .fs-match-flag {
+    /* .fs-match-flag {
         >img {
             height: 15px;
         }
-    }
+    } */
 
     .fs-match-time,
     .dj-item,
@@ -359,4 +363,4 @@ line-height: 14px;
         font-size: 10px!important;
         line-height: 9px;
     }
-} */
+}
