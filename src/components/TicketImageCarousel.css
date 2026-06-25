@@ -1,0 +1,73 @@
+.ticket-embla {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Base container */
+.ticket-embla__container {
+  display: flex;
+  gap: 12px;
+}
+
+/* Base slide (full width when only 1 image) */
+.ticket-embla__slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+}
+
+.ticket-embla__slide img {
+  width: 100%;
+  object-fit: cover;
+      aspect-ratio: 16 / 9;
+}
+
+/* --- Peek mode (starts at 2 images) --- */
+.ticket-embla--peek .ticket-embla__container {
+  padding-right: 20%;
+}
+
+.ticket-embla--peek .ticket-embla__slide {
+  flex: 0 0 95%; /* show a bit of the next slide */
+}
+
+/* --- Arrows --- */
+.ticket-embla-buttons {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.ticket-embla__prev,
+.ticket-embla__next {
+  pointer-events: all;
+  background: rgba(0, 0, 0, 0.45);
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+margin: 0 1rem;
+
+  >span {
+    padding: .5rem;
+    font-size: 20px!important;
+  }
+}
+
+.arrow-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.ticket-embla__prev:hover,
+.ticket-embla__next:hover {
+  background: rgba(0, 0, 0, 0.65);
+}

@@ -37,6 +37,8 @@
 /*.scs-grid-ga {}
 .scs-grid-stm{}
  */
+
+
 .premiumCard {
   display: grid;
   /* gap: 1rem; */
@@ -102,9 +104,9 @@
 
 /* Image & Disclaimer Additions */
 
-.scs-grid-ga .skc-image-wrapper {
+/* .scs-grid-ga .skc-image-wrapper {
   display: none;
-}
+} */
 
 .skc-cardImage {
   display: grid;
@@ -184,6 +186,21 @@
 }
 
 @media (min-width: 1080px) {
+
+
+  .scs-grid-ga .premiumCard {
+    display: flex;
+    flex-direction: row-reverse;
+    >div {
+      width: 50%;
+    }
+    .ticket-embla__slide {
+      >img {
+        aspect-ratio: 1/1;
+      }
+    }
+  }
+
   .scs-grid-premium {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));

@@ -4,7 +4,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import "./HorizontalScroller.css";
 import PanelTwo from "./PanelTwo";
 import PanelOne from "./PanelOne";
-import HomeLiveMusicWidget from "./HomeLiveMusicWidget";
+import HomeLiveMusicWidget from "./Archived/HomeLiveMusicWidget";
 
 gsap.registerPlugin(ScrollTrigger);
 

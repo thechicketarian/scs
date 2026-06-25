@@ -1,6 +1,6 @@
 import React from "react";
-import { useFestivalSchedule } from "../hooks/useFestivalSchedule";
-import { MusicRow, ArtistEntry } from "../types/types";
+import { useFestivalSchedule } from "../../hooks/useFestivalSchedule";
+import { MusicRow, ArtistEntry } from "../../types/types";
 import { DateTime } from "luxon";
 import "./HomeLiveMusicWidget.css";
 

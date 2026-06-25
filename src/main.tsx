@@ -7,7 +7,7 @@ import Hero from "./components/Hero";
 import TicketCards from "./components/TicketCards";
 import Schedule from "./components/Archived/Schedule";
 import LiveMusicSchedule from "./components/LiveMusicSchedule";
-import HomeLiveMusicWidget from "./components/HomeLiveMusicWidget";
+import HomeLiveMusicWidget from "./components/Archived/HomeLiveMusicWidget";
 import Home from "./components/Home";
 import PanelOne from "./components/PanelOne";
 import ExperiencesWidget from "./components/ExperiencesWidget";

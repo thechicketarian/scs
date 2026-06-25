@@ -1,4 +1,4 @@
-import HomeLiveMusicWidget from "./HomeLiveMusicWidget";
+import HomeLiveMusicWidget from "./Archived/HomeLiveMusicWidget";
 import "./Home.css";
 import HorizontalScroller from "./HorizontalScroller";
 import { useLayoutEffect } from "react";

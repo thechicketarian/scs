@@ -3,6 +3,8 @@ import "./TicketCards.css";
 import { useSheetData } from "../hooks/useSheetData";
 import { TicketCardsProps } from "../types/types";
 import Loading from "./Loading";
+import TicketImageCarousel from "./TicketImageCarousel";
+
 
 
 // ---- Component ----
@@ -67,11 +69,12 @@ export default function TicketCards({ category }: TicketCardsProps) {
         return (
           <div key={index} className="premiumCard animate__animated animate__fadeIn">
             <div className="skc-image-wrapper">
-              {imageList.map((imgUrl: string, i: number) => (
+              {/* {imageList.map((imgUrl: string, i: number) => (
                 <div key={i} className="skc-cardImage">
                   <img src={imgUrl} alt={`${c.title} view ${i + 1}`} />
                 </div>
-              ))}
+              ))} */}
+           <TicketImageCarousel images={imageList} />
             </div>
 
             <div className="cardCopyWrapper">
