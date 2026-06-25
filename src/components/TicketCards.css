@@ -102,11 +102,12 @@
   line-height: 1.2;
 }
 
+
+
 /* Image & Disclaimer Additions */
 
-/* .scs-grid-ga .skc-image-wrapper {
-  display: none;
-} */
+.scs-grid-ga .skc-image-wrapper {
+}
 
 .skc-cardImage {
   display: grid;
