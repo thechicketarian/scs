@@ -694,7 +694,7 @@ export default function FullSchedule({
                 null
             }
             {
-              mode === "full" && m.theme != "SKC" ?
+              mode === "full" && m.theme === "SCS" ?
                 <div className="fs-cta-tickets">
                   <button
                     className="fs-fevo-cta scs-card-button"
@@ -702,6 +702,22 @@ export default function FullSchedule({
                   >
                     find tickets
                   </button>
+                </div>
+
+                : null
+            }
+            {
+              mode === "full" && m.matchCategory === "SKC @ STL Watch Party" ?
+                <div className="fs-cta-tickets">
+                  <a   className="fs-fevo-cta scs-card-button" href="https://www.facebook.com/share/1F6JUg9P7u/" target="_blank">RSVP</a>
+                </div>
+
+                : null
+            }
+                        {
+              mode === "full" && m.matchCategory === "SKC Home Opener" ?
+                <div className="fs-cta-tickets">
+                  <a   className="fs-fevo-cta scs-card-button" href="https://seatgeek.com/sporting-kansas-city-tickets/mls/2026-07-22-7-30-pm/17889886?aid=12436&pid=app&rid=72220262&utm_medium=partnership&utm_source=sporting_kc&utm_campaign=app" target="_blank">Find Tickets</a>
                 </div>
 
                 : null
