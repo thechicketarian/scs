@@ -715,7 +715,7 @@ export default function FullSchedule({
                 : null
             }
                         {
-              mode === "full" && m.matchCategory === "SKC Home Opener" ?
+              mode === "full" && m.matchCategory === "Soccer Comes Home" ?
                 <div className="fs-cta-tickets">
                   <a   className="fs-fevo-cta scs-card-button" href="https://seatgeek.com/sporting-kansas-city-tickets/mls/2026-07-22-7-30-pm/17889886?aid=12436&pid=app&rid=72220262&utm_medium=partnership&utm_source=sporting_kc&utm_campaign=app" target="_blank">Find Tickets</a>
                 </div>
