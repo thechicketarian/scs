@@ -539,6 +539,13 @@ export default function FullSchedule({
             <div className="fs-meta-wrapper">
               <div className="fs-theme scs-music-date">{m.matchCategory}</div>
               <div className="fs-date scs-vendor-name">{formatted}</div>
+              {
+              m.theme === "SKC" ?
+                   <div className="fs-experience-name">{m.description}</div>
+                :
+
+              null
+            }
             </div>
             <div className="fs-section">
               {rendered.map((block, i) => {
@@ -647,9 +654,15 @@ export default function FullSchedule({
               </div>
             )}
 
-            {experiences.length > 0 && (
-              <ExperiencesCarousel experiences={experiences} />
-            )}
+            {
+              m.theme === "SKC" ?
+                null
+                :
+                experiences.length > 0 && (
+                  <ExperiencesCarousel experiences={experiences} />
+                )
+
+            }
 
             {
               mode === "upcoming" ?
@@ -663,8 +676,8 @@ export default function FullSchedule({
                     onClick={() => (window as any).GMWidget?.open("SoccerCapitalSummer")}
                   >
                     <span className="material-symbols-outlined">
-                    confirmation_number
-                  </span>
+                      confirmation_number
+                    </span>
 
                   </button>
                   <a href="https://seatgeek.com/argyle-events-tickets/parking" target="_blank"><span className="material-symbols-outlined">
@@ -681,7 +694,7 @@ export default function FullSchedule({
                 null
             }
             {
-              mode === "full" ?
+              mode === "full" && m.theme != "SKC" ?
                 <div className="fs-cta-tickets">
                   <button
                     className="fs-fevo-cta scs-card-button"
@@ -693,7 +706,13 @@ export default function FullSchedule({
 
                 : null
             }
-            <div className="fs-music-disclaimer">* time subject to change due to match schedule</div>
+            {
+              m.theme === "SKC" ?
+                null
+                :
+
+                <div className="fs-music-disclaimer">* time subject to change due to match schedule</div>
+            }
           </div>
         );
 
