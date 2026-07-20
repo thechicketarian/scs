@@ -34,16 +34,16 @@ export default function PanelOne() {
                         <span className="text-indigo">Our Game.</span>
                         <span className="text-indigo">Our City.</span>
                     </h1>
-
-                    {/* <p>This summer, the world’s game is visiting Kansas City. But here, it’s always been part of who we are.</p> */}
-                    {/* <p>
+                    </div>
+                    {/* <p>This summer, the world’s game is visiting Kansas City. But here, it’s always been part of who we are.</p>
+                    <p>
                     Soccer Capital Summer brings together the game and the city — celebrating the energy, passion, and culture that Kansas City brings to soccer all summer long. 
-                </p> */}
-                    {/* <div className="scs-lottie-arrow">
+                </p>
+                    <div className="scs-lottie-arrow">
                         <img src="/icons/arrowjumpdownlottie.svg" />
-                    </div> */}
-                </div>
-                {/* <div className="panel-1-bar">
+                    </div>
+            
+                <div className="panel-1-bar">
                     <div className="scs-text-span-sm">
                         soccer
                     </div>
@@ -56,6 +56,16 @@ export default function PanelOne() {
                     </div>
                 </div> */}
             </div>
+
+            {/* <div className="panel-sched-images">
+                <div>
+                    <img src="" alt="graphic" />
+                </div>
+                <div>
+                    <img src="" alt="graphic" />
+                </div>
+            </div> */}
+
             <div className="panel-sched-widget">
                 <div className="panel-sched-star">
                     <img src="https://scs-ochre.vercel.app/icons/SCS-RedStar.svg" />

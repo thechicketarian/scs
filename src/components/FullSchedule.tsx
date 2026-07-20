@@ -667,28 +667,28 @@ export default function FullSchedule({
             {
               mode === "upcoming" ?
                 <div className="upcoming-hot-links">
-                  {/* <a href="https://www.gofevo.com/group/SoccerCapitalSummer?ref=WEB" target="_blank">
+                  <a href="https://seatgeek.com/sporting-kansas-city-tickets/mls/2026-07-22-7-30-pm/17889886?aid=12436&pid=app&rid=72220262&utm_medium=partnership&utm_source=sporting_kc&utm_campaign=app" target="_blank">
                   <span className="material-symbols-outlined">
                     confirmation_number
                   </span>
-                  </a> */}
-                  <button
+                  </a>
+                  {/* <button
                     onClick={() => (window as any).GMWidget?.open("SoccerCapitalSummer")}
                   >
                     <span className="material-symbols-outlined">
                       confirmation_number
                     </span>
 
-                  </button>
-                  <a href="https://seatgeek.com/argyle-events-tickets/parking" target="_blank"><span className="material-symbols-outlined">
+                  </button> */}
+                  {/* <a href="https://seatgeek.com/argyle-events-tickets/parking" target="_blank"><span className="material-symbols-outlined">
                     parking_sign
-                  </span></a>
-                  <a href="https://www.soccercapitalsummer.com/schedule"><span className="material-symbols-outlined">
+                  </span></a> */}
+                  {/* <a href="https://www.soccercapitalsummer.com/schedule"><span className="material-symbols-outlined">
                     calendar_month
-                  </span></a>
-                  <a href="https://www.soccercapitalsummer.com/kbyg"><span className="material-symbols-outlined">
+                  </span></a> */}
+                  {/* <a href="https://www.soccercapitalsummer.com/kbyg"><span className="material-symbols-outlined">
                     question_mark
-                  </span></a>
+                  </span></a> */}
                 </div>
                 :
                 null

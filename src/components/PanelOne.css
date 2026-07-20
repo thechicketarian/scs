@@ -2,7 +2,7 @@
     position: relative;
     text-align: center;
     width: 100%;
-    display: grid;
+    /* display: grid; */
     align-items: center;
     justify-items: center;
     background: #A7C6ED;
@@ -28,6 +28,14 @@
 .panel-copy-widget {
     padding: 2rem 0 0;
 }
+.panel-sched-images {
+    padding: 2rem 0 0;
+    >div {
+        img {
+            width: 100%;
+        }
+    }
+}
 
 .scs-lottie-arrow {
     display: flex;
@@ -39,7 +47,8 @@
 }
 
 .panel-sched-widget {
-       padding: 1rem 1rem 5rem 1rem;
+       /* padding: 1rem 1rem 5rem 1rem; */
+         padding: 1rem ;
     position: relative;
 }
 
