@@ -28,6 +28,9 @@
     gap: .825rem;
     position: relative;
     padding: 2rem 1rem;
+
+    /*update post scs */
+    height: 100%;
 }
 
 .fs-fallback {
@@ -50,9 +53,10 @@
     position: relative;
     border: 2px solid #0c2340;
     display: grid;
-    align-content: start;
+    /* align-content: start; */
     gap: 1rem;
-    padding: 1rem;
+    padding: 2rem;
+    align-content: center;
 }
 
 .fs-meta-wrapper {
@@ -277,7 +281,7 @@ width: 48%;
 
     .fs-section,
     .dj-section,
-    .fs-music-disclaimer, .fs-cta-tickets {
+    .fs-music-disclaimer, .fs-cta-tickets, .fs-experience-name {
         padding: 0rem 2rem;
     }
 
@@ -314,11 +318,11 @@ width: 48%;
         right: -2rem;
     }
 
-    .fs-section,
+    /* .fs-section,
     .dj-section,
      .fs-music-disclaimer, .fs-cta-tickets  {
         padding: 0rem 5rem;
-    }
+    } */
 
     .fs-match-grid {
         justify-content: space-around;

@@ -27,7 +27,7 @@ export default function PanelOne() {
                        
                 </div> */}
 
-            <div className="panel-copy-widget">
+            {/* <div className="panel-copy-widget">
                 <div className="scs-panel-1-inner" >
                     <h5>Watch the world’s game at Sporting Park</h5>
                     <h1>
@@ -35,7 +35,7 @@ export default function PanelOne() {
                         <span className="text-indigo">Our City.</span>
                     </h1>
                     </div>
-                    {/* <p>This summer, the world’s game is visiting Kansas City. But here, it’s always been part of who we are.</p>
+                    <p>This summer, the world’s game is visiting Kansas City. But here, it’s always been part of who we are.</p>
                     <p>
                     Soccer Capital Summer brings together the game and the city — celebrating the energy, passion, and culture that Kansas City brings to soccer all summer long. 
                 </p>
@@ -54,17 +54,17 @@ export default function PanelOne() {
                     <div className="scs-text-span-sm">
                         summer
                     </div>
-                </div> */}
-            </div>
-
-            {/* <div className="panel-sched-images">
-                <div>
-                    <img src="" alt="graphic" />
-                </div>
-                <div>
-                    <img src="" alt="graphic" />
                 </div>
             </div> */}
+
+            <div className="panel-sched-images">
+                <div>
+                    <img src="https://scs-ochre.vercel.app/graphics/260722-vsMIN-4x5.jpg" alt="graphic" />
+                </div>
+                <div>
+                    <img src="https://scs-ochre.vercel.app/graphics/260722-vsMIN-UnifiedTeam-GamePromo-4x5.jpg" alt="graphic" />
+                </div>
+            </div>
 
             <div className="panel-sched-widget">
                 <div className="panel-sched-star">

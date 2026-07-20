@@ -1,10 +1,10 @@
 .scs-home-hero-panel-1-wrapper {
     position: relative;
     text-align: center;
-    width: 100%;
-    /* display: grid; */
-    align-items: center;
-    justify-items: center;
+    /* width: 100%; */
+    display: grid;
+    /* align-items: center;
+    justify-items: center; */
     background: #A7C6ED;
     background-image: url('https://images.squarespace-cdn.com/content/v1/69c2ef358a34ab18fd392d39/ccbb18f7-5997-4714-81c4-ce65471f4e42/26-Logo-BG-16x9.jpg?format=2500w');
     background-size: cover;
@@ -28,9 +28,15 @@
 .panel-copy-widget {
     padding: 2rem 0 0;
 }
+
 .panel-sched-images {
-    padding: 2rem 0 0;
+    display: grid;
+      gap: .5rem;
+      padding: 1rem;
     >div {
+        display: flex;
+        border: 2px solid #0c2340;
+
         img {
             width: 100%;
         }
@@ -39,20 +45,22 @@
 
 .scs-lottie-arrow {
     display: flex;
-        align-items: center;
-        height: 80px;
+    align-items: center;
+    height: 80px;
+
     >img {
         height: 190px;
     }
 }
 
 .panel-sched-widget {
-       /* padding: 1rem 1rem 5rem 1rem; */
-         padding: 1rem ;
+    /* padding: 1rem 1rem 5rem 1rem; */
+    padding: 2rem 1rem;
     position: relative;
 }
 
-.panel-sched-widget .full-schedule--upcoming, .full-schedule--app {
+.panel-sched-widget .full-schedule--upcoming,
+.full-schedule--app {
     padding: 0;
     text-align: left;
 }
@@ -154,24 +162,33 @@
         flex-direction: row;
     }
 
-
+    .panel-sched-images {
+        padding: 0;
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 @media (min-width: 1024px) {
+
+
+
     .scs-home-hero-panel-1-wrapper {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
+        padding: 5rem 2rem;
+        gap: 2rem;
     }
 
     .panel-copy-widget {
         padding: 2rem;
     }
 
-    .panel-sched-widget {
+
+    /* .panel-sched-widget {
         padding: 5rem 2rem 5rem 2rem;
-    }
+    } */
 
     .panel-sched-star {
-        top: 2rem;
+        top: 0rem;
         left: -2rem;
         width: 25%;
     }
@@ -193,18 +210,21 @@
     }
 
     .scs-home-hero-panel-1-wrapper {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 2fr 1fr;
+        gap: .5rem;
+        padding: 5rem;
     }
 
     .panel-sched-star {
         transform: rotate(-25deg);
-        top: 0;
-        left: -3rem;
+        top: -3rem;
+        left: -4rem;
         width: 25%;
     }
 
     .panel-sched-widget {
-        width: 600px;
+        /* width: 500px; */
+        padding: 0;
     }
 
 }
